@@ -5,7 +5,8 @@ import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
 
 const navItems = [
-  { label: 'About', href: '/' },
+  { label: 'Home', href: '/' },
+  { label: 'About', href: '/about' },
   { label: 'Work', href: '/work' },
   { label: 'Contact', href: '/contact' },
 ]
@@ -21,7 +22,7 @@ export default function SidebarNav() {
           href={item.href}
           className={cn(
             'transform -rotate-90 origin-right text-right w-20 inline-block transition-all hover:font-bold',
-            pathname === item.href && 'underline underline-offset-6 font-semibold'
+            pathname === item.href && 'underline underline-offset-6 decoration-4'
           )}
         >
           {item.label}
