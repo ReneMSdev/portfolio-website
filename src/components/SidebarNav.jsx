@@ -15,7 +15,7 @@ export default function SidebarNav() {
   const pathname = usePathname()
 
   return (
-    <nav className='fixed top-0 left-0 h-screen w-10 px-4 py-8 flex flex-col items-center justify-start gap-12 text-md text-foreground'>
+    <nav className='fixed top-0 left-0 h-screen w-8 px-4 py-8 flex flex-col items-center justify-start gap-12 text-md text-foreground'>
       {navItems.map((item) => (
         <Link
           key={item.href}
