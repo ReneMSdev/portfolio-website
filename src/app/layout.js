@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang='en'>
       <body
-        className={`bg-zinc-400 ${geistSans.variable} ${geistMono.variable} antialiased font-sans`}
+        className={`bg-slate-50 ${geistSans.variable} ${geistMono.variable} antialiased font-sans`}
       >
         <SidebarNav />
         <main className='ml-32 px-6 py-10'>{children}</main>
