@@ -43,18 +43,38 @@ export default function ProjectsPage() {
 
         {/* Text */}
         <div className='mt-8'>
-          <h1 className='text-4xl font-semibold'>Route Boss</h1>
-          <p className='max-w-md mt-4'>
+          <h1 className='text-4xl font-semibold text-center md:text-start'>Route Boss</h1>
+          <p className='max-w-lg mt-4'>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra lobortis
             metus, nec ultricies sem mollis quis. In sed libero condimentum, facilisis turpis ut,
             placerat risus. Curabitur euismod dignissim purus dapibus bibendum.
           </p>
-          <p className='max-w-md mt-4  mb-10'>
+          <p className='max-w-lg mt-4'>
             Maecenas laoreet tincidunt elit eu interdum. Proin tempus sit amet velit sit amet
             vulputate. Phasellus congue dictum est, ut congue justo pulvinar in. Nulla facilisi.
             Maecenas elementum, nibh nec pharetra vestibulum, felis elit vehicula tellus, sit amet
             pulvinar ante sem eu lorem. Pellentesque blandit eget elit non rhoncus.
           </p>
+        </div>
+
+        {/* Demo & Code links */}
+        <div className='flex mx-auto gap-16 md:gap-30 pt-8  mb-10'>
+          <a
+            href='https://route-planner-nextjs.vercel.app/'
+            target='_blank'
+            rel='noopener noreferrer'
+            className='font-semibold hover:text-indigo-400'
+          >
+            Demo
+          </a>
+          <a
+            href='https://github.com/ReneMSdev/route-planner-nextjs'
+            target='_blank'
+            rel='noopener noreferrer'
+            className='font-semibold hover:text-indigo-400'
+          >
+            Code
+          </a>
         </div>
       </div>
     </div>
