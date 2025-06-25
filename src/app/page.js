@@ -28,7 +28,7 @@ export default function Home() {
         {/* Resume & Github links */}
         <div className='flex gap-12 pt-8'>
           <a
-            href='#'
+            href='/resume.pdf'
             target='_blank'
             rel='noopener noreferrer'
             className='font-semibold hover:text-indigo-400'
