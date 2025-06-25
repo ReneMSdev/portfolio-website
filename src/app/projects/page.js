@@ -1,20 +1,44 @@
 import Image from 'next/image'
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel'
 
 export default function ProjectsPage() {
+  const projectOneImages = ['/routeplanner1.jpg', '/routeplanner2.jpg']
+
   return (
     <div className='grid grid-cols-1 gap-8 items-start px-4'>
       {/* Project 1 */}
       <div className='flex flex-col items-start max-w-4xl mx-auto'>
-        {/* Image */}
-        <div className='md:mr-8 mb-6 md:mb-0'>
-          <Image
-            src='/routeplanner1.jpg'
-            alt='Route Planner'
-            width={500}
-            height={0}
-            layout='intrinsic'
-            className='border-2 border-slate-500'
-          />
+        {/* ShadCN Carousel */}
+        <div className='w-full max-w-lg'>
+          <Carousel
+            className='w-full'
+            opts={{ loop: true }}
+          >
+            <CarouselContent>
+              {projectOneImages.map((src, i) => (
+                <CarouselItem
+                  key={i}
+                  className='flex justify-center'
+                >
+                  <Image
+                    src={src}
+                    alt={`Route Boss ${i + 1}`}
+                    width={500}
+                    height={300}
+                    className=' border-1 border-slate-600'
+                  />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
         </div>
 
         {/* Text */}
