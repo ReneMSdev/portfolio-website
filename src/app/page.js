@@ -20,9 +20,24 @@ export default function Home() {
         <h2 className='text-2xl mt-2 font-semibold'>Full-Stack Software Engineer</h2>
 
         <p className='max-w-md pt-10'>
-          I am a software engineer looking for work. I specialize in building websites. Lorem ipsum
-          dolor sit amet, consectetur adipiscing elit. Maecenas viverra lobortis metus, nec
-          ultricies sem mollis quis. In sed libero condimentum, facilisis turpis ut, placerat risus.
+          Hi, I&apos;m Rene &mdash; a software engineer with a background in design and a passion
+          for building human-centered web applications. I work primarily with JavaScript, Next.js,
+          Node.js, and Python, and love crafting clean, scalable solutions that solve real problems.
+        </p>
+        <p className='max-w-md pt-4'>
+          After earning my B.S. in Computer Science, I&apos;ve developed a variety of projects
+          working freelance for small businesses and entreprenuers. Through collaboration I&apos;ve
+          helped to bring my clients ideas to life. I approach software with both a developer&apos;s
+          logic and a designer&apos;s eye, always striving to create seamless user experiences.
+        </p>
+        <p className='max-w-md pt-4'>
+          I&apos;m currently open to full-time roles where I can contribute to meaningful products,
+          continue learning, and collaborate with thoughtful teams.
+        </p>
+        <p className='max-w-md pt-4'>
+          Outside of coding, you&apos;ll usually find me traveling, descovering new coffee shops,
+          and working on my next spotify playlist. Feel free to reach out &mdash; I&apos;m always
+          happy to connect, collaborate, or just chat about technology.
         </p>
 
         {/* Resume & Github links */}

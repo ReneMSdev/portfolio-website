@@ -8,7 +8,7 @@ import Image from 'next/image'
 
 export default function ContactPage() {
   return (
-    <div className='grid grid-cols-1 md:grid-cols-[2fr_1fr] mx-auto px-4 py-12 gap-8'>
+    <div className='grid grid-cols-1 md:grid-cols-2 mx-auto px-4 py-12 gap-8'>
       <div className='w-full max-w-xl flex flex-col items-center md:items-start px-4'>
         <h2 className='text-2xl font-semibold mb-6 text-center'>Let’s Connect</h2>
         <Card className='border-none shadow-none'>
