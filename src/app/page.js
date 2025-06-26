@@ -22,7 +22,8 @@ export default function Home() {
         <p className='max-w-md pt-8'>
           Hi, I&apos;m René &mdash; a software engineer with a background in design and a passion
           for building human-centered web applications. I work primarily with JavaScript, Next.js,
-          Node.js, and Python, and love crafting clean, scalable solutions that solve real problems.
+          Node.js, and Python. I&apos;m currently open to full-time roles where I can contribute to
+          meaningful products, continue learning, and collaborate with thoughtful teams.
         </p>
         <p className='max-w-md pt-4'>
           After earning my B.S. in Computer Science, I&apos;ve developed a variety of projects
@@ -30,10 +31,6 @@ export default function Home() {
           helped bring my clients&apos; ideas to life. I approach software with both a
           developer&apos;s logic and a designer&apos;s eye, always striving to create seamless user
           experiences.
-        </p>
-        <p className='max-w-md pt-4'>
-          I&apos;m currently open to full-time roles where I can contribute to meaningful products,
-          continue learning, and collaborate with thoughtful teams.
         </p>
         <p className='max-w-md pt-4'>
           Outside of coding, you&apos;ll usually find me traveling, discovering new coffee shops,
