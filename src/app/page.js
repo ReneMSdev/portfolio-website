@@ -4,18 +4,38 @@ export default function Home() {
   return (
     <div className='grid grid-cols-1 md:grid-cols-2 gap-8 items-start'>
       {/* Image Column - top for small screens, right for md+ */}
-      <div className='order-1 md:order-2 flex justify-center'>
-        <Image
-          src='/profile1.jpg'
-          alt='Rene Maxey-Salomone'
-          width={250}
-          height={0}
-          layout='intrinsic'
-        />
+      <div className='order-1 justify-center md:order-2 md:sticky md:top-10 md:h-[calc(100vh-2.5rem)] md:justify-start flex'>
+        <div className='flex flex-col items-center md:ml-auto md:mr-5'>
+          <Image
+            src='/profile1.jpg'
+            alt='Rene Maxey-Salomone'
+            width={250}
+            height={375}
+          />
+          {/* Resume & Github links */}
+          <div className='flex gap-20 pt-8'>
+            <a
+              href='/resume.pdf'
+              target='_blank'
+              rel='noopener noreferrer'
+              className='font-semibold hover:underline hover:underline-offset-4 decoration-2'
+            >
+              Resume
+            </a>
+            <a
+              href='https://github.com/ReneMSdev'
+              target='_blank'
+              rel='noopener noreferrer'
+              className='font-semibold hover:underline hover:underline-offset-4 decoration-2'
+            >
+              Github
+            </a>
+          </div>
+        </div>
       </div>
 
       {/* Text Column - below image on small screens, left on md+ */}
-      <div className='order-2 md:order-1 flex flex-col items-center md:items-start'>
+      <div className='order-2 md:order-1 flex flex-col items-center md:items-start pb-20'>
         <h1 className='text-4xl font-semibold'>René Maxey-Salomone</h1>
         <h2 className='text-2xl mt-2 font-semibold'>Full-Stack Software Engineer</h2>
 
@@ -36,26 +56,6 @@ export default function Home() {
           and working on my next Spotify playlist. Feel free to reach out &mdash; I&apos;m always
           happy to connect, collaborate, or just chat about technology.
         </p>
-
-        {/* Resume & Github links */}
-        <div className='flex gap-12 pt-8'>
-          <a
-            href='/resume.pdf'
-            target='_blank'
-            rel='noopener noreferrer'
-            className='font-semibold hover:text-indigo-400'
-          >
-            Resume
-          </a>
-          <a
-            href='https://github.com/ReneMSdev'
-            target='_blank'
-            rel='noopener noreferrer'
-            className='font-semibold hover:text-indigo-400'
-          >
-            Github
-          </a>
-        </div>
       </div>
     </div>
   )
