@@ -5,11 +5,13 @@ import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Button } from '@/components/ui/button'
 import Image from 'next/image'
+import { FaGithub, FaLinkedin } from 'react-icons/fa'
+import { MdEmail } from 'react-icons/md'
 
 export default function ContactPage() {
   return (
-    <div className='grid grid-cols-1 md:grid-cols-2 mx-auto px-4 py-12 gap-8'>
-      <div className='w-full max-w-xl flex flex-col items-center md:items-start px-4'>
+    <div className='grid grid-cols-1 md:grid-cols-2 gap-8 items-center md:items-start mx-auto'>
+      <div className='flex flex-col w-xs mx-auto'>
         <h2 className='text-2xl font-semibold mb-6 text-center'>Let’s Connect</h2>
         <Card className='border-none shadow-none'>
           <CardContent className='p-0 space-y-6'>
@@ -60,7 +62,7 @@ export default function ContactPage() {
             </div>
 
             {/* Send Button */}
-            <Button className='w-full bg-white text-black border border-slate-300 rounded-none flex items-center justify-center cursor-pointer'>
+            <Button className='w-full bg-white text-black border-2 border-slate-300 rounded-none flex items-center justify-center cursor-pointer hover:bg-slate-400'>
               Send
             </Button>
           </CardContent>
@@ -79,28 +81,37 @@ export default function ContactPage() {
         <p className='text-sm text-muted-foreground'>Scan to connect</p>
 
         {/* Social Links */}
-        <div className='flex flex-col items-center gap-3'>
+        <div className='flex flex-col items-start gap-3'>
+          <a
+            href='mailto:renems.dev@gmail.com'
+            className='hover:underline hover:underline-offset-4 decoration-2 text-sm font-medium text-foreground'
+          >
+            <div className='flex'>
+              <MdEmail className='text-xl mr-4' />
+              renems.dev@gmail.com
+            </div>
+          </a>
           <a
             href='https://github.com/ReneMSdev'
             target='_blank'
             rel='noopener noreferrer'
-            className='hover:underline text-sm font-medium text-foreground'
+            className='hover:underline hover:underline-offset-4 decoration-2 text-sm font-medium text-foreground'
           >
-            GitHub
+            <div className='flex'>
+              <FaGithub className='text-xl mr-4' />
+              GitHub
+            </div>
           </a>
           <a
-            href='https://linkedin.com/in/yourprofile'
+            href='https://www.linkedin.com/in/rene-maxey-salomone-5444722a8/'
             target='_blank'
             rel='noopener noreferrer'
-            className='hover:underline text-sm font-medium text-foreground'
+            className='hover:underline hover:underline-offset-4 decoration-2 text-sm font-medium text-foreground'
           >
-            LinkedIn
-          </a>
-          <a
-            href='mailto:renems.dev@gmail.com'
-            className='hover:underline text-sm font-medium text-foreground'
-          >
-            renems.dev@gmail.com
+            <div className='flex'>
+              <FaLinkedin className='text-xl mr-4' />
+              LinkedIn
+            </div>
           </a>
         </div>
       </div>
