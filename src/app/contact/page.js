@@ -5,7 +5,7 @@ import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Button } from '@/components/ui/button'
 import Image from 'next/image'
-import { FaGithub, FaLinkedin } from 'react-icons/fa'
+import { FaGithub, FaLinkedin, FaPhoneSquareAlt } from 'react-icons/fa'
 import { MdEmail } from 'react-icons/md'
 
 export default function ContactPage() {
@@ -26,7 +26,7 @@ export default function ContactPage() {
               <Input
                 id='name'
                 placeholder='Your name'
-                className='w-full focus:outline-none border-1 border-slate-300 rounded-none'
+                className='w-full focus:outline-none border-1 border-slate-300'
               />
             </div>
 
@@ -42,7 +42,7 @@ export default function ContactPage() {
                 id='email'
                 type='email'
                 placeholder='you@example.com'
-                className='w-full focus:outline-none border-1 border-slate-300 rounded-none'
+                className='w-full focus:outline-none border-1 border-slate-300'
               />
             </div>
 
@@ -57,12 +57,12 @@ export default function ContactPage() {
               <Textarea
                 id='message'
                 placeholder='Type your message here...'
-                className='w-full focus:outline-none border-1 border-slate-300 rounded-none'
+                className='w-full focus:outline-none border-1 selection:text-white selection:bg-black border-slate-300'
               />
             </div>
 
             {/* Send Button */}
-            <Button className='w-full bg-white text-black border-2 border-slate-300 rounded-none flex items-center justify-center cursor-pointer hover:bg-slate-400'>
+            <Button className='w-full text-black bg-slate-300 flex items-center justify-center cursor-pointer hover:text-white hover:font-bold hover:bg-slate-500 hover:border-none'>
               Send
             </Button>
           </CardContent>
@@ -78,7 +78,7 @@ export default function ContactPage() {
           height={150}
           className='border border-slate-300'
         />
-        <p className='text-sm text-muted-foreground'>Scan to connect</p>
+        <p className='text-sm text-muted-foreground'>Scan for my digital business card</p>
 
         {/* Social Links */}
         <div className='flex flex-col items-start gap-3'>
@@ -89,6 +89,15 @@ export default function ContactPage() {
             <div className='flex'>
               <MdEmail className='text-xl mr-4' />
               renems.dev@gmail.com
+            </div>
+          </a>
+          <a
+            href='tel:+15103131898'
+            className='hover:underline hover:underline-offset-4 decoration-2 text-sm font-medium text-foreground'
+          >
+            <div className='flex'>
+              <FaPhoneSquareAlt className='text-xl mr-4' />
+              +1 (510) 313 - 1898
             </div>
           </a>
           <a
