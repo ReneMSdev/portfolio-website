@@ -36,8 +36,8 @@ export default function Home() {
 
       {/* Text Column - below image on small screens, left on md+ */}
       <div className='order-2 md:order-1 flex flex-col items-center md:items-start pb-20'>
-        <h1 className='text-4xl font-semibold'>René Maxey-Salomone</h1>
-        <h2 className='text-2xl mt-2 font-semibold'>Full-Stack Software Engineer</h2>
+        <h1 className='text-3xl md:text-4xl font-semibold'>René Maxey-Salomone</h1>
+        <h2 className='text-xl md:text-2xl mt-2 font-semibold'>Full-Stack Software Engineer</h2>
 
         <p className='max-w-md pt-8'>
           Hi, I&apos;m René &mdash; a software engineer with a background in design and a passion
