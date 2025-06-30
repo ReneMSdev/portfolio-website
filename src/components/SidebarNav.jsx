@@ -24,7 +24,7 @@ export default function SidebarNav() {
           key={item.href}
           href={item.href}
           className={cn(
-            'transform -rotate-90 origin-right text-right w-10 h-10 inline-block transition-all hover:font-semibold',
+            'transform -rotate-90 origin-right text-right w-10 h-10 inline-block transition-all font-semibold hover:underline underline-offset-6 decoration-2',
             pathname === item.href && 'underline underline-offset-6 decoration-2'
           )}
         >
