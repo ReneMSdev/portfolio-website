@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased font-sans`}>
         <SidebarNav />
         <MobileMenu />
-        <main className='ml-0 pt-20 md:ml-24 md:pt-10 px-6'>{children}</main>
+        <main className=''>{children}</main>
       </body>
     </html>
   )

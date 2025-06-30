@@ -37,7 +37,7 @@ export default function ContactPage() {
 
   return (
     <>
-      <div className='grid grid-cols-1 md:grid-cols-2 gap-8 items-center md:items-start mx-auto'>
+      <div className='grid grid-cols-1 md:grid-cols-2 gap-8 items-center md:items-start mx-auto mt-20 md:mt-10 pl-0 md:pl-20'>
         {/* Contact Form */}
         <div className='flex flex-col w-xs mx-auto'>
           <h2 className='text-2xl font-semibold mb-6 text-center'>Let’s Connect</h2>
