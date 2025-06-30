@@ -14,7 +14,7 @@ export default function MobileMenu() {
   const pathname = usePathname()
 
   return (
-    <div className='md:hidden fixed top-0 left-0 w-full h-14 bg-white z-[900] flex items-center justify-center gap-8 px-4'>
+    <div className='md:hidden fixed top-0 left-0 w-full h-14 bg-white z-[900] flex items-center justify-center gap-8 px-4 shadow-sm'>
       {navItems.map((item) => (
         <Link
           key={item.href}
