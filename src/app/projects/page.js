@@ -6,7 +6,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel'
-import { FaCode } from 'react-icons/fa'
+import { FaCode, FaUnlink } from 'react-icons/fa'
 import { MdOutlineWeb } from 'react-icons/md'
 
 export default function ProjectsPage() {
@@ -59,12 +59,17 @@ export default function ProjectsPage() {
 
         {/* Text */}
         <div className='mt-8 mx-auto'>
-          <h1 className='text-4xl font-semibold text-center md:text-start'>Route Planning App</h1>
+          <h1 className='text-3xl font-semibold text-center md:text-start'>Route Planning App</h1>
           <p className='max-w-lg mt-4'>
             Route Boss is a modern route planning web app built with Next.js 13 App Router and React
             19. It is styled using Tailwind CSS and shadcn/ui. It lets users input delivery or
             travel destinations, optimize routes, visualize them on a map, and export them for use
             in the real world.
+          </p>
+          <p className='max-w-lg mt-4'>
+            <span className='font-semibold'>Built with:</span> Next.js, Leaflet.js, OpenCage Data,
+            OpenRouteService, react-dropzone, papaparse, jsPDF, html2canvas, next-qrcode, Tailwind
+            CSS, ShadCN UI
           </p>
         </div>
 
@@ -126,7 +131,7 @@ export default function ProjectsPage() {
 
         {/* Text */}
         <div className='mt-8 mx-auto'>
-          <h1 className='text-4xl font-semibold text-center md:text-start'>
+          <h1 className='text-3xl font-semibold text-center md:text-start'>
             Life Coaching Website
           </h1>
           <p className='max-w-lg mt-4'>
@@ -158,6 +163,78 @@ export default function ProjectsPage() {
           </a>
           <a
             href='https://github.com/ReneMSdev/gina-website'
+            target='_blank'
+            rel='noopener noreferrer'
+            className='font-semibold hover:underline hover:underline-offset-4 decoration-2'
+          >
+            <div className='flex items-center gap-2'>
+              <FaCode className='text-xl' />
+              Code
+            </div>
+          </a>
+        </div>
+      </div>
+
+      {/* Project 3 */}
+      <div className='flex flex-col items-start px-6 my-10'>
+        {/* ShadCN Carousel */}
+        <div className='w-full mx-auto'>
+          <Carousel
+            className='max-w-lg mx-auto'
+            opts={{ loop: true }}
+          >
+            <CarouselContent>
+              {projectThreeImages.map((src, i) => (
+                <CarouselItem
+                  key={i}
+                  className='flex justify-center'
+                >
+                  <Image
+                    src={src}
+                    alt={`Route Boss ${i + 1}`}
+                    width={500}
+                    height={300}
+                    className=' border-1 border-slate-600'
+                  />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
+        </div>
+
+        {/* Text */}
+        <div className='mt-8 mx-auto'>
+          <h1 className='text-3xl font-semibold text-center md:text-start'>
+            Music Translation App
+          </h1>
+          <p className='max-w-lg mt-4'>
+            YourSound™ helps you understand music across borders by translating the lyrics of the
+            songs you’re listening to on Spotify — in real time. Whether you&apos;re learning a new
+            language or exploring global music, YourSound™ maintains the rhythm and flow so nothing
+            gets lost in translation.
+          </p>
+          <p className='max-w-lg mt-4'>
+            This project is fully designed and developed by me. It is currently in active
+            development, with core features like authentication and Spotify integration already
+            built. The app is not yet deployed, as I&apos;m continuing to implement real-time lyric
+            translation and synced playback features to enhance the user experience.
+          </p>
+          <p className='max-w-lg mt-4'>
+            <span className='font-semibold'>Built with:</span> Next.js, Supabase, Spotify API,
+            Tailwind CSS, ShadCN UI
+          </p>
+        </div>
+
+        {/* Demo & Code links */}
+        <div className='flex mx-auto gap-16 md:gap-30 pt-8  mb-6'>
+          <div className='flex items-center gap-2 font-semibold'>
+            <FaUnlink className='text-md' />
+            <span className='line-through decoration-2'>Demo</span>
+          </div>
+          <a
+            href='https://github.com/ReneMSdev/music-app'
             target='_blank'
             rel='noopener noreferrer'
             className='font-semibold hover:underline hover:underline-offset-4 decoration-2'

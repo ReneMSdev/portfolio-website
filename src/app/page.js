@@ -54,7 +54,7 @@ export default function Home() {
         <p className='max-w-md pt-4'>
           Outside of coding, you&apos;ll usually find me traveling, discovering new coffee shops,
           and working on my next Spotify playlist. Feel free to reach out &mdash; I&apos;m always
-          happy to connect, collaborate, or just chat about technology.
+          happy to connect and collaborate.
         </p>
       </div>
     </div>
