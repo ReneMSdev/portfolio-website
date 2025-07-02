@@ -50,7 +50,7 @@ export default function ContactPage() {
               name='access_key'
               value={process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY}
             />
-            <Card className='border-none shadow-none'>
+            <Card className='border-none shadow-none bg-transparent'>
               <CardContent className='p-0 space-y-6'>
                 {/* Name Field */}
                 <div className='flex flex-col space-y-2'>
@@ -125,7 +125,7 @@ export default function ContactPage() {
             alt='Scan to connect'
             width={150}
             height={150}
-            className='border border-slate-300'
+            className='border border-slate-300 rounded-md'
           />
           <p className='text-sm text-muted-foreground'>Scan for my digital business card</p>
 

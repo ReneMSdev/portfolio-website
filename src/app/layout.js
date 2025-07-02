@@ -21,7 +21,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang='en'>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased font-sans`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased font-sans min-h-screen bg-[linear-gradient(to_right,_#ffffff,_#c7d2fe)]`}
+      >
         <SidebarNav />
         <MobileMenu />
         <main className='mt-26 md:mt-0'>{children}</main>
