@@ -10,8 +10,21 @@ import { FaCode } from 'react-icons/fa'
 import { MdOutlineWeb } from 'react-icons/md'
 
 export default function ProjectsPage() {
-  const projectOneImages = ['/routeplanner1.jpg', '/routeplanner2.jpg']
-  const projectTwoImages = ['/gina1.jpg', '/gina2.jpg', '/gina3.jpg']
+  const projectOneImages = ['/img/project1/routeplanner1.jpg', '/img/project1/routeplanner2.jpg']
+  const projectTwoImages = [
+    '/img/project2/gina1.jpg',
+    '/img/project2/gina2.jpg',
+    '/img/project2/gina3.jpg',
+  ]
+  const projectThreeImages = [
+    '/img/project3/hero.jpg',
+    '/img/project3/signup.jpg',
+    '/img/project3/login.jpg',
+    '/img/project3/connect-spotify.jpg',
+    '/img/project3/profile.jpg',
+    '/img/project3/recently-played.jpg',
+    '/img/project3/track-id.jpg',
+  ]
 
   return (
     <div className='grid grid-cols-1 gap-8 items-start mt-20 md:mt-12'>
