@@ -7,10 +7,11 @@ export default function Home() {
       <div className='order-1 justify-center md:order-2 md:sticky md:top-10 md:h-[calc(100vh-2.5rem)] md:justify-start flex'>
         <div className='flex flex-col items-center md:ml-auto'>
           <Image
-            src='/profile1.jpg'
+            src='/img/profile/profile.jpg'
             alt='Rene Maxey-Salomone'
             width={250}
             height={375}
+            className='rounded-md'
           />
           {/* Resume & Github links */}
           <div className='flex gap-20 pt-8'>
