@@ -141,10 +141,12 @@ export default function Home() {
           {skills.map(({ name, icon: Icon }) => (
             <div
               key={name}
-              className='flex flex-col items-center text-center'
+              className='flex flex-col items-center text-center transition-transform duration-200 hover:scale-110'
             >
               <Icon className='text-4xl mb-2' />
-              <span className='text-sm font-medium'>{name}</span>
+              <span className='text-sm font-medium group-hover:font-semibold transition-all duration-200'>
+                {name}
+              </span>
             </div>
           ))}
         </div>
