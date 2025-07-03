@@ -1,6 +1,6 @@
 'use client'
 
-import Link from 'next/link'
+import NavLink from './NavLink'
 import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
 
@@ -14,9 +14,9 @@ export default function MobileMenu() {
   const pathname = usePathname()
 
   return (
-    <div className='md:hidden fixed top-0 left-0 w-full h-14 bg-white z-[900] flex items-center justify-center gap-8 px-4 shadow-sm'>
+    <div className='md:hidden fixed top-0 left-0 w-full h-14 bg-white z-100 flex items-center justify-center gap-8 px-4 shadow-sm'>
       {navItems.map((item) => (
-        <Link
+        <NavLink
           key={item.href}
           href={item.href}
           className={cn(
@@ -25,7 +25,7 @@ export default function MobileMenu() {
           )}
         >
           {item.label}
-        </Link>
+        </NavLink>
       ))}
     </div>
   )

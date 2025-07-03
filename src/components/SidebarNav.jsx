@@ -16,7 +16,7 @@ export default function SidebarNav() {
   return (
     <nav
       className={cn(
-        'hidden md:flex fixed top-7 left-0 h-screen w-10 flex-col items-center justify-start gap-14 bg-transparent text-md text-foreground z-40'
+        'hidden md:flex fixed top-7 left-0 h-screen w-10 flex-col items-center justify-start gap-14 bg-transparent text-md text-foreground z-90'
       )}
     >
       {navItems.map((item) => (

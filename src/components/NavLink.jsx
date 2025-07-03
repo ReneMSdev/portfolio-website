@@ -10,7 +10,10 @@ export default function NavLink({ href, children, className }) {
   const handleClick = (e) => {
     e.preventDefault()
     setIsLoading(true)
-    router.push(href)
+
+    setTimeout(() => {
+      router.push(href)
+    }, 50)
   }
 
   return (
