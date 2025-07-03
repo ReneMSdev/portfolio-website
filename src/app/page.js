@@ -2,7 +2,9 @@
 
 import Image from 'next/image'
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useLoading } from '@/context/LoadingContext'
+
 import {
   SiReact,
   SiNextdotjs,
@@ -54,16 +56,13 @@ const skills = [
   { name: 'Vercel', icon: SiVercel },
 ]
 
-const languages = []
-
-const libraries = []
-
-const databases = []
-
-const tools = []
-
 export default function Home() {
   const [open, setOpen] = useState(false)
+  const { setIsLoading } = useLoading()
+
+  useEffect(() => {
+    setIsLoading(false)
+  }, [])
 
   return (
     <div className='grid grid-cols-1 md:grid-cols-2 gap-8 items-start mt-10 mx-6 md:mx-20 md:pl-6 xl:mx-auto max-w-5xl'>

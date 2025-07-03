@@ -1,3 +1,7 @@
+'use client'
+
+import { useEffect } from 'react'
+import { useLoading } from '@/context/LoadingContext'
 import Image from 'next/image'
 import {
   Carousel,
@@ -10,6 +14,12 @@ import { FaCode, FaUnlink } from 'react-icons/fa'
 import { MdOutlineWeb } from 'react-icons/md'
 
 export default function ProjectsPage() {
+  const { setIsLoading } = useLoading()
+
+  useEffect(() => {
+    setIsLoading(false)
+  }, [])
+
   const projectOneImages = ['/img/project1/routeplanner1.jpg', '/img/project1/routeplanner2.jpg']
   const projectTwoImages = [
     '/img/project2/gina1.jpg',

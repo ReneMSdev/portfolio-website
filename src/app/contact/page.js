@@ -1,6 +1,7 @@
 'use client'
 
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
+import { useLoading } from '@/context/LoadingContext'
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { Card, CardContent } from '@/components/ui/card'
@@ -12,6 +13,12 @@ import { FaGithub, FaLinkedin, FaPhoneSquareAlt } from 'react-icons/fa'
 import { MdEmail } from 'react-icons/md'
 
 export default function ContactPage() {
+  const { setIsLoading } = useLoading()
+
+  useEffect(() => {
+    setIsLoading(false)
+  }, [])
+
   const formRef = useRef(null)
   const [loading, setLoading] = useState(false)
 
@@ -121,7 +128,7 @@ export default function ContactPage() {
           <h2 className='text-2xl font-semibold mb-6 text-center'>My Links</h2>
           {/* QR Code */}
           <Image
-            src='/qrcode.png'
+            src='/img/qrcode.png'
             alt='Scan to connect'
             width={150}
             height={150}
