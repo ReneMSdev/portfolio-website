@@ -69,7 +69,9 @@ export default function ProjectsPage() {
 
         {/* Text */}
         <div className='mt-8 mx-auto'>
-          <h1 className='text-3xl font-semibold text-center md:text-start'>Route Planning App</h1>
+          <h2 className='text-2xl text-rose-600 font-semibold text-center md:text-start'>
+            Route Planning App
+          </h2>
           <p className='max-w-lg mt-4'>
             Route Boss is a modern route planning web app built with Next.js 13 App Router and React
             19. It is styled using Tailwind CSS and shadcn/ui. It lets users input delivery or
@@ -89,7 +91,7 @@ export default function ProjectsPage() {
             href='https://route-planner-nextjs.vercel.app/'
             target='_blank'
             rel='noopener noreferrer'
-            className='font-semibold hover:underline hover:underline-offset-4 decoration-2'
+            className='font-semibold hover:text-blue-500'
           >
             <div className='flex items-center gap-2'>
               <MdOutlineWeb className='text-xl' />
@@ -100,7 +102,7 @@ export default function ProjectsPage() {
             href='https://github.com/ReneMSdev/route-planner-nextjs'
             target='_blank'
             rel='noopener noreferrer'
-            className='font-semibold hover:underline hover:underline-offset-4 decoration-2'
+            className='font-semibold hover:text-blue-500'
           >
             <div className='flex items-center gap-2'>
               <FaCode className='text-xl' />
@@ -111,7 +113,7 @@ export default function ProjectsPage() {
       </div>
 
       {/* Project 2 */}
-      <div className='flex flex-col items-start w-full bg-slate-200 py-16 px-6'>
+      <div className='flex flex-col items-start w-full bg-slate-200 dark:bg-stone-800 py-16 px-6'>
         {/* ShadCN Carousel */}
         <div className='w-full mx-auto'>
           <Carousel
@@ -141,9 +143,9 @@ export default function ProjectsPage() {
 
         {/* Text */}
         <div className='mt-8 mx-auto'>
-          <h1 className='text-3xl font-semibold text-center md:text-start'>
+          <h2 className='text-2xl text-rose-600 font-semibold text-center md:text-start'>
             Life Coaching Website
-          </h1>
+          </h2>
           <p className='max-w-lg mt-4'>
             I designed and developed a responsive website for a lifestyle coach, focused on
             showcasing their services and making client engagement seamless. Built using HTML, CSS,
@@ -164,7 +166,7 @@ export default function ProjectsPage() {
             href='https://renemsdev.github.io/gina-website/'
             target='_blank'
             rel='noopener noreferrer'
-            className='font-semibold hover:underline hover:underline-offset-4 decoration-2'
+            className='font-semibold hover:text-blue-500'
           >
             <div className='flex items-center gap-2'>
               <MdOutlineWeb className='text-xl' />
@@ -175,7 +177,7 @@ export default function ProjectsPage() {
             href='https://github.com/ReneMSdev/gina-website'
             target='_blank'
             rel='noopener noreferrer'
-            className='font-semibold hover:underline hover:underline-offset-4 decoration-2'
+            className='font-semibold hover:text-blue-500'
           >
             <div className='flex items-center gap-2'>
               <FaCode className='text-xl' />
@@ -216,9 +218,9 @@ export default function ProjectsPage() {
 
         {/* Text */}
         <div className='mt-8 mx-auto'>
-          <h1 className='text-3xl font-semibold text-center md:text-start'>
+          <h2 className='text-2xl text-rose-600 font-semibold text-center md:text-start'>
             Music Translation App
-          </h1>
+          </h2>
           <p className='max-w-lg mt-4'>
             YourSound™ helps you understand music across borders by translating the lyrics of the
             songs you’re listening to on Spotify — in real time. Whether you&apos;re learning a new
@@ -247,7 +249,7 @@ export default function ProjectsPage() {
             href='https://github.com/ReneMSdev/music-app'
             target='_blank'
             rel='noopener noreferrer'
-            className='font-semibold hover:underline hover:underline-offset-4 decoration-2'
+            className='font-semibold hover:text-blue-500'
           >
             <div className='flex items-center gap-2'>
               <FaCode className='text-xl' />

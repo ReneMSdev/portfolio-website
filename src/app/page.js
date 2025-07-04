@@ -81,7 +81,9 @@ export default function Home() {
 
       {/* Text Column - below image on small screens, left on md+ */}
       <div className='order-2 md:order-1 flex flex-col items-center md:items-start pb-20'>
-        <h1 className='text-3xl md:text-4xl font-semibold text-indigo-900'>René Maxey-Salomone</h1>
+        <h1 className='text-3xl md:text-4xl font-semibold text-indigo-900 dark:text-indigo-700'>
+          René Maxey-Salomone
+        </h1>
         <h2 className='text-xl md:text-2xl mt-2 font-semibold'>
           <span className='text-rose-600'>Full-Stack</span> Developer
         </h2>
@@ -126,7 +128,7 @@ export default function Home() {
               key={name}
               className='flex flex-col items-center text-center transition-transform duration-200 hover:scale-115'
             >
-              <Icon className='text-4xl mb-2 text-slate-700' />
+              <Icon className='text-4xl mb-2 text-slate-700 dark:text-slate-600' />
               <span className='text-sm font-semibold group-hover:font-bold transition-all duration-200'>
                 {name}
               </span>

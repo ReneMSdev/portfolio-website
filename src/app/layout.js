@@ -41,7 +41,7 @@ export default function RootLayout({ children }) {
             <Navbar />
             <MobileMenu />
 
-            <main className='pt-0 md:pt-20'>{children}</main>
+            <main className='pt-0 md:pt-20 dark:bg-stone-900'>{children}</main>
           </LoadingProvider>
         </ThemeProvider>
       </body>
