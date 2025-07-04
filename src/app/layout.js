@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang='en'>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} bg-slate-50 antialiased font-sans min-h-screen`}
+        className={`${geistSans.variable} ${geistMono.variable} bg-slate-50 antialiased font-sans min-h-screen overflow-auto`}
       >
         <LoadingProvider>
           <RouteChangeSpinner />
