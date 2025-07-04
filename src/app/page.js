@@ -76,25 +76,6 @@ export default function Home() {
             height={375}
             className='rounded-md'
           />
-          {/* Resume & Github links */}
-          <div className='flex gap-20 pt-8'>
-            <a
-              href='/resume.pdf'
-              target='_blank'
-              rel='noopener noreferrer'
-              className='font-semibold hover:underline hover:underline-offset-4 decoration-2'
-            >
-              Resume
-            </a>
-            <a
-              href='https://github.com/ReneMSdev'
-              target='_blank'
-              rel='noopener noreferrer'
-              className='font-semibold hover:underline hover:underline-offset-4 decoration-2'
-            >
-              Github
-            </a>
-          </div>
         </div>
       </div>
 

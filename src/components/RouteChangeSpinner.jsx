@@ -8,7 +8,7 @@ export default function RouteChangeSpinner() {
   if (!isLoading) return null
 
   return (
-    <div className='fixed inset-0 z-50 bg-white/70 backdrop-blur flex items-center justify-center'>
+    <div className='fixed inset-0 z-50 bg-slate-100/70 backdrop-blur flex items-center justify-center'>
       <FadeLoader
         color='#6366f1'
         height={15}

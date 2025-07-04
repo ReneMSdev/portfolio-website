@@ -111,7 +111,7 @@ export default function ProjectsPage() {
       </div>
 
       {/* Project 2 */}
-      <div className='flex flex-col items-start w-full bg-slate-100 py-16 px-6'>
+      <div className='flex flex-col items-start w-full bg-slate-200 py-16 px-6'>
         {/* ShadCN Carousel */}
         <div className='w-full mx-auto'>
           <Carousel

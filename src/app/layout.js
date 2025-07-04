@@ -1,6 +1,6 @@
 import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
-import SidebarNav from '@/components/SidebarNav'
+import Navbar from '@/components/Navbar'
 import MobileMenu from '@/components/MobileMenu'
 import { LoadingProvider } from '@/context/LoadingContext'
 import RouteChangeSpinner from '@/components/RouteChangeSpinner'
@@ -24,13 +24,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang='en'>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased font-sans min-h-screen bg-[linear-gradient(to_right,_#ffffff,_#c7d2fe)]`}
+        className={`${geistSans.variable} ${geistMono.variable} bg-slate-50 antialiased font-sans min-h-screen`}
       >
         <LoadingProvider>
           <RouteChangeSpinner />
-          <SidebarNav />
+          <Navbar />
           <MobileMenu />
-          <main className='mt-26 md:mt-0'>{children}</main>
+          <main className='pt-0 md:pt-20'>{children}</main>
         </LoadingProvider>
       </body>
     </html>
