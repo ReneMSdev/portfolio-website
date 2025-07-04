@@ -120,3 +120,29 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Custom NavLink hover effect */
+.nav-link-hover {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 4px; /* spacing between text and underline */
+}
+
+.nav-link-hover::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 0;
+  background: #e11d48; /* Color of underline */
+  transition: width 0.3s ease-in-out;
+}
+
+.nav-link-hover:hover::after {
+  width: 100%;
+}
+
+.nav-link-active::after {
+  width: 100%;
+}
