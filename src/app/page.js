@@ -69,13 +69,19 @@ export default function Home() {
       {/* Image Column - top for small screens, right for md+ */}
       <div className='order-1 justify-center pt-20 md:pt-0 md:order-2 md:sticky md:top-30 md:justify-start flex'>
         <div className='flex flex-col items-center md:ml-auto'>
-          <Image
-            src='/img/profile/profile1.jpg'
-            alt='Rene Maxey-Salomone'
-            width={250}
-            height={375}
-            className='rounded-md'
-          />
+          <div className='relative inline-block'>
+            {/* Border layer */}
+            <div className='absolute top-2 left-2 w-full h-full rounded-md border-3 border-rose-600 dark:border-none z-0'></div>
+
+            {/* Image on top */}
+            <Image
+              src='/img/profile/profile1.jpg'
+              alt='Rene Maxey-Salomone'
+              width={250}
+              height={375}
+              className='rounded-md relative z-10'
+            />
+          </div>
         </div>
       </div>
 
