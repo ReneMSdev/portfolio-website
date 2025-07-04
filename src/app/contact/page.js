@@ -117,7 +117,7 @@ export default function ContactPage() {
                 {/* Send Button */}
                 <Button
                   type='submit'
-                  className='w-full text-black bg-slate-300 flex items-center justify-center cursor-pointer hover:text-white hover:font-bold hover:bg-slate-500 hover:border-none'
+                  className='w-full text-white bg-slate-600 flex items-center justify-center cursor-pointer font-bold hover:bg-slate-700'
                   disabled={loading}
                 >
                   {loading ? 'Sending...' : 'Send'}
