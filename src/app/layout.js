@@ -4,6 +4,7 @@ import Navbar from '@/components/Navbar'
 import MobileMenu from '@/components/MobileMenu'
 import { LoadingProvider } from '@/context/LoadingContext'
 import RouteChangeSpinner from '@/components/RouteChangeSpinner'
+import { ThemeProvider } from '@/components/theme-provider'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -22,16 +23,27 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang='en'>
+    <html
+      lang='en'
+      suppressHydrationWarning
+    >
       <body
         className={`${geistSans.variable} ${geistMono.variable} bg-slate-50 antialiased font-sans min-h-screen overflow-auto`}
       >
-        <LoadingProvider>
-          <RouteChangeSpinner />
-          <Navbar />
-          <MobileMenu />
-          <main className='pt-0 md:pt-20'>{children}</main>
-        </LoadingProvider>
+        <ThemeProvider
+          attribute='class'
+          defaultTheme='system'
+          enableSystem
+          disableTransitionOnChange
+        >
+          <LoadingProvider>
+            <RouteChangeSpinner />
+            <Navbar />
+            <MobileMenu />
+
+            <main className='pt-0 md:pt-20'>{children}</main>
+          </LoadingProvider>
+        </ThemeProvider>
       </body>
     </html>
   )

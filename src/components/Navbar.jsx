@@ -4,6 +4,8 @@ import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
 import NavLink from './NavLink'
 import { FaSun, FaMoon } from 'react-icons/fa'
+import { Moon, Sun } from 'lucide-react'
+import { ThemeToggle } from '@/components/theme-toggle'
 
 const navItems = [
   { label: 'About', href: '/' },
@@ -57,7 +59,7 @@ export default function Navbar() {
           Github
         </a>
       </div>
-      <FaMoon className='text-white ml-auto mr-10 cursor-pointer' />
+      <ThemeToggle />
     </nav>
   )
 }
