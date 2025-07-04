@@ -69,7 +69,7 @@ export default function ProjectsPage() {
 
         {/* Text */}
         <div className='mt-8 mx-auto'>
-          <h2 className='text-2xl text-rose-600 font-semibold text-center md:text-start'>
+          <h2 className='text-2xl text-indigo-900 dark:text-indigo-700 font-semibold text-center md:text-start'>
             Route Planning App
           </h2>
           <p className='max-w-lg mt-4'>
@@ -143,7 +143,7 @@ export default function ProjectsPage() {
 
         {/* Text */}
         <div className='mt-8 mx-auto'>
-          <h2 className='text-2xl text-rose-600 font-semibold text-center md:text-start'>
+          <h2 className='text-2xl text-indigo-900 dark:text-indigo-700 font-semibold text-center md:text-start'>
             Life Coaching Website
           </h2>
           <p className='max-w-lg mt-4'>
@@ -218,7 +218,7 @@ export default function ProjectsPage() {
 
         {/* Text */}
         <div className='mt-8 mx-auto'>
-          <h2 className='text-2xl text-rose-600 font-semibold text-center md:text-start'>
+          <h2 className='text-2xl text-indigo-900 dark:text-indigo-700 font-semibold text-center md:text-start'>
             Music Translation App
           </h2>
           <p className='max-w-lg mt-4'>
