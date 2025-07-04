@@ -81,8 +81,10 @@ export default function Home() {
 
       {/* Text Column - below image on small screens, left on md+ */}
       <div className='order-2 md:order-1 flex flex-col items-center md:items-start pb-20'>
-        <h1 className='text-3xl md:text-4xl font-semibold'>René Maxey-Salomone</h1>
-        <h2 className='text-xl md:text-2xl mt-2 font-semibold'>Full-Stack Software Engineer</h2>
+        <h1 className='text-3xl md:text-4xl font-semibold text-indigo-900'>René Maxey-Salomone</h1>
+        <h2 className='text-xl md:text-2xl mt-2 font-semibold'>
+          <span className='text-rose-600'>Full-Stack</span> Developer
+        </h2>
 
         {/* About Section */}
         <Collapsible
@@ -91,7 +93,7 @@ export default function Home() {
           className='max-w-md'
         >
           <p className='max-w-md pt-8'>
-            Hi, I&apos;m René &mdash; a software engineer with a background in design and a passion
+            Hi, I&apos;m René &mdash; a software developer with a background in design and a passion
             for building human-centered web applications. I&apos;m currently open to full-time roles
             where I can contribute to meaningful products, continue learning, and collaborate with
             thoughtful teams.
@@ -110,22 +112,22 @@ export default function Home() {
             </p>
           </CollapsibleContent>
           <div className='w-full flex'>
-            <CollapsibleTrigger className=' mt-2 font-semibold text-sm cursor-pointer'>
+            <CollapsibleTrigger className=' mt-2 font-semibold text-sm cursor-pointer text-blue-500'>
               {open ? 'Read less' : 'Read more'}
             </CollapsibleTrigger>
           </div>
         </Collapsible>
 
         {/* Skills Section */}
-        <h2 className='text-xl md:text-2xl mt-10 font-semibold'>Skills</h2>
+        <h2 className='text-xl md:text-2xl mt-10 font-semibold text-rose-600'>Skills</h2>
         <div className='grid grid-cols-3 md:grid-cols-4 gap-6 pt-6'>
           {skills.map(({ name, icon: Icon }) => (
             <div
               key={name}
               className='flex flex-col items-center text-center transition-transform duration-200 hover:scale-115'
             >
-              <Icon className='text-4xl mb-2' />
-              <span className='text-sm font-medium group-hover:font-semibold transition-all duration-200'>
+              <Icon className='text-4xl mb-2 text-slate-700' />
+              <span className='text-sm font-semibold group-hover:font-bold transition-all duration-200'>
                 {name}
               </span>
             </div>

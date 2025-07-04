@@ -33,7 +33,7 @@ export default function Navbar() {
             key={item.href}
             href={item.href}
             className={cn(
-              'text-center text-white inline-block transition-all font-semibold hover:underline underline-offset-6 decoration-2',
+              'text-center text-white inline-block transition-all font-semibold hover:text-blue-400',
               pathname === item.href && 'underline underline-offset-6 decoration-2'
             )}
           >
@@ -44,7 +44,7 @@ export default function Navbar() {
           href='/resume.pdf'
           target='_blank'
           rel='noopener noreferrer'
-          className='text-white font-semibold hover:text-rose-600'
+          className='text-white font-semibold hover:text-blue-400'
         >
           Resume
         </a>
@@ -52,7 +52,7 @@ export default function Navbar() {
           href='https://github.com/ReneMSdev'
           target='_blank'
           rel='noopener noreferrer'
-          className='text-white font-semibold hover:text-rose-600'
+          className='text-white font-semibold hover:text-blue-400'
         >
           Github
         </a>
