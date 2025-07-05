@@ -3,8 +3,6 @@
 import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
 import NavLink from './NavLink'
-import { FaSun, FaMoon } from 'react-icons/fa'
-import { Moon, Sun } from 'lucide-react'
 import { ThemeToggle } from '@/components/theme-toggle'
 
 const navItems = [
@@ -19,7 +17,7 @@ export default function Navbar() {
   return (
     <nav
       className={cn(
-        'hidden md:flex fixed top-0 left-0 w-full justify-center items-center h-14 text-md text-foreground z-50 backdrop-blur bg-[linear-gradient(to_right,#0f172a,#4338ca)]'
+        'hidden md:flex fixed top-0 left-0 w-full justify-center items-center h-14 text-md text-foreground z-50 bg-[linear-gradient(to_right,#0f172a,#4338ca)]'
       )}
     >
       <a href='/'>
