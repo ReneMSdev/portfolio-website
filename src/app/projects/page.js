@@ -37,7 +37,7 @@ export default function ProjectsPage() {
   ]
 
   return (
-    <div className='grid grid-cols-1 gap-8 items-start mt-20 md:mt-12'>
+    <div className='grid grid-cols-1 gap-8 items-start pt-20 md:pt-12'>
       {/* Project 1 */}
       <div className='flex flex-col items-start px-6'>
         {/* ShadCN Carousel */}
