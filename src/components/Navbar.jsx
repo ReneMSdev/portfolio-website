@@ -25,7 +25,7 @@ export default function Navbar() {
         <img
           src='/logo.svg'
           alt='logo'
-          className='h-4 w-auto ml-10 mr-16'
+          className='h-4 w-auto ml-10'
         />
       </a>
       <div className='flex gap-6 mx-auto'>
