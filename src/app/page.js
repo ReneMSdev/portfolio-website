@@ -49,7 +49,7 @@ const skills = [
   { name: 'Supabase', icon: SiSupabase, color: '#3ECF8E' },
   { name: 'Linux', icon: FaLinux, color: '#FCC624' },
   { name: 'Git', icon: SiGit, color: '#F05032' },
-  { name: 'GitHub', icon: SiGithub, color: '#181717', darkModeFix: true },
+  { name: 'GitHub', icon: SiGithub, color: '#000000', darkModeFix: true },
   { name: 'Adobe CC', icon: SiAdobecreativecloud, color: '#DA1F26' },
   { name: 'Figma', icon: SiFigma, color: '#F24E1E' },
   { name: 'Netlify', icon: SiNetlify, color: '#00C7B7' },
