@@ -133,16 +133,15 @@ export default function Home() {
             }
 
             const iconClass =
-              'cursor-pointer text-4xl mb-2 text-slate-500 transition-colors duration-300 group-hover:text-[var(--skill-color)]' +
+              'text-4xl mb-2 text-slate-500 transition-colors duration-300 group-hover:text-[var(--skill-color)]' +
               (darkModeFix ? ' dark:group-hover:text-[var(--tw-dark-skill-color)]' : '')
 
-            const textClass =
-              'text-sm font-semibold text-slate-600 dark:text-slate-400 cursor-pointer'
+            const textClass = 'text-sm font-semibold text-slate-600 dark:text-slate-400'
 
             return (
               <div
                 key={name}
-                className='group flex flex-col items-center text-center transition-transform duration-200 hover:scale-110'
+                className='group flex flex-col items-center text-center transition-transform duration-200 hover:scale-120'
                 style={skillStyle}
               >
                 <Icon className={iconClass} />
