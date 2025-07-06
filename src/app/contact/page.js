@@ -33,7 +33,7 @@ export default function ContactPage() {
     })
 
     if (res.ok) {
-      toast.success('Message sent successfully! 🎉')
+      toast.success('Message sent successfully!')
       formRef.current.reset()
     } else {
       toast.error('Something went wrong. Please try again.')
@@ -44,7 +44,7 @@ export default function ContactPage() {
 
   return (
     <>
-      <div className='grid grid-cols-1 md:grid-cols-2 gap-8 items-center md:items-start mx-auto mt-20 md:mt-10 pl-0 md:pl-26 max-w-5xl'>
+      <div className='min-h-screen grid grid-cols-1 md:grid-cols-2 gap-8 justify-start items-start mx-auto pt-30 md:pt-10 max-w-5xl'>
         {/* Contact Form */}
         <div className='flex flex-col w-xs mx-auto'>
           <h2 className='text-2xl font-semibold mb-6 text-center text-indigo-900 dark:text-indigo-700'>
