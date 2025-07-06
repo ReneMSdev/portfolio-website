@@ -62,6 +62,7 @@ export default function Home() {
 
   useEffect(() => {
     setIsLoading(false)
+    window.scrollTo(0, 0)
   }, [])
 
   return (
@@ -77,6 +78,7 @@ export default function Home() {
               width={250}
               height={375}
               className='rounded-md relative z-10'
+              priority
             />
           </div>
         </div>

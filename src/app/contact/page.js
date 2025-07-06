@@ -17,6 +17,7 @@ export default function ContactPage() {
 
   useEffect(() => {
     setIsLoading(false)
+    window.scrollTo(0, 0)
   }, [])
 
   const formRef = useRef(null)
