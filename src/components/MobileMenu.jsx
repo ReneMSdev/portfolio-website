@@ -19,7 +19,7 @@ export default function MobileMenu() {
   return (
     <>
       {/* Menu bar */}
-      <div className='md:hidden fixed top-0 left-0 w-full h-14 flex items-center justify-baseline bg-[linear-gradient(to_right,#0f172a,#4338ca)] z-[900] px-4'>
+      <div className='md:hidden fixed top-0 left-0 w-full h-14 flex items-center justify-baseline bg-slate-800 z-[900] px-4'>
         <a href='/'>
           <img
             src='/logo.svg'
@@ -50,7 +50,7 @@ export default function MobileMenu() {
       {/* Slide-in Menu */}
       <div
         className={cn(
-          'md:hidden fixed top-0 right-0 h-screen w-40 bg-slate-200 dark:bg-slate-800 z-[998] p-8 pt-24 flex flex-col gap-6 transform transition-transform duration-300 ease-in-out shadow-md',
+          'md:hidden fixed top-0 right-0 h-screen w-40 bg-indigo-300 dark:bg-indigo-900 z-[998] p-8 pt-24 flex flex-col gap-6 transform transition-transform duration-300 ease-in-out shadow-md',
           open ? 'translate-x-0' : 'translate-x-full'
         )}
       >

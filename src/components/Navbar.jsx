@@ -15,9 +15,10 @@ export default function Navbar() {
   const pathname = usePathname()
 
   return (
+    // bg-[linear-gradient(to_right,#0f172a,#4338ca)] old background
     <nav
       className={cn(
-        'hidden md:flex fixed top-0 left-0 w-full justify-center items-center h-14 text-md text-foreground z-50 bg-[linear-gradient(to_right,#0f172a,#4338ca)]'
+        'hidden md:flex fixed top-0 left-0 w-full justify-center items-center h-14 text-md text-foreground z-50 bg-slate-800'
       )}
     >
       <a href='/'>

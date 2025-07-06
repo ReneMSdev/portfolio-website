@@ -65,9 +65,9 @@ export default function Home() {
   }, [])
 
   return (
-    <div className='grid grid-cols-1 md:grid-cols-2 gap-8 items-start mt-10 mx-6 md:mx-30 md:pl-6 xl:mx-auto max-w-5xl min-h-[150vh]'>
+    <div className='grid grid-cols-1 md:grid-cols-2 gap-8 items-start mt-10 mx-6 md:pl-6 xl:mx-auto max-w-5xl min-h-[150vh]'>
       {/* Image Column - top for small screens, right for md+ */}
-      <div className='order-1 justify-center pt-20 md:pt-0 md:order-2 md:sticky md:top-30 md:justify-start flex'>
+      <div className='order-1 justify-center pt-20 md:pt-0 md:order-2 md:sticky md:top-30 flex'>
         <div className='flex flex-col items-center md:ml-auto'>
           <div className='relative inline-block'>
             {/* Image on top */}
@@ -76,7 +76,7 @@ export default function Home() {
               alt='Rene Maxey-Salomone'
               width={250}
               height={375}
-              className='rounded-md relative z-10 border-2'
+              className='rounded-md relative z-10'
             />
           </div>
         </div>
