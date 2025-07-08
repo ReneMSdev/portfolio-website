@@ -2,16 +2,9 @@
 
 import { useEffect } from 'react'
 import { useLoading } from '@/context/LoadingContext'
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from '@/components/ui/carousel'
 import { FaCode, FaUnlink } from 'react-icons/fa'
 import { MdOutlineWeb } from 'react-icons/md'
-import ImageWithSkeleton from '@/components/ImageWithSkeleton'
+import EmblaCarousel from '@/components/EmblaCarousel'
 
 export default function ProjectsPage() {
   const { setIsLoading } = useLoading()
@@ -41,33 +34,8 @@ export default function ProjectsPage() {
     <div className='min-h-screen grid grid-cols-1 gap-8 items-start pt-30 md:pt-12'>
       {/* Project 1 */}
       <div className='flex flex-col items-start px-6'>
-        {/* ShadCN Carousel */}
-        <div className='w-full mx-auto'>
-          <Carousel
-            className='max-w-lg mx-auto'
-            opts={{ loop: true }}
-          >
-            <CarouselContent>
-              {projectOneImages.map((src, i) => (
-                <CarouselItem
-                  key={i}
-                  className='flex justify-center'
-                >
-                  <ImageWithSkeleton
-                    src={src}
-                    alt={`Route Boss ${i + 1}`}
-                    width={500}
-                    height={300}
-                    priority={i === 0}
-                    className=' border-1 border-slate-600'
-                  />
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
-          </Carousel>
-        </div>
+        {/* Embla Carousel */}
+        <EmblaCarousel slides={projectOneImages} />
 
         {/* Text */}
         <div className='mt-8 mx-auto'>
@@ -116,32 +84,8 @@ export default function ProjectsPage() {
 
       {/* Project 2 */}
       <div className='flex flex-col items-start w-full bg-slate-200 dark:bg-stone-800 py-16 px-6'>
-        {/* ShadCN Carousel */}
-        <div className='w-full mx-auto'>
-          <Carousel
-            className='max-w-lg mx-auto'
-            opts={{ loop: true }}
-          >
-            <CarouselContent>
-              {projectTwoImages.map((src, i) => (
-                <CarouselItem
-                  key={i}
-                  className='flex justify-center'
-                >
-                  <ImageWithSkeleton
-                    src={src}
-                    alt={`Route Boss ${i + 1}`}
-                    width={500}
-                    height={300}
-                    className=' border-1 border-slate-600'
-                  />
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
-          </Carousel>
-        </div>
+        {/* Embla Carousel */}
+        <EmblaCarousel slides={projectTwoImages} />
 
         {/* Text */}
         <div className='mt-8 mx-auto'>
@@ -191,32 +135,8 @@ export default function ProjectsPage() {
 
       {/* Project 3 */}
       <div className='flex flex-col items-start px-6 my-10'>
-        {/* ShadCN Carousel */}
-        <div className='w-full mx-auto'>
-          <Carousel
-            className='max-w-lg mx-auto'
-            opts={{ loop: true }}
-          >
-            <CarouselContent>
-              {projectThreeImages.map((src, i) => (
-                <CarouselItem
-                  key={i}
-                  className='flex justify-center'
-                >
-                  <ImageWithSkeleton
-                    src={src}
-                    alt={`Route Boss ${i + 1}`}
-                    width={500}
-                    height={300}
-                    className=' border-1 border-slate-600'
-                  />
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
-          </Carousel>
-        </div>
+        {/* Embla Carousel */}
+        <EmblaCarousel slides={projectThreeImages} />
 
         {/* Text */}
         <div className='mt-8 mx-auto'>
