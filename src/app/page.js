@@ -87,7 +87,10 @@ export default function Home() {
       {/* Text Column - below image on small screens, left on md+ */}
       <div className='order-2 md:order-1 flex flex-col items-center md:items-start pb-20'>
         <h1 className='text-3xl md:text-6xl font-semibold text-slate-700 dark:text-slate-200'>
-          René Maxey-Salomone
+          René
+          <br className='hidden md:inline' /> Maxey-
+          <br className='hidden md:inline' />
+          Salomone
         </h1>
         <h2 className='text-xl md:text-2xl mt-2 font-semibold'>
           <span className='text-rose-600'>Full-Stack</span> Developer
@@ -100,10 +103,10 @@ export default function Home() {
           className='max-w-md'
         >
           <p className='max-w-md pt-8 text-gray-800 dark:text-gray-200'>
-            Hi, I&apos;m René &mdash; a software developer with a background in design and a passion
-            for building human-centered web applications. I&apos;m currently open to full-time roles
-            where I can contribute to meaningful products, continue learning, and collaborate with
-            thoughtful teams.
+            Hi, I&apos;m René &mdash; a software developer with a background in design and computer
+            science. I have a passion for problem solving and building human-centered web
+            applications. I&apos;m currently open to full-time roles where I can contribute to
+            meaningful products, continue learning, and collaborate with thoughtful teams.
           </p>
           <CollapsibleContent className='space-y-4'>
             <p className='max-w-md pt-4 text-gray-800 dark:text-gray-200'>
@@ -119,7 +122,7 @@ export default function Home() {
             </p>
           </CollapsibleContent>
           <div className='w-full flex'>
-            <CollapsibleTrigger className=' mt-2 font-semibold text-sm cursor-pointer text-blue-400'>
+            <CollapsibleTrigger className=' mt-2 font-semibold text-sm cursor-pointer text-blue-500'>
               {open ? 'Read less' : 'Read more'}
             </CollapsibleTrigger>
           </div>

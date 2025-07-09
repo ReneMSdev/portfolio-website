@@ -51,8 +51,8 @@ export default function ContactPage() {
       <div className='min-h-screen grid grid-cols-1 md:grid-cols-2 gap-8 justify-start items-start mx-auto pt-30 md:pt-10 max-w-5xl'>
         {/* Contact Form */}
         <div className='flex flex-col w-xs mx-auto'>
-          <h2 className='text-3xl font-semibold mb-6 text-center text-slate-700 dark:text-slate-200'>
-            Let’s Connect
+          <h2 className='text-3xl font-semibold mb-6 text-center text-slate-700 dark:text-[#A8DADC]'>
+            Let&apos;s Connect
           </h2>
           <form
             ref={formRef}
@@ -131,7 +131,7 @@ export default function ContactPage() {
           </form>
         </div>
         <div className='flex flex-col items-center gap-6 mt-4 md:mt-0'>
-          <h2 className='text-3xl font-semibold mb-6 text-center text-slate-800 dark:text-slate-200'>
+          <h2 className='text-3xl font-semibold mb-6 text-center text-slate-700 dark:text-[#A8DADC]'>
             My Links
           </h2>
           {/* QR Code */}
@@ -148,7 +148,7 @@ export default function ContactPage() {
           <div className='flex flex-col items-start gap-3 pb-20'>
             <a
               href='mailto:renems.dev@gmail.com'
-              className='hover:text-blue-500 text-sm font-medium text-foreground'
+              className='text-slate-700 dark:text-[#A8DADC] hover:text-blue-500 text-sm font-medium'
             >
               <div className='flex'>
                 <MdEmail className='text-xl mr-4' />
@@ -157,7 +157,7 @@ export default function ContactPage() {
             </a>
             <a
               href='tel:+15103131898'
-              className='hover:text-blue-500 text-sm font-medium text-foreground'
+              className='text-slate-700 dark:text-[#A8DADC] hover:text-blue-500 text-sm font-medium'
             >
               <div className='flex'>
                 <FaPhoneSquareAlt className='text-xl mr-4' />
@@ -168,7 +168,7 @@ export default function ContactPage() {
               href='https://github.com/ReneMSdev'
               target='_blank'
               rel='noopener noreferrer'
-              className='hover:text-blue-500 text-sm font-medium text-foreground'
+              className='text-slate-700 dark:text-[#A8DADC] hover:text-blue-500 text-sm font-medium'
             >
               <div className='flex'>
                 <FaGithub className='text-xl mr-4' />
@@ -179,7 +179,7 @@ export default function ContactPage() {
               href='https://www.linkedin.com/in/rene-maxey-salomone-5444722a8/'
               target='_blank'
               rel='noopener noreferrer'
-              className='hover:text-blue-500 text-sm font-medium text-foreground'
+              className='text-slate-700 dark:text-[#A8DADC] hover:text-blue-500 text-sm font-medium'
             >
               <div className='flex'>
                 <FaLinkedin className='text-xl mr-4' />

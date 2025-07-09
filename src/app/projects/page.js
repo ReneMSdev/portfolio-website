@@ -37,19 +37,20 @@ export default function ProjectsPage() {
 
         {/* Text */}
         <div className='mt-8 mx-auto'>
-          <h2 className='text-3xl text-slate-800 dark:text-slate-200 font-semibold text-center md:text-start'>
+          <h2 className='text-3xl text-slate-700 dark:text-[#A8DADC] font-semibold text-center md:text-start'>
             Route Planning App
           </h2>
           <p className='max-w-lg mt-4'>
-            Route Boss is a modern route planning web app built with Next.js 13 App Router and React
-            19. It is styled using Tailwind CSS and shadcn/ui. It lets users input delivery or
-            travel destinations, optimize routes, visualize them on a map, and export them for use
-            in the real world.
+            Route Boss is a modern route optimization web app where users can input multiple stops,
+            calculate the most efficient path, and visualize their route on an interactive map. It
+            supports manual address entry or CSV upload, geocodes using OpenCage, optimizes with
+            OpenRouteService, and lets users export their route as a PDF or mobile-friendly QR code.
           </p>
           <p className='max-w-lg mt-4'>
-            <span className='font-semibold'>Built with:</span> Next.js, Leaflet.js, OpenCage Data,
-            OpenRouteService, react-dropzone, papaparse, jsPDF, html2canvas, next-qrcode, Tailwind
-            CSS, ShadCN UI
+            <span className='font-semibold text-slate-700 dark:text-[#A8DADC]'>Built with:</span>
+            <br />
+            Next.js 13 App Router, React 19, Tailwind CSS, ShadCN UI, Leaflet.js, OpenCage,
+            OpenRouteService, react-dropzone, xlsx, jsPDF, next-qrcode
           </p>
         </div>
 
@@ -87,20 +88,25 @@ export default function ProjectsPage() {
 
         {/* Text */}
         <div className='mt-8 mx-auto'>
-          <h2 className='text-3xl text-slate-800 dark:text-slate-200 font-semibold text-center md:text-start'>
+          <h2 className='text-3xl text-slate-700 dark:text-[#A8DADC] font-semibold text-center md:text-start'>
             Life Coaching Website
           </h2>
           <p className='max-w-lg mt-4'>
-            I designed and developed a responsive website for a lifestyle coach, focused on
-            showcasing their services and making client engagement seamless. Built using HTML, CSS,
-            JavaScript, and Bootstrap, the site offers a clean, modern layout optimized for both
-            desktop and mobile users.
+            I designed and developed a responsive website for a Gina Phillips, a professional life
+            coach specializing in burnout recovery, mindset mastery, and ADHD support. Focusing on
+            on showcasing her services and making client engagement seamless, the site offers a
+            clean, modern layout optimized for both desktop and mobile users.
           </p>
           <p className='max-w-lg mt-4'>
             Key features include an integrated Calendly scheduler, allowing visitors to easily book
             consultations, and a custom contact form for direct inquiries. The overall design
             reflects the client&apos;s personal brand and provides a smooth, user-friendly
             experience to support their coaching business online.
+          </p>
+          <p className='max-w-lg mt-4'>
+            <span className='font-semibold text-slate-700 dark:text-[#A8DADC]'>Built with:</span>
+            <br />
+            HTML, CSS, JavaScript, Bootstrap 5, Calendly Embed, Web3Forms API, Toastify.js
           </p>
         </div>
 
@@ -138,24 +144,25 @@ export default function ProjectsPage() {
 
         {/* Text */}
         <div className='mt-8 mx-auto'>
-          <h2 className='text-3xl text-slate-800 dark:text-slate-200 font-semibold text-center md:text-start'>
+          <h2 className='text-3xl text-slate-700 dark:text-[#A8DADC] font-semibold text-center md:text-start'>
             Music Translation App
           </h2>
           <p className='max-w-lg mt-4'>
-            YourSound™ helps you understand music across borders by translating the lyrics of the
-            songs you’re listening to on Spotify — in real time. Whether you&apos;re learning a new
-            language or exploring global music, YourSound™ maintains the rhythm and flow so nothing
-            gets lost in translation.
+            YourSound™ is a music translation app that connects to your Spotify Premium account and
+            translates lyrics of the songs you&apos;re currently listening to — in real time.
+            Designed to preserve rhythm and flow, it helps users explore international music, learn
+            new languages, and engage more deeply with global sounds.
           </p>
           <p className='max-w-lg mt-4'>
-            This project is fully designed and developed by me. It is currently in active
-            development, with core features like authentication and Spotify integration already
-            built. The app is not yet deployed, as I&apos;m continuing to implement real-time lyric
-            translation and synced playback features to enhance the user experience.
+            This project is designed and developed by me. It is currently in active development,
+            with core features like authentication and Spotify integration already built. The app is
+            not yet deployed, as I&apos;m continuing to implement real-time lyric translation and
+            synced playback features to enhance the user experience.
           </p>
           <p className='max-w-lg mt-4'>
-            <span className='font-semibold'>Built with:</span> Next.js, Supabase, Spotify API,
-            Tailwind CSS, ShadCN UI
+            <span className='font-semibold text-slate-700 dark:text-[#A8DADC]'>Built with:</span>
+            <br />
+            Next.js, Supabase, Spotify API, Tailwind CSS, ShadCN UI
           </p>
         </div>
 

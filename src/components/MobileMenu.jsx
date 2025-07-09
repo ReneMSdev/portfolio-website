@@ -29,7 +29,7 @@ export default function MobileMenu() {
   return (
     <>
       {/* Menu bar */}
-      <div className='md:hidden fixed top-0 left-0 w-full h-14 flex items-center justify-baseline bg-slate-200 dark:bg-slate-800 z-[900] px-4'>
+      <div className='md:hidden fixed top-0 left-0 w-full h-14 flex items-center justify-baseline bg-slate-300 dark:bg-slate-800 z-[900] px-4'>
         <a href='/'>
           {mounted && (
             <img
@@ -62,7 +62,7 @@ export default function MobileMenu() {
       {/* Slide-in Menu */}
       <div
         className={cn(
-          'md:hidden fixed top-0 right-0 h-screen w-40 bg-slate-300 dark:bg-slate-600 z-[998] p-8 pt-24 flex flex-col gap-6 transform transition-transform duration-300 ease-in-out shadow-md',
+          'md:hidden fixed top-0 right-0 h-screen w-40 bg-slate-400 dark:bg-slate-600 z-[998] p-8 pt-24 flex flex-col gap-6 transform transition-transform duration-300 ease-in-out shadow-md',
           open ? 'translate-x-0' : 'translate-x-full'
         )}
       >

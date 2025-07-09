@@ -28,7 +28,7 @@ export default function Navbar() {
   return (
     <nav
       className={cn(
-        'hidden md:flex fixed top-0 left-0 w-full justify-center items-center h-14 text-md z-50 bg-slate-200 dark:bg-slate-800'
+        'hidden md:flex fixed top-0 left-0 w-full justify-center items-center h-14 text-md z-50 bg-slate-300 dark:bg-slate-800'
       )}
     >
       <a href='/'>
