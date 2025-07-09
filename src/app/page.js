@@ -94,7 +94,7 @@ export default function Home() {
           <br className='hidden md:inline' />
           Salomone
         </h1>
-        <h2 className='text-xl md:text-2xl mt-2 font-semibold'>
+        <h2 className='text-xl md:text-3xl mt-2 font-semibold'>
           <span className='text-rose-600'>Full-Stack</span> Developer
         </h2>
 
