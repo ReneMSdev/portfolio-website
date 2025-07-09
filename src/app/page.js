@@ -143,7 +143,8 @@ export default function Home() {
               'text-4xl mb-2 text-slate-500 transition-colors duration-300 group-hover:text-[var(--skill-color)]' +
               (darkModeFix ? ' dark:group-hover:text-[var(--tw-dark-skill-color)]' : '')
 
-            const textClass = 'text-sm font-semibold text-slate-600 dark:text-slate-400'
+            const textClass =
+              'text-sm font-semibold text-slate-600 dark:text-slate-400 group-hover:text-slate-800 dark:group-hover:text-white'
 
             return (
               <div
