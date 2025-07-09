@@ -21,13 +21,11 @@ export default function ProjectsPage() {
     '/img/project2/gina3.jpg',
   ]
   const projectThreeImages = [
-    '/img/project3/hero.jpg',
-    '/img/project3/signup.jpg',
-    '/img/project3/login.jpg',
-    '/img/project3/connect-spotify.jpg',
-    '/img/project3/profile.jpg',
-    '/img/project3/recently-played.jpg',
-    '/img/project3/track-id.jpg',
+    '/img/project3/music1.jpg',
+    '/img/project3/music2.jpg',
+    '/img/project3/music3.jpg',
+    '/img/project3/music4.jpg',
+    '/img/project3/music5.jpg',
   ]
 
   return (
