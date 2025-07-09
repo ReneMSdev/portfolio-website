@@ -99,27 +99,27 @@ export default function Home() {
           onOpenChange={setOpen}
           className='max-w-md'
         >
-          <p className='max-w-md pt-8'>
+          <p className='max-w-md pt-8 text-gray-800 dark:text-gray-200'>
             Hi, I&apos;m René &mdash; a software developer with a background in design and a passion
             for building human-centered web applications. I&apos;m currently open to full-time roles
             where I can contribute to meaningful products, continue learning, and collaborate with
             thoughtful teams.
           </p>
           <CollapsibleContent className='space-y-4'>
-            <p className='max-w-md pt-4'>
+            <p className='max-w-md pt-4 text-gray-800 dark:text-gray-200'>
               After earning my B.S. in Computer Science, I&apos;ve developed a variety of projects
               working freelance for small businesses and entrepreneurs. Through collaboration,
               I&apos;ve helped bring my clients&apos; ideas to life. I&apos;m always striving to
               create seamless user experiences.
             </p>
-            <p className='max-w-md'>
+            <p className='max-w-md text-gray-800 dark:text-gray-200'>
               Outside of coding, you&apos;ll usually find me traveling, discovering new coffee
               shops, and working on my next Spotify playlist. Feel free to reach out &mdash;
               I&apos;m always happy to connect and collaborate.
             </p>
           </CollapsibleContent>
           <div className='w-full flex'>
-            <CollapsibleTrigger className=' mt-2 font-semibold text-sm cursor-pointer text-blue-500'>
+            <CollapsibleTrigger className=' mt-2 font-semibold text-sm cursor-pointer text-blue-400'>
               {open ? 'Read less' : 'Read more'}
             </CollapsibleTrigger>
           </div>
