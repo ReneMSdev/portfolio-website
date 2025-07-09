@@ -20,11 +20,7 @@ export function ThemeToggle() {
       className='p-2 mr-10 rounded-md cursor-pointer'
       aria-label='Toggle Theme'
     >
-      {theme === 'dark' ? (
-        <Sun className='w-5 h-5 text-white' />
-      ) : (
-        <Moon className='w-5 h-5 text-white' />
-      )}
+      {theme === 'dark' ? <Sun className='w-5 h-5' /> : <Moon className='w-5 h-5' />}
     </button>
   )
 }

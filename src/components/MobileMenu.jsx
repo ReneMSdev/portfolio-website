@@ -1,10 +1,11 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import NavLink from './NavLink'
 import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
 import { ThemeToggle } from '@/components/theme-toggle'
+import { useTheme } from 'next-themes'
 
 const navItems = [
   { label: 'About', href: '/' },
@@ -15,20 +16,31 @@ const navItems = [
 export default function MobileMenu() {
   const [open, setOpen] = useState(false)
   const pathname = usePathname()
+  const { theme, resolvedTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  // Avoid Hydration mismatch
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  const currentTheme = theme === 'system' ? resolvedTheme : theme
 
   return (
     <>
       {/* Menu bar */}
-      <div className='md:hidden fixed top-0 left-0 w-full h-14 flex items-center justify-baseline bg-slate-800 z-[900] px-4'>
+      <div className='md:hidden fixed top-0 left-0 w-full h-14 flex items-center justify-baseline bg-slate-200 dark:bg-slate-800 z-[900] px-4'>
         <a href='/'>
-          <img
-            src='/logo.svg'
-            alt='logo'
-            className='h-4 w-auto'
-          />
+          {mounted && (
+            <img
+              src={currentTheme === 'dark' ? '/logo-dark.svg' : '/logo-light.svg'}
+              alt='logo'
+              className='h-4 w-auto'
+            />
+          )}
         </a>
         <div className='absolute left-1/2 transform -translate-x-1/4'>
-          <ThemeToggle />
+          <ThemeToggle className='slate-800' />
         </div>
       </div>
 
@@ -50,7 +62,7 @@ export default function MobileMenu() {
       {/* Slide-in Menu */}
       <div
         className={cn(
-          'md:hidden fixed top-0 right-0 h-screen w-40 bg-stone-300 dark:bg-stone-800 z-[998] p-8 pt-24 flex flex-col gap-6 transform transition-transform duration-300 ease-in-out shadow-md',
+          'md:hidden fixed top-0 right-0 h-screen w-40 bg-slate-300 dark:bg-slate-600 z-[998] p-8 pt-24 flex flex-col gap-6 transform transition-transform duration-300 ease-in-out shadow-md',
           open ? 'translate-x-0' : 'translate-x-full'
         )}
       >

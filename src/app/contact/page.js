@@ -51,7 +51,7 @@ export default function ContactPage() {
       <div className='min-h-screen grid grid-cols-1 md:grid-cols-2 gap-8 justify-start items-start mx-auto pt-30 md:pt-10 max-w-5xl'>
         {/* Contact Form */}
         <div className='flex flex-col w-xs mx-auto'>
-          <h2 className='text-2xl font-semibold mb-6 text-center text-indigo-900 dark:text-indigo-700'>
+          <h2 className='text-3xl font-semibold mb-6 text-center text-slate-700 dark:text-slate-200'>
             Let’s Connect
           </h2>
           <form
@@ -121,7 +121,7 @@ export default function ContactPage() {
                 {/* Send Button */}
                 <Button
                   type='submit'
-                  className='w-full text-white bg-slate-600 flex items-center justify-center cursor-pointer font-bold hover:bg-slate-700'
+                  className='w-full text-slate-800 bg-[#A8DADC] flex items-center justify-center cursor-pointer font-bold hover:bg-[#457B9D]'
                   disabled={loading}
                 >
                   {loading ? 'Sending...' : 'Send'}
@@ -130,8 +130,8 @@ export default function ContactPage() {
             </Card>
           </form>
         </div>
-        <div className='flex flex-col items-center gap-6'>
-          <h2 className='text-2xl font-semibold mb-6 text-center text-indigo-900 dark:text-indigo-700'>
+        <div className='flex flex-col items-center gap-6 mt-4 md:mt-0'>
+          <h2 className='text-3xl font-semibold mb-6 text-center text-slate-800 dark:text-slate-200'>
             My Links
           </h2>
           {/* QR Code */}

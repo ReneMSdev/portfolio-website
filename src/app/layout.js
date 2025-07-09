@@ -28,7 +28,7 @@ export default function RootLayout({ children }) {
       suppressHydrationWarning
     >
       <body
-        className={`${geistSans.variable} ${geistMono.variable} bg-slate-50 antialiased font-sans min-h-screen overflow-auto`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased font-sans min-h-screen overflow-auto`}
       >
         <ThemeProvider
           attribute='class'
@@ -41,7 +41,7 @@ export default function RootLayout({ children }) {
             <Navbar />
             <MobileMenu />
 
-            <main className='pt-0 md:pt-20 dark:bg-stone-900'>{children}</main>
+            <main className='pt-0 md:pt-20 bg-slate-50 dark:bg-slate-900'>{children}</main>
           </LoadingProvider>
         </ThemeProvider>
       </body>

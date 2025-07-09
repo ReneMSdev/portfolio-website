@@ -50,14 +50,14 @@ export default function EmblaCarousel({ slides }) {
       <button
         onClick={scrollPrev}
         disabled={!canScrollPrev}
-        className='absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-slate-200 dark:bg-stone-700 bg-opacity-60 rounded-full p-2 shadow-md'
+        className='absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-slate-200 dark:bg-slate-800 bg-opacity-60 rounded-full p-2 shadow-md'
       >
         <ArrowLeft size={15} />
       </button>
       <button
         onClick={scrollNext}
         disabled={!canScrollNext}
-        className='absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-slate-200 dark:bg-stone-700 bg-opacity-60 rounded-full p-2 shadow-md'
+        className='absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-slate-200 dark:bg-slate-800 bg-opacity-60 rounded-full p-2 shadow-md'
       >
         <ArrowRight size={15} />
       </button>

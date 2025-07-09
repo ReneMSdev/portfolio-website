@@ -37,7 +37,7 @@ export default function ProjectsPage() {
 
         {/* Text */}
         <div className='mt-8 mx-auto'>
-          <h2 className='text-2xl text-indigo-900 dark:text-indigo-700 font-semibold text-center md:text-start'>
+          <h2 className='text-3xl text-slate-800 dark:text-slate-200 font-semibold text-center md:text-start'>
             Route Planning App
           </h2>
           <p className='max-w-lg mt-4'>
@@ -81,13 +81,13 @@ export default function ProjectsPage() {
       </div>
 
       {/* Project 2 */}
-      <div className='flex flex-col items-start w-full bg-slate-200 dark:bg-stone-800 py-16 px-6'>
+      <div className='flex flex-col items-start w-full bg-slate-200 dark:bg-slate-800 py-16 px-6'>
         {/* Embla Carousel */}
         <EmblaCarousel slides={projectTwoImages} />
 
         {/* Text */}
         <div className='mt-8 mx-auto'>
-          <h2 className='text-2xl text-indigo-900 dark:text-indigo-700 font-semibold text-center md:text-start'>
+          <h2 className='text-3xl text-slate-800 dark:text-slate-200 font-semibold text-center md:text-start'>
             Life Coaching Website
           </h2>
           <p className='max-w-lg mt-4'>
@@ -138,7 +138,7 @@ export default function ProjectsPage() {
 
         {/* Text */}
         <div className='mt-8 mx-auto'>
-          <h2 className='text-2xl text-indigo-900 dark:text-indigo-700 font-semibold text-center md:text-start'>
+          <h2 className='text-3xl text-slate-800 dark:text-slate-200 font-semibold text-center md:text-start'>
             Music Translation App
           </h2>
           <p className='max-w-lg mt-4'>

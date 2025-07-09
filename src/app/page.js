@@ -86,7 +86,7 @@ export default function Home() {
 
       {/* Text Column - below image on small screens, left on md+ */}
       <div className='order-2 md:order-1 flex flex-col items-center md:items-start pb-20'>
-        <h1 className='text-3xl md:text-4xl font-semibold text-indigo-900 dark:text-indigo-700'>
+        <h1 className='text-3xl md:text-6xl font-semibold text-slate-700 dark:text-slate-200'>
           René Maxey-Salomone
         </h1>
         <h2 className='text-xl md:text-2xl mt-2 font-semibold'>

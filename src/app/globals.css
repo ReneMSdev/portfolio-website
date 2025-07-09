@@ -149,7 +149,7 @@
 
 /* Custom Hamburger Icon */
 #nav-icon {
-  width: 30px;
+  width: 28px;
   height: 25px;
   transform: rotate(0deg);
   transition: 0.5s ease-in-out;
@@ -158,14 +158,18 @@
 #nav-icon span {
   display: block;
   position: absolute;
-  height: 2px;
-  width: 100%;
-  background: #fff;
+  height: 2.5px;
+  width: 80%;
+  background: #1e293b;
   border-radius: 4px;
   opacity: 1;
   left: 0;
   transform: rotate(0deg);
   transition: 0.25s ease-in-out;
+}
+
+.dark #nav-icon span {
+  background: #e2e8f0;
 }
 
 #nav-icon span:nth-child(1) {
