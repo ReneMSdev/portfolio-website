@@ -81,7 +81,7 @@ export default function ContactPage() {
                     name='name'
                     required
                     placeholder='Your name'
-                    className='w-full focus:outline-none border-1 border-slate-300'
+                    className='w-full focus:outline-none'
                   />
                 </div>
 
@@ -99,7 +99,7 @@ export default function ContactPage() {
                     type='email'
                     required
                     placeholder='you@example.com'
-                    className='w-full focus:outline-none border-1 border-slate-300'
+                    className='w-full focus:outline-none'
                   />
                 </div>
 
@@ -116,14 +116,14 @@ export default function ContactPage() {
                     name='message'
                     required
                     placeholder='Type your message here...'
-                    className='w-full focus:outline-none border-1 selection:text-white selection:bg-black border-slate-300'
+                    className='w-full focus:outline-none'
                   />
                 </div>
 
                 {/* Send Button */}
                 <Button
                   type='submit'
-                  className='w-full text-slate-800 bg-[#A8DADC] flex items-center justify-center cursor-pointer font-bold hover:bg-[#457B9D]'
+                  className='w-full text-slate-800 bg-[#A8DADC] flex items-center justify-center cursor-pointer font-bold hover:bg-[#457B9D] hover:text-white'
                   disabled={loading}
                 >
                   {loading ? 'Sending...' : 'Send'}
