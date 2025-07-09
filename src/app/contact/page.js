@@ -15,8 +15,10 @@ import { useTheme } from 'next-themes'
 
 export default function ContactPage() {
   const { theme } = useTheme()
-
   const { setIsLoading } = useLoading()
+
+  const linkStyles =
+    'text-slate-700 dark:text-[#A8DADC] hover:text-blue-500 dark:hover:text-blue-500 text-sm font-medium'
 
   useEffect(() => {
     setIsLoading(false)
@@ -148,7 +150,7 @@ export default function ContactPage() {
           <div className='flex flex-col items-start gap-3 pb-20'>
             <a
               href='mailto:renems.dev@gmail.com'
-              className='text-slate-700 dark:text-[#A8DADC] hover:text-blue-500 text-sm font-medium'
+              className={linkStyles}
             >
               <div className='flex'>
                 <MdEmail className='text-xl mr-4' />
@@ -157,7 +159,7 @@ export default function ContactPage() {
             </a>
             <a
               href='tel:+15103131898'
-              className='text-slate-700 dark:text-[#A8DADC] hover:text-blue-500 text-sm font-medium'
+              className={linkStyles}
             >
               <div className='flex'>
                 <FaPhoneSquareAlt className='text-xl mr-4' />
@@ -168,7 +170,7 @@ export default function ContactPage() {
               href='https://github.com/ReneMSdev'
               target='_blank'
               rel='noopener noreferrer'
-              className='text-slate-700 dark:text-[#A8DADC] hover:text-blue-500 text-sm font-medium'
+              className={linkStyles}
             >
               <div className='flex'>
                 <FaGithub className='text-xl mr-4' />
@@ -179,7 +181,7 @@ export default function ContactPage() {
               href='https://www.linkedin.com/in/rene-maxey-salomone-5444722a8/'
               target='_blank'
               rel='noopener noreferrer'
-              className='text-slate-700 dark:text-[#A8DADC] hover:text-blue-500 text-sm font-medium'
+              className={linkStyles}
             >
               <div className='flex'>
                 <FaLinkedin className='text-xl mr-4' />

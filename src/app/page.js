@@ -56,6 +56,8 @@ const skills = [
   { name: 'Vercel', icon: SiVercel, color: '#000000', darkModeFix: true },
 ]
 
+const textStyles = ' max-w-md text-slate-900 dark:text-slate-200'
+
 export default function Home() {
   const [open, setOpen] = useState(false)
   const { setIsLoading } = useLoading()
@@ -86,7 +88,7 @@ export default function Home() {
 
       {/* Text Column - below image on small screens, left on md+ */}
       <div className='order-2 md:order-1 flex flex-col items-center md:items-start pb-20'>
-        <h1 className='text-3xl md:text-6xl font-semibold text-slate-700 dark:text-slate-200'>
+        <h1 className='text-3xl md:text-6xl font-semibold text-slate-700 dark:text-[#A8DADC]'>
           René
           <br className='hidden md:inline' /> Maxey-
           <br className='hidden md:inline' />
@@ -102,20 +104,20 @@ export default function Home() {
           onOpenChange={setOpen}
           className='max-w-md'
         >
-          <p className='max-w-md pt-8 text-gray-800 dark:text-gray-200'>
+          <p className={'max-w-md pt-8' + textStyles}>
             Hi, I&apos;m René &mdash; a software developer with a background in design and computer
             science. I have a passion for problem solving and building human-centered web
             applications. I&apos;m currently open to full-time roles where I can contribute to
             meaningful products, continue learning, and collaborate with thoughtful teams.
           </p>
           <CollapsibleContent className='space-y-4'>
-            <p className='max-w-md pt-4 text-gray-800 dark:text-gray-200'>
+            <p className={'pt-4' + textStyles}>
               After earning my B.S. in Computer Science, I&apos;ve developed a variety of projects
               working freelance for small businesses and entrepreneurs. Through collaboration,
               I&apos;ve helped bring my clients&apos; ideas to life. I&apos;m always striving to
               create seamless user experiences.
             </p>
-            <p className='max-w-md text-gray-800 dark:text-gray-200'>
+            <p className={textStyles}>
               Outside of coding, you&apos;ll usually find me traveling, discovering new coffee
               shops, and working on my next Spotify playlist. Feel free to reach out &mdash;
               I&apos;m always happy to connect and collaborate.
