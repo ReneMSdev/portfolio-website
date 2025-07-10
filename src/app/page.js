@@ -106,16 +106,16 @@ export default function Home() {
         >
           <p className={'max-w-md pt-8' + textStyles}>
             Hi, I&apos;m René &mdash; a software developer with a background in design and computer
-            science. I have a passion for problem solving and building human-centered web
+            science. I have a passion for problem-solving and building human-centered web
             applications. I&apos;m currently open to full-time roles where I can contribute to
             meaningful products, continue learning, and collaborate with thoughtful teams.
           </p>
           <CollapsibleContent className='space-y-4'>
             <p className={'pt-4' + textStyles}>
               After earning my B.S. in Computer Science, I&apos;ve developed a variety of projects
-              working freelance for small businesses and entrepreneurs. Through collaboration,
-              I&apos;ve helped bring my clients&apos; ideas to life. I&apos;m always striving to
-              create seamless user experiences.
+              through freelance work for small businesses and entrepreneurs. Through collaboration,
+              I&apos;ve helped bring my clients&apos; ideas to life, always striving to create
+              seamless user experiences.
             </p>
             <p className={textStyles}>
               Outside of coding, you&apos;ll usually find me traveling, discovering new coffee

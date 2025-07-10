@@ -97,8 +97,8 @@ export default function ProjectsPage() {
           <p className={textStyles}>
             I designed and developed a responsive website for a Gina Phillips, a professional life
             coach specializing in burnout recovery, mindset mastery, and ADHD support. Focusing on
-            on showcasing her services and making client engagement seamless, the site offers a
-            clean, modern layout optimized for both desktop and mobile users.
+            showcasing her services and making client engagement seamless, the site offers a clean,
+            modern layout optimized for both desktop and mobile users.
           </p>
           <p className={textStyles}>
             Key features include an integrated Calendly scheduler, allowing visitors to easily book
@@ -162,7 +162,9 @@ export default function ProjectsPage() {
             synced playback features to enhance the user experience.
           </p>
           <p className={builtWith}>Built with:</p>
-          <p className={builtWithText}>Next.js, Supabase, Spotify API, Tailwind CSS, ShadCN UI</p>
+          <p className={builtWithText}>
+            Next.js, TypeScript, Supabase, Spotify API, Tailwind CSS, ShadCN UI
+          </p>
         </div>
 
         {/* Demo & Code links */}
