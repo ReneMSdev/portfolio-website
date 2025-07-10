@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import NavLink from './NavLink'
 import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
@@ -18,11 +18,22 @@ export default function MobileMenu() {
   const pathname = usePathname()
   const { theme, resolvedTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
+  const menuRef = useRef(null)
 
-  // Avoid Hydration mismatch
+  // Click Outside
   useEffect(() => {
     setMounted(true)
-  }, [])
+
+    function handleClickOutside(event) {
+      if (menuRef.current && !menuRef.current.contains(event.target)) setOpen(false)
+    }
+    if (open) document.addEventListener('mousedown', handleClickOutside)
+    else document.removeEventListener('mousedown', handleClickOutside)
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [open])
 
   const currentTheme = theme === 'system' ? resolvedTheme : theme
 
@@ -61,6 +72,7 @@ export default function MobileMenu() {
 
       {/* Slide-in Menu */}
       <div
+        ref={menuRef}
         className={cn(
           'md:hidden fixed top-0 right-0 h-screen w-40 bg-slate-400 dark:bg-slate-600 z-[998] p-8 pt-24 flex flex-col gap-6 transform transition-transform duration-300 ease-in-out shadow-md',
           open ? 'translate-x-0' : 'translate-x-full'
