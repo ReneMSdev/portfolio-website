@@ -23,30 +23,35 @@ export default function MobileMenu() {
   // Click Outside
   useEffect(() => {
     setMounted(true)
-
     function handleClickOutside(event) {
-      if (menuRef.current && !menuRef.current.contains(event.target)) setOpen(false)
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(event.target) &&
+        event.target.id !== 'nav-icon' &&
+        !event.target.closest('#nav-icon')
+      ) {
+        setOpen(false)
+      }
     }
-    if (open) document.addEventListener('mousedown', handleClickOutside)
-    else document.removeEventListener('mousedown', handleClickOutside)
 
+    document.addEventListener('mousedown', handleClickOutside)
     return () => {
       document.removeEventListener('mousedown', handleClickOutside)
     }
-  }, [open])
+  }, [])
 
   const currentTheme = theme === 'system' ? resolvedTheme : theme
 
   return (
     <>
       {/* Menu bar */}
-      <div className='md:hidden fixed top-0 left-0 w-full h-14 flex items-center justify-baseline bg-slate-300 dark:bg-slate-800 z-[900] px-4'>
+      <div className='md:hidden fixed top-0 left-0 w-full h-14 flex items-center justify-baseline bg-slate-300 dark:bg-slate-800 z-[50] px-4'>
         <a href='/'>
           {mounted && (
             <img
               src={currentTheme === 'dark' ? '/logo-dark.svg' : '/logo-light.svg'}
               alt='logo'
-              className='h-4 w-auto'
+              className='h-4 w-auto z-[998]'
             />
           )}
         </a>
@@ -59,7 +64,7 @@ export default function MobileMenu() {
       <div
         id='nav-icon'
         className={cn(
-          'md:hidden fixed top-4 right-4 w-10 h-10 z-[999] cursor-pointer',
+          'md:hidden fixed top-4 right-4 w-10 h-10 z-[999] cursor-pointer pointer-events-auto',
           open && 'open'
         )}
         onClick={() => setOpen(!open)}
