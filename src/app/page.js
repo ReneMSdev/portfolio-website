@@ -75,7 +75,7 @@ export default function Home() {
           <div className='relative inline-block'>
             {/* Image on top */}
             <Image
-              src='/img/profile/profile2.jpg'
+              src='/img/profile/profile.jpg'
               alt='Rene Maxey-Salomone'
               width={250}
               height={375}
