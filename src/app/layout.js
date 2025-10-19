@@ -5,6 +5,7 @@ import MobileMenu from '@/components/MobileMenu'
 import { LoadingProvider } from '@/context/LoadingContext'
 import RouteChangeSpinner from '@/components/RouteChangeSpinner'
 import { ThemeProvider } from '@/components/theme-provider'
+import { Analytics } from '@vercel/analytics/react'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -43,6 +44,7 @@ export default function RootLayout({ children }) {
 
             <main className='pt-0 md:pt-20 bg-slate-50 dark:bg-slate-900'>{children}</main>
           </LoadingProvider>
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>
