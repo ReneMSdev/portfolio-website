@@ -154,16 +154,16 @@ export default function ContactPage() {
             >
               <div className='flex'>
                 <MdEmail className='text-xl mr-4' />
-                renems.dev@gmail.com
+                rene.salomone@gmail.com
               </div>
             </a>
             <a
-              href='tel:+15103131898'
+              href='tel:+15733933104'
               className={linkStyles}
             >
               <div className='flex'>
                 <FaPhoneSquareAlt className='text-xl mr-4' />
-                +1 (510) 313 - 1898
+                +1 (573) 393 - 3104
               </div>
             </a>
             <a
