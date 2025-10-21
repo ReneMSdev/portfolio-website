@@ -149,7 +149,7 @@ export default function ContactPage() {
           {/* Social Links */}
           <div className='flex flex-col items-start gap-3 pb-20'>
             <a
-              href='mailto:renems.dev@gmail.com'
+              href='mailto:rene.salomone@gmail.com'
               className={linkStyles}
             >
               <div className='flex'>
