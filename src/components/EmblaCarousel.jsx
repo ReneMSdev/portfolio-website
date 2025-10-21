@@ -25,7 +25,7 @@ export default function EmblaCarousel({ slides }) {
   }, [emblaApi, onSelect])
 
   return (
-    <div className='relative w-full max-w-screen-sm mx-auto overflow-hidden'>
+    <div className='relative w-full max-w-screen-sm mx-auto overflow-hidden rounded-lg shadow-lg shadow-slate-500/70'>
       <div
         className='embla'
         ref={emblaRef}
@@ -33,13 +33,13 @@ export default function EmblaCarousel({ slides }) {
         <div className='flex'>
           {slides.map((src, index) => (
             <div
-              className='min-w-0 flex-[0_0_100%] px-2'
+              className='min-w-0 flex-[0_0_100%]'
               key={index}
             >
               <img
                 src={src}
                 alt={`Slide ${index + 1}`}
-                className='w-full h-auto object-contain border border-slate-600'
+                className='w-full h-auto object-cover'
               />
             </div>
           ))}
