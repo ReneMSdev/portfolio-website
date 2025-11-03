@@ -105,22 +105,20 @@ export default function Home() {
           className='max-w-md'
         >
           <p className={'max-w-md pt-8' + textStyles}>
-            Hi, I&apos;m René &mdash; a software developer with a background in design and computer
-            science. I have a passion for problem-solving and building human-centered web
-            applications. I&apos;m currently open to full-time roles where I can contribute to
-            meaningful products, continue learning, and collaborate with thoughtful teams.
+            {
+              "Hi, I'm René, a software developer with a background in computer science. I have a passion for problem-solving and building human-centered web applications. I'm currently open to full-time roles where I can contribute to meaningful products, continue learning, and collaborate with thoughtful teams."
+            }
           </p>
           <CollapsibleContent className='space-y-4'>
             <p className={'pt-4' + textStyles}>
-              After earning my B.S. in Computer Science, I&apos;ve developed a variety of projects
-              through freelance work for small businesses and entrepreneurs. Through collaboration,
-              I&apos;ve helped bring my clients&apos; ideas to life, always striving to create
-              seamless user experiences.
+              {
+                "After earning my B.S. in Computer Science, I've developed a variety of projects through freelance work for small businesses and entrepreneurs. Through collaboration, I've helped bring my clients' ideas to life, always striving to create seamless user experiences."
+              }
             </p>
             <p className={textStyles}>
-              Outside of coding, you&apos;ll usually find me traveling, discovering new coffee
-              shops, and working on my next Spotify playlist. Feel free to reach out &mdash;
-              I&apos;m always happy to connect and collaborate.
+              {
+                "Outside of coding, you'll usually find me traveling, discovering new coffee shops, and working on my next Spotify playlist. Feel free to reach out. I'm always happy to connect and collaborate."
+              }
             </p>
           </CollapsibleContent>
           <div className='w-full flex'>
