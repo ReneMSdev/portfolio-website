@@ -25,7 +25,7 @@ export default function EmblaCarousel({ slides }) {
   }, [emblaApi, onSelect])
 
   return (
-    <div className='relative w-full max-w-screen-sm mx-auto overflow-hidden rounded-lg shadow-lg shadow-slate-500/70'>
+    <div className='relative w-full max-w-screen-sm mx-auto overflow-hidden rounded-lg shadow-md shadow-slate-500/70'>
       <div
         className='embla'
         ref={emblaRef}

@@ -70,7 +70,7 @@ export default function Navbar() {
           Github
         </a>
       </div>
-      <ThemeToggle className='text-slate-800 dark:text-slate-50' />
+      {/* <ThemeToggle className='text-slate-800 dark:text-slate-50' /> */}
     </nav>
   )
 }
