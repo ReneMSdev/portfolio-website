@@ -56,7 +56,7 @@ const skills = [
   { name: 'Vercel', icon: SiVercel, color: '#000000', darkModeFix: true },
 ]
 
-const textStyles = ' max-w-md text-slate-900 dark:text-slate-200'
+const textStyles = 'max-w-md text-slate-900 dark:text-slate-200'
 
 export default function Home() {
   const [open, setOpen] = useState(false)
@@ -65,7 +65,7 @@ export default function Home() {
   useEffect(() => {
     setIsLoading(false)
     window.scrollTo(0, 0)
-  }, [])
+  })
 
   return (
     <div className='grid grid-cols-1 md:grid-cols-2 gap-8 items-start px-4 md:px-10 mt-10 mx-auto max-w-5xl min-h-[150vh]'>
@@ -104,7 +104,7 @@ export default function Home() {
           onOpenChange={setOpen}
           className='max-w-md'
         >
-          <p className={'max-w-md pt-8' + textStyles}>
+          <p className={'max-w-md pt-8 ' + textStyles}>
             {
               "Hi, I'm René, a software developer with a background in computer science. I have a passion for problem-solving and building human-centered web applications. I'm currently open to full-time roles where I can contribute to meaningful products, continue learning, and collaborate with thoughtful teams."
             }

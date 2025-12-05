@@ -41,8 +41,9 @@ export default function RootLayout({ children }) {
             <RouteChangeSpinner />
             <Navbar />
             <MobileMenu />
+            <div className='fixed inset-0 bg-gradient-to-b from-slate-900 to-blue-900 -z-10'></div>
 
-            <main className='pt-0 md:pt-20 bg-slate-50 dark:bg-slate-900'>{children}</main>
+            <main className='pt-0 md:pt-20'>{children}</main>
           </LoadingProvider>
           <Analytics />
         </ThemeProvider>
