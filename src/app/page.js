@@ -56,7 +56,7 @@ const skills = [
   { name: 'Vercel', icon: SiVercel, color: '#000000', darkModeFix: true },
 ]
 
-const textStyles = 'max-w-md text-slate-900 dark:text-slate-200'
+const textStyles = ' max-w-md text-slate-900 dark:text-slate-200'
 
 export default function Home() {
   const [open, setOpen] = useState(false)
