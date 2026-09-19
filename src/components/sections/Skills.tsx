@@ -20,6 +20,8 @@ import {
   SiVercel,
   SiFastapi,
   SiFlutter,
+  SiOpenai,
+  SiClaude,
 } from 'react-icons/si'
 import { FaAws } from 'react-icons/fa'
 import { BiLogoPostgresql } from 'react-icons/bi'
@@ -73,6 +75,13 @@ const skillGroups: SkillGroup[] = [
     skills: [
       { name: 'Git', icon: SiGit },
       { name: 'GitHub', icon: SiGithub },
+    ],
+  },
+  {
+    command: 'npm install ai-tooling',
+    skills: [
+      { name: 'OpenAI API', icon: SiOpenai },
+      { name: 'Claude API', icon: SiClaude },
     ],
   },
 ]
