@@ -1,7 +1,6 @@
 'use client'
 
 import { motion } from 'motion/react'
-import { DotBackground } from '@/components/ui/dot-background'
 
 const fadeUp = {
   initial: { opacity: 0, y: 16 },
@@ -10,9 +9,9 @@ const fadeUp = {
 
 export default function Hero() {
   return (
-    <DotBackground
-      className='scroll-mt-14 min-h-screen flex items-center justify-center'
+    <section
       id='hero'
+      className='scroll-mt-14 min-h-screen flex items-center justify-center'
     >
       <div className='flex flex-col items-center gap-4 px-4 md:px-10 text-center max-w-2xl mx-auto'>
         <motion.p
@@ -49,6 +48,6 @@ export default function Hero() {
           distributed identity platforms.
         </motion.p>
       </div>
-    </DotBackground>
+    </section>
   )
 }
