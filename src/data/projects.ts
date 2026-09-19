@@ -53,7 +53,7 @@ export const projects: Project[] = [
     description:
       'A static site built for ATX Reliable Wrenching, a mobile mechanic business serving the Greater Austin area, giving them a booking and contact presence online.',
     stack: ['HTML', 'CSS', 'JavaScript'],
-    images: ['/img/mobile-mechanic/mobile-mechanic-1.png'],
+    images: ['/img/mobile-mechanic/mobile-mechanic-1.jpg'],
     demoUrl: 'https://www.atxreliablewrenching.com/',
   },
   {
