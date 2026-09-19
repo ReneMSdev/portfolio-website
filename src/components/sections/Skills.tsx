@@ -20,10 +20,10 @@ import {
   SiGooglecloud,
   SiNetlify,
   SiVercel,
+  SiFastapi,
 } from 'react-icons/si'
 import { FaAws } from 'react-icons/fa'
 import { BiLogoPostgresql } from 'react-icons/bi'
-import { RiJavaLine } from 'react-icons/ri'
 import { TerminalWindow } from '@/components/ui/terminal'
 
 interface Skill {
@@ -38,10 +38,10 @@ const skills: Skill[] = [
   { name: 'TypeScript', icon: SiTypescript },
   { name: 'Swift', icon: SiSwift },
   { name: 'Python', icon: SiPython },
-  { name: 'Java', icon: RiJavaLine },
   { name: 'React', icon: SiReact },
   { name: 'Next.js', icon: SiNextdotjs },
   { name: 'Node.js', icon: SiNodedotjs },
+  { name: 'FastAPI', icon: SiFastapi },
   { name: 'Tailwind CSS', icon: SiTailwindcss },
   { name: 'PostgreSQL', icon: BiLogoPostgresql },
   { name: 'AWS', icon: FaAws },
