@@ -71,7 +71,7 @@ export default function MobileMenu() {
       <div
         ref={menuRef}
         className={cn(
-          'md:hidden fixed top-0 right-0 h-screen w-40 bg-surface z-[998] p-8 pt-24 flex flex-col gap-6 transform transition-transform duration-300 ease-in-out shadow-md',
+          'md:hidden fixed top-0 right-0 h-screen w-40 bg-surface z-[998] p-8 pt-24 flex flex-col gap-6 transform transition-transform duration-300 ease-in-out shadow-md lowercase',
           open ? 'translate-x-0' : 'translate-x-full'
         )}
       >

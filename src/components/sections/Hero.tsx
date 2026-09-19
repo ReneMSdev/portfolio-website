@@ -36,7 +36,7 @@ export default function Hero() {
             initial={fadeUp.initial}
             animate={fadeUp.animate}
             transition={{ duration: 0.5 }}
-            className='font-mono text-sm text-accent uppercase tracking-wider'
+            className='font-mono text-lg text-accent lowercase tracking-wider'
           >
             Available for full-time roles
           </motion.p>

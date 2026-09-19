@@ -28,7 +28,7 @@ export default function Navbar() {
           className='h-4 w-auto'
         />
       </a>
-      <div className='flex gap-6 mx-auto'>
+      <div className='flex gap-6 mx-auto lowercase'>
         {navItems.map((item) => (
           <NavLink
             key={item.href}
