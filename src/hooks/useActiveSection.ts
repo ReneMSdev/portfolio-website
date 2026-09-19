@@ -3,30 +3,42 @@
 import { useEffect, useState } from 'react'
 
 export function useActiveSection(ids: string[]) {
-  const [activeId, setActiveId] = useState<string | null>(null)
+  const [activeId, setActiveId] = useState<string | null>(ids[0] ?? null)
   const key = ids.join(',')
 
   useEffect(() => {
-    const elements = key
-      .split(',')
-      .map((id) => document.getElementById(id))
-      .filter((el): el is HTMLElement => el !== null)
+    const sectionIds = key.split(',')
+    let ticking = false
 
-    if (elements.length === 0) return
+    function updateActiveSection() {
+      const offset = 120
+      const scrollPosition = window.scrollY + offset
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)
+      let current = sectionIds[0]
+      for (const id of sectionIds) {
+        const el = document.getElementById(id)
+        if (el && el.offsetTop <= scrollPosition) {
+          current = id
+        }
+      }
+      setActiveId(current)
+      ticking = false
+    }
 
-        if (visible[0]) setActiveId(visible[0].target.id)
-      },
-      { rootMargin: '-30% 0px -60% 0px', threshold: [0, 0.25, 0.5, 0.75, 1] }
-    )
+    function onScroll() {
+      if (!ticking) {
+        ticking = true
+        requestAnimationFrame(updateActiveSection)
+      }
+    }
 
-    elements.forEach((el) => observer.observe(el))
-    return () => observer.disconnect()
+    updateActiveSection()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    window.addEventListener('resize', onScroll)
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', onScroll)
+    }
   }, [key])
 
   return activeId

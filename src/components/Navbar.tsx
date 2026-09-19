@@ -7,6 +7,7 @@ import { useActiveSection } from '@/hooks/useActiveSection'
 
 const navItems = [
   { label: 'About', href: '#about' },
+  { label: 'Skills', href: '#skills' },
   { label: 'Projects', href: '#projects' },
   { label: 'Contact', href: '#contact' },
 ]
@@ -15,11 +16,8 @@ export default function Navbar() {
   const activeId = useActiveSection(navItems.map((item) => item.href.slice(1)))
 
   return (
-    <nav className='hidden md:flex fixed top-0 left-0 w-full justify-center items-center h-14 text-md z-50 bg-background/70 backdrop-blur-sm'>
-      <a
-        href='#hero'
-        className='ml-10'
-      >
+    <nav className='hidden md:grid grid-cols-[auto_1fr_auto] items-center fixed top-0 left-0 w-full h-14 text-md z-50 bg-background/70 backdrop-blur-sm px-10'>
+      <a href='#hero'>
         <Image
           src='/logo-dark.svg'
           alt='logo'
@@ -28,7 +26,8 @@ export default function Navbar() {
           className='h-4 w-auto'
         />
       </a>
-      <div className='flex gap-6 mx-auto lowercase'>
+
+      <div className='flex justify-center gap-6 lowercase'>
         {navItems.map((item) => (
           <NavLink
             key={item.href}
@@ -41,11 +40,14 @@ export default function Navbar() {
             {item.label}
           </NavLink>
         ))}
+      </div>
+
+      <div className='flex justify-end gap-6 lowercase'>
         <a
           href='/resume.pdf'
           target='_blank'
           rel='noopener noreferrer'
-          className='text-foreground font-semibold nav-link-hover'
+          className='text-foreground font-semibold hover:text-accent transition-colors'
         >
           Resume
         </a>
@@ -53,7 +55,7 @@ export default function Navbar() {
           href='https://github.com/ReneMSdev'
           target='_blank'
           rel='noopener noreferrer'
-          className='text-foreground font-semibold nav-link-hover'
+          className='text-foreground font-semibold hover:text-accent transition-colors'
         >
           Github
         </a>
