@@ -70,7 +70,7 @@ export function ProjectModal({ project, onClose, triggerRef }: ProjectModalProps
         aria-labelledby={`project-title-${project.slug}`}
         ref={modalRef}
         onClick={(e) => e.stopPropagation()}
-        className='relative w-full max-w-5xl max-h-[85vh] overflow-y-auto rounded-lg bg-surface border border-border p-6 md:p-8'
+        className='relative w-full max-w-4xl max-h-[85vh] overflow-y-auto rounded-lg bg-surface border border-border p-6 md:p-8'
       >
         <button
           onClick={onClose}
@@ -96,7 +96,7 @@ export function ProjectModal({ project, onClose, triggerRef }: ProjectModalProps
               src={project.images[0]}
               alt={project.title}
               fill
-              sizes='(max-width: 1024px) 100vw, 1024px'
+              sizes='(max-width: 896px) 100vw, 896px'
               className='object-cover'
             />
           </div>
