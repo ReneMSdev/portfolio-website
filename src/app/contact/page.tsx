@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, type FormEvent } from 'react'
 import { useLoading } from '@/context/LoadingContext'
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
@@ -25,11 +25,12 @@ export default function ContactPage() {
     window.scrollTo(0, 0)
   }, [])
 
-  const formRef = useRef(null)
+  const formRef = useRef<HTMLFormElement>(null)
   const [loading, setLoading] = useState(false)
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    if (!formRef.current) return
     setLoading(true)
 
     const formData = new FormData(formRef.current)

@@ -18,17 +18,18 @@ export default function MobileMenu() {
   const pathname = usePathname()
   const { theme, resolvedTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
-  const menuRef = useRef(null)
+  const menuRef = useRef<HTMLDivElement>(null)
 
   // Click Outside
   useEffect(() => {
     setMounted(true)
-    function handleClickOutside(event) {
+    function handleClickOutside(event: MouseEvent) {
+      const target = event.target as HTMLElement
       if (
         menuRef.current &&
-        !menuRef.current.contains(event.target) &&
-        event.target.id !== 'nav-icon' &&
-        !event.target.closest('#nav-icon')
+        !menuRef.current.contains(target) &&
+        target.id !== 'nav-icon' &&
+        !target.closest('#nav-icon')
       ) {
         setOpen(false)
       }

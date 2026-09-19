@@ -2,14 +2,23 @@
 import Link from 'next/link'
 import { useRouter, usePathname } from 'next/navigation'
 import { useLoading } from '@/context/LoadingContext'
+import type { MouseEvent, ReactNode } from 'react'
 
-export default function NavLink({ href, children, className }) {
+interface NavLinkProps {
+  href: string
+  children: ReactNode
+  className?: string
+  onClick?: () => void
+}
+
+export default function NavLink({ href, children, className, onClick }: NavLinkProps) {
   const router = useRouter()
   const pathname = usePathname()
   const { setIsLoading } = useLoading()
 
-  const handleClick = (e) => {
+  const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault()
+    onClick?.()
 
     if (pathname === href) return
 

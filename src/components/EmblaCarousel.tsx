@@ -1,10 +1,14 @@
 'use client'
 
-import React, { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 
-export default function EmblaCarousel({ slides }) {
+interface EmblaCarouselProps {
+  slides: string[]
+}
+
+export default function EmblaCarousel({ slides }: EmblaCarouselProps) {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true })
   const [canScrollPrev, setCanScrollPrev] = useState(false)
   const [canScrollNext, setCanScrollNext] = useState(false)

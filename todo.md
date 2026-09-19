@@ -3,11 +3,11 @@
 Source: `Portfolio Redesign — Design Brief.md` (2026-09-19). Tracked phase-by-phase; check items off as they land. See `status.md` for current phase and blockers.
 
 ## Phase 0 — Foundation & Tooling
-- [ ] Migrate project from JS/JSX to TypeScript
-- [ ] Upgrade Next.js to current stable (16.2.x LTS or 16.3)
-- [ ] Confirm React 19 / Tailwind 4 / shadcn compatibility after upgrade
-- [ ] Add `motion` (Framer Motion) dependency
-- [ ] Add Aceternity UI components (hero/section effects, 3D-tilt card, `CardContainer`/`CardBody`)
+- [x] Migrate project from JS/JSX to TypeScript
+- [x] Upgrade Next.js to current stable (16.3.5)
+- [x] Confirm React 19 / Tailwind 4 / shadcn compatibility after upgrade
+- [x] Add `motion` (Framer Motion) dependency
+- [ ] Add Aceternity UI components (hero/section effects, 3D-tilt card, `CardContainer`/`CardBody`) — deferred to Phase 3/4, copied in alongside the components that use them
 - [ ] Re-verify Embla Carousel and react-toastify still needed post-redesign
 
 ## Phase 1 — Design System & Tokens

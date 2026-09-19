@@ -2,8 +2,9 @@
 
 import Image from 'next/image'
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, type CSSProperties } from 'react'
 import { useLoading } from '@/context/LoadingContext'
+import type { IconType } from 'react-icons'
 
 import {
   SiReact,
@@ -30,7 +31,14 @@ import { BiLogoPostgresql } from 'react-icons/bi'
 import { RiJavaLine } from 'react-icons/ri'
 import { TbBrandMysql } from 'react-icons/tb'
 
-const skills = [
+interface Skill {
+  name: string
+  icon: IconType
+  color: string
+  darkModeFix?: boolean
+}
+
+const skills: Skill[] = [
   { name: 'HTML', icon: SiHtml5, color: '#E34F26' },
   { name: 'CSS', icon: SiCss3, color: '#1572B6' },
   { name: 'JavaScript', icon: SiJavascript, color: '#F7DF1E' },
@@ -135,7 +143,7 @@ export default function Home() {
             const skillStyle = {
               '--skill-color': color,
               ...(darkModeFix && { '--tw-dark-skill-color': '#ffffff' }),
-            }
+            } as CSSProperties
 
             const iconClass =
               'text-4xl mb-2 text-slate-500 transition-colors duration-300 group-hover:text-[var(--skill-color)]' +
