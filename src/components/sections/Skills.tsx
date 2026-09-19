@@ -14,13 +14,12 @@ import {
   SiGithub,
   SiHtml5,
   SiCss3,
-  SiSwift,
   SiPython,
   SiFirebase,
   SiGooglecloud,
-  SiNetlify,
   SiVercel,
   SiFastapi,
+  SiFlutter,
 } from 'react-icons/si'
 import { FaAws } from 'react-icons/fa'
 import { BiLogoPostgresql } from 'react-icons/bi'
@@ -45,7 +44,6 @@ const skillGroups: SkillGroup[] = [
       { name: 'JavaScript', icon: SiJavascript },
       { name: 'TypeScript', icon: SiTypescript },
       { name: 'Python', icon: SiPython },
-      { name: 'Swift', icon: SiSwift },
     ],
   },
   {
@@ -56,6 +54,8 @@ const skillGroups: SkillGroup[] = [
       { name: 'Node.js', icon: SiNodedotjs },
       { name: 'FastAPI', icon: SiFastapi },
       { name: 'Tailwind CSS', icon: SiTailwindcss },
+      { name: 'React Native', icon: SiReact },
+      { name: 'Flutter', icon: SiFlutter },
     ],
   },
   {
@@ -65,7 +65,6 @@ const skillGroups: SkillGroup[] = [
       { name: 'AWS', icon: FaAws },
       { name: 'GCP', icon: SiGooglecloud },
       { name: 'Firebase', icon: SiFirebase },
-      { name: 'Netlify', icon: SiNetlify },
       { name: 'Vercel', icon: SiVercel },
     ],
   },
