@@ -10,7 +10,6 @@ import {
   SiJavascript,
   SiTypescript,
   SiNodedotjs,
-  SiSupabase,
   SiGit,
   SiGithub,
   SiHtml5,
@@ -18,15 +17,13 @@ import {
   SiSwift,
   SiPython,
   SiFirebase,
-  SiAdobecreativecloud,
-  SiFigma,
+  SiGooglecloud,
   SiNetlify,
   SiVercel,
 } from 'react-icons/si'
-import { FaLinux, FaAws } from 'react-icons/fa'
+import { FaAws } from 'react-icons/fa'
 import { BiLogoPostgresql } from 'react-icons/bi'
 import { RiJavaLine } from 'react-icons/ri'
-import { TbBrandMysql } from 'react-icons/tb'
 import { TerminalWindow } from '@/components/ui/terminal'
 
 interface Skill {
@@ -46,16 +43,12 @@ const skills: Skill[] = [
   { name: 'Next.js', icon: SiNextdotjs },
   { name: 'Node.js', icon: SiNodedotjs },
   { name: 'Tailwind CSS', icon: SiTailwindcss },
-  { name: 'MySQL', icon: TbBrandMysql },
   { name: 'PostgreSQL', icon: BiLogoPostgresql },
   { name: 'AWS', icon: FaAws },
+  { name: 'GCP', icon: SiGooglecloud },
   { name: 'Firebase', icon: SiFirebase },
-  { name: 'Supabase', icon: SiSupabase },
-  { name: 'Linux', icon: FaLinux },
   { name: 'Git', icon: SiGit },
   { name: 'GitHub', icon: SiGithub },
-  { name: 'Adobe CC', icon: SiAdobecreativecloud },
-  { name: 'Figma', icon: SiFigma },
   { name: 'Netlify', icon: SiNetlify },
   { name: 'Vercel', icon: SiVercel },
 ]
