@@ -54,6 +54,28 @@
   }
 }
 
+/* Dark-themed scrollbar, everywhere (main page scroll and any
+   overflow-y-auto container like the project modal). */
+html {
+  scrollbar-color: var(--border) var(--background);
+  scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted-foreground);
+}
+
 /* Aceternity-style dot background: tiled radial dots, meant to be paired
    with a solid-color overlay masked into a radial vignette so the dots
    fade in near the content and out toward the edges. */
