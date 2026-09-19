@@ -66,7 +66,7 @@ export default function Skills() {
       id='skills'
       className='scroll-mt-14 px-4 md:px-10 py-24 max-w-5xl mx-auto'
     >
-      <p className='font-mono text-lg text-accent lowercase tracking-wider mb-6'>Skills</p>
+      <p className='font-mono text-3xl font-semibold text-accent lowercase mb-6'>Skills</p>
       <div className='grid grid-cols-3 md:grid-cols-4 gap-6'>
         {skills.map(({ name, icon: Icon, color }, index) => {
           const skillStyle = { '--skill-color': color } as CSSProperties

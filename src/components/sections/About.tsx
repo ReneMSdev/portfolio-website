@@ -20,7 +20,7 @@ export default function About() {
       className='scroll-mt-14 bg-surface border-y border-border'
     >
       <div className='max-w-5xl mx-auto px-4 md:px-16 py-20 flex flex-col gap-7'>
-        <p className='font-mono text-lg text-accent lowercase tracking-wider'>About</p>
+        <p className='font-mono text-3xl font-semibold text-accent lowercase'>About</p>
 
         <div className='flex flex-col md:flex-row gap-8 md:gap-20'>
           <p className='max-w-[560px] text-[17px] leading-[1.7] text-body'>

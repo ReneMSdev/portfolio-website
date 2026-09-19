@@ -45,7 +45,7 @@ export default function Projects() {
       id='projects'
       className='scroll-mt-14 py-24 px-4 md:px-10 max-w-5xl mx-auto'
     >
-      <p className='font-mono text-lg text-accent lowercase tracking-wider mb-10'>Projects</p>
+      <p className='font-mono text-3xl font-semibold text-accent lowercase mb-10'>Projects</p>
 
       <div className='grid grid-cols-1 md:grid-cols-2 gap-10'>
         {projects.map((project, index) => {

@@ -50,7 +50,7 @@ export default function Contact() {
       <div className='grid grid-cols-1 md:grid-cols-2 gap-12 justify-start items-start mx-auto py-24 max-w-5xl px-4 md:px-10 w-full'>
         {/* Contact Form */}
         <div className='flex flex-col w-xs mx-auto'>
-          <p className='font-mono text-lg text-accent lowercase tracking-wider mb-4 text-center'>
+          <p className='font-mono text-3xl font-semibold text-accent lowercase mb-4 text-center'>
             Contact
           </p>
           <h2 className='text-3xl font-semibold mb-6 text-center text-foreground'>

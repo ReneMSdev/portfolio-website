@@ -32,18 +32,10 @@ export default function Hero() {
         </motion.div>
 
         <div className='order-2 md:order-1 flex flex-col items-center md:items-start gap-4 text-center md:text-left'>
-          <motion.p
-            initial={fadeUp.initial}
-            animate={fadeUp.animate}
-            transition={{ duration: 0.5 }}
-            className='font-mono text-lg text-accent lowercase tracking-wider'
-          >
-            Available for full-time roles
-          </motion.p>
           <motion.h1
             initial={fadeUp.initial}
             animate={fadeUp.animate}
-            transition={{ duration: 0.6, delay: 0.05 }}
+            transition={{ duration: 0.6 }}
             className='text-4xl md:text-[64px] font-bold text-foreground leading-tight'
           >
             Hi, I&apos;m René
