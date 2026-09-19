@@ -1,9 +1,9 @@
 'use client'
 
 import { useState, useRef, type FormEvent } from 'react'
+import { motion } from 'motion/react'
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import { Card, CardContent } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Button } from '@/components/ui/button'
@@ -39,11 +39,15 @@ export default function Contact() {
   }
 
   return (
-    <section
+    <motion.section
       id='contact'
-      className='scroll-mt-14'
+      initial={{ opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-80px' }}
+      transition={{ duration: 0.5 }}
+      className='scroll-mt-14 min-h-screen flex items-center'
     >
-      <div className='min-h-screen grid grid-cols-1 md:grid-cols-2 gap-8 justify-start items-start mx-auto pt-20 md:pt-10 max-w-5xl px-4 md:px-10'>
+      <div className='grid grid-cols-1 md:grid-cols-2 gap-12 justify-start items-start mx-auto py-24 max-w-5xl px-4 md:px-10 w-full'>
         {/* Contact Form */}
         <div className='flex flex-col w-xs mx-auto'>
           <p className='font-mono text-sm text-accent uppercase tracking-wider mb-4 text-center'>
@@ -55,77 +59,75 @@ export default function Contact() {
           <form
             ref={formRef}
             onSubmit={handleSubmit}
+            className='space-y-6'
           >
             <input
               type='hidden'
               name='access_key'
               value={process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY}
             />
-            <Card className='border-none shadow-none bg-transparent'>
-              <CardContent className='p-0 space-y-6'>
-                {/* Name Field */}
-                <div className='flex flex-col space-y-2'>
-                  <label
-                    htmlFor='name'
-                    className='text-sm font-medium'
-                  >
-                    Name
-                  </label>
-                  <Input
-                    type='text'
-                    id='name'
-                    name='name'
-                    required
-                    placeholder='Your name'
-                    className='w-full focus:outline-none'
-                  />
-                </div>
 
-                {/* Email Field */}
-                <div className='flex flex-col space-y-2'>
-                  <label
-                    htmlFor='email'
-                    className='text-sm font-medium'
-                  >
-                    Email
-                  </label>
-                  <Input
-                    id='email'
-                    name='email'
-                    type='email'
-                    required
-                    placeholder='you@example.com'
-                    className='w-full focus:outline-none'
-                  />
-                </div>
+            {/* Name Field */}
+            <div className='flex flex-col space-y-2'>
+              <label
+                htmlFor='name'
+                className='text-sm font-medium'
+              >
+                Name
+              </label>
+              <Input
+                type='text'
+                id='name'
+                name='name'
+                required
+                placeholder='Your name'
+                className='w-full focus:outline-none'
+              />
+            </div>
 
-                {/* Message Field */}
-                <div className='flex flex-col space-y-2'>
-                  <label
-                    htmlFor='message'
-                    className='text-md font-sm'
-                  >
-                    Message
-                  </label>
-                  <Textarea
-                    id='message'
-                    name='message'
-                    required
-                    placeholder='Type your message here...'
-                    className='w-full focus:outline-none'
-                  />
-                </div>
+            {/* Email Field */}
+            <div className='flex flex-col space-y-2'>
+              <label
+                htmlFor='email'
+                className='text-sm font-medium'
+              >
+                Email
+              </label>
+              <Input
+                id='email'
+                name='email'
+                type='email'
+                required
+                placeholder='you@example.com'
+                className='w-full focus:outline-none'
+              />
+            </div>
 
-                {/* Send Button */}
-                <Button
-                  type='submit'
-                  className='w-full bg-accent text-accent-foreground flex items-center justify-center cursor-pointer font-bold hover:bg-accent/90'
-                  disabled={loading}
-                >
-                  {loading ? 'Sending...' : 'Send'}
-                </Button>
-              </CardContent>
-            </Card>
+            {/* Message Field */}
+            <div className='flex flex-col space-y-2'>
+              <label
+                htmlFor='message'
+                className='text-md font-sm'
+              >
+                Message
+              </label>
+              <Textarea
+                id='message'
+                name='message'
+                required
+                placeholder='Type your message here...'
+                className='w-full focus:outline-none'
+              />
+            </div>
+
+            {/* Send Button */}
+            <Button
+              type='submit'
+              className='w-full bg-accent text-accent-foreground flex items-center justify-center cursor-pointer font-bold hover:bg-accent/90'
+              disabled={loading}
+            >
+              {loading ? 'Sending...' : 'Send'}
+            </Button>
           </form>
         </div>
         <div className='flex flex-col items-center gap-6 mt-4 md:mt-0'>
@@ -141,7 +143,7 @@ export default function Contact() {
           <p className='text-sm text-muted-foreground'>Scan for my digital business card</p>
 
           {/* Social Links */}
-          <div className='flex flex-col items-start gap-3 pb-20'>
+          <div className='flex flex-col items-start gap-3'>
             <a
               href='mailto:rene.salomone@gmail.com'
               className={linkStyles}
@@ -199,6 +201,6 @@ export default function Contact() {
         draggable
         pauseOnHover
       />
-    </section>
+    </motion.section>
   )
 }

@@ -24,7 +24,7 @@ export default function Projects() {
   return (
     <section
       id='projects'
-      className='scroll-mt-14 grid grid-cols-1 gap-8 items-start py-20'
+      className='scroll-mt-14 grid grid-cols-1 gap-8 items-start py-24'
     >
       <p className='font-mono text-sm text-accent uppercase tracking-wider px-6'>Projects</p>
 

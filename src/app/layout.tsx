@@ -4,6 +4,7 @@ import { Space_Grotesk, Space_Mono } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import MobileMenu from '@/components/MobileMenu'
+import { MotionProvider } from '@/components/MotionProvider'
 import { Analytics } from '@vercel/analytics/react'
 
 const spaceGrotesk = Space_Grotesk({
@@ -31,10 +32,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body
         className={`${spaceGrotesk.variable} ${spaceMono.variable} antialiased font-sans min-h-screen overflow-auto`}
       >
-        <Navbar />
-        <MobileMenu />
+        <MotionProvider>
+          <Navbar />
+          <MobileMenu />
 
-        <main>{children}</main>
+          <main>{children}</main>
+        </MotionProvider>
         <Analytics />
       </body>
     </html>

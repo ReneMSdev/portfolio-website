@@ -30,10 +30,12 @@ Source: `Portfolio Redesign — Design Brief.md` (2026-09-19). Tracked phase-by-
 - [x] Deleted `SidebarNav.tsx` (confirmed dead/unused since Phase 0)
 
 ## Phase 3 — Content Sections
-- [ ] Hero section (Aceternity effect(s) TBD)
-- [ ] About/summary section
-- [ ] Skills section
-- [ ] Contact section
+- [x] Hero section — staggered fade/slide-up entrance via `motion` (Framer Motion) on the eyebrow label, name, role, and photo. Kept deliberately restrained (no gradients/particles) per the brief's "avoid AI-template tropes" — the flashier signature effect is still Phase 5's separate open decision, not this.
+- [x] About/summary section — scroll-triggered fade-in (`whileInView`), refined the "Read more" trigger to the mono/uppercase label style used elsewhere, consistent `py-24` rhythm.
+- [x] Skills section — staggered grid reveal on scroll into view, consistent `py-24` rhythm.
+- [x] Contact section — scroll-triggered fade-in, removed the unused shadcn `Card`/`CardContent` wrapper (visually a no-op after Phase 1/2's `border-none shadow-none bg-transparent`, and used nowhere else — deleted `ui/card.tsx` entirely), consistent spacing rhythm.
+- [x] Added `MotionProvider` (`MotionConfig reducedMotion="user"`) at the root layout so all current and future `motion` usage automatically respects the OS-level reduced-motion preference.
+- [ ] Projects section — deliberately left as structural placeholder from Phase 2 (only bumped `py-24` for rhythm); real design/motion work happens in Phase 4 alongside the tilt cards, modals, and new project lineup, to avoid styling content that's about to be replaced.
 
 ## Note on logo assets
 - `public/logo-dark.svg` and `logo-light.svg` both still bake in the old rose accent (`#E11D48`) for a decorative shape. `logo-dark.svg` (light-on-dark wordmark) is now the only one in use. Consider recoloring that accent shape to mint (`#6EE7B7`) during Phase 2/3 polish — not done automatically since it's a visible brand-asset edit, not a code token.

@@ -1,5 +1,8 @@
+'use client'
+
 import type { CSSProperties } from 'react'
 import type { IconType } from 'react-icons'
+import { motion } from 'motion/react'
 import {
   SiReact,
   SiNextdotjs,
@@ -61,24 +64,28 @@ export default function Skills() {
   return (
     <section
       id='skills'
-      className='scroll-mt-14 px-4 md:px-10 py-20 max-w-5xl mx-auto'
+      className='scroll-mt-14 px-4 md:px-10 py-24 max-w-5xl mx-auto'
     >
       <p className='font-mono text-sm text-accent uppercase tracking-wider mb-6'>Skills</p>
       <div className='grid grid-cols-3 md:grid-cols-4 gap-6'>
-        {skills.map(({ name, icon: Icon, color }) => {
+        {skills.map(({ name, icon: Icon, color }, index) => {
           const skillStyle = { '--skill-color': color } as CSSProperties
 
           return (
-            <div
+            <motion.div
               key={name}
-              className='group flex flex-col items-center text-center transition-transform duration-200 hover:scale-120'
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ duration: 0.3, delay: (index % 8) * 0.03 }}
+              className='group flex flex-col items-center text-center transition-transform duration-200 hover:scale-110'
               style={skillStyle}
             >
               <Icon className='text-4xl mb-2 text-muted-foreground transition-colors duration-300 group-hover:text-[var(--skill-color)]' />
               <span className='text-sm font-semibold text-muted-foreground group-hover:text-foreground'>
                 {name}
               </span>
-            </div>
+            </motion.div>
           )
         })}
       </div>
