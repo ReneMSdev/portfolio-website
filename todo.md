@@ -41,19 +41,19 @@ Source: `Portfolio Redesign — Design Brief.md` (2026-09-19). Tracked phase-by-
 - `public/logo-dark.svg` and `logo-light.svg` both still bake in the old rose accent (`#E11D48`) for a decorative shape. `logo-dark.svg` (light-on-dark wordmark) is now the only one in use. Consider recoloring that accent shape to mint (`#6EE7B7`) during Phase 2/3 polish — not done automatically since it's a visible brand-asset edit, not a code token.
 
 ## Phase 4 — Projects Grid & Case Study Modals
-- [ ] Build project card grid with 3D tilt-on-hover (Aceternity `CardContainer`/`CardBody`)
-- [ ] Card → modal expand via Framer Motion `layoutId`
-- [ ] Modal: internal scroll for long content
-- [ ] Modal: URL deep-linking (shallow routing or intercepting routes)
-- [ ] Modal: focus trap + Escape to close + `aria-modal`
-- [ ] Modal: return focus to triggering card on close
-- [ ] Populate project lineup:
-  - [ ] Resume Auto-Apply Tool (demo) — **decide**: full case study or card + live demo link
-  - [ ] LinkLeaf (paused) — architecture-focused case study: diagram, metrics, stack breakdown, no live link
-  - [ ] Mobile Mechanic Site (live) — client work card
-  - [ ] Weather App (not live) — minimal card, screenshots + stack + short description, no live link, no further build work
-  - [ ] Route Planner (demo, mock data) — cached/mock route data, "Demo Mode" note
-- [ ] Confirm cut projects stay out (Life Coaching Website, Music Translation App)
+- [x] Build project card grid with 3D tilt-on-hover (`src/components/ui/3d-card.tsx` — `CardContainer`/`CardBody`/`CardItem`, adapted from Aceternity's "3D Card Effect")
+- [x] Card → modal expand via Framer Motion `layoutId` (`project-card-{slug}` shared between the grid card and `ProjectModal`)
+- [x] Modal: internal scroll for long content (`max-h-[85vh] overflow-y-auto`)
+- [x] Modal: URL deep-linking — implemented as a `?project=slug` query param synced via `router.replace(..., { scroll: false })`, read on mount via `useSearchParams`. Chose this over intercepting routes since the site has no per-project route segments (single-page architecture from Phase 2); this is the "shallow routing" alternative the brief explicitly allows.
+- [x] Modal: focus trap + Escape to close + `aria-modal` (`ProjectModal.tsx`, hand-rolled — no new dependency)
+- [x] Modal: return focus to triggering card on close (`triggerRef`)
+- [x] **Resume Auto-Apply Tool depth decided**: simple card + demo link for now; data model (`src/data/projects.ts`) supports optional `architectureNote`/`lessonsLearned`/`metrics` fields so it can grow into a full case study later without restructuring
+- [x] Project lineup swapped to the brief's 5 projects (Resume Auto-Apply Tool, LinkLeaf, Mobile Mechanic Site, Weather App, Route Planner) — **placeholder content**, see status.md for what's real (Route Planner only) vs. placeholder (the other 4: URLs are `#`, no screenshots yet)
+- [x] Cut projects (Life Coaching Website, Music Translation App) removed from the lineup
+- [x] Removed `EmblaCarousel` (dead code once the new grid replaced it) and its `embla-carousel-react` dependency
+
+## Note on Phase 4 placeholder content
+Only Route Planner has real URLs/screenshots (reused from the old site). Resume Auto-Apply Tool, LinkLeaf, Mobile Mechanic Site, and Weather App currently have placeholder `#` links, no images, and brief-derived copy. Update `src/data/projects.ts` with real content when ready — the grid/modal will pick it up automatically (LinkLeaf's `architectureNote` and any project's optional `metrics`/`lessonsLearned` render conditionally).
 
 ## Phase 5 — Signature Interactive Element
 - [ ] **Decide** signature element (fiber/network line animation vs. terminal/CLI typing effect vs. electrician/fiber-themed idea) — open question

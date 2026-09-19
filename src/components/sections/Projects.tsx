@@ -1,176 +1,133 @@
-import { FaCode, FaUnlink } from 'react-icons/fa'
-import { MdOutlineWeb } from 'react-icons/md'
-import EmblaCarousel from '@/components/EmblaCarousel'
+'use client'
 
-const projectOneImages = ['/img/project1/routeplanner1.jpg', '/img/project1/routeplanner2.jpg']
-const projectTwoImages = [
-  '/img/project2/gina1.jpg',
-  '/img/project2/gina2.jpg',
-  '/img/project2/gina3.jpg',
-]
-const projectThreeImages = [
-  '/img/project3/music1.jpg',
-  '/img/project3/music2.jpg',
-  '/img/project3/music3.jpg',
-  '/img/project3/music4.jpg',
-  '/img/project3/music5.jpg',
-]
-
-const textStyles = 'mt-4 max-w-lg text-muted-foreground'
-const builtWith = 'text-lg font-semibold text-foreground mt-4'
-const builtWithText = 'mt-1 max-w-lg text-muted-foreground'
+import { useCallback, useRef, useState, type MouseEvent, type KeyboardEvent } from 'react'
+import Image from 'next/image'
+import { useRouter, useSearchParams, usePathname } from 'next/navigation'
+import { AnimatePresence, motion } from 'motion/react'
+import { CardContainer, CardBody, CardItem } from '@/components/ui/3d-card'
+import { ProjectModal } from '@/components/ProjectModal'
+import { projects, type Project } from '@/data/projects'
 
 export default function Projects() {
+  const router = useRouter()
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+  const triggerRef = useRef<HTMLElement | null>(null)
+
+  const [selectedSlug, setSelectedSlug] = useState<string | null>(() => {
+    const slug = searchParams.get('project')
+    return slug && projects.some((p) => p.slug === slug) ? slug : null
+  })
+
+  const openProject = useCallback(
+    (project: Project, trigger: HTMLElement) => {
+      triggerRef.current = trigger
+      setSelectedSlug(project.slug)
+      const params = new URLSearchParams(searchParams.toString())
+      params.set('project', project.slug)
+      router.replace(`${pathname}?${params.toString()}#projects`, { scroll: false })
+    },
+    [pathname, router, searchParams]
+  )
+
+  const closeProject = useCallback(() => {
+    setSelectedSlug(null)
+    const params = new URLSearchParams(searchParams.toString())
+    params.delete('project')
+    const query = params.toString()
+    router.replace(`${pathname}${query ? `?${query}` : ''}#projects`, { scroll: false })
+  }, [pathname, router, searchParams])
+
+  const selectedProject = projects.find((p) => p.slug === selectedSlug) ?? null
+
   return (
     <section
       id='projects'
-      className='scroll-mt-14 grid grid-cols-1 gap-8 items-start py-24'
+      className='scroll-mt-14 py-24 px-4 md:px-10 max-w-5xl mx-auto'
     >
-      <p className='font-mono text-sm text-accent uppercase tracking-wider px-6'>Projects</p>
+      <p className='font-mono text-sm text-accent uppercase tracking-wider mb-10'>Projects</p>
 
-      {/* Project 1 */}
-      <div className='flex flex-col items-start px-6'>
-        <EmblaCarousel slides={projectOneImages} />
+      <div className='grid grid-cols-1 md:grid-cols-2 gap-10'>
+        {projects.map((project, index) => {
+          const handleOpen = (e: MouseEvent<HTMLDivElement> | KeyboardEvent<HTMLDivElement>) => {
+            openProject(project, e.currentTarget)
+          }
 
-        <div className='mt-10 mx-auto'>
-          <h3 className='text-3xl text-foreground font-semibold text-center md:text-start'>
-            Route Planning App
-          </h3>
-          <p className={textStyles}>
-            Route Boss is a modern route optimization web app where users can input multiple stops,
-            calculate the most efficient path, and visualize their route on an interactive map. It
-            supports manual address entry or CSV upload, geocodes using OpenCage, optimizes with
-            OpenRouteService, and lets users export their route as a PDF or mobile-friendly QR code.
-          </p>
-          <p className={builtWith}>Built with:</p>
-          <p className={builtWithText}>
-            Next.js 13 App Router, React 19, Tailwind CSS, ShadCN UI, Leaflet.js, OpenCage,
-            OpenRouteService, react-dropzone, xlsx, jsPDF, next-qrcode
-          </p>
-        </div>
-
-        <div className='flex mx-auto gap-16 md:gap-30 pt-8 mb-6'>
-          <a
-            href='https://route-planner-nextjs.vercel.app/'
-            target='_blank'
-            rel='noopener noreferrer'
-            className='font-semibold hover:text-accent'
-          >
-            <div className='flex items-center gap-2'>
-              <MdOutlineWeb className='text-xl' />
-              Demo
-            </div>
-          </a>
-          <a
-            href='https://github.com/ReneMSdev/route-planner-nextjs'
-            target='_blank'
-            rel='noopener noreferrer'
-            className='font-semibold hover:text-accent'
-          >
-            <div className='flex items-center gap-2'>
-              <FaCode className='text-xl' />
-              Code
-            </div>
-          </a>
-        </div>
+          return (
+            <motion.div
+              key={project.slug}
+              layoutId={`project-card-${project.slug}`}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ duration: 0.4, delay: (index % 4) * 0.05 }}
+              role='button'
+              tabIndex={0}
+              aria-haspopup='dialog'
+              onClick={handleOpen}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault()
+                  handleOpen(e)
+                }
+              }}
+              className='cursor-pointer'
+            >
+              <CardContainer containerClassName='py-0'>
+                <CardBody className='w-full bg-surface border border-border rounded-lg p-6'>
+                  {project.images?.[0] && (
+                    <CardItem
+                      translateZ={40}
+                      className='w-full'
+                    >
+                      <div className='relative w-full h-40 rounded-md overflow-hidden mb-4'>
+                        <Image
+                          src={project.images[0]}
+                          alt={project.title}
+                          fill
+                          sizes='(max-width: 768px) 100vw, 50vw'
+                          className='object-cover'
+                        />
+                      </div>
+                    </CardItem>
+                  )}
+                  <CardItem
+                    as='p'
+                    translateZ={50}
+                    className='font-mono text-xs text-accent uppercase tracking-wider mb-2'
+                  >
+                    {project.status}
+                  </CardItem>
+                  <CardItem
+                    as='h3'
+                    translateZ={60}
+                    className='text-xl font-semibold text-foreground mb-2'
+                  >
+                    {project.title}
+                  </CardItem>
+                  <CardItem
+                    as='p'
+                    translateZ={30}
+                    className='text-sm text-muted-foreground'
+                  >
+                    {project.summary}
+                  </CardItem>
+                </CardBody>
+              </CardContainer>
+            </motion.div>
+          )
+        })}
       </div>
 
-      {/* Project 2 */}
-      <div className='flex flex-col items-start w-full bg-surface py-16 px-6'>
-        <EmblaCarousel slides={projectTwoImages} />
-
-        <div className='mt-10 mx-auto'>
-          <h3 className='text-3xl text-foreground font-semibold text-center md:text-start'>
-            Life Coaching Website
-          </h3>
-          <p className={textStyles}>
-            I designed and developed a responsive website for a Gina Phillips, a professional life
-            coach specializing in burnout recovery, mindset mastery, and ADHD support. Focusing on
-            showcasing her services and making client engagement seamless, the site offers a clean,
-            modern layout optimized for both desktop and mobile users.
-          </p>
-          <p className={textStyles}>
-            Key features include an integrated Calendly scheduler, allowing visitors to easily book
-            consultations, and a custom contact form for direct inquiries. The overall design
-            reflects the client&apos;s personal brand and provides a smooth, user-friendly experience
-            to support their coaching business online.
-          </p>
-          <p className={builtWith}>Built with:</p>
-          <p className={builtWithText}>
-            HTML, CSS, JavaScript, Bootstrap 5, Calendly Embed, Web3Forms API, Toastify.js
-          </p>
-        </div>
-
-        <div className='flex mx-auto gap-16 md:gap-30 pt-8'>
-          <a
-            href='https://renemsdev.github.io/gina-website/'
-            target='_blank'
-            rel='noopener noreferrer'
-            className='font-semibold hover:text-accent'
-          >
-            <div className='flex items-center gap-2'>
-              <MdOutlineWeb className='text-xl' />
-              Demo
-            </div>
-          </a>
-          <a
-            href='https://github.com/ReneMSdev/gina-website'
-            target='_blank'
-            rel='noopener noreferrer'
-            className='font-semibold hover:text-accent'
-          >
-            <div className='flex items-center gap-2'>
-              <FaCode className='text-xl' />
-              Code
-            </div>
-          </a>
-        </div>
-      </div>
-
-      {/* Project 3 */}
-      <div className='flex flex-col items-start px-6 my-10'>
-        <EmblaCarousel slides={projectThreeImages} />
-
-        <div className='mt-10 mx-auto'>
-          <h3 className='text-3xl text-foreground font-semibold text-center md:text-start'>
-            Music Translation App
-          </h3>
-          <p className={textStyles}>
-            YourSound™ is a music translation app that connects to your Spotify Premium account and
-            translates lyrics of the songs you&apos;re currently listening to — in real time.
-            Designed to preserve rhythm and flow, it helps users explore international music, learn
-            new languages, and engage more deeply with global sounds.
-          </p>
-          <p className={textStyles}>
-            This project is designed and developed by me. It is currently in active development,
-            with core features like authentication and Spotify integration already built. The app is
-            not yet deployed, as I&apos;m continuing to implement real-time lyric translation and
-            synced playback features to enhance the user experience.
-          </p>
-          <p className={builtWith}>Built with:</p>
-          <p className={builtWithText}>
-            Next.js, TypeScript, Supabase, Spotify API, Tailwind CSS, ShadCN UI
-          </p>
-        </div>
-
-        <div className='flex mx-auto gap-16 md:gap-30 pt-8 mb-6'>
-          <div className='flex items-center gap-2 font-semibold'>
-            <FaUnlink className='text-md' />
-            <span className='line-through decoration-2'>Demo</span>
-          </div>
-          <a
-            href='https://github.com/ReneMSdev/music-app'
-            target='_blank'
-            rel='noopener noreferrer'
-            className='font-semibold hover:text-accent'
-          >
-            <div className='flex items-center gap-2'>
-              <FaCode className='text-xl' />
-              Code
-            </div>
-          </a>
-        </div>
-      </div>
+      <AnimatePresence>
+        {selectedProject && (
+          <ProjectModal
+            project={selectedProject}
+            onClose={closeProject}
+            triggerRef={triggerRef}
+          />
+        )}
+      </AnimatePresence>
     </section>
   )
 }
