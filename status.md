@@ -26,11 +26,12 @@ Source brief: `~/Desktop/Portfolio Redesign - Design Brief.md`
   - Verified: `tsc --noEmit` clean, `npm run build` succeeds, lint clean.
 
 ## Placeholder content — needs real data before this phase is "done" content-wise
-Only **Route Planner** has real URLs/screenshots (reused from the old site: `route-planner-nextjs.vercel.app`, its GitHub repo, and the two existing screenshot images). The other 4 projects in `src/data/projects.ts` currently have:
+**Route Planner** and **Mobile Mechanic Site** now have real URLs/screenshots. The other 3 projects in `src/data/projects.ts` still have:
 - **Resume Auto-Apply Tool**: placeholder `#` demo/code links, brief-derived description, no images.
 - **LinkLeaf**: placeholder `#` code link, no demo link (intentional per brief), `architectureNote` is a literal "coming soon" placeholder string (no real diagram), no images.
-- **Mobile Mechanic Site**: placeholder `#` demo link, no images.
 - **Weather App**: placeholder `#` code link, intentionally no demo link (per brief), no images.
+
+Mobile Mechanic Site update: real live URL (`atxreliablewrenching.com`) and a homepage screenshot supplied by the user, saved to `public/img/mobile-mechanic/mobile-mechanic-1.png`. Note: that screenshot is ~6.4MB as provided — Next's image optimizer resizes/re-encodes it at request time so visitors never download the full file, but it's a large binary to carry in git history going forward if it's ever swapped out. Worth compressing at the source next time a screenshot is captured, if that matters to the user.
 
 To fill these in: edit `src/data/projects.ts` directly — real URLs/images/metrics will flow through the grid and modal automatically, no component changes needed.
 

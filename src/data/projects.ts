@@ -51,9 +51,10 @@ export const projects: Project[] = [
     status: 'Live',
     summary: 'Client site for a mobile mechanic — booking and contact presence.',
     description:
-      'A static site built for a real client running a mobile mechanic business, giving them a booking and contact presence online.',
+      'A static site built for ATX Reliable Wrenching, a mobile mechanic business serving the Greater Austin area, giving them a booking and contact presence online.',
     stack: ['HTML', 'CSS', 'JavaScript'],
-    demoUrl: '#',
+    images: ['/img/mobile-mechanic/mobile-mechanic-1.png'],
+    demoUrl: 'https://www.atxreliablewrenching.com/',
   },
   {
     slug: 'weather-app',
