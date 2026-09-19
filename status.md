@@ -5,7 +5,11 @@ Branch: `redesign`
 Source brief: `~/Desktop/Portfolio Redesign - Design Brief.md`
 
 ## Current phase
-**Phase 3 — Content Sections** (done, except Projects — deliberately deferred to Phase 4)
+**Phase 3 — Content Sections** (done, except Projects — deliberately deferred to Phase 4). Plus a round of user-requested Hero/logo adjustments ahead of Phase 4.
+
+## Post-Phase-3 adjustments (user request, before starting Phase 4)
+- `public/logo-dark.svg`: recolored the wordmark from the old rose accent (`#E11D48`) to mint (`#6EE7B7`); kept the light `#F8FAFC` bracket/chevron shapes as-is. `logo-light.svg` untouched (still unused/dead — dark-only theme means only `logo-dark.svg` is ever rendered).
+- `Hero.tsx`: removed the profile photo entirely (user wants to try an Aceternity ASCII-art image treatment later instead) and collapsed the eyebrow + multi-line name into a single "Hi, I'm René" heading, dropping "Maxey-Salomone". Layout simplified from a two-column (photo + text) row to a single centered column since there's no image to lay out around.
 
 ## Done
 - Old branches (`carousel`, `colors`, `navbar`, `ui-update`) deleted locally and on origin; local `main` fast-forwarded to match origin.
