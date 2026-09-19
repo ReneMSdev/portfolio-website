@@ -11,12 +11,14 @@ Source: `Portfolio Redesign — Design Brief.md` (2026-09-19). Tracked phase-by-
 - [ ] Re-verify Embla Carousel and react-toastify still needed post-redesign
 
 ## Phase 1 — Design System & Tokens
-- [ ] Add Space Grotesk (headings/UI) + Space Mono (labels/nav/tags) via `next/font`
-- [ ] Define named color tokens: 2-3 background shades, 2-3 text shades, 1-2 accents
-- [ ] Implement dark-neutral base palette (#121212 bg, #17171a alt surface, #f2f2f0 primary text, #b9b9bd secondary text)
-- [ ] **Decide final accent color** (mint #6EE7B7 default vs. coral/purple/blue) — open question
-- [ ] Remove old rose/blue/teal/slate palette remnants
-- [ ] Set base type scale / whitespace rhythm (content-first, no heavy cards/shadows/gradients)
+- [x] Add Space Grotesk (headings/UI) + Space Mono (labels/nav/tags) via `next/font`
+- [x] Define named color tokens: `background`, `surface`, `foreground`, `muted-foreground`, `accent`, `accent-foreground`, `border` in `globals.css`
+- [x] Implement dark-neutral base palette (#121212 bg, #17171a surface, #f2f2f0 text, #b9b9bd muted text)
+- [x] **Accent color decided: mint #6EE7B7**
+- [x] **Theme scope decided: dark-only** — removed `next-themes`, `theme-provider.tsx`, `theme-toggle.tsx`, and the light/dark toggle UI entirely
+- [x] Removed dead `tailwind.config.js` (unused under Tailwind v4's CSS-based config; confirmed no `@config` import ever loaded it)
+- [ ] Remove old rose/blue/teal/slate palette remnants — done for nav/base chrome (Navbar, MobileMenu, layout, nav-link-hover, hamburger icon); page body content (home/projects/contact) still has old hardcoded slate/rose/blue Tailwind classes, intentionally left as-is since those get rebuilt into sections in Phase 2/3 rather than patched twice
+- [ ] Set base type scale / whitespace rhythm (content-first, no heavy cards/shadows/gradients) — deferred to Phase 3 content-section work
 
 ## Phase 2 — Page Structure & Navigation
 - [ ] Collapse 3-page site (Home/Projects/Contact) into single scrollable one-pager
@@ -29,6 +31,9 @@ Source: `Portfolio Redesign — Design Brief.md` (2026-09-19). Tracked phase-by-
 - [ ] About/summary section
 - [ ] Skills section
 - [ ] Contact section
+
+## Note on logo assets
+- `public/logo-dark.svg` and `logo-light.svg` both still bake in the old rose accent (`#E11D48`) for a decorative shape. `logo-dark.svg` (light-on-dark wordmark) is now the only one in use. Consider recoloring that accent shape to mint (`#6EE7B7`) during Phase 2/3 polish — not done automatically since it's a visible brand-asset edit, not a code token.
 
 ## Phase 4 — Projects Grid & Case Study Modals
 - [ ] Build project card grid with 3D tilt-on-hover (Aceternity `CardContainer`/`CardBody`)

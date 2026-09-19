@@ -11,10 +11,8 @@ import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 import { FaGithub, FaLinkedin, FaPhoneSquareAlt } from 'react-icons/fa'
 import { MdEmail } from 'react-icons/md'
-import { useTheme } from 'next-themes'
 
 export default function ContactPage() {
-  const { theme } = useTheme()
   const { setIsLoading } = useLoading()
 
   const linkStyles =
@@ -196,7 +194,7 @@ export default function ContactPage() {
       {/* Toast Notifications */}
       <ToastContainer
         position='top-right'
-        theme={theme === 'dark' ? 'dark' : 'light'}
+        theme='dark'
         autoClose={3000}
         hideProgressBar={false}
         newestOnTop={false}

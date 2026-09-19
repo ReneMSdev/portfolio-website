@@ -4,8 +4,6 @@ import { useState, useEffect, useRef } from 'react'
 import NavLink from './NavLink'
 import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
-import { ThemeToggle } from '@/components/theme-toggle'
-import { useTheme } from 'next-themes'
 
 const navItems = [
   { label: 'About', href: '/' },
@@ -16,13 +14,10 @@ const navItems = [
 export default function MobileMenu() {
   const [open, setOpen] = useState(false)
   const pathname = usePathname()
-  const { theme, resolvedTheme } = useTheme()
-  const [mounted, setMounted] = useState(false)
   const menuRef = useRef<HTMLDivElement>(null)
 
   // Click Outside
   useEffect(() => {
-    setMounted(true)
     function handleClickOutside(event: MouseEvent) {
       const target = event.target as HTMLElement
       if (
@@ -41,24 +36,17 @@ export default function MobileMenu() {
     }
   }, [])
 
-  const currentTheme = theme === 'system' ? resolvedTheme : theme
-
   return (
     <>
       {/* Menu bar */}
-      <div className='md:hidden fixed top-0 left-0 w-full h-14 flex items-center justify-baseline bg-slate-300 dark:bg-slate-800 z-[50] px-4'>
+      <div className='md:hidden fixed top-0 left-0 w-full h-14 flex items-center bg-surface z-[50] px-4'>
         <a href='/'>
-          {mounted && (
-            <img
-              src={currentTheme === 'dark' ? '/logo-dark.svg' : '/logo-light.svg'}
-              alt='logo'
-              className='h-4 w-auto z-[998]'
-            />
-          )}
+          <img
+            src='/logo-dark.svg'
+            alt='logo'
+            className='h-4 w-auto z-[998]'
+          />
         </a>
-        <div className='absolute left-1/2 transform -translate-x-1/4'>
-          <ThemeToggle className='slate-800' />
-        </div>
       </div>
 
       {/* Hamburger Icon */}
@@ -80,7 +68,7 @@ export default function MobileMenu() {
       <div
         ref={menuRef}
         className={cn(
-          'md:hidden fixed top-0 right-0 h-screen w-40 bg-slate-400 dark:bg-slate-600 z-[998] p-8 pt-24 flex flex-col gap-6 transform transition-transform duration-300 ease-in-out shadow-md',
+          'md:hidden fixed top-0 right-0 h-screen w-40 bg-surface z-[998] p-8 pt-24 flex flex-col gap-6 transform transition-transform duration-300 ease-in-out shadow-md',
           open ? 'translate-x-0' : 'translate-x-full'
         )}
       >
