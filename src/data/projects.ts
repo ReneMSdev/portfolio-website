@@ -19,7 +19,7 @@ export interface Project {
   lessonsLearned?: string
 }
 
-// PLACEHOLDER CONTENT — see status.md. Real URLs, screenshots, and copy
+// PLACEHOLDER CONTENT — see STATUS.md. Real URLs, screenshots, and copy
 // for everything but Route Planner still need to be supplied.
 export const projects: Project[] = [
   {

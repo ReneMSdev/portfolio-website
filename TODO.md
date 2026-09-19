@@ -1,6 +1,6 @@
 # Redesign TODO
 
-Source: `Portfolio Redesign — Design Brief.md` (2026-09-19). Tracked phase-by-phase; check items off as they land. See `status.md` for current phase and blockers.
+Source: `Portfolio Redesign — Design Brief.md` (2026-09-19). Tracked phase-by-phase; check items off as they land. See `STATUS.md` for current phase and blockers.
 
 ## Phase 0 — Foundation & Tooling
 - [x] Migrate project from JS/JSX to TypeScript
@@ -32,7 +32,7 @@ Source: `Portfolio Redesign — Design Brief.md` (2026-09-19). Tracked phase-by-
 ## Phase 3 — Content Sections
 - [x] Hero section — staggered fade/slide-up entrance via `motion` (Framer Motion) on the eyebrow label, name, role, and photo. Kept deliberately restrained (no gradients/particles) per the brief's "avoid AI-template tropes" — the flashier signature effect is still Phase 5's separate open decision, not this.
 - [x] About/summary section — scroll-triggered fade-in (`whileInView`), refined the "Read more" trigger to the mono/uppercase label style used elsewhere, consistent `py-24` rhythm.
-- [x] Skills section — staggered grid reveal on scroll into view, consistent `py-24` rhythm.
+- [x] Skills section — staggered grid reveal on scroll into view, consistent `py-24` rhythm. *(Superseded later by the terminal-simulation redesign — see the post-Phase-4 adjustments in STATUS.md. The original icon-grid version is preserved, unused, at `src/components/sections/Skills.legacy.tsx`.)*
 - [x] Contact section — scroll-triggered fade-in, removed the unused shadcn `Card`/`CardContent` wrapper (visually a no-op after Phase 1/2's `border-none shadow-none bg-transparent`, and used nowhere else — deleted `ui/card.tsx` entirely), consistent spacing rhythm.
 - [x] Added `MotionProvider` (`MotionConfig reducedMotion="user"`) at the root layout so all current and future `motion` usage automatically respects the OS-level reduced-motion preference.
 - [ ] Projects section — deliberately left as structural placeholder from Phase 2 (only bumped `py-24` for rhythm); real design/motion work happens in Phase 4 alongside the tilt cards, modals, and new project lineup, to avoid styling content that's about to be replaced.
@@ -48,12 +48,12 @@ Source: `Portfolio Redesign — Design Brief.md` (2026-09-19). Tracked phase-by-
 - [x] Modal: focus trap + Escape to close + `aria-modal` (`ProjectModal.tsx`, hand-rolled — no new dependency)
 - [x] Modal: return focus to triggering card on close (`triggerRef`)
 - [x] **Resume Auto-Apply Tool depth decided**: simple card + demo link for now; data model (`src/data/projects.ts`) supports optional `architectureNote`/`lessonsLearned`/`metrics` fields so it can grow into a full case study later without restructuring
-- [x] Project lineup swapped to the brief's 5 projects (Resume Auto-Apply Tool, LinkLeaf, Mobile Mechanic Site, Weather App, Route Planner) — **placeholder content**, see status.md for what's real (Route Planner only) vs. placeholder (the other 4: URLs are `#`, no screenshots yet)
+- [x] Project lineup swapped to the brief's 5 projects (Resume Auto-Apply Tool, LinkLeaf, Mobile Mechanic Site, Weather App, Route Planner) — **placeholder content**, see STATUS.md for what's real (Route Planner, Mobile Mechanic Site) vs. placeholder (the other 3: URLs are `#`, no screenshots yet)
 - [x] Cut projects (Life Coaching Website, Music Translation App) removed from the lineup
 - [x] Removed `EmblaCarousel` (dead code once the new grid replaced it) and its `embla-carousel-react` dependency
 
 ## Note on Phase 4 placeholder content
-Only Route Planner has real URLs/screenshots (reused from the old site). Resume Auto-Apply Tool, LinkLeaf, Mobile Mechanic Site, and Weather App currently have placeholder `#` links, no images, and brief-derived copy. Update `src/data/projects.ts` with real content when ready — the grid/modal will pick it up automatically (LinkLeaf's `architectureNote` and any project's optional `metrics`/`lessonsLearned` render conditionally).
+Route Planner and Mobile Mechanic Site have real URLs/screenshots. Resume Auto-Apply Tool, LinkLeaf, and Weather App still have placeholder `#` links, no images, and brief-derived copy. Update `src/data/projects.ts` with real content when ready — the grid/modal will pick it up automatically (LinkLeaf's `architectureNote` and any project's optional `metrics`/`lessonsLearned` render conditionally).
 
 ## Phase 5 — Signature Interactive Element
 - [ ] **Decide** signature element (fiber/network line animation vs. terminal/CLI typing effect vs. electrician/fiber-themed idea) — open question
