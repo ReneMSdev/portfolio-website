@@ -1,19 +1,20 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
+import Image from 'next/image'
 import NavLink from './NavLink'
-import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
+import { useActiveSection } from '@/hooks/useActiveSection'
 
 const navItems = [
-  { label: 'About', href: '/' },
-  { label: 'Projects', href: '/projects' },
-  { label: 'Contact', href: '/contact' },
+  { label: 'About', href: '#about' },
+  { label: 'Projects', href: '#projects' },
+  { label: 'Contact', href: '#contact' },
 ]
 
 export default function MobileMenu() {
   const [open, setOpen] = useState(false)
-  const pathname = usePathname()
+  const activeId = useActiveSection(navItems.map((item) => item.href.slice(1)))
   const menuRef = useRef<HTMLDivElement>(null)
 
   // Click Outside
@@ -40,10 +41,12 @@ export default function MobileMenu() {
     <>
       {/* Menu bar */}
       <div className='md:hidden fixed top-0 left-0 w-full h-14 flex items-center bg-surface z-[50] px-4'>
-        <a href='/'>
-          <img
+        <a href='#hero'>
+          <Image
             src='/logo-dark.svg'
             alt='logo'
+            width={200}
+            height={43}
             className='h-4 w-auto z-[998]'
           />
         </a>
@@ -79,7 +82,12 @@ export default function MobileMenu() {
             onClick={() => setOpen(false)}
             className='text-xl font-medium'
           >
-            <span className={cn('nav-link-hover', pathname === item.href && 'nav-link-active')}>
+            <span
+              className={cn(
+                'nav-link-hover',
+                activeId === item.href.slice(1) && 'nav-link-active'
+              )}
+            >
               {item.label}
             </span>
           </NavLink>

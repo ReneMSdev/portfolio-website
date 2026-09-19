@@ -17,14 +17,17 @@ Source: `Portfolio Redesign — Design Brief.md` (2026-09-19). Tracked phase-by-
 - [x] **Accent color decided: mint #6EE7B7**
 - [x] **Theme scope decided: dark-only** — removed `next-themes`, `theme-provider.tsx`, `theme-toggle.tsx`, and the light/dark toggle UI entirely
 - [x] Removed dead `tailwind.config.js` (unused under Tailwind v4's CSS-based config; confirmed no `@config` import ever loaded it)
-- [ ] Remove old rose/blue/teal/slate palette remnants — done for nav/base chrome (Navbar, MobileMenu, layout, nav-link-hover, hamburger icon); page body content (home/projects/contact) still has old hardcoded slate/rose/blue Tailwind classes, intentionally left as-is since those get rebuilt into sections in Phase 2/3 rather than patched twice
+- [x] Remove old rose/blue/teal/slate palette remnants — done everywhere (nav/chrome in Phase 1; page content converted to tokens while moving it into sections in Phase 2, including a couple of `dark:`-only backgrounds in `Input`/`Textarea`/`EmblaCarousel` that would've rendered as light-gray boxes now that `dark:` never activates)
 - [ ] Set base type scale / whitespace rhythm (content-first, no heavy cards/shadows/gradients) — deferred to Phase 3 content-section work
 
 ## Phase 2 — Page Structure & Navigation
-- [ ] Collapse 3-page site (Home/Projects/Contact) into single scrollable one-pager
-- [ ] Build section shell: hero, about/summary, skills, projects grid, contact
-- [ ] Sticky top nav with anchor-scroll links
-- [ ] Underline hover/active effect on nav links (accent green, grows under link)
+- [x] Collapse 3-page site (Home/Projects/Contact) into single scrollable one-pager
+- [x] Build section shell: hero, about/summary, skills, projects grid, contact
+- [x] Sticky top nav with anchor-scroll links
+- [x] Underline hover/active effect on nav links (accent green, grows under link) — hover was already there from Phase 1; active state now driven by scroll-spy (`useActiveSection`, IntersectionObserver) instead of route pathname
+- [x] Old `/projects` and `/contact` routes redirect to `/#projects`/`/#contact` (307) so old links don't 404
+- [x] Removed multi-page-transition infra that no longer applies to a single scrolling page: `LoadingContext`, `RouteChangeSpinner`, the `/spinner` test route, and `NavLink`'s router-push-with-timeout logic (now a plain anchor)
+- [x] Deleted `SidebarNav.tsx` (confirmed dead/unused since Phase 0)
 
 ## Phase 3 — Content Sections
 - [ ] Hero section (Aceternity effect(s) TBD)

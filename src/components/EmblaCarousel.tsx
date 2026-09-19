@@ -29,7 +29,7 @@ export default function EmblaCarousel({ slides }: EmblaCarouselProps) {
   }, [emblaApi, onSelect])
 
   return (
-    <div className='relative w-full max-w-screen-sm mx-auto overflow-hidden rounded-lg shadow-lg shadow-slate-500/70'>
+    <div className='relative w-full max-w-screen-sm mx-auto overflow-hidden rounded-lg shadow-lg shadow-black/50'>
       <div
         className='embla'
         ref={emblaRef}
@@ -54,14 +54,14 @@ export default function EmblaCarousel({ slides }: EmblaCarouselProps) {
       <button
         onClick={scrollPrev}
         disabled={!canScrollPrev}
-        className='absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-slate-200 dark:bg-slate-800 bg-opacity-60 rounded-full p-2 shadow-md'
+        className='absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-surface/80 rounded-full p-2 shadow-md text-foreground'
       >
         <ArrowLeft size={15} />
       </button>
       <button
         onClick={scrollNext}
         disabled={!canScrollNext}
-        className='absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-slate-200 dark:bg-slate-800 bg-opacity-60 rounded-full p-2 shadow-md'
+        className='absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-surface/80 rounded-full p-2 shadow-md text-foreground'
       >
         <ArrowRight size={15} />
       </button>

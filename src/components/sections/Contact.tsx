@@ -1,7 +1,6 @@
 'use client'
 
-import { useState, useRef, useEffect, type FormEvent } from 'react'
-import { useLoading } from '@/context/LoadingContext'
+import { useState, useRef, type FormEvent } from 'react'
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { Card, CardContent } from '@/components/ui/card'
@@ -12,17 +11,9 @@ import Image from 'next/image'
 import { FaGithub, FaLinkedin, FaPhoneSquareAlt } from 'react-icons/fa'
 import { MdEmail } from 'react-icons/md'
 
-export default function ContactPage() {
-  const { setIsLoading } = useLoading()
+const linkStyles = 'text-foreground hover:text-accent text-sm font-medium'
 
-  const linkStyles =
-    'text-slate-700 dark:text-[#A8DADC] hover:text-blue-500 dark:hover:text-blue-500 text-sm font-medium'
-
-  useEffect(() => {
-    setIsLoading(false)
-    window.scrollTo(0, 0)
-  }, [])
-
+export default function Contact() {
   const formRef = useRef<HTMLFormElement>(null)
   const [loading, setLoading] = useState(false)
 
@@ -48,11 +39,17 @@ export default function ContactPage() {
   }
 
   return (
-    <>
-      <div className='min-h-screen grid grid-cols-1 md:grid-cols-2 gap-8 justify-start items-start mx-auto pt-30 md:pt-10 max-w-5xl'>
+    <section
+      id='contact'
+      className='scroll-mt-14'
+    >
+      <div className='min-h-screen grid grid-cols-1 md:grid-cols-2 gap-8 justify-start items-start mx-auto pt-20 md:pt-10 max-w-5xl px-4 md:px-10'>
         {/* Contact Form */}
         <div className='flex flex-col w-xs mx-auto'>
-          <h2 className='text-3xl font-semibold mb-6 text-center text-slate-700 dark:text-[#A8DADC]'>
+          <p className='font-mono text-sm text-accent uppercase tracking-wider mb-4 text-center'>
+            Contact
+          </p>
+          <h2 className='text-3xl font-semibold mb-6 text-center text-foreground'>
             Let&apos;s Connect
           </h2>
           <form
@@ -122,7 +119,7 @@ export default function ContactPage() {
                 {/* Send Button */}
                 <Button
                   type='submit'
-                  className='w-full text-slate-800 bg-[#A8DADC] flex items-center justify-center cursor-pointer font-bold hover:bg-[#457B9D] hover:text-white'
+                  className='w-full bg-accent text-accent-foreground flex items-center justify-center cursor-pointer font-bold hover:bg-accent/90'
                   disabled={loading}
                 >
                   {loading ? 'Sending...' : 'Send'}
@@ -132,16 +129,14 @@ export default function ContactPage() {
           </form>
         </div>
         <div className='flex flex-col items-center gap-6 mt-4 md:mt-0'>
-          <h2 className='text-3xl font-semibold mb-6 text-center text-slate-700 dark:text-[#A8DADC]'>
-            My Links
-          </h2>
+          <h2 className='text-3xl font-semibold mb-6 text-center text-foreground'>My Links</h2>
           {/* QR Code */}
           <Image
             src='/img/qrcode.png'
             alt='Scan to connect'
             width={150}
             height={150}
-            className='border border-slate-300 rounded-md'
+            className='border border-border rounded-md'
           />
           <p className='text-sm text-muted-foreground'>Scan for my digital business card</p>
 
@@ -204,6 +199,6 @@ export default function ContactPage() {
         draggable
         pauseOnHover
       />
-    </>
+    </section>
   )
 }

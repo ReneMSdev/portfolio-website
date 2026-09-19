@@ -1,8 +1,4 @@
-'use client'
-import Link from 'next/link'
-import { useRouter, usePathname } from 'next/navigation'
-import { useLoading } from '@/context/LoadingContext'
-import type { MouseEvent, ReactNode } from 'react'
+import type { ReactNode } from 'react'
 
 interface NavLinkProps {
   href: string
@@ -12,30 +8,13 @@ interface NavLinkProps {
 }
 
 export default function NavLink({ href, children, className, onClick }: NavLinkProps) {
-  const router = useRouter()
-  const pathname = usePathname()
-  const { setIsLoading } = useLoading()
-
-  const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault()
-    onClick?.()
-
-    if (pathname === href) return
-
-    setIsLoading(true)
-
-    setTimeout(() => {
-      router.push(href)
-    }, 50)
-  }
-
   return (
-    <Link
+    <a
       href={href}
-      onClick={handleClick}
+      onClick={onClick}
       className={className}
     >
       {children}
-    </Link>
+    </a>
   )
 }

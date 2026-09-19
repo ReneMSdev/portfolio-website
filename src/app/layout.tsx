@@ -4,8 +4,6 @@ import { Space_Grotesk, Space_Mono } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import MobileMenu from '@/components/MobileMenu'
-import { LoadingProvider } from '@/context/LoadingContext'
-import RouteChangeSpinner from '@/components/RouteChangeSpinner'
 import { Analytics } from '@vercel/analytics/react'
 
 const spaceGrotesk = Space_Grotesk({
@@ -26,17 +24,17 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang='en'>
+    <html
+      lang='en'
+      className='scroll-smooth'
+    >
       <body
         className={`${spaceGrotesk.variable} ${spaceMono.variable} antialiased font-sans min-h-screen overflow-auto`}
       >
-        <LoadingProvider>
-          <RouteChangeSpinner />
-          <Navbar />
-          <MobileMenu />
+        <Navbar />
+        <MobileMenu />
 
-          <main className='pt-0 md:pt-20'>{children}</main>
-        </LoadingProvider>
+        <main>{children}</main>
         <Analytics />
       </body>
     </html>
