@@ -29,7 +29,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.05 }}
           className='text-4xl md:text-[64px] font-bold text-foreground leading-tight'
         >
-          René Maxey-Salomone
+          Hi, I&apos;m René
         </motion.h1>
         <motion.p
           initial={fadeUp.initial}
