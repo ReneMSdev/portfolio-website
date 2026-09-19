@@ -5,6 +5,7 @@
   --color-background: var(--background);
   --color-surface: var(--surface);
   --color-foreground: var(--foreground);
+  --color-body: var(--body);
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
@@ -36,6 +37,7 @@
   --background: #121212;
   --surface: #17171a;
   --foreground: #f2f2f0;
+  --body: #cfcfd2;
   --muted-foreground: #b9b9bd;
   --accent: #6ee7b7;
   --accent-foreground: #121212;

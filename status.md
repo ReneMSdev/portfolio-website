@@ -34,6 +34,11 @@ Only **Route Planner** has real URLs/screenshots (reused from the old site: `rou
 
 To fill these in: edit `src/data/projects.ts` directly — real URLs/images/metrics will flow through the grid and modal automatically, no component changes needed.
 
+## Post-Phase-4 adjustments (user request)
+- **About section redesigned** to match a user-supplied mockup: full-bleed `bg-surface` band with `border-y border-border`, two-column layout (bio paragraph left, a 4-item fact list right with a left border divider), specific typography (17px/1.7 line-height body copy, 14px mono fact list). Added a new `body` color token (`#cfcfd2`) for this longer-form paragraph copy — a third text shade between `foreground` and `muted-foreground`, which the brief's "2-3 text shades" allowance anticipated. New bio content: CS graduate (WGU 2024), solo technical founder, 8+ years fiber/telecom field work, TDLR Apprentice Electrician License, Founder of Salo Labs LLC.
+- Removed the old "Read more" collapsible bio entirely — the new mockup is a fixed two-column block with no expand/collapse. This made `ui/collapsible.tsx` dead code (grepped, confirmed no other usage) — deleted it and the `@radix-ui/react-collapsible` dependency.
+- **Standardized and enlarged the section eyebrow labels**: About/Skills/Projects labels bumped from `text-sm` (14px) to `text-base` (16px), by explicit request ("headers should be a bit bigger... standardize"). Hero's label and Contact left untouched — Contact is getting a full separate redesign later, out of scope for this pass.
+
 ## Up next
 - Get real URLs, screenshots, and refined copy for the 4 placeholder projects from the user, or continue to later phases and circle back.
 - Phase 5: signature interactive element (still an open decision — fiber/network animation vs. terminal/CLI typing effect vs. other).
