@@ -8,7 +8,7 @@ Source: `Portfolio Redesign — Design Brief.md` (2026-09-19). Tracked phase-by-
 - [x] Confirm React 19 / Tailwind 4 / shadcn compatibility after upgrade
 - [x] Add `motion` (Framer Motion) dependency
 - [ ] Add Aceternity UI components (hero/section effects, 3D-tilt card, `CardContainer`/`CardBody`) — deferred to Phase 3/4, copied in alongside the components that use them
-- [ ] Re-verify Embla Carousel and react-toastify still needed post-redesign
+- [x] Re-verify Embla Carousel and react-toastify still needed post-redesign — both removed: Embla in Phase 4 (grid replaced the carousel), react-toastify when the Contact form was removed post-Phase-4 (see STATUS.md)
 
 ## Phase 1 — Design System & Tokens
 - [x] Add Space Grotesk (headings/UI) + Space Mono (labels/nav/tags) via `next/font`
@@ -18,7 +18,7 @@ Source: `Portfolio Redesign — Design Brief.md` (2026-09-19). Tracked phase-by-
 - [x] **Theme scope decided: dark-only** — removed `next-themes`, `theme-provider.tsx`, `theme-toggle.tsx`, and the light/dark toggle UI entirely
 - [x] Removed dead `tailwind.config.js` (unused under Tailwind v4's CSS-based config; confirmed no `@config` import ever loaded it)
 - [x] Remove old rose/blue/teal/slate palette remnants — done everywhere (nav/chrome in Phase 1; page content converted to tokens while moving it into sections in Phase 2, including a couple of `dark:`-only backgrounds in `Input`/`Textarea`/`EmblaCarousel` that would've rendered as light-gray boxes now that `dark:` never activates)
-- [ ] Set base type scale / whitespace rhythm (content-first, no heavy cards/shadows/gradients) — deferred to Phase 3 content-section work
+- [x] Set base type scale / whitespace rhythm (content-first, no heavy cards/shadows/gradients) — landed via the section-header standardization and the `py-20` spacing pass across all sections (see STATUS.md)
 
 ## Phase 2 — Page Structure & Navigation
 - [x] Collapse 3-page site (Home/Projects/Contact) into single scrollable one-pager
@@ -35,7 +35,7 @@ Source: `Portfolio Redesign — Design Brief.md` (2026-09-19). Tracked phase-by-
 - [x] Skills section — staggered grid reveal on scroll into view, consistent `py-24` rhythm. *(Superseded later by the terminal-simulation redesign — see the post-Phase-4 adjustments in STATUS.md. The original icon-grid version is preserved, unused, at `src/components/sections/Skills.legacy.tsx`.)*
 - [x] Contact section — scroll-triggered fade-in, removed the unused shadcn `Card`/`CardContent` wrapper (visually a no-op after Phase 1/2's `border-none shadow-none bg-transparent`, and used nowhere else — deleted `ui/card.tsx` entirely), consistent spacing rhythm.
 - [x] Added `MotionProvider` (`MotionConfig reducedMotion="user"`) at the root layout so all current and future `motion` usage automatically respects the OS-level reduced-motion preference.
-- [ ] Projects section — deliberately left as structural placeholder from Phase 2 (only bumped `py-24` for rhythm); real design/motion work happens in Phase 4 alongside the tilt cards, modals, and new project lineup, to avoid styling content that's about to be replaced.
+- [x] Projects section — deliberately left as structural placeholder from Phase 2; superseded by Phase 4's tilt cards, modals, and new project lineup.
 
 ## Note on logo assets
 - `public/logo-dark.svg` and `logo-light.svg` both still bake in the old rose accent (`#E11D48`) for a decorative shape. `logo-dark.svg` (light-on-dark wordmark) is now the only one in use. Consider recoloring that accent shape to mint (`#6EE7B7`) during Phase 2/3 polish — not done automatically since it's a visible brand-asset edit, not a code token.
@@ -56,8 +56,13 @@ Source: `Portfolio Redesign — Design Brief.md` (2026-09-19). Tracked phase-by-
 Route Planner and Mobile Mechanic Site have real URLs/screenshots. Resume Auto-Apply Tool, LinkLeaf, and Weather App still have placeholder `#` links, no images, and brief-derived copy. Update `src/data/projects.ts` with real content when ready — the grid/modal will pick it up automatically (LinkLeaf's `architectureNote` and any project's optional `metrics`/`lessonsLearned` render conditionally).
 
 ## Phase 5 — Signature Interactive Element
-- [ ] **Decide** signature element (fiber/network line animation vs. terminal/CLI typing effect vs. electrician/fiber-themed idea) — open question
-- [ ] Build and integrate chosen element
+- [x] **Decide** signature element — fusion-splice fiber/circuit line art (see STATUS.md): two fibers meet and fuse at a glow, then circuit traces spring outward, tying the fiber/telecom background to the software side
+- [x] Build Hero's fusion intro + circuit routing (`src/components/hero-effects/`), with locked wide/compact presets so lines never cross the text at any viewport width
+- [x] Build the per-section extension mechanism (`src/components/section-lines/`, `useMeasuredViewBox`) — independent per-section SVGs sharing a fixed viewBox width + x-anchors so they hand off at the same screen position
+- [x] Wire up Skills (dynamic traces, gated to start only once the terminal's typing sequence finishes)
+- [ ] Wire up Projects (cards protect content, can route freely behind them)
+- [ ] Wire up Contact (no protective element — must actually avoid the link text, not just rely on occlusion)
+- [ ] Small follow-up: extend one Hero branch to a shared bottom-edge anchor so the Hero→Skills handoff has a literal visual seam, not just consistent positioning
 
 ## Phase 6 — Mobile & Responsive Pass
 - [ ] Design mobile layout (not yet designed — open question)
