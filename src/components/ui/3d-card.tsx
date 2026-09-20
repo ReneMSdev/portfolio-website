@@ -60,6 +60,7 @@ export function CardContainer({ children, className, containerClassName }: CardC
           onMouseEnter={() => setIsMouseEntered(true)}
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
+          onClickCapture={handleMouseLeave}
           className={cn(
             'relative flex items-center justify-center transition-all duration-200 ease-linear',
             className

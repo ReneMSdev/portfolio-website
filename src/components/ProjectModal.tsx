@@ -60,11 +60,13 @@ export function ProjectModal({ project, onClose, triggerRef }: ProjectModalProps
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className='fixed inset-0 z-[100] flex items-center justify-center bg-background/80 backdrop-blur-sm p-4'
+      transition={{ duration: 0.2 }}
+      className='fixed inset-0 z-[100] flex items-center justify-center bg-background/90 p-4'
       onClick={onClose}
     >
       <motion.div
         layoutId={`project-card-${project.slug}`}
+        transition={{ duration: 0.25, ease: 'easeOut' }}
         role='dialog'
         aria-modal='true'
         aria-labelledby={`project-title-${project.slug}`}
