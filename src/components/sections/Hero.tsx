@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import { motion } from 'motion/react'
+import { HeroEffect } from '@/components/hero-effects'
 
 const fadeUp = {
   initial: { opacity: 0, y: 16 },
@@ -12,9 +13,11 @@ export default function Hero() {
   return (
     <section
       id='hero'
-      className='scroll-mt-14 min-h-screen flex items-center justify-center'
+      className='relative scroll-mt-14 min-h-screen flex items-center justify-center overflow-hidden'
     >
-      <div className='flex flex-col md:flex-row items-center justify-center gap-10 px-4 md:px-10 max-w-4xl mx-auto'>
+      <HeroEffect />
+
+      <div className='relative z-10 flex flex-col md:flex-row items-center justify-center gap-10 px-4 md:px-10 max-w-4xl mx-auto'>
         <motion.div
           initial={fadeUp.initial}
           animate={fadeUp.animate}
