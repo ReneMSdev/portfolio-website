@@ -5,6 +5,7 @@ import './globals.css'
 import Navbar from '@/components/Navbar'
 import MobileMenu from '@/components/MobileMenu'
 import { MotionProvider } from '@/components/MotionProvider'
+import { CursorGlow } from '@/components/ui/cursor-glow'
 import { Analytics } from '@vercel/analytics/react'
 
 const spaceGrotesk = Space_Grotesk({
@@ -32,6 +33,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body
         className={`${spaceGrotesk.variable} ${spaceMono.variable} antialiased font-sans min-h-screen overflow-auto`}
       >
+        <CursorGlow />
         <MotionProvider>
           <Navbar />
           <MobileMenu />
