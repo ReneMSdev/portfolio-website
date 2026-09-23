@@ -111,9 +111,17 @@ function CommandLine({ command, onComplete }: { command: string; onComplete: () 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [command])
 
+  // Dracula-inspired syntax highlighting: purple prompt, pink command word,
+  // default "install", green argument (the package/group name).
+  const firstSpace = command.indexOf(' ')
+  const secondSpace = command.indexOf(' ', firstSpace + 1)
+
   return (
     <p className='text-foreground'>
-      <span className='text-accent'>$</span> {typed}
+      <span className='text-[#bd93f9]'>$</span>{' '}
+      <span className='text-[#ff79c6]'>{typed.slice(0, firstSpace)}</span>
+      <span>{typed.slice(firstSpace, secondSpace)}</span>
+      <span className='text-[#50fa7b]'>{typed.slice(secondSpace)}</span>
       {typed.length < command.length && (
         <span className='inline-block w-2 h-4 bg-foreground align-middle ml-0.5 animate-pulse' />
       )}
