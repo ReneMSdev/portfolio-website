@@ -46,16 +46,16 @@ const lgBranches = [
   // Main trunk: a loose meander through About/Skills/Projects (all fine
   // to cross freely — occluded or protected) before shifting right into
   // Contact's safe zone (x>480, clear of its left-aligned text).
-  'M 454 170 L 454 500 L 300 500 L 300 727 L 525 727 L 525 913 L 193 913 L 193 1089 L 550 1089 L 550 1400',
+  'M 454 170 L 454 500 L 300 500 L 300 727 L 525 727 L 525 913 L 194 913 L 194 1212 L 544 1212 L 544 1528',
   'M -40 250 L 60 250 L 60 304 L 257 304 L 257 601',
   'M 660 60 L 500 60 L 500 170 L 360 170',
   'M 660 380 L 540 380 L 540 260 L 454 260',
   // Branches off the main trunk, through the Projects grid area.
   'M 467 727 L 467 760 L 360 760',
-  'M 389 913 L 389 962 L 319 962',
-  'M 464 913 L 464 991 L 352 991',
-  'M 231 1089 L 231 1138 L 390 1138 L 390 1199',
-  'M 320 1089 L 320 1164 L 466 1164 L 466 1237',
+  'M 394 913 L 394 954 L 301 954',
+  'M 464 913 L 464 984 L 352 984',
+  'M 238 1212 L 238 1273 L 439 1273 L 439 1394',
+  'M 327 1212 L 327 1317 L 489 1317 L 489 1463',
 ]
 
 const lgNodes: NodePoint[] = [
@@ -66,17 +66,17 @@ const lgNodes: NodePoint[] = [
   { cx: 454, cy: 170 },
   { cx: 454, cy: 260 },
   { cx: 360, cy: 170 },
-  { cx: 550, cy: 1400 },
+  { cx: 544, cy: 1528 },
   { cx: 467, cy: 727 },
   { cx: 360, cy: 760 },
-  { cx: 389, cy: 913 },
-  { cx: 319, cy: 962 },
+  { cx: 394, cy: 913 },
+  { cx: 301, cy: 954 },
   { cx: 464, cy: 913 },
-  { cx: 352, cy: 991 },
-  { cx: 231, cy: 1089 },
-  { cx: 390, cy: 1199 },
-  { cx: 320, cy: 1089 },
-  { cx: 466, cy: 1237 },
+  { cx: 352, cy: 984 },
+  { cx: 238, cy: 1212 },
+  { cx: 439, cy: 1394 },
+  { cx: 327, cy: 1212 },
+  { cx: 489, cy: 1463 },
 ]
 
 // Fixed viewBox height per tier — NOT measured live. The design is authored
