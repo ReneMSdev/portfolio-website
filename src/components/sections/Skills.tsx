@@ -27,7 +27,7 @@ import {
 import { FaAws } from 'react-icons/fa'
 import { BiLogoPostgresql } from 'react-icons/bi'
 import { TerminalWindow } from '@/components/ui/terminal'
-import { EditModeDim } from '@/components/line-editor/EditModeDim'
+import { TextBlurBackdrop } from '@/components/ui/text-blur-backdrop'
 
 interface Skill {
   name: string
@@ -226,8 +226,10 @@ export default function Skills() {
       className='relative overflow-hidden scroll-mt-14 py-20 min-h-[900px]'
     >
 
-      <EditModeDim className='relative px-4 md:px-10 max-w-5xl mx-auto'>
-        <p className='font-mono text-3xl font-semibold text-accent lowercase mb-6'>Skills</p>
+      <div className='relative px-4 md:px-10 max-w-5xl mx-auto'>
+        <TextBlurBackdrop className='mb-6'>
+          <p className='font-mono text-3xl font-semibold text-accent lowercase'>Skills</p>
+        </TextBlurBackdrop>
 
         <TerminalWindow title='skills.sh'>
           <div className='space-y-4'>
@@ -253,7 +255,7 @@ export default function Skills() {
               })}
           </div>
         </TerminalWindow>
-      </EditModeDim>
+      </div>
     </section>
   )
 }

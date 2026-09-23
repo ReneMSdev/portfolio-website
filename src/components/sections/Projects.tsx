@@ -6,8 +6,8 @@ import { useRouter, useSearchParams, usePathname } from 'next/navigation'
 import { AnimatePresence, motion } from 'motion/react'
 import { CardContainer, CardBody, CardItem } from '@/components/ui/3d-card'
 import { ProjectModal } from '@/components/ProjectModal'
+import { TextBlurBackdrop } from '@/components/ui/text-blur-backdrop'
 import { projects, type Project } from '@/data/projects'
-import { EditModeDim } from '@/components/line-editor/EditModeDim'
 
 export default function Projects() {
   const router = useRouter()
@@ -46,8 +46,10 @@ export default function Projects() {
       id='projects'
       className='relative overflow-hidden scroll-mt-14 py-20'
     >
-      <EditModeDim className='relative px-4 md:px-10 max-w-5xl mx-auto'>
-        <p className='font-mono text-3xl font-semibold text-accent lowercase mb-10'>Projects</p>
+      <div className='relative px-4 md:px-10 max-w-5xl mx-auto'>
+        <TextBlurBackdrop className='mb-10'>
+          <p className='font-mono text-3xl font-semibold text-accent lowercase'>Projects</p>
+        </TextBlurBackdrop>
 
         <div className='grid grid-cols-1 md:grid-cols-2 gap-10'>
           {projects.map((project, index) => {
@@ -125,7 +127,7 @@ export default function Projects() {
             )
           })}
         </div>
-      </EditModeDim>
+      </div>
 
       <AnimatePresence>
         {selectedProject && (

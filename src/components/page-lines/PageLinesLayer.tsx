@@ -1,31 +1,27 @@
-'use client'
-
 import type { ReactNode } from 'react'
-import { useLineEditMode } from '@/components/line-editor/useLineEditMode'
 import { PageLines } from './PageLines'
+import { GenerativeLines } from '@/components/generative-lines/GenerativeLines'
+
+// Which background line-art implementation is live: the hand-authored,
+// saved design (page-lines/ — every coordinate placed and verified by
+// hand) or the algorithmically-generated one being tried
+// (generative-lines/ — a constrained random walk instead of hand-placed
+// coordinates). Both are kept fully intact; flip this to compare them.
+const ACTIVE: 'hand-authored' | 'generative' = 'generative'
 
 /**
  * Renders one continuous line-art SVG behind the whole page — replaces the
  * earlier per-section line art with a single page-wide design.
  *
- * The SVG uses a fixed viewBox (see PageLines) and sizes itself like a
- * normal image (width 100%, height auto), so it scales uniformly with page
- * width and never distorts/rescales on resize — no live measurement here.
- *
- * Every section is `position: relative` (needed for its own internal
- * content layering), which puts it in the same stacking context as this
- * SVG and above it — so while editing, `children` (everything below the
- * SVG in the DOM) gets `pointer-events: none` as a whole, letting clicks
- * reach the SVG's drag handles underneath instead of being swallowed by a
- * section's own (otherwise invisible) bounding box.
+ * The SVG uses a fixed viewBox and sizes itself like a normal image
+ * (width 100%, height auto), so it scales uniformly with page width and
+ * never distorts/rescales on resize — no live measurement here.
  */
 export function PageLinesLayer({ children }: { children: ReactNode }) {
-  const editing = useLineEditMode()
-
   return (
     <div className='relative overflow-hidden'>
-      <PageLines />
-      <div className={editing ? 'pointer-events-none' : undefined}>{children}</div>
+      {ACTIVE === 'generative' ? <GenerativeLines /> : <PageLines />}
+      {children}
     </div>
   )
 }
