@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { cn } from '@/lib/utils'
 import NavLink from './NavLink'
 import { useActiveSection } from '@/hooks/useActiveSection'
+import { useLineEditMode } from '@/components/line-editor/useLineEditMode'
 
 const navItems = [
   { label: 'About', href: '#about' },
@@ -14,9 +15,15 @@ const navItems = [
 
 export default function Navbar() {
   const activeId = useActiveSection(navItems.map((item) => item.href.slice(1)))
+  const editing = useLineEditMode()
 
   return (
-    <nav className='hidden md:grid grid-cols-[auto_1fr_auto] items-center fixed top-0 left-0 w-full h-14 text-md z-50 bg-background/70 backdrop-blur-sm px-10'>
+    <nav
+      className={cn(
+        'hidden md:grid grid-cols-[auto_1fr_auto] items-center fixed top-0 left-0 w-full h-14 text-md z-50 bg-background/70 backdrop-blur-sm px-10',
+        editing && 'opacity-30 pointer-events-none'
+      )}
+    >
       <a href='#hero'>
         <Image
           src='/logo-dark.svg'

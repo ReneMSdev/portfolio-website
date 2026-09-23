@@ -8,9 +8,7 @@ import Contact from '@/components/sections/Contact'
 export default function Home() {
   return (
     <>
-      <Suspense>
-        <Hero />
-      </Suspense>
+      <Hero />
       <About />
       <Skills />
       <Suspense>

@@ -6,6 +6,8 @@ import Navbar from '@/components/Navbar'
 import MobileMenu from '@/components/MobileMenu'
 import { MotionProvider } from '@/components/MotionProvider'
 import { CursorGlow } from '@/components/ui/cursor-glow'
+import { LineEditProvider } from '@/components/line-editor/LineEditContext'
+import { PageLinesLayer } from '@/components/page-lines/PageLinesLayer'
 import { Analytics } from '@vercel/analytics/react'
 
 const spaceGrotesk = Space_Grotesk({
@@ -34,12 +36,16 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         className={`${spaceGrotesk.variable} ${spaceMono.variable} antialiased font-sans min-h-screen overflow-auto`}
       >
         <CursorGlow />
-        <MotionProvider>
-          <Navbar />
-          <MobileMenu />
+        <LineEditProvider>
+          <MotionProvider>
+            <Navbar />
+            <MobileMenu />
 
-          <main>{children}</main>
-        </MotionProvider>
+            <PageLinesLayer>
+              <main>{children}</main>
+            </PageLinesLayer>
+          </MotionProvider>
+        </LineEditProvider>
         <Analytics />
       </body>
     </html>

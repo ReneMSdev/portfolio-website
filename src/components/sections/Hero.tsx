@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import { motion } from 'motion/react'
-import { HeroEffect } from '@/components/hero-effects'
+import { EditModeDim } from '@/components/line-editor/EditModeDim'
 
 const fadeUp = {
   initial: { opacity: 0, y: 16 },
@@ -15,9 +15,7 @@ export default function Hero() {
       id='hero'
       className='relative scroll-mt-14 min-h-screen flex items-center justify-center overflow-hidden'
     >
-      <HeroEffect />
-
-      <div className='relative z-10 flex flex-col md:flex-row items-center justify-center gap-10 px-4 md:px-10 max-w-4xl mx-auto'>
+      <EditModeDim className='relative z-10 flex flex-col md:flex-row items-center justify-center gap-10 px-4 md:px-10 max-w-4xl mx-auto'>
         <motion.div
           initial={fadeUp.initial}
           animate={fadeUp.animate}
@@ -61,7 +59,7 @@ export default function Hero() {
             distributed identity platforms.
           </motion.p>
         </div>
-      </div>
+      </EditModeDim>
     </section>
   )
 }

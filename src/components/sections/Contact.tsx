@@ -4,8 +4,7 @@ import { useState } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
 import { FaGithub, FaLinkedin, FaPhoneSquareAlt } from 'react-icons/fa'
 import { MdEmail, MdCheck } from 'react-icons/md'
-import { useMeasuredViewBox } from '@/hooks/useMeasuredViewBox'
-import { ContactLines } from '@/components/section-lines/ContactLines'
+import { EditModeDim } from '@/components/line-editor/EditModeDim'
 
 const EMAIL = 'rene.salomone@gmail.com'
 
@@ -30,7 +29,6 @@ const linkClasses =
 
 export default function Contact() {
   const [copied, setCopied] = useState(false)
-  const { ref: sectionRef, viewBox } = useMeasuredViewBox<HTMLElement>()
 
   const handleEmailClick = async () => {
     try {
@@ -45,16 +43,13 @@ export default function Contact() {
   return (
     <motion.section
       id='contact'
-      ref={sectionRef}
       initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-80px' }}
       transition={{ duration: 0.5 }}
       className='relative overflow-hidden scroll-mt-14 py-20'
     >
-      <ContactLines viewBox={viewBox} />
-
-      <div className='relative px-4 md:px-10 max-w-5xl mx-auto'>
+      <EditModeDim className='relative px-4 md:px-10 max-w-5xl mx-auto'>
         <p className='font-mono text-3xl font-semibold text-accent lowercase mb-6'>Contact</p>
 
         <p className='text-[17px] text-muted-foreground max-w-md leading-relaxed mb-10'>
@@ -98,7 +93,7 @@ export default function Contact() {
             </a>
           ))}
         </div>
-      </div>
+      </EditModeDim>
     </motion.section>
   )
 }

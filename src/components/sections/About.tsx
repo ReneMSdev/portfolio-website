@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'motion/react'
+import { useLineEditMode } from '@/components/line-editor/useLineEditMode'
 
 const facts = [
   'B.S. Computer Science · WGU 2024',
@@ -10,14 +11,16 @@ const facts = [
 ]
 
 export default function About() {
+  const editing = useLineEditMode()
+
   return (
     <motion.section
       id='about'
       initial={{ opacity: 0, y: 16 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      whileInView={{ opacity: editing ? 0.3 : 1, y: 0 }}
       viewport={{ once: true, margin: '-80px' }}
       transition={{ duration: 0.5 }}
-      className='scroll-mt-14 bg-surface border-y border-border'
+      className='relative scroll-mt-14 bg-surface border-y border-border'
     >
       <div className='max-w-5xl mx-auto px-4 md:px-16 py-20 flex flex-col gap-7'>
         <p className='font-mono text-3xl font-semibold text-accent lowercase'>About</p>

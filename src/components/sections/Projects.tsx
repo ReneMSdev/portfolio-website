@@ -7,15 +7,13 @@ import { AnimatePresence, motion } from 'motion/react'
 import { CardContainer, CardBody, CardItem } from '@/components/ui/3d-card'
 import { ProjectModal } from '@/components/ProjectModal'
 import { projects, type Project } from '@/data/projects'
-import { useMeasuredViewBox } from '@/hooks/useMeasuredViewBox'
-import { ProjectsLines } from '@/components/section-lines/ProjectsLines'
+import { EditModeDim } from '@/components/line-editor/EditModeDim'
 
 export default function Projects() {
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
   const triggerRef = useRef<HTMLElement | null>(null)
-  const { ref: sectionRef, viewBox, height } = useMeasuredViewBox<HTMLElement>()
 
   const [selectedSlug, setSelectedSlug] = useState<string | null>(() => {
     const slug = searchParams.get('project')
@@ -46,15 +44,9 @@ export default function Projects() {
   return (
     <section
       id='projects'
-      ref={sectionRef}
       className='relative overflow-hidden scroll-mt-14 py-20'
     >
-      <ProjectsLines
-        viewBox={viewBox}
-        height={height}
-      />
-
-      <div className='relative px-4 md:px-10 max-w-5xl mx-auto'>
+      <EditModeDim className='relative px-4 md:px-10 max-w-5xl mx-auto'>
         <p className='font-mono text-3xl font-semibold text-accent lowercase mb-10'>Projects</p>
 
         <div className='grid grid-cols-1 md:grid-cols-2 gap-10'>
@@ -133,7 +125,7 @@ export default function Projects() {
             )
           })}
         </div>
-      </div>
+      </EditModeDim>
 
       <AnimatePresence>
         {selectedProject && (

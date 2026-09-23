@@ -4,7 +4,7 @@ import { motion } from 'motion/react'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
 
 export const SPLICE_X = 310
-export const SPLICE_Y = 100
+export const SPLICE_Y = 53
 const LEFT_DROP_X = 170
 const RIGHT_DROP_X = 450
 

@@ -27,8 +27,7 @@ import {
 import { FaAws } from 'react-icons/fa'
 import { BiLogoPostgresql } from 'react-icons/bi'
 import { TerminalWindow } from '@/components/ui/terminal'
-import { useMeasuredViewBox } from '@/hooks/useMeasuredViewBox'
-import { SkillsLines } from '@/components/section-lines/SkillsLines'
+import { EditModeDim } from '@/components/line-editor/EditModeDim'
 
 interface Skill {
   name: string
@@ -212,21 +211,14 @@ export default function Skills() {
     }, PAUSE_BEFORE_OUTPUT_MS)
   }
 
-  const { viewBox } = useMeasuredViewBox(sectionRef)
-  const terminalComplete = outputShownFor === skillGroups.length - 1
-
   return (
     <section
       id='skills'
       ref={sectionRef}
-      className='relative overflow-hidden scroll-mt-14 py-20'
+      className='relative overflow-hidden scroll-mt-14 py-20 min-h-[900px]'
     >
-      <SkillsLines
-        viewBox={viewBox}
-        active={terminalComplete}
-      />
 
-      <div className='relative px-4 md:px-10 max-w-5xl mx-auto'>
+      <EditModeDim className='relative px-4 md:px-10 max-w-5xl mx-auto'>
         <p className='font-mono text-3xl font-semibold text-accent lowercase mb-6'>Skills</p>
 
         <TerminalWindow title='skills.sh'>
@@ -253,7 +245,7 @@ export default function Skills() {
               })}
           </div>
         </TerminalWindow>
-      </div>
+      </EditModeDim>
     </section>
   )
 }
