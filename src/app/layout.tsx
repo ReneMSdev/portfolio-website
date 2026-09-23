@@ -6,7 +6,6 @@ import Navbar from '@/components/Navbar'
 import MobileMenu from '@/components/MobileMenu'
 import { MotionProvider } from '@/components/MotionProvider'
 import { CursorGlow } from '@/components/ui/cursor-glow'
-import { LineEditProvider } from '@/components/line-editor/LineEditContext'
 import { PageLinesLayer } from '@/components/page-lines/PageLinesLayer'
 import { Analytics } from '@vercel/analytics/react'
 
@@ -36,16 +35,14 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         className={`${spaceGrotesk.variable} ${spaceMono.variable} antialiased font-sans min-h-screen overflow-auto`}
       >
         <CursorGlow />
-        <LineEditProvider>
-          <MotionProvider>
-            <Navbar />
-            <MobileMenu />
+        <MotionProvider>
+          <Navbar />
+          <MobileMenu />
 
-            <PageLinesLayer>
-              <main>{children}</main>
-            </PageLinesLayer>
-          </MotionProvider>
-        </LineEditProvider>
+          <PageLinesLayer>
+            <main>{children}</main>
+          </PageLinesLayer>
+        </MotionProvider>
         <Analytics />
       </body>
     </html>

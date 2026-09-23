@@ -4,7 +4,6 @@ import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import NavLink from './NavLink'
 import { cn } from '@/lib/utils'
-import { useActiveSection } from '@/hooks/useActiveSection'
 
 const navItems = [
   { label: 'About', href: '#about' },
@@ -15,7 +14,6 @@ const navItems = [
 
 export default function MobileMenu() {
   const [open, setOpen] = useState(false)
-  const activeId = useActiveSection(navItems.map((item) => item.href.slice(1)))
   const menuRef = useRef<HTMLDivElement>(null)
 
   // Click Outside
@@ -83,14 +81,7 @@ export default function MobileMenu() {
             onClick={() => setOpen(false)}
             className='text-xl font-medium'
           >
-            <span
-              className={cn(
-                'nav-link-hover',
-                activeId === item.href.slice(1) && 'nav-link-active'
-              )}
-            >
-              {item.label}
-            </span>
+            <span className='nav-link-hover'>{item.label}</span>
           </NavLink>
         ))}
         <a

@@ -2,9 +2,7 @@
 
 import { motion } from 'motion/react'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
-import { useLineEditMode } from '@/components/line-editor/useLineEditMode'
-import { EditableLineLayer } from '@/components/line-editor/EditableLineLayer'
-import { parsePath } from '@/components/line-editor/pathUtils'
+import { parsePath } from '@/lib/svgPath'
 import { FusionIntro, FUSION_SETTLE_TIME } from './FusionIntro'
 import { useLineLayoutTier, type LineLayoutTier } from './useLineLayoutTier'
 
@@ -83,8 +81,7 @@ const lgNodes: NodePoint[] = [
 // against this height; the SVG then sizes itself like a normal image (width
 // 100%, height auto) so it scales uniformly with page width and never
 // distorts/rescales on resize. If real content ends up taller than this,
-// the bottom is simply uncovered — extend the design deliberately via the
-// editor rather than growing this to chase it automatically.
+// the bottom is simply uncovered.
 const branchSets: Record<LineLayoutTier, { branches: string[]; nodes: NodePoint[]; height: number }> = {
   lg: { branches: lgBranches, nodes: lgNodes, height: 1600 },
   md: { branches: lgBranches, nodes: lgNodes, height: 1600 },
@@ -94,7 +91,6 @@ const branchSets: Record<LineLayoutTier, { branches: string[]; nodes: NodePoint[
 /** The whole page's fiber/circuit line art: the fusion intro, then one continuous set of circuit traces down the page. */
 export function PageLines() {
   const reduced = useReducedMotion()
-  const editing = useLineEditMode()
   const tier = useLineLayoutTier()
   const { branches, nodes, height } = branchSets[tier]
 
@@ -102,48 +98,39 @@ export function PageLines() {
     <svg
       aria-hidden
       viewBox={`0 0 620 ${height}`}
-      className={`absolute top-0 left-0 w-full opacity-25 ${editing ? '' : 'pointer-events-none'}`}
+      className='pointer-events-none absolute top-0 left-0 w-full opacity-25'
     >
       <FusionIntro />
 
-      {editing ? (
-        <EditableLineLayer
-          id={`page-${tier}`}
-          branches={branches}
+      {branches.map((d) => (
+        <motion.path
+          key={d}
+          d={d}
+          fill='none'
+          strokeWidth={1.5}
+          strokeLinecap='round'
+          className='stroke-accent'
+          initial={reduced ? false : { pathLength: 0, opacity: 0 }}
+          animate={{ pathLength: 1, opacity: 1 }}
+          transition={{
+            duration: branchLength(d) / SPEED,
+            delay: CIRCUIT_START + startY(d) / SPEED,
+            ease: 'linear',
+          }}
         />
-      ) : (
-        <>
-          {branches.map((d) => (
-            <motion.path
-              key={d}
-              d={d}
-              fill='none'
-              strokeWidth={1.5}
-              strokeLinecap='round'
-              className='stroke-accent'
-              initial={reduced ? false : { pathLength: 0, opacity: 0 }}
-              animate={{ pathLength: 1, opacity: 1 }}
-              transition={{
-                duration: branchLength(d) / SPEED,
-                delay: CIRCUIT_START + startY(d) / SPEED,
-                ease: 'linear',
-              }}
-            />
-          ))}
-          {nodes.map((n) => (
-            <motion.circle
-              key={`${n.cx}-${n.cy}`}
-              cx={n.cx}
-              cy={n.cy}
-              r={3}
-              className='fill-accent'
-              initial={reduced ? false : { opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4, delay: CIRCUIT_START + n.cy / SPEED }}
-            />
-          ))}
-        </>
-      )}
+      ))}
+      {nodes.map((n) => (
+        <motion.circle
+          key={`${n.cx}-${n.cy}`}
+          cx={n.cx}
+          cy={n.cy}
+          r={3}
+          className='fill-accent'
+          initial={reduced ? false : { opacity: 0, scale: 0 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.4, delay: CIRCUIT_START + n.cy / SPEED }}
+        />
+      ))}
     </svg>
   )
 }
