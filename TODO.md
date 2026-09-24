@@ -56,19 +56,16 @@ Source: `Portfolio Redesign — Design Brief.md` (2026-09-19). Tracked phase-by-
 Route Planner and Mobile Mechanic Site have real URLs/screenshots. Resume Auto-Apply Tool, LinkLeaf, and Weather App still have placeholder `#` links, no images, and brief-derived copy. Update `src/data/projects.ts` with real content when ready — the grid/modal will pick it up automatically (LinkLeaf's `architectureNote` and any project's optional `metrics`/`lessonsLearned` render conditionally).
 
 ## Phase 5 — Signature Interactive Element
-- [x] **Decide** signature element — fusion-splice fiber/circuit line art (see STATUS.md): two fibers meet and fuse at a glow, then circuit traces spring outward, tying the fiber/telecom background to the software side
-- [x] Build Hero's fusion intro + circuit routing (`src/components/hero-effects/`), with locked wide/compact presets so lines never cross the text at any viewport width
-- [x] Build the per-section extension mechanism (`src/components/section-lines/`, `useMeasuredViewBox`) — independent per-section SVGs sharing a fixed viewBox width + x-anchors so they hand off at the same screen position
-- [x] Wire up Skills (dynamic traces, gated to start only once the terminal's typing sequence finishes)
-- [ ] Wire up Projects (cards protect content, can route freely behind them)
-- [ ] Wire up Contact (no protective element — must actually avoid the link text, not just rely on occlusion)
-- [ ] Small follow-up: extend one Hero branch to a shared bottom-edge anchor so the Hero→Skills handoff has a literal visual seam, not just consistent positioning
+- [x] **Decide** signature element — fiber/circuit line art tying the fiber/telecom background to the software side
+- [x] ~~Build Hero's fusion intro + circuit routing (`hero-effects/`)~~ / ~~per-section extension mechanism (`section-lines/`)~~ — this hand-authored, per-section approach was built and worked, but was replaced entirely: pivoted to a single algorithmically-generated pattern spanning the whole page (`src/components/generative-lines/`), since hand-tuning coordinates per section/breakpoint didn't scale. The hand-authored version is preserved, unused, at `src/components/page-lines/`.
+- [x] Wire up the whole page (Hero through Contact) — the generative approach covers all sections automatically as one continuous pattern; no per-section wiring needed. Exposed text is protected via a frosted-glass backdrop (`ui/text-blur-backdrop.tsx`) instead of the lines needing to avoid it.
+- [x] Mobile coverage — fixed a gap where the fixed-aspect-ratio canvas only reached the Hero section on narrow viewports; mobile now uses a taller generation canvas so the pattern reaches the bottom of the page.
 
 ## Phase 6 — Mobile & Responsive Pass
-- [ ] Design mobile layout (not yet designed — open question)
-- [ ] Responsive nav (mobile menu)
-- [ ] Responsive projects grid
-- [ ] Responsive modal behavior
+- [x] Mobile nav (`MobileMenu.tsx` — hamburger + slide-in panel)
+- [x] Responsive projects grid (`grid-cols-1 md:grid-cols-2`)
+- [x] Signature line art extended to mobile (see Phase 5)
+- [ ] Re-verify project modal responsiveness at a narrow viewport (uses the same responsive patterns as the rest of the site; built but not independently re-confirmed live this session)
 
 ## Phase 7 — QA & Launch
 - [ ] Accessibility pass (focus states, contrast, aria attributes, keyboard nav)
@@ -76,4 +73,4 @@ Route Planner and Mobile Mechanic Site have real URLs/screenshots. Resume Auto-A
 - [ ] Performance check (animation cost, Aceternity/Framer Motion bundle size)
 - [ ] Remove/replace any remaining AI-template tropes (gradient washes, left-border cards, default fonts)
 - [ ] Final review against `ky.fyi` / `refact0r.dev/about` references
-- [ ] Merge `redesign` → `main` and deploy
+- [x] ~~Merge `redesign` → `main` and deploy~~ — `redesign` has been merged into `main` throughout; day-to-day work now happens on `working`
