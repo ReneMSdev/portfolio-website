@@ -42,7 +42,7 @@ Hero and About copy were rewritten for accuracy after a long back-and-forth:
 - Fixed generative lines only covering the Hero section on mobile (see Phase 5 above).
 
 ## Up next — Phase 7: QA & Launch
-See the breakdown below. None of this is started yet.
+On hold for now. When picked back up, accessibility is the priority item (focus states, contrast, aria attributes, keyboard nav) — cross-browser, performance, trope review, and the reference comparison are lower priority for a personal portfolio.
 
 ## Notes
 - `redesign` branch: fully merged into `main`, no longer in active use. `working` is now the day-to-day branch.

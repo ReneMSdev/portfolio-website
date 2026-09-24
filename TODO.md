@@ -68,7 +68,7 @@ Route Planner and Mobile Mechanic Site have real URLs/screenshots. Resume Auto-A
 - [ ] Re-verify project modal responsiveness at a narrow viewport (uses the same responsive patterns as the rest of the site; built but not independently re-confirmed live this session)
 
 ## Phase 7 — QA & Launch
-- [ ] Accessibility pass (focus states, contrast, aria attributes, keyboard nav)
+- [ ] Accessibility pass (focus states, contrast, aria attributes, keyboard nav) — **priority when this phase picks back up**
 - [ ] Cross-browser check
 - [ ] Performance check (animation cost, Aceternity/Framer Motion bundle size)
 - [ ] Remove/replace any remaining AI-template tropes (gradient washes, left-border cards, default fonts)
