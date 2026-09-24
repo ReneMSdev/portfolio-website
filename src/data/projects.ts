@@ -30,8 +30,8 @@ export const projects: Project[] = [
     description:
       'An AI/automation tool that iteratively generates tailored resumes and cover letters through a chat-based workflow. FastAPI backend, Next.js frontend.',
     stack: ['FastAPI', 'Next.js', 'OpenAI API'],
-    demoUrl: '#',
-    codeUrl: '#',
+    demoUrl: 'https://resi-the-builder.vercel.app/',
+    codeUrl: 'https://github.com/ReneMSdev/resi-the-builder',
   },
   {
     slug: 'linkleaf',
