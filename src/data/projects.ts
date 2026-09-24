@@ -11,6 +11,7 @@ export interface Project {
   description: string
   stack: string[]
   images?: string[]
+  imagePosition?: 'center' | 'top'
   demoUrl?: string
   demoNote?: string
   codeUrl?: string
@@ -30,6 +31,8 @@ export const projects: Project[] = [
     description:
       'An AI/automation tool that iteratively generates tailored resumes and cover letters through a chat-based workflow. FastAPI backend, Next.js frontend.',
     stack: ['FastAPI', 'Next.js', 'OpenAI API'],
+    images: ['/img/resume-builder/resume-builder-1.jpg'],
+    imagePosition: 'top',
     demoUrl: 'https://resi-the-builder.vercel.app/',
     codeUrl: 'https://github.com/ReneMSdev/resi-the-builder',
   },
@@ -54,6 +57,7 @@ export const projects: Project[] = [
       'A static site built for ATX Reliable Wrenching, a mobile mechanic business serving the Greater Austin area, giving them a booking and contact presence online.',
     stack: ['HTML', 'CSS', 'JavaScript'],
     images: ['/img/mobile-mechanic/mobile-mechanic-1.jpg'],
+    imagePosition: 'top',
     demoUrl: 'https://www.atxreliablewrenching.com/',
   },
   {
