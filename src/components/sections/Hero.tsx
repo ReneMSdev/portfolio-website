@@ -56,8 +56,7 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.15 }}
               className='text-[17px] text-muted-foreground max-w-md leading-relaxed'
             >
-              Building AI-powered tools and cloud-native backend systems — from resume automation
-              to distributed identity platforms.
+              I design and build full-stack applications, integrating AI where it adds real value.
             </motion.p>
           </div>
         </TextBlurBackdrop>

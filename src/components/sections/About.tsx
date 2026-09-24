@@ -4,9 +4,8 @@ import { motion } from 'motion/react'
 
 const facts = [
   'B.S. Computer Science · WGU 2024',
-  '8+ yrs fiber & telecom field work',
-  'TDLR Apprentice Electrician License',
-  'Founder, Salo Labs LLC',
+  '5+ yrs fiber & telecom field work',
+  'Freelance Developer, Salo Labs LLC',
 ]
 
 export default function About() {
@@ -24,10 +23,10 @@ export default function About() {
 
         <div className='flex flex-col md:flex-row gap-8 md:gap-20'>
           <p className='max-w-[560px] text-[17px] leading-[1.7] text-body'>
-            CS graduate (WGU, 2024) and solo technical founder with 8+ years in fiber optic
-            installation and telecom field work. Now building production-grade software solo —
-            FastAPI backends, Next.js frontends, and cloud infrastructure — while transitioning
-            fully into engineering.
+            CS graduate (WGU) with 5+ years in fiber optic and telecom field work, currently
+            transitioning into software — self-taught, with a B.S. in Computer Science earned
+            while traveling. Now building full-stack applications and websites through personal
+            projects and freelance work, with ongoing studies into cloud and AI infrastructure.
           </p>
 
           <div className='flex flex-col gap-[18px] md:pl-10 md:border-l md:border-border'>
