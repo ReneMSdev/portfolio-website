@@ -85,14 +85,6 @@ export default function MobileMenu() {
           </NavLink>
         ))}
         <a
-          href='/resume.pdf'
-          target='_blank'
-          rel='noopener noreferrer'
-          className='text-xl font-medium'
-        >
-          <span className='nav-link-hover'>Resume</span>
-        </a>
-        <a
           href='https://github.com/ReneMSdev'
           target='_blank'
           rel='noopener noreferrer'

@@ -35,14 +35,6 @@ export default function Navbar() {
 
       <div className='flex justify-end gap-6 lowercase'>
         <a
-          href='/resume.pdf'
-          target='_blank'
-          rel='noopener noreferrer'
-          className='text-foreground font-semibold hover:text-accent transition-colors'
-        >
-          Resume
-        </a>
-        <a
           href='https://github.com/ReneMSdev'
           target='_blank'
           rel='noopener noreferrer'
