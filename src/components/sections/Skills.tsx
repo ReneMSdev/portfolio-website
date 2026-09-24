@@ -44,48 +44,136 @@ const skillGroups: SkillGroup[] = [
   {
     command: 'npm install languages',
     skills: [
-      { name: 'HTML', icon: SiHtml5, description: 'Semantic markup and accessible page structure.' },
-      { name: 'CSS', icon: SiCss3, description: 'Layout and styling with modern Grid and Flexbox.' },
-      { name: 'JavaScript', icon: SiJavascript, description: 'Core language for interactive, dynamic web apps.' },
-      { name: 'TypeScript', icon: SiTypescript, description: 'Typed superset of JavaScript for safer, scalable code.' },
-      { name: 'Python', icon: SiPython, description: 'General-purpose scripting, automation, and backend logic.' },
+      {
+        name: 'HTML',
+        icon: SiHtml5,
+        description: 'Semantic markup and accessible page structure.',
+      },
+      {
+        name: 'CSS',
+        icon: SiCss3,
+        description: 'Layout and styling with modern Grid and Flexbox.',
+      },
+      {
+        name: 'JavaScript',
+        icon: SiJavascript,
+        description: 'Core language for interactive, dynamic web apps.',
+      },
+      {
+        name: 'TypeScript',
+        icon: SiTypescript,
+        description: 'Typed superset of JavaScript for safer, scalable code.',
+      },
+      {
+        name: 'Python',
+        icon: SiPython,
+        description: 'General-purpose scripting, automation, and backend logic.',
+      },
     ],
   },
   {
     command: 'npm install frameworks',
     skills: [
-      { name: 'React', icon: SiReact, description: 'Component-based library for building interactive UIs.' },
-      { name: 'Next.js', icon: SiNextdotjs, description: 'React framework for routing, rendering, and full-stack apps.' },
-      { name: 'Node.js', icon: SiNodedotjs, description: 'JavaScript runtime for backend services and tooling.' },
-      { name: 'FastAPI', icon: SiFastapi, description: 'Python framework for building fast, typed REST APIs.' },
-      { name: 'Tailwind CSS', icon: SiTailwindcss, description: 'Utility-first CSS framework for rapid, consistent styling.' },
-      { name: 'React Native', icon: SiReact, description: 'Cross-platform mobile apps built with React.' },
-      { name: 'Flutter', icon: SiFlutter, description: 'Dart-based toolkit for native mobile, web, and desktop apps.' },
+      {
+        name: 'React',
+        icon: SiReact,
+        description: 'Component-based library for building interactive UIs.',
+      },
+      {
+        name: 'Next.js',
+        icon: SiNextdotjs,
+        description: 'React framework for routing, rendering, and full-stack apps.',
+      },
+      {
+        name: 'Node.js',
+        icon: SiNodedotjs,
+        description: 'JavaScript runtime for backend services and tooling.',
+      },
+      {
+        name: 'FastAPI',
+        icon: SiFastapi,
+        description: 'Python framework for building fast, typed REST APIs.',
+      },
+      {
+        name: 'Tailwind CSS',
+        icon: SiTailwindcss,
+        description: 'Utility-first CSS framework for rapid, consistent styling.',
+      },
+      {
+        name: 'React Native',
+        icon: SiReact,
+        description: 'Cross-platform mobile apps built with React.',
+      },
+      {
+        name: 'Flutter',
+        icon: SiFlutter,
+        description: 'Dart-based toolkit for native mobile, web, and desktop apps.',
+      },
     ],
   },
   {
     command: 'npm install cloud-infra',
     skills: [
-      { name: 'PostgreSQL', icon: BiLogoPostgresql, description: 'Relational database for structured, transactional data.' },
-      { name: 'AWS', icon: FaAws, description: 'Cloud infrastructure for hosting, storage, and compute.' },
-      { name: 'GCP', icon: SiGooglecloud, description: "Google's cloud platform for hosting and services." },
-      { name: 'Firebase', icon: SiFirebase, description: 'Backend-as-a-service for auth, realtime data, and hosting.' },
-      { name: 'Vercel', icon: SiVercel, description: 'Deployment platform for Next.js and frontend apps.' },
+      {
+        name: 'PostgreSQL',
+        icon: BiLogoPostgresql,
+        description: 'Relational database for structured, transactional data.',
+      },
+      {
+        name: 'AWS',
+        icon: FaAws,
+        description: 'Cloud infrastructure for hosting, storage, and compute.',
+      },
+      {
+        name: 'GCP',
+        icon: SiGooglecloud,
+        description: "Google's cloud platform for hosting and services.",
+      },
+      {
+        name: 'Firebase',
+        icon: SiFirebase,
+        description: 'Backend-as-a-service for auth, realtime data, and hosting.',
+      },
+      {
+        name: 'Vercel',
+        icon: SiVercel,
+        description: 'Deployment platform for Next.js and frontend apps.',
+      },
     ],
   },
   {
     command: 'npm install tools',
     skills: [
-      { name: 'Git', icon: SiGit, description: 'Version control for tracking and collaborating on code.' },
-      { name: 'GitHub', icon: SiGithub, description: 'Git hosting, code review, and CI/CD workflows.' },
+      {
+        name: 'Git',
+        icon: SiGit,
+        description: 'Version control for tracking and collaborating on code.',
+      },
+      {
+        name: 'GitHub',
+        icon: SiGithub,
+        description: 'Git hosting, code review, and CI/CD workflows.',
+      },
     ],
   },
   {
     command: 'npm install ai-tooling',
     skills: [
-      { name: 'OpenAI API', icon: SiOpenai, description: 'GPT models for chat, generation, and AI-powered features.' },
-      { name: 'Claude API', icon: SiClaude, description: "Anthropic's Claude models for chat, generation, and AI-powered features." },
-      { name: 'GitHub Copilot', icon: SiGithubcopilot, description: 'AI pair-programming assistant for code completion and chat.' },
+      {
+        name: 'OpenAI API',
+        icon: SiOpenai,
+        description: 'GPT models for chat, generation, and AI-powered features.',
+      },
+      {
+        name: 'Claude API',
+        icon: SiClaude,
+        description: "Anthropic's Claude models for chat, generation, and AI-powered features.",
+      },
+      {
+        name: 'GitHub Copilot',
+        icon: SiGithubcopilot,
+        description: 'AI pair-programming assistant for code completion and chat.',
+      },
     ],
   },
 ]
@@ -223,9 +311,8 @@ export default function Skills() {
     <section
       id='skills'
       ref={sectionRef}
-      className='relative overflow-hidden scroll-mt-14 py-20 min-h-[900px]'
+      className='relative overflow-hidden scroll-mt-14 py-20 min-h-[500px]'
     >
-
       <div className='relative px-4 md:px-10 max-w-5xl mx-auto'>
         <TextBlurBackdrop className='mb-6'>
           <p className='font-mono text-3xl font-semibold text-accent lowercase'>Skills</p>
