@@ -156,7 +156,7 @@ export function ProjectModal({ project, onClose, triggerRef }: ProjectModalProps
               rel='noopener noreferrer'
               className='font-semibold text-foreground hover:text-accent'
             >
-              View Demo
+              {project.status === 'Live' ? 'View Live Site' : 'View Demo'}
             </a>
           )}
           {project.codeUrl && (
