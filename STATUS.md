@@ -42,7 +42,7 @@ Hero and About copy were rewritten for accuracy after a long back-and-forth:
 - Fixed generative lines only covering the Hero section on mobile (see Phase 5 above).
 
 ## Up next — Phase 7: QA & Launch
-On hold for now. When picked back up, accessibility is the priority item (focus states, contrast, aria attributes, keyboard nav) — cross-browser, performance, trope review, and the reference comparison are lower priority for a personal portfolio.
+On hold for now. When picked back up, accessibility is the priority item (focus states, contrast, aria attributes, keyboard nav) — cross-browser, performance, and trope review are lower priority for a personal portfolio. The reference comparison (`ky.fyi`/`refact0r.dev/about`) has been dropped entirely: the design has landed somewhere distinct enough that a side-by-side isn't useful anymore.
 
 ## Notes
 - `redesign` branch: fully merged into `main`, no longer in active use. `working` is now the day-to-day branch.

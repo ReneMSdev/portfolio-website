@@ -72,5 +72,5 @@ Route Planner and Mobile Mechanic Site have real URLs/screenshots. Resume Auto-A
 - [ ] Cross-browser check
 - [ ] Performance check (animation cost, Aceternity/Framer Motion bundle size)
 - [ ] Remove/replace any remaining AI-template tropes (gradient washes, left-border cards, default fonts)
-- [ ] Final review against `ky.fyi` / `refact0r.dev/about` references
+- [x] ~~Final review against `ky.fyi` / `refact0r.dev/about` references~~ — dropped; the design has landed somewhere distinct enough from the original references that a comparison isn't useful anymore
 - [x] ~~Merge `redesign` → `main` and deploy~~ — `redesign` has been merged into `main` throughout; day-to-day work now happens on `working`
