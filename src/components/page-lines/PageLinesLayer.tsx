@@ -19,7 +19,7 @@ const ACTIVE: 'hand-authored' | 'generative' = 'generative'
  */
 export function PageLinesLayer({ children }: { children: ReactNode }) {
   return (
-    <div className='relative overflow-hidden'>
+    <div className='relative overflow-clip'>
       {ACTIVE === 'generative' ? <GenerativeLines /> : <PageLines />}
       {children}
     </div>

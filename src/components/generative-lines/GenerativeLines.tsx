@@ -36,7 +36,7 @@ export function GenerativeLines() {
     >
       {pattern.branches.map((d, i) => (
         <motion.path
-          key={d}
+          key={`${i}-${d}`}
           d={d}
           fill='none'
           strokeWidth={4.5}
@@ -50,7 +50,7 @@ export function GenerativeLines() {
       ))}
       {pattern.nodes.map((n, i) => (
         <motion.circle
-          key={`${n.cx}-${n.cy}`}
+          key={`${i}-${n.cx}-${n.cy}`}
           cx={n.cx}
           cy={n.cy}
           r={4.5}

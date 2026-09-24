@@ -32,7 +32,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       className='scroll-smooth'
     >
       <body
-        className={`${spaceGrotesk.variable} ${spaceMono.variable} antialiased font-sans min-h-screen overflow-auto`}
+        className={`${spaceGrotesk.variable} ${spaceMono.variable} antialiased font-sans min-h-screen`}
       >
         <CursorGlow />
         <MotionProvider>
