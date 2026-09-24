@@ -4,13 +4,25 @@ import { useSyncExternalStore } from 'react'
 import { generateCircuitBranches, type NodePoint } from './generateCircuit'
 
 const WIDTH = 620
-const HEIGHT = 1600
-const BRANCH_COUNT = 26
+
+// Mobile stacks the whole page into one narrow column (no side-by-side
+// layouts like Hero's image or Projects' 2-col grid), so it's far taller
+// relative to its width than desktop is. A single fixed aspect ratio can't
+// serve both — below the md breakpoint we use a much taller canvas so the
+// pattern still reaches the bottom of the page instead of only covering
+// Hero. Any excess is invisible: PageLinesLayer clips overflow.
+const MOBILE_QUERY = '(max-width: 767px)'
+const HEIGHT_DESKTOP = 1600
+const HEIGHT_MOBILE = 5200
+const BRANCH_COUNT_DESKTOP = 26
+const BRANCH_COUNT_MOBILE = 42
 const RESIZE_DEBOUNCE_MS = 400
 
 export interface Pattern {
   branches: string[]
   nodes: NodePoint[]
+  width: number
+  height: number
 }
 
 function randomSeed() {
@@ -18,7 +30,15 @@ function randomSeed() {
 }
 
 function generate(): Pattern {
-  return generateCircuitBranches({ width: WIDTH, height: HEIGHT, branchCount: BRANCH_COUNT, seed: randomSeed() })
+  const isMobile = window.matchMedia(MOBILE_QUERY).matches
+  const height = isMobile ? HEIGHT_MOBILE : HEIGHT_DESKTOP
+  const branchCount = isMobile ? BRANCH_COUNT_MOBILE : BRANCH_COUNT_DESKTOP
+
+  return {
+    width: WIDTH,
+    height,
+    ...generateCircuitBranches({ width: WIDTH, height, branchCount, seed: randomSeed() }),
+  }
 }
 
 let pattern: Pattern | null = null

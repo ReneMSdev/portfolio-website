@@ -4,9 +4,6 @@ import { motion } from 'motion/react'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
 import { useGeneratedPattern } from './useGeneratedPattern'
 
-const WIDTH = 620
-const HEIGHT = 1600
-
 /**
  * Experimental alternative to page-lines/: an algorithmically-generated
  * circuit pattern instead of hand-placed coordinates, so it isn't tied to
@@ -18,9 +15,9 @@ const HEIGHT = 1600
  * generated pattern reads as busier at the same opacity.
  *
  * Re-rolled with a fresh random seed on every resize (see
- * useGeneratedPattern) — the canvas itself stays a fixed 620x1600 (still
- * scales uniformly via width:100% height:auto, no distortion); only which
- * pattern fills it changes.
+ * useGeneratedPattern) — the canvas is a fixed size per pattern (still
+ * scales uniformly via width:100% height:auto, no distortion), taller on
+ * mobile so it still reaches the bottom of the page.
  */
 export function GenerativeLines() {
   const reduced = useReducedMotion()
@@ -31,7 +28,7 @@ export function GenerativeLines() {
   return (
     <svg
       aria-hidden
-      viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
+      viewBox={`0 0 ${pattern.width} ${pattern.height}`}
       className='pointer-events-none absolute top-0 left-0 w-full opacity-10'
     >
       {pattern.branches.map((d, i) => (
