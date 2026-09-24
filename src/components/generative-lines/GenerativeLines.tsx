@@ -39,12 +39,13 @@ export function GenerativeLines() {
           key={d}
           d={d}
           fill='none'
-          strokeWidth={1.5}
+          strokeWidth={4.5}
           strokeLinecap='round'
+          vectorEffect='non-scaling-stroke'
           className='stroke-accent'
-          initial={reduced ? false : { pathLength: 0, opacity: 0 }}
-          animate={{ pathLength: 1, opacity: 1 }}
-          transition={{ duration: 1.2, delay: i * 0.15, ease: 'easeOut' }}
+          initial={reduced ? false : { opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: i * 0.15, ease: 'easeOut' }}
         />
       ))}
       {pattern.nodes.map((n, i) => (
@@ -52,7 +53,7 @@ export function GenerativeLines() {
           key={`${n.cx}-${n.cy}`}
           cx={n.cx}
           cy={n.cy}
-          r={3}
+          r={4.5}
           className='fill-accent'
           initial={reduced ? false : { opacity: 0, scale: 0 }}
           animate={{ opacity: 1, scale: 1 }}
