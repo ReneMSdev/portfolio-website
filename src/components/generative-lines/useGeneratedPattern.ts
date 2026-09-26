@@ -42,11 +42,13 @@ function generate(): Pattern {
 }
 
 let pattern: Pattern | null = null
+let lastWidth = 0
 
 function subscribe(callback: () => void) {
   // First subscriber ever (client-only — subscribe never runs during SSR):
   // generate the initial pattern right away instead of waiting for a resize.
   if (!pattern) {
+    lastWidth = window.innerWidth
     pattern = generate()
     callback()
   }
@@ -55,6 +57,13 @@ function subscribe(callback: () => void) {
   const handleResize = () => {
     clearTimeout(timeoutId)
     timeoutId = setTimeout(() => {
+      // Mobile Chrome/Safari show/hide their address bar on scroll, which
+      // changes window.innerHeight (and fires 'resize') without the width
+      // — and thus the layout/tier — actually changing. Only regenerate
+      // when the width changes, so scrolling on mobile doesn't re-roll
+      // the whole pattern.
+      if (window.innerWidth === lastWidth) return
+      lastWidth = window.innerWidth
       pattern = generate()
       callback()
     }, RESIZE_DEBOUNCE_MS)
