@@ -1,9 +1,9 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import Image from 'next/image'
 import { motion } from 'motion/react'
 import { X } from 'lucide-react'
+import { ImageCarousel } from '@/components/ui/image-carousel'
 import { MermaidDiagram } from '@/components/ui/mermaid-diagram'
 import type { Project } from '@/data/projects'
 
@@ -94,15 +94,10 @@ export function ProjectModal({ project, onClose, triggerRef }: ProjectModalProps
         </h3>
 
         {project.images && project.images.length > 0 && (
-          <div className='relative w-full aspect-video rounded-md overflow-hidden mb-6'>
-            <Image
-              src={project.images[0]}
-              alt={project.title}
-              fill
-              sizes='(max-width: 896px) 100vw, 896px'
-              className='object-cover'
-            />
-          </div>
+          <ImageCarousel
+            images={project.images}
+            alt={project.title}
+          />
         )}
 
         <p className='text-muted-foreground leading-relaxed mb-6'>{project.description}</p>
