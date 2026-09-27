@@ -122,7 +122,7 @@ export const projects: Project[] = [
     architectureNote:
       'The real application runs entirely locally: a Next.js frontend and FastAPI backend calling the Claude API (claude-sonnet-4-6, with prompt caching). It stays local by design rather than by omission — the Auto Apply automation already requires Claude Code running on the same machine to drive the Claude-in-Chrome agent, so the backend never needs to be reachable from outside it. The public demo is a separate, frontend-only build deployed to Vercel with no backend and no API key anywhere near the browser. A build-time flag (NEXT_PUBLIC_DEMO_MODE) swaps every network call for a bundled sample application — one real saved job description, resume, and cover letter, plus canned chat revisions — so the demo costs nothing to host and never touches a live key. Generation, downloads, and Auto Apply are disabled in this mode. The backend couldn’t run on Vercel regardless, since PDF export shells out to LibreOffice in headless mode, a system dependency serverless functions can’t provide.',
     lessonsLearned:
-      'The Auto Apply flow is built end-to-end — prompt construction from the saved application, Claude Code launching a dedicated Claude-in-Chrome agent, directing it to the target URL, and filling the form from backend data — but it hasn’t been run against a live job posting yet. Verifying that end-to-end is the next milestone before treating it as a working feature rather than a built one.',
+      'Auto Apply is intentionally scoped to fill-only, never submit — the agent completes the form and stops there, keeping a human in the loop for final review before anything goes out.',
     stack: [
       'Next.js 16',
       'React 19',
