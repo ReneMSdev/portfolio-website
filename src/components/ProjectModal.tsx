@@ -113,6 +113,7 @@ export function ProjectModal({ project, onClose, triggerRef }: ProjectModalProps
           <ImageCarousel
             images={project.images}
             alt={project.title}
+            imagePosition={project.imagePosition}
           />
         )}
 

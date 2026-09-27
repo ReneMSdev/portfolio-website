@@ -8,9 +8,10 @@ import { ChevronLeft, ChevronRight } from 'lucide-react'
 interface ImageCarouselProps {
   images: string[]
   alt: string
+  imagePosition?: 'center' | 'top'
 }
 
-export function ImageCarousel({ images, alt }: ImageCarouselProps) {
+export function ImageCarousel({ images, alt, imagePosition }: ImageCarouselProps) {
   const [index, setIndex] = useState(0)
 
   if (images.length === 0) return null
@@ -36,7 +37,7 @@ export function ImageCarousel({ images, alt }: ImageCarouselProps) {
             alt={`${alt} screenshot ${index + 1} of ${images.length}`}
             fill
             sizes='(max-width: 896px) 100vw, 896px'
-            className='object-cover'
+            className={`object-cover ${imagePosition === 'center' ? '' : 'object-top'}`}
           />
         </motion.div>
       </AnimatePresence>

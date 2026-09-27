@@ -141,11 +141,10 @@ export const projects: Project[] = [
       'Claude in Chrome',
     ],
     images: [
-      '/img/resume-builder/resume-builder-1.jpg',
-      '/img/resume-builder/resume-builder-2.jpg',
-      '/img/resume-builder/resume-builder-3.jpg',
+      '/img/resi-the-builder/resi-the-builder-1.jpg',
+      '/img/resi-the-builder/resi-the-builder-2.jpg',
+      '/img/resi-the-builder/resi-the-builder-3.jpg',
     ],
-    imagePosition: 'top',
     demoUrl: 'https://resi-the-builder.vercel.app',
     codeUrl: 'https://github.com/ReneMSdev/resi-the-builder',
     demoNote:
@@ -172,7 +171,6 @@ export const projects: Project[] = [
       'A static site built for ATX Reliable Wrenching, a mobile mechanic business serving the Greater Austin area, giving them a booking and contact presence online.',
     stack: ['HTML', 'CSS', 'JavaScript'],
     images: ['/img/mobile-mechanic/mobile-mechanic-1.jpg'],
-    imagePosition: 'top',
     demoUrl: 'https://www.atxreliablewrenching.com/',
   },
   {
@@ -206,6 +204,7 @@ export const projects: Project[] = [
       'next-qrcode',
     ],
     images: ['/img/route-planner/routeplanner1.jpg', '/img/route-planner/routeplanner2.jpg'],
+    imagePosition: 'center',
     demoUrl: 'https://route-planner-nextjs.vercel.app/',
     demoNote: 'Demo Mode — uses cached/mock route data to avoid live API cost.',
     codeUrl: 'https://github.com/ReneMSdev/route-planner-nextjs',

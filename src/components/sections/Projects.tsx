@@ -94,7 +94,7 @@ export default function Projects() {
                             alt={project.title}
                             fill
                             sizes='(max-width: 768px) 100vw, 50vw'
-                            className={`object-cover ${project.imagePosition === 'top' ? 'object-top' : ''}`}
+                            className={`object-cover ${project.imagePosition === 'center' ? '' : 'object-top'}`}
                             priority
                           />
                         </div>
