@@ -63,7 +63,12 @@ export const projects: Project[] = [
     LLM --> Guard
     LLM -->|"generate / revise calls"| Anthropic
     RenderSvc -->|"pdf conversion (subprocess)"| LibreOffice
-    Routes <-->|"read / write JSON"| Disk`,
+    Routes <-->|"read / write JSON"| Disk
+
+    classDef external fill:#2a1f14,stroke:#e8a659,color:#f2f2f0
+    classDef storage fill:#16202a,stroke:#7ea6c9,color:#f2f2f0
+    class Anthropic,LibreOffice external
+    class Disk storage`,
       },
       {
         title: 'Public demo (Vercel, frontend-only)',
@@ -76,7 +81,10 @@ export const projects: Project[] = [
     end
 
     Visitor -->|"browser"| UI2
-    UI2 -->|"reads (no network call)"| Fixtures`,
+    UI2 -->|"reads (no network call)"| Fixtures
+
+    classDef storage fill:#16202a,stroke:#7ea6c9,color:#f2f2f0
+    class Fixtures storage`,
       },
     ],
     architectureNote:
