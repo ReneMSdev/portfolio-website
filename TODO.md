@@ -53,7 +53,9 @@ Source: `Portfolio Redesign — Design Brief.md` (2026-09-19). Tracked phase-by-
 - [x] Removed `EmblaCarousel` (dead code once the new grid replaced it) and its `embla-carousel-react` dependency
 
 ## Note on Phase 4 placeholder content
-Route Planner and Mobile Mechanic Site have real URLs/screenshots. Resume Auto-Apply Tool, LinkLeaf, and Weather App still have placeholder `#` links, no images, and brief-derived copy. Update `src/data/projects.ts` with real content when ready — the grid/modal will pick it up automatically (LinkLeaf's `architectureNote` and any project's optional `metrics`/`lessonsLearned` render conditionally).
+Route Planner and Mobile Mechanic Site have real URLs/screenshots. LinkLeaf and Weather App still have placeholder/minimal content. Update `src/data/projects.ts` with real content when ready — the grid/modal will pick it up automatically (LinkLeaf's `architectureNote` and any project's optional `metrics`/`lessonsLearned` render conditionally).
+
+- [ ] **Resume Builder's `lessonsLearned` needs real content** — the current copy (Auto Apply's fill-only/never-submit scoping) is a design-decision note, not an actual lesson learned. A genuine lessons-learned entry should cover problems hit during development and why specific design choices were made, not just describe intended behavior. Needs the user's own reflection on what actually happened — not something to draft from the outside.
 
 ## Phase 5 — Signature Interactive Element
 - [x] **Decide** signature element — fiber/circuit line art tying the fiber/telecom background to the software side
