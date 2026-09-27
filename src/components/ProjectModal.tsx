@@ -89,128 +89,142 @@ export function ProjectModal({ project, onClose, triggerRef }: ProjectModalProps
         role='dialog'
         aria-modal='true'
         aria-labelledby={`project-title-${project.slug}`}
-        ref={modalRef}
         onClick={(e) => e.stopPropagation()}
-        className='relative w-full h-full md:h-auto max-w-none md:max-w-4xl max-h-full md:max-h-[85vh] overflow-y-auto rounded-none md:rounded-lg bg-surface border-0 md:border md:border-border p-6 md:p-8'
+        className='relative flex flex-col w-full h-full md:h-auto max-w-none md:max-w-4xl max-h-full md:max-h-[85vh] overflow-hidden rounded-none md:rounded-lg bg-surface border-0 md:border md:border-border'
       >
-        <div className='flex items-start justify-between gap-4 mb-4 md:block'>
-          <div>
-            <p className='font-mono text-xs text-accent uppercase tracking-wider mb-2'>
-              {project.status}
-            </p>
-            <h3
-              id={`project-title-${project.slug}`}
-              className='text-2xl md:text-3xl font-semibold text-foreground md:mb-4'
+        {/* Framer Motion applies a transform to the layoutId-animated element
+            above for the shared-element transition. An ancestor with a
+            transform is a known source of inconsistent position:sticky
+            behavior across browsers, so the scroll container (and the
+            sticky header inside it) live on this separate, untransformed
+            div instead of sharing the animated one. */}
+        <div
+          ref={modalRef}
+          className='min-h-0 overflow-y-auto overscroll-none px-6 pb-6 pt-0 md:p-8'
+        >
+          <div className='sticky top-0 z-10 -mx-6 px-6 pt-6 pb-4 bg-surface border-b border-border flex items-start justify-between gap-4 md:static md:mx-0 md:px-0 md:pt-0 md:pb-0 md:mb-4 md:bg-transparent md:border-0 md:block'>
+            <div>
+              <p className='font-mono text-xs text-accent uppercase tracking-wider mb-2'>
+                {project.status}
+              </p>
+              <h3
+                id={`project-title-${project.slug}`}
+                className='text-2xl md:text-3xl font-semibold text-foreground md:mb-4'
+              >
+                {project.title}
+              </h3>
+            </div>
+
+            <button
+              onClick={onClose}
+              aria-label='Close'
+              className='shrink-0 text-muted-foreground hover:text-foreground cursor-pointer md:absolute md:top-4 md:right-4'
             >
-              {project.title}
-            </h3>
+              <X className='w-5 h-5' />
+            </button>
           </div>
 
-          <button
-            onClick={onClose}
-            aria-label='Close'
-            className='shrink-0 text-muted-foreground hover:text-foreground cursor-pointer md:absolute md:top-4 md:right-4'
-          >
-            <X className='w-5 h-5' />
-          </button>
-        </div>
+          {project.images && project.images.length > 0 && (
+            <div className='pt-6 md:pt-0'>
+              <ImageCarousel
+                images={project.images}
+                alt={project.title}
+                imagePosition={project.imagePosition}
+              />
+            </div>
+          )}
 
-        {project.images && project.images.length > 0 && (
-          <ImageCarousel
-            images={project.images}
-            alt={project.title}
-            imagePosition={project.imagePosition}
-          />
-        )}
+          <p className='text-muted-foreground leading-relaxed mb-6'>{project.description}</p>
 
-        <p className='text-muted-foreground leading-relaxed mb-6'>{project.description}</p>
+          {project.metrics && project.metrics.length > 0 && (
+            <div className='flex gap-6 mb-6'>
+              {project.metrics.map((metric) => (
+                <div key={metric.label}>
+                  <p className='text-2xl font-semibold text-accent'>{metric.value}</p>
+                  <p className='text-xs text-muted-foreground uppercase tracking-wider'>
+                    {metric.label}
+                  </p>
+                </div>
+              ))}
+            </div>
+          )}
 
-        {project.metrics && project.metrics.length > 0 && (
-          <div className='flex gap-6 mb-6'>
-            {project.metrics.map((metric) => (
-              <div key={metric.label}>
-                <p className='text-2xl font-semibold text-accent'>{metric.value}</p>
-                <p className='text-xs text-muted-foreground uppercase tracking-wider'>
-                  {metric.label}
-                </p>
-              </div>
-            ))}
-          </div>
-        )}
+          {project.architectureDiagrams && project.architectureDiagrams.length > 0 && (
+            <div className='mb-6 flex flex-col gap-6'>
+              {project.architectureDiagrams.map((diagram, i) => (
+                <div key={diagram.title}>
+                  <p className='font-mono text-xs text-accent uppercase tracking-wider mb-2'>
+                    {diagram.title}
+                  </p>
+                  <button
+                    type='button'
+                    onClick={() => setOpenDiagramIndex(i)}
+                    aria-label={`Expand ${diagram.title}`}
+                    className='group relative block w-full cursor-zoom-in text-left'
+                  >
+                    <MermaidDiagram chart={diagram.chart} />
+                    <span className='absolute top-2 right-2 flex items-center justify-center w-7 h-7 rounded-md bg-background/70 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity'>
+                      <Maximize2 className='w-4 h-4' />
+                    </span>
+                  </button>
+                </div>
+              ))}
+            </div>
+          )}
 
-        {project.architectureDiagrams && project.architectureDiagrams.length > 0 && (
-          <div className='mb-6 flex flex-col gap-6'>
-            {project.architectureDiagrams.map((diagram, i) => (
-              <div key={diagram.title}>
-                <p className='font-mono text-xs text-accent uppercase tracking-wider mb-2'>
-                  {diagram.title}
-                </p>
-                <button
-                  type='button'
-                  onClick={() => setOpenDiagramIndex(i)}
-                  aria-label={`Expand ${diagram.title}`}
-                  className='group relative block w-full cursor-zoom-in text-left'
-                >
-                  <MermaidDiagram chart={diagram.chart} />
-                  <span className='absolute top-2 right-2 flex items-center justify-center w-7 h-7 rounded-md bg-background/70 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity'>
-                    <Maximize2 className='w-4 h-4' />
-                  </span>
-                </button>
-              </div>
-            ))}
-          </div>
-        )}
+          {project.architectureNote && (
+            <div className='mb-6'>
+              <p className='font-mono text-xs text-accent uppercase tracking-wider mb-2'>
+                Architecture
+              </p>
+              <p className='text-muted-foreground leading-relaxed italic'>
+                {project.architectureNote}
+              </p>
+            </div>
+          )}
 
-        {project.architectureNote && (
+          {project.lessonsLearned && (
+            <div className='mb-6'>
+              <p className='font-mono text-xs text-accent uppercase tracking-wider mb-2'>
+                Lessons Learned
+              </p>
+              <p className='text-muted-foreground leading-relaxed'>{project.lessonsLearned}</p>
+            </div>
+          )}
+
           <div className='mb-6'>
             <p className='font-mono text-xs text-accent uppercase tracking-wider mb-2'>
-              Architecture
+              Built with
             </p>
-            <p className='text-muted-foreground leading-relaxed italic'>
-              {project.architectureNote}
-            </p>
+            <p className='text-muted-foreground'>{project.stack.join(', ')}</p>
           </div>
-        )}
 
-        {project.lessonsLearned && (
-          <div className='mb-6'>
-            <p className='font-mono text-xs text-accent uppercase tracking-wider mb-2'>
-              Lessons Learned
-            </p>
-            <p className='text-muted-foreground leading-relaxed'>{project.lessonsLearned}</p>
+          {project.demoNote && (
+            <p className='text-xs text-muted-foreground italic mb-4'>{project.demoNote}</p>
+          )}
+
+          <div className='flex gap-6'>
+            {project.demoUrl && (
+              <a
+                href={project.demoUrl}
+                target='_blank'
+                rel='noopener noreferrer'
+                className='font-semibold text-foreground hover:text-accent'
+              >
+                {project.status === 'Live' ? 'View Live Site' : 'View Demo'}
+              </a>
+            )}
+            {project.codeUrl && (
+              <a
+                href={project.codeUrl}
+                target='_blank'
+                rel='noopener noreferrer'
+                className='font-semibold text-foreground hover:text-accent'
+              >
+                View Code
+              </a>
+            )}
           </div>
-        )}
-
-        <div className='mb-6'>
-          <p className='font-mono text-xs text-accent uppercase tracking-wider mb-2'>Built with</p>
-          <p className='text-muted-foreground'>{project.stack.join(', ')}</p>
-        </div>
-
-        {project.demoNote && (
-          <p className='text-xs text-muted-foreground italic mb-4'>{project.demoNote}</p>
-        )}
-
-        <div className='flex gap-6'>
-          {project.demoUrl && (
-            <a
-              href={project.demoUrl}
-              target='_blank'
-              rel='noopener noreferrer'
-              className='font-semibold text-foreground hover:text-accent'
-            >
-              {project.status === 'Live' ? 'View Live Site' : 'View Demo'}
-            </a>
-          )}
-          {project.codeUrl && (
-            <a
-              href={project.codeUrl}
-              target='_blank'
-              rel='noopener noreferrer'
-              className='font-semibold text-foreground hover:text-accent'
-            >
-              View Code
-            </a>
-          )}
         </div>
       </motion.div>
 
