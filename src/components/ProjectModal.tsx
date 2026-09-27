@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react'
 import Image from 'next/image'
 import { motion } from 'motion/react'
 import { X } from 'lucide-react'
+import { MermaidDiagram } from '@/components/ui/mermaid-diagram'
 import type { Project } from '@/data/projects'
 
 const FOCUSABLE_SELECTOR =
@@ -114,6 +115,19 @@ export function ProjectModal({ project, onClose, triggerRef }: ProjectModalProps
                 <p className='text-xs text-muted-foreground uppercase tracking-wider'>
                   {metric.label}
                 </p>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {project.architectureDiagrams && project.architectureDiagrams.length > 0 && (
+          <div className='mb-6 flex flex-col gap-6'>
+            {project.architectureDiagrams.map((diagram) => (
+              <div key={diagram.title}>
+                <p className='font-mono text-xs text-accent uppercase tracking-wider mb-2'>
+                  {diagram.title}
+                </p>
+                <MermaidDiagram chart={diagram.chart} />
               </div>
             ))}
           </div>

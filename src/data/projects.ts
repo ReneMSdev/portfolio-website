@@ -3,6 +3,11 @@ export interface ProjectMetric {
   value: string
 }
 
+export interface ArchitectureDiagram {
+  title: string
+  chart: string
+}
+
 export interface Project {
   slug: string
   title: string
@@ -16,6 +21,7 @@ export interface Project {
   demoNote?: string
   codeUrl?: string
   metrics?: ProjectMetric[]
+  architectureDiagrams?: ArchitectureDiagram[]
   architectureNote?: string
   lessonsLearned?: string
 }
@@ -24,17 +30,82 @@ export interface Project {
 // for everything but Route Planner still need to be supplied.
 export const projects: Project[] = [
   {
-    slug: 'resume-auto-apply',
-    title: 'Resume Auto-Apply Tool',
+    slug: 'resi-the-builder',
+    title: 'Resi the Builder',
     status: 'Demo',
-    summary: 'AI-assisted, chat-based resume and cover-letter generation.',
+    summary: 'AI-assisted resume and cover-letter generation, plus automated application form-fill.',
     description:
-      'An AI/automation tool that iteratively generates tailored resumes and cover letters through a chat-based workflow. FastAPI backend, Next.js frontend.',
-    stack: ['FastAPI', 'Next.js', 'OpenAI API'],
+      'An AI-assisted resume and cover letter generator that tailors output to a specific job description, with an integrated chat interface for iteratively revising individual sections or bullets. A separate automation layer orchestrates Claude Code and a dedicated Claude-in-Chrome agent to fill out job application forms from the saved application data — form-fill only, never submits.',
+    metrics: [
+      { value: '2', label: 'Coordinated AI agents' },
+      { value: '$0', label: 'Demo hosting cost' },
+    ],
+    architectureDiagrams: [
+      {
+        title: 'Local full-stack (real app)',
+        chart: `flowchart LR
+    UI["Next.js App<br/>(localhost:3000)"]
+
+    subgraph Backend["FastAPI Backend (localhost:8000)"]
+        Routes["Routes<br/>/health /profile /generate<br/>/revise /render /applications"]
+        LLM["llm.py<br/>(generate + revise prompts,<br/>prompt caching)"]
+        RenderSvc["render.py<br/>(docx templating)"]
+        Guard["usage_guard.py<br/>(daily call cap,<br/>input-length guard)"]
+    end
+
+    Anthropic[("Anthropic API<br/>claude-sonnet-4-6")]
+    LibreOffice[("LibreOffice<br/>(headless, docx→pdf)")]
+    Disk[("Local disk<br/>app/data/profile.json<br/>app/data/applications/*")]
+
+    UI -->|"fetch(NEXT_PUBLIC_API_URL)"| Routes
+    Routes --> LLM
+    Routes --> RenderSvc
+    LLM --> Guard
+    LLM -->|"generate / revise calls"| Anthropic
+    RenderSvc -->|"pdf conversion (subprocess)"| LibreOffice
+    Routes <-->|"read / write JSON"| Disk`,
+      },
+      {
+        title: 'Public demo (Vercel, frontend-only)',
+        chart: `flowchart LR
+    Visitor(["Portfolio visitor"])
+
+    subgraph Vercel["Vercel — resi-the-builder.vercel.app<br/>(Root Directory: frontend/, no backend deployed)"]
+        UI2["Next.js App<br/>NEXT_PUBLIC_DEMO_MODE=true"]
+        Fixtures[("Static fixtures<br/>lib/demoFixtures/*.json<br/>lib/demoFixtures/refinements.ts")]
+    end
+
+    Visitor -->|"browser"| UI2
+    UI2 -->|"reads (no network call)"| Fixtures`,
+      },
+    ],
+    architectureNote:
+      'The real application runs entirely locally: a Next.js frontend and FastAPI backend calling the Claude API (claude-sonnet-4-6, with prompt caching). It stays local by design rather than by omission — the Auto Apply automation already requires Claude Code running on the same machine to drive the Claude-in-Chrome agent, so the backend never needs to be reachable from outside it. The public demo is a separate, frontend-only build deployed to Vercel with no backend and no API key anywhere near the browser. A build-time flag (NEXT_PUBLIC_DEMO_MODE) swaps every network call for a bundled sample application — one real saved job description, resume, and cover letter, plus canned chat revisions — so the demo costs nothing to host and never touches a live key. Generation, downloads, and Auto Apply are disabled in this mode. The backend couldn’t run on Vercel regardless, since PDF export shells out to LibreOffice in headless mode, a system dependency serverless functions can’t provide.',
+    lessonsLearned:
+      'The Auto Apply flow is built end-to-end — prompt construction from the saved application, Claude Code launching a dedicated Claude-in-Chrome agent, directing it to the target URL, and filling the form from backend data — but it hasn’t been run against a live job posting yet. Verifying that end-to-end is the next milestone before treating it as a working feature rather than a built one.',
+    stack: [
+      'Next.js 16',
+      'React 19',
+      'TypeScript',
+      'Tailwind CSS v4',
+      'Radix UI',
+      'FastAPI',
+      'Python 3.13',
+      'Pydantic v2',
+      'Uvicorn',
+      'pytest',
+      'Claude API (claude-sonnet-4-6)',
+      'python-docx',
+      'LibreOffice (headless)',
+      'Claude Code',
+      'Claude in Chrome',
+    ],
     images: ['/img/resume-builder/resume-builder-1.jpg'],
     imagePosition: 'top',
-    demoUrl: 'https://resi-the-builder.vercel.app/',
+    demoUrl: 'https://resi-the-builder.vercel.app',
     codeUrl: 'https://github.com/ReneMSdev/resi-the-builder',
+    demoNote:
+      'Interactive demo running on sample data — AI generation, downloads, and Auto Apply are disabled in this mode.',
   },
   {
     slug: 'linkleaf',
