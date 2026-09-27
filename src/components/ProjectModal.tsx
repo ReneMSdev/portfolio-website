@@ -1,8 +1,9 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
-import { motion } from 'motion/react'
-import { X } from 'lucide-react'
+import { useEffect, useRef, useState } from 'react'
+import { AnimatePresence, motion } from 'motion/react'
+import { Maximize2, X } from 'lucide-react'
+import { DiagramLightbox } from '@/components/ui/diagram-lightbox'
 import { ImageCarousel } from '@/components/ui/image-carousel'
 import { MermaidDiagram } from '@/components/ui/mermaid-diagram'
 import type { Project } from '@/data/projects'
@@ -18,6 +19,7 @@ interface ProjectModalProps {
 
 export function ProjectModal({ project, onClose, triggerRef }: ProjectModalProps) {
   const modalRef = useRef<HTMLDivElement>(null)
+  const [openDiagramIndex, setOpenDiagramIndex] = useState<number | null>(null)
 
   useEffect(() => {
     const trigger = triggerRef.current
@@ -32,11 +34,7 @@ export function ProjectModal({ project, onClose, triggerRef }: ProjectModalProps
     const last = focusables[focusables.length - 1]
     first?.focus()
 
-    function handleKeyDown(e: KeyboardEvent) {
-      if (e.key === 'Escape') {
-        onClose()
-        return
-      }
+    function handleTab(e: KeyboardEvent) {
       if (e.key === 'Tab' && focusables.length > 0) {
         if (e.shiftKey && document.activeElement === first) {
           e.preventDefault()
@@ -48,13 +46,31 @@ export function ProjectModal({ project, onClose, triggerRef }: ProjectModalProps
       }
     }
 
-    document.addEventListener('keydown', handleKeyDown)
+    document.addEventListener('keydown', handleTab)
     return () => {
-      document.removeEventListener('keydown', handleKeyDown)
+      document.removeEventListener('keydown', handleTab)
       document.body.style.overflow = previousOverflow
       trigger?.focus()
     }
-  }, [onClose, triggerRef])
+  }, [triggerRef])
+
+  // Separate from the focus-trap effect above so opening/closing the
+  // lightbox doesn't re-run it (which would re-steal focus and reset
+  // overflow). Escape closes the lightbox first if one's open, otherwise
+  // closes the whole modal.
+  useEffect(() => {
+    function handleEscape(e: KeyboardEvent) {
+      if (e.key !== 'Escape') return
+      if (openDiagramIndex !== null) {
+        setOpenDiagramIndex(null)
+      } else {
+        onClose()
+      }
+    }
+
+    document.addEventListener('keydown', handleEscape)
+    return () => document.removeEventListener('keydown', handleEscape)
+  }, [openDiagramIndex, onClose])
 
   return (
     <motion.div
@@ -117,12 +133,22 @@ export function ProjectModal({ project, onClose, triggerRef }: ProjectModalProps
 
         {project.architectureDiagrams && project.architectureDiagrams.length > 0 && (
           <div className='mb-6 flex flex-col gap-6'>
-            {project.architectureDiagrams.map((diagram) => (
+            {project.architectureDiagrams.map((diagram, i) => (
               <div key={diagram.title}>
                 <p className='font-mono text-xs text-accent uppercase tracking-wider mb-2'>
                   {diagram.title}
                 </p>
-                <MermaidDiagram chart={diagram.chart} />
+                <button
+                  type='button'
+                  onClick={() => setOpenDiagramIndex(i)}
+                  aria-label={`Expand ${diagram.title}`}
+                  className='group relative block w-full cursor-zoom-in text-left'
+                >
+                  <MermaidDiagram chart={diagram.chart} />
+                  <span className='absolute top-2 right-2 flex items-center justify-center w-7 h-7 rounded-md bg-background/70 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity'>
+                    <Maximize2 className='w-4 h-4' />
+                  </span>
+                </button>
               </div>
             ))}
           </div>
@@ -180,6 +206,16 @@ export function ProjectModal({ project, onClose, triggerRef }: ProjectModalProps
           )}
         </div>
       </motion.div>
+
+      <AnimatePresence>
+        {openDiagramIndex !== null && project.architectureDiagrams && (
+          <DiagramLightbox
+            diagrams={project.architectureDiagrams}
+            initialIndex={openDiagramIndex}
+            onClose={() => setOpenDiagramIndex(null)}
+          />
+        )}
+      </AnimatePresence>
     </motion.div>
   )
 }
