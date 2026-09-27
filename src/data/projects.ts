@@ -42,6 +42,38 @@ export const projects: Project[] = [
     ],
     architectureDiagrams: [
       {
+        title: 'Request flow (generation, revision, Auto Apply)',
+        chart: `sequenceDiagram
+    participant U as User
+    participant F as Next.js Frontend
+    participant B as FastAPI Backend
+    participant C as Claude API
+    participant CC as Claude Code
+    participant CIC as Claude in Chrome
+
+    U->>F: Select saved application + job URL
+    F->>B: Request tailored resume/cover letter
+    rect rgb(42, 31, 20)
+        B->>C: Generate content (prompt caching)
+        C-->>B: Tailored resume + cover letter
+    end
+    B-->>F: Return generated content
+    U->>F: Select section/bullet, request revision (chat)
+    F->>B: Scoped revision request
+    rect rgb(42, 31, 20)
+        B->>C: Revise selected content only
+        C-->>B: Revised section
+    end
+    B-->>F: Updated content
+
+    rect rgb(42, 31, 20)
+        U->>CC: Trigger Auto Apply
+        CC->>CIC: Launch agent, direct to application URL
+        CIC->>B: Pull saved application data
+        CIC->>CIC: Fill form fields (no submit)
+    end`,
+      },
+      {
         title: 'Local full-stack (real app)',
         chart: `flowchart LR
     UI["Next.js App<br/>(localhost:3000)"]
