@@ -106,6 +106,13 @@ html {
   width: 100%;
 }
 
+/* Hides the mobile hamburger + slide-in menu while a project modal is
+   open — both sit at a higher z-index than the modal, so without this
+   they'd float on top of it and collide with its close button. */
+body.modal-open .mobile-nav-controls {
+  display: none;
+}
+
 /* Custom Hamburger Icon */
 #nav-icon {
   width: 28px;

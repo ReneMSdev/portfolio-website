@@ -25,6 +25,7 @@ export function ProjectModal({ project, onClose, triggerRef }: ProjectModalProps
     const trigger = triggerRef.current
     const previousOverflow = document.body.style.overflow
     document.body.style.overflow = 'hidden'
+    document.body.classList.add('modal-open')
 
     const modalEl = modalRef.current
     const focusables = modalEl
@@ -50,6 +51,7 @@ export function ProjectModal({ project, onClose, triggerRef }: ProjectModalProps
     return () => {
       document.removeEventListener('keydown', handleTab)
       document.body.style.overflow = previousOverflow
+      document.body.classList.remove('modal-open')
       trigger?.focus()
     }
   }, [triggerRef])
@@ -78,7 +80,7 @@ export function ProjectModal({ project, onClose, triggerRef }: ProjectModalProps
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.2 }}
-      className='fixed inset-0 z-[100] flex items-center justify-center bg-background/90 p-4'
+      className='fixed inset-0 z-[100] flex items-center justify-center bg-background/90 p-0 md:p-4'
       onClick={onClose}
     >
       <motion.div
@@ -89,25 +91,29 @@ export function ProjectModal({ project, onClose, triggerRef }: ProjectModalProps
         aria-labelledby={`project-title-${project.slug}`}
         ref={modalRef}
         onClick={(e) => e.stopPropagation()}
-        className='relative w-full max-w-4xl max-h-[85vh] overflow-y-auto rounded-lg bg-surface border border-border p-6 md:p-8'
+        className='relative w-full h-full md:h-auto max-w-none md:max-w-4xl max-h-full md:max-h-[85vh] overflow-y-auto rounded-none md:rounded-lg bg-surface border-0 md:border md:border-border p-6 md:p-8'
       >
-        <button
-          onClick={onClose}
-          aria-label='Close'
-          className='absolute top-4 right-4 text-muted-foreground hover:text-foreground cursor-pointer'
-        >
-          <X className='w-5 h-5' />
-        </button>
+        <div className='flex items-start justify-between gap-4 mb-4 md:block'>
+          <div>
+            <p className='font-mono text-xs text-accent uppercase tracking-wider mb-2'>
+              {project.status}
+            </p>
+            <h3
+              id={`project-title-${project.slug}`}
+              className='text-2xl md:text-3xl font-semibold text-foreground md:mb-4'
+            >
+              {project.title}
+            </h3>
+          </div>
 
-        <p className='font-mono text-xs text-accent uppercase tracking-wider mb-2'>
-          {project.status}
-        </p>
-        <h3
-          id={`project-title-${project.slug}`}
-          className='text-2xl md:text-3xl font-semibold text-foreground mb-4'
-        >
-          {project.title}
-        </h3>
+          <button
+            onClick={onClose}
+            aria-label='Close'
+            className='shrink-0 text-muted-foreground hover:text-foreground cursor-pointer md:absolute md:top-4 md:right-4'
+          >
+            <X className='w-5 h-5' />
+          </button>
+        </div>
 
         {project.images && project.images.length > 0 && (
           <ImageCarousel
