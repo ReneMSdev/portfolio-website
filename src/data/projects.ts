@@ -30,8 +30,8 @@ export interface Project {
 // for everything but Route Planner still need to be supplied.
 export const projects: Project[] = [
   {
-    slug: 'resi-the-builder',
-    title: 'Resi the Builder',
+    slug: 'resume-builder',
+    title: 'Resume Builder',
     status: 'Demo',
     summary: 'AI-assisted resume and cover-letter generation, plus automated application form-fill.',
     description:
@@ -141,9 +141,9 @@ export const projects: Project[] = [
       'Claude in Chrome',
     ],
     images: [
-      '/img/resi-the-builder/resi-the-builder-1.jpg',
-      '/img/resi-the-builder/resi-the-builder-2.jpg',
-      '/img/resi-the-builder/resi-the-builder-3.jpg',
+      '/img/resume-builder/resume-builder-1.jpg',
+      '/img/resume-builder/resume-builder-2.jpg',
+      '/img/resume-builder/resume-builder-3.jpg',
     ],
     demoUrl: 'https://resi-the-builder.vercel.app',
     codeUrl: 'https://github.com/ReneMSdev/resi-the-builder',
