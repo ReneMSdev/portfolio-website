@@ -166,10 +166,15 @@ export const projects: Project[] = [
     slug: 'mobile-mechanic',
     title: 'Mobile Mechanic Site',
     status: 'Live',
-    summary: 'Client site for a mobile mechanic — booking and contact presence.',
+    summary:
+      'Marketing site for ATX Reliable Wrenching, an Austin mobile mechanic — booking via Housecall Pro, contact form, and Google reviews.',
     description:
-      'A static site built for ATX Reliable Wrenching, a mobile mechanic business serving the Greater Austin area, giving them a booking and contact presence online.',
-    stack: ['HTML', 'CSS', 'JavaScript'],
+      'A production marketing site for ATX Reliable Wrenching, a mobile mechanic serving the Greater Austin area. The single responsive page presents their services and Google reviews, routes booking through Housecall Pro, and includes a contact form that emails the business through a serverless API route.',
+    stack: ['Next.js 16', 'React 19', 'TypeScript', 'Tailwind CSS v4', 'Embla Carousel', 'Nodemailer', 'Vercel'],
+    architectureNote:
+      'A single Next.js page with one serverless API route for the contact form, emailing the business via SMTP. Booking is handled entirely by linking out to Housecall Pro rather than building scheduling in-house.',
+    lessonsLearned:
+      "The site's signature look comes from angled diagonal panels, but a diagonal's angle depends on both its horizontal offset and the element's height — a fixed pixel offset gave every panel a different angle, and it drifted whenever the window or the browser's font size changed. The fix was computing the offset per element (height × tan(25°), with 25° chosen as a shared constant) instead of hardcoding it, so every diagonal stays consistent at any screen size or font size.",
     images: ['/img/mobile-mechanic/mobile-mechanic-1.jpg'],
     demoUrl: 'https://www.atxreliablewrenching.com/',
   },
