@@ -151,18 +151,6 @@ export const projects: Project[] = [
       'Interactive demo running on sample data, with AI generation, downloads, and Auto Apply disabled.',
   },
   {
-    slug: 'linkleaf',
-    title: 'LinkLeaf',
-    status: 'Paused',
-    summary: 'Backend MVP for a link-in-bio platform — paused, architecture-focused.',
-    description:
-      'LinkLeaf is a link-in-bio platform. The backend MVP is complete with 122 passing tests, but the project is currently paused, so this is framed as an architecture case study rather than a live demo.',
-    stack: ['FastAPI', 'PostgreSQL', 'Google Cloud Storage', 'RevenueCat'],
-    metrics: [{ label: 'Tests passing', value: '122' }],
-    architectureNote: 'Architecture diagram and detailed write-up coming soon.',
-    codeUrl: '#',
-  },
-  {
     slug: 'mobile-mechanic',
     title: 'Mobile Mechanic Site',
     status: 'Live',
@@ -177,16 +165,6 @@ export const projects: Project[] = [
       "The site's signature look comes from angled diagonal panels across the welcome bar, nav logo, mobile header, and hero overlay, all meant to share one consistent cut. With fixed pixel offsets, the angles would stray from each other and the design would fall apart at different sizes, since an angle depends on both the offset and the element's height. The fix came from trigonometry: pick one shared angle, 25°, and have each panel compute its own offset from it using height × tan(25°), so every diagonal stays consistent regardless of screen size.",
     images: ['/img/mobile-mechanic/mobile-mechanic-1.jpg'],
     demoUrl: 'https://www.atxreliablewrenching.com/',
-  },
-  {
-    slug: 'weather-app',
-    title: 'Weather App',
-    status: 'Not live',
-    summary: 'Next.js/Node weather app — currently not deployed.',
-    description:
-      'A weather app built with Next.js and Node. Currently not live; redeploying and fixing it up is out of scope for this portfolio, so it is shown here as a minimal reference rather than a working demo.',
-    stack: ['Next.js', 'Node.js'],
-    codeUrl: '#',
   },
   {
     slug: 'route-planner',

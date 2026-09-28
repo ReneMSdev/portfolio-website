@@ -53,7 +53,7 @@ Source: `Portfolio Redesign — Design Brief.md` (2026-09-19). Tracked phase-by-
 - [x] Removed `EmblaCarousel` (dead code once the new grid replaced it) and its `embla-carousel-react` dependency
 
 ## Note on Phase 4 placeholder content
-Route Planner has real URLs/screenshots. LinkLeaf and Weather App still have placeholder/minimal content. Update `src/data/projects.ts` with real content when ready — the grid/modal will pick it up automatically (LinkLeaf's `architectureNote` and any project's optional `metrics`/`lessonsLearned` render conditionally).
+Route Planner has real URLs/screenshots. LinkLeaf and Weather App were pulled from the lineup entirely (not just hidden) since both need more work before they're ready to showcase — see `PROJECT_MODAL_UPDATES.md` for their saved entries and what's needed before restoring them to `src/data/projects.ts`.
 
 - [ ] **Resume Builder's `lessonsLearned` needs real content** — the current copy (Auto Apply's fill-only/never-submit scoping) is a design-decision note, not an actual lesson learned. A genuine lessons-learned entry should cover problems hit during development and why specific design choices were made, not just describe intended behavior. Needs the user's own reflection on what actually happened — not something to draft from the outside.
 - [ ] **Mobile Mechanic Site's screenshot predates the redesign** — the one image (`mobile-mechanic-1.jpg`) doesn't show the diagonal-panel design the `lessonsLearned` now describes in detail. Needs new screenshots of the current hero, services, and reviews sections.
