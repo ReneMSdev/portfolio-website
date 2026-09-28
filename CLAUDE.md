@@ -8,8 +8,14 @@ Does not apply to code comments, commit messages, or this file.
 
 ## Read like a person, not an AI
 
-- No em dashes or en dashes as punctuation. Use a comma, period, or parentheses
-  instead. A plain hyphen in date ranges ("Jan 2026 - Present") is fine.
+- Avoid an em dash joining two independent clauses within a sentence, where
+  each side has its own subject and verb. That is the pattern to flag; use a
+  period, comma, or restructure instead.
+- An em dash (or hyphen) separating short labels or fragments with no clause
+  structure is fine: date ranges (Jan 2026 - Present), a role and location
+  (Full-Stack Developer - Austin, TX), or similar short juxtapositions.
+- Test: if each side could stand alone as a complete sentence, split it. If
+  neither side is a full clause, leave it.
 - Avoid overused AI words: "leverage," "seamlessly," "robust," "delve into,"
   "cutting-edge," "dynamic," and similar.
 - No three-item lists used for effect ("fast, reliable, and scalable").
