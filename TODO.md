@@ -1,6 +1,6 @@
 # Redesign TODO
 
-Source: `Portfolio Redesign — Design Brief.md` (2026-09-19). Tracked phase-by-phase; check items off as they land. See `STATUS.md` for current phase and blockers.
+Source: `Portfolio Redesign — Design Brief.md` (2026-09-19; the original file is no longer on the Desktop). Tracked phase-by-phase; check items off as they land. See `STATUS.md` for current phase and blockers.
 
 ## Phase 0 — Foundation & Tooling
 - [x] Migrate project from JS/JSX to TypeScript
@@ -38,7 +38,7 @@ Source: `Portfolio Redesign — Design Brief.md` (2026-09-19). Tracked phase-by-
 - [x] Projects section — deliberately left as structural placeholder from Phase 2; superseded by Phase 4's tilt cards, modals, and new project lineup.
 
 ## Note on logo assets
-- `public/logo-dark.svg` and `logo-light.svg` both still bake in the old rose accent (`#E11D48`) for a decorative shape. `logo-dark.svg` (light-on-dark wordmark) is now the only one in use. Consider recoloring that accent shape to mint (`#6EE7B7`) during Phase 2/3 polish — not done automatically since it's a visible brand-asset edit, not a code token.
+- [x] `public/logo-dark.svg` is mint (`#6EE7B7`) and the only logo in use; the unused `logo-light.svg` (old rose accent) was deleted in the `public/img/` audit.
 
 ## Phase 4 — Projects Grid & Case Study Modals
 - [x] Build project card grid with 3D tilt-on-hover (`src/components/ui/3d-card.tsx` — `CardContainer`/`CardBody`/`CardItem`, adapted from Aceternity's "3D Card Effect")
@@ -48,12 +48,13 @@ Source: `Portfolio Redesign — Design Brief.md` (2026-09-19). Tracked phase-by-
 - [x] Modal: focus trap + Escape to close + `aria-modal` (`ProjectModal.tsx`, hand-rolled — no new dependency)
 - [x] Modal: return focus to triggering card on close (`triggerRef`)
 - [x] **Resume Auto-Apply Tool depth decided**: simple card + demo link for now; data model (`src/data/projects.ts`) supports optional `architectureNote`/`lessonsLearned`/`metrics` fields so it can grow into a full case study later without restructuring
-- [x] Project lineup swapped to the brief's 5 projects (Resume Auto-Apply Tool, LinkLeaf, Mobile Mechanic Site, Weather App, Route Planner) — **placeholder content**, see STATUS.md for what's real (Route Planner, Mobile Mechanic Site) vs. placeholder (the other 3: URLs are `#`, no screenshots yet)
+- [x] Project lineup swapped to the brief's 5 projects (Resume Auto-Apply Tool, LinkLeaf, Mobile Mechanic Site, Weather App, Route Planner). Since trimmed to 3 (see the note below)
 - [x] Cut projects (Life Coaching Website, Music Translation App) removed from the lineup
 - [x] Removed `EmblaCarousel` (dead code once the new grid replaced it) and its `embla-carousel-react` dependency
+- [x] Modal additions: Mermaid architecture diagrams, click-to-expand diagram lightbox, hand-rolled image carousel (see STATUS.md)
 
-## Note on Phase 4 placeholder content
-Route Planner has real URLs/screenshots. LinkLeaf and Weather App were pulled from the lineup entirely (not just hidden) since both need more work before they're ready to showcase — see `PROJECT_MODAL_UPDATES.md` for their saved entries and what's needed before restoring them to `src/data/projects.ts`.
+## Note on project content
+All three projects in the lineup (Resume Builder, Mobile Mechanic Site, Route Planner) have real URLs, screenshots, and copy. LinkLeaf and Weather App were pulled from the lineup entirely (not just hidden) since both need more work before they're ready to showcase — see `PROJECT_MODAL_UPDATES.md` for their saved entries and what's needed before restoring them to `src/data/projects.ts`.
 
 - [ ] **Resume Builder's `lessonsLearned` needs real content** — the current copy (Auto Apply's fill-only/never-submit scoping) is a design-decision note, not an actual lesson learned. A genuine lessons-learned entry should cover problems hit during development and why specific design choices were made, not just describe intended behavior. The user plans to work through the narrative together in a later session, not something to draft alone from the outside.
 - [ ] **Mobile Mechanic Site's screenshot predates the redesign** — the one image (`mobile-mechanic-1.jpg`) doesn't show the diagonal-panel design the `lessonsLearned` now describes in detail. Needs new screenshots of the current hero, services, and reviews sections.
@@ -68,7 +69,8 @@ Route Planner has real URLs/screenshots. LinkLeaf and Weather App were pulled fr
 - [x] Mobile nav (`MobileMenu.tsx` — hamburger + slide-in panel)
 - [x] Responsive projects grid (`grid-cols-1 md:grid-cols-2`)
 - [x] Signature line art extended to mobile (see Phase 5)
-- [ ] Re-verify project modal responsiveness at a narrow viewport (uses the same responsive patterns as the rest of the site; built but not independently re-confirmed live this session)
+- [x] Project modal mobile layout: full-screen below `md`, hamburger hidden while open, sticky header with close button
+- [ ] Final check of the project modal on a real phone
 
 ## Phase 7 — QA & Launch
 - [ ] Accessibility pass (focus states, contrast, aria attributes, keyboard nav) — **priority when this phase picks back up**

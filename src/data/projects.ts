@@ -26,8 +26,8 @@ export interface Project {
   lessonsLearned?: string
 }
 
-// PLACEHOLDER CONTENT — see STATUS.md. Real URLs, screenshots, and copy
-// for everything but Route Planner still need to be supplied.
+// Project lineup shown in the grid. Copy follows the writing-style rules in
+// CLAUDE.md; per-project copy status lives in PROJECT_MODAL_UPDATES.md.
 export const projects: Project[] = [
   {
     slug: 'resume-builder',
