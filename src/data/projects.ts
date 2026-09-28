@@ -35,7 +35,7 @@ export const projects: Project[] = [
     status: 'Demo',
     summary: 'AI-assisted resume and cover-letter generation, plus automated application form-fill.',
     description:
-      'An AI-assisted resume and cover letter generator that tailors output to a specific job description, with an integrated chat interface for iteratively revising individual sections or bullets. A separate automation layer orchestrates Claude Code and a dedicated Claude-in-Chrome agent to fill out job application forms from the saved application data — form-fill only, never submits.',
+      'An AI-assisted resume and cover letter generator that tailors output to a specific job description, with an integrated chat interface for iteratively revising individual sections or bullets. A separate automation layer orchestrates Claude Code and a dedicated Claude-in-Chrome agent to fill out job application forms from the saved application data. It fills the form but never submits it.',
     metrics: [
       { value: '2', label: 'Coordinated AI agents' },
       { value: '$0', label: 'Demo hosting cost' },
@@ -148,7 +148,7 @@ export const projects: Project[] = [
     demoUrl: 'https://resi-the-builder.vercel.app',
     codeUrl: 'https://github.com/ReneMSdev/resi-the-builder',
     demoNote:
-      'Interactive demo running on sample data — AI generation, downloads, and Auto Apply are disabled in this mode.',
+      'Interactive demo running on sample data, with AI generation, downloads, and Auto Apply disabled.',
   },
   {
     slug: 'linkleaf',
@@ -194,7 +194,9 @@ export const projects: Project[] = [
     status: 'Demo (mock data)',
     summary: 'Route optimization app with map visualization and PDF/QR export.',
     description:
-      'Route Boss is a route optimization web app where users can input multiple stops, calculate the most efficient path, and visualize their route on an interactive map. It supports manual address entry or CSV upload, geocodes using OpenCage, optimizes with OpenRouteService, and lets users export their route as a PDF or mobile-friendly QR code.',
+      "Route Boss is a route optimization web app where users can input multiple stops, calculate the most efficient path, and visualize their route on an interactive map. It grew out of a real problem from years of fiber optic field work: a day's list of addresses with no optimized route meant looking each one up individually in Google Maps beforehand. It supports manual address entry or CSV upload, geocodes using OpenCage, optimizes with OpenRouteService, and lets users export their route as a PDF or mobile-friendly QR code.",
+    lessonsLearned:
+      'Built early in my self-taught path, one of the first projects I attempted independently outside of guided tutorials, before AI-assisted development matured into the force multiplier it is today. It built real familiarity with UI development and the core patterns behind API integration: requests, responses, and handling async.',
     stack: [
       'Next.js 13 App Router',
       'React 19',

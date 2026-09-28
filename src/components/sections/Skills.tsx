@@ -57,7 +57,7 @@ const skillGroups: SkillGroup[] = [
       {
         name: 'JavaScript',
         icon: SiJavascript,
-        description: 'Core language for interactive, dynamic web apps.',
+        description: 'Core language for interactive web apps.',
       },
       {
         name: 'TypeScript',
