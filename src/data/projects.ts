@@ -120,9 +120,9 @@ export const projects: Project[] = [
       },
     ],
     architectureNote:
-      'The real application runs entirely locally: a Next.js frontend and FastAPI backend calling the Claude API (claude-sonnet-4-6, with prompt caching). It stays local by design rather than by omission — the Auto Apply automation already requires Claude Code running on the same machine to drive the Claude-in-Chrome agent, so the backend never needs to be reachable from outside it. The public demo is a separate, frontend-only build deployed to Vercel with no backend and no API key anywhere near the browser. A build-time flag (NEXT_PUBLIC_DEMO_MODE) swaps every network call for a bundled sample application — one real saved job description, resume, and cover letter, plus canned chat revisions — so the demo costs nothing to host and never touches a live key. Generation, downloads, and Auto Apply are disabled in this mode. The backend couldn’t run on Vercel regardless, since PDF export shells out to LibreOffice in headless mode, a system dependency serverless functions can’t provide.',
+      'The real application runs entirely locally: a Next.js frontend and FastAPI backend calling the Claude API (claude-sonnet-4-6, with prompt caching). It stays local by design rather than by omission. The Auto Apply automation already requires Claude Code running on the same machine to drive the Claude-in-Chrome agent, so the backend never needs to be reachable from outside it. The public demo is a separate, frontend-only build deployed to Vercel with no backend and no API key anywhere near the browser. A build-time flag (NEXT_PUBLIC_DEMO_MODE) swaps every network call for a bundled sample application — one real saved job description, resume, and cover letter, plus canned chat revisions — so the demo costs nothing to host and never touches a live key. Generation, downloads, and Auto Apply are disabled in this mode. The backend couldn’t run on Vercel regardless, since PDF export shells out to LibreOffice in headless mode, a system dependency serverless functions can’t provide.',
     lessonsLearned:
-      'Auto Apply is intentionally scoped to fill-only, never submit — the agent completes the form and stops there, keeping a human in the loop for final review before anything goes out.',
+      'Auto Apply is intentionally scoped to fill-only, never submit. The agent completes the form and stops there, keeping a human in the loop for final review before anything goes out.',
     stack: [
       'Next.js 16',
       'React 19',
@@ -174,7 +174,7 @@ export const projects: Project[] = [
     architectureNote:
       'A single Next.js page with one serverless API route for the contact form, emailing the business via SMTP. Booking is handled entirely by linking out to Housecall Pro rather than building scheduling in-house.',
     lessonsLearned:
-      "The site's signature look comes from angled diagonal panels, but a diagonal's angle depends on both its horizontal offset and the element's height — a fixed pixel offset gave every panel a different angle, and it drifted whenever the window or the browser's font size changed. The fix was computing the offset per element (height × tan(25°), with 25° chosen as a shared constant) instead of hardcoding it, so every diagonal stays consistent at any screen size or font size.",
+      "The site's signature look comes from angled diagonal panels, but a diagonal's angle depends on both its horizontal offset and the element's height. A fixed pixel offset gave every panel a different angle, and it drifted whenever the window or the browser's font size changed. The fix was computing the offset per element (height × tan(25°), with 25° chosen as a shared constant) instead of hardcoding it, so every diagonal stays consistent at any screen size or font size.",
     images: ['/img/mobile-mechanic/mobile-mechanic-1.jpg'],
     demoUrl: 'https://www.atxreliablewrenching.com/',
   },

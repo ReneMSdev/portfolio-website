@@ -22,12 +22,17 @@ export default function About() {
         <p className='font-mono text-3xl font-semibold text-accent lowercase'>About</p>
 
         <div className='flex flex-col md:flex-row gap-8 md:gap-20'>
-          <p className='max-w-[560px] text-[17px] leading-[1.7] text-body'>
-            CS graduate (WGU) with 5+ years in fiber optic and telecom field work, currently
-            transitioning into software — self-taught, with a B.S. in Computer Science earned
-            while traveling. Now building full-stack applications and websites through personal
-            projects and freelance work, with ongoing studies into cloud and AI infrastructure.
-          </p>
+          <div className='max-w-[560px] flex flex-col gap-4 text-[17px] leading-[1.7] text-body'>
+            <p>
+              I spent 5+ years as a fiber optic and telecom field technician before deciding to
+              teach myself software. I earned my B.S. in Computer Science while traveling,
+              something I still make time for whenever I can.
+            </p>
+            <p>
+              These days I build full-stack applications through personal projects and freelance
+              work, with ongoing studies into cloud infrastructure and AI systems.
+            </p>
+          </div>
 
           <div className='flex flex-col gap-[18px] md:pl-10 md:border-l md:border-border'>
             {facts.map((fact) => (
