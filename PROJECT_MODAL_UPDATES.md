@@ -19,31 +19,25 @@ For each project, aim to cover, in roughly this order:
 
 ## Standing guideline
 
-All copy should be checked against AI-generated-sounding style (buzzwords, generic
-phrasing, AI "tells"). Resume Builder has its own generation-style prompts/guidelines
-that may be pasted in here as a reference once available — not yet supplied.
+Writing-style and truthfulness rules now live in `CLAUDE.md` (em dash usage, AI
+buzzwords, sentence rhythm, and the truthfulness clause with its user-invoked-only
+override). All copy in this file should be checked against that before landing —
+a first full audit against it has already been done and the clear violations fixed
+(see git history around the "writing-style guidelines" and "audit" commits).
 
 ## Per-project status
 
-### Route Planning App — agreed, ready to apply
-- `description`: add a WHY beat — built out of real fiber optic field work (a day's
-  address list with no optimized route meant looking each one up individually in
-  Google Maps beforehand).
-- `lessonsLearned` (new): "Built early in my self-taught path — one of the first
-  projects I attempted independently, outside of guided tutorials, before
-  AI-assisted development matured into the force multiplier it is today. It built
-  real familiarity with UI development and the core patterns behind API integration:
-  requests, responses, and handling async."
+### Route Planning App — done
+- `description` has its WHY beat (grew out of a real fiber optic field-work problem).
+- `lessonsLearned` covers it as an early, pre-AI-assisted self-taught project.
 
-### Resume Builder — drafted, needs final confirmation
-- `description` WHY beat drafted: "Built to speed up my own job search — I use it
-  for real resume and cover letter generation, tailored to each job description,
-  with an integrated chat interface for iteratively revising individual sections or
-  bullets. A separate automation layer, still in active development, orchestrates
-  Claude Code and a dedicated Claude-in-Chrome agent to fill out job application
-  forms from the saved application data — form-fill only, never submits."
-- Confirmed true: it's a real tool in active personal use for generation; Auto Apply
-  specifically is still being refined, not yet run against a live job posting.
+### Resume Builder — done
+- `description` now opens with the WHY beat (built to speed up own job search, real
+  tool in active use; Auto Apply flagged as still in active development).
+- `lessonsLearned` still needs real content — current copy is a design-decision note
+  (fill-only/never-submit scoping), not an actual lesson learned. Tracked in
+  `TODO.md`. Needs the user's own reflection on what actually happened during
+  development, not something to draft from the outside.
 
 ### Weather App — open, needs input
 - No copy drafted yet. Current entry frames it apologetically ("out of scope...
@@ -59,16 +53,13 @@ that may be pasted in here as a reference once available — not yet supplied.
 - Once unblocked: add a WHY beat too (was this meant to be a real product attempt,
   not just a learning exercise?) alongside the deeper HOW content.
 
-### Mobile Mechanic Site — implemented, one follow-up pending
-- Already updated: `stack`, `summary`, `description`, `architectureNote`,
-  `lessonsLearned` (diagonal-angle design problem). Metrics removed (were `25°`
-  shared angle / `0` animation libraries — decided the numbers didn't earn their
-  place as a metrics tile, though `25°` survives inline in `lessonsLearned`).
-- Pending: a fuller trig-based story (from another Claude Code session working in
-  the actual `atx-reliable-wrenching` codebase) to revise the `lessonsLearned`
-  paragraph with more depth on how the angle-as-a-function-of-height problem was
-  solved.
-- Open: Results (bookings/client feedback) — no data yet, not added.
+### Mobile Mechanic Site — done, two open items
+- `stack`, `summary`, `description`, `architectureNote`, and `lessonsLearned` are all
+  updated, including the fuller trigonometry-based diagonal-angle story. Metrics were
+  considered and dropped (didn't earn their place as a tile).
+- Open, tracked in `TODO.md`: screenshots predate the redesign and don't show the
+  diagonal-panel design the story now describes; Results (bookings/client feedback)
+  still has no real data to add.
 
 ## Undecided
 

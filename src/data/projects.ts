@@ -35,7 +35,7 @@ export const projects: Project[] = [
     status: 'Demo',
     summary: 'AI-assisted resume and cover-letter generation, plus automated application form-fill.',
     description:
-      'An AI-assisted resume and cover letter generator that tailors output to a specific job description, with an integrated chat interface for iteratively revising individual sections or bullets. A separate automation layer orchestrates Claude Code and a dedicated Claude-in-Chrome agent to fill out job application forms from the saved application data. It fills the form but never submits it.',
+      'Built to speed up my own job search. I use it for real resume and cover letter generation, tailored to each job description, with an integrated chat interface for iteratively revising individual sections or bullets. A separate automation layer, still in active development, orchestrates Claude Code and a dedicated Claude-in-Chrome agent to fill out job application forms from the saved application data. It fills the form but never submits it.',
     metrics: [
       { value: '2', label: 'Coordinated AI agents' },
       { value: '$0', label: 'Demo hosting cost' },
@@ -174,7 +174,7 @@ export const projects: Project[] = [
     architectureNote:
       'A single Next.js page with one serverless API route for the contact form, emailing the business via SMTP. Booking is handled entirely by linking out to Housecall Pro rather than building scheduling in-house.',
     lessonsLearned:
-      "The site's signature look comes from angled diagonal panels, but a diagonal's angle depends on both its horizontal offset and the element's height. A fixed pixel offset gave every panel a different angle, and it drifted whenever the window or the browser's font size changed. The fix was computing the offset per element (height × tan(25°), with 25° chosen as a shared constant) instead of hardcoding it, so every diagonal stays consistent at any screen size or font size.",
+      "The site's signature look comes from angled diagonal panels across the welcome bar, nav logo, mobile header, and hero overlay, all meant to share one consistent cut. With fixed pixel offsets, the angles would stray from each other and the design would fall apart at different sizes, since an angle depends on both the offset and the element's height. The fix came from trigonometry: pick one shared angle, 25°, and have each panel compute its own offset from it using height × tan(25°), so every diagonal stays consistent regardless of screen size.",
     images: ['/img/mobile-mechanic/mobile-mechanic-1.jpg'],
     demoUrl: 'https://www.atxreliablewrenching.com/',
   },
