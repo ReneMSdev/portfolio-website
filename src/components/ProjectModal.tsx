@@ -177,9 +177,19 @@ export function ProjectModal({ project, onClose, triggerRef }: ProjectModalProps
               <p className='font-mono text-xs text-accent uppercase tracking-wider mb-2'>
                 Architecture
               </p>
-              <p className='text-muted-foreground leading-relaxed italic'>
-                {project.architectureNote}
-              </p>
+              <div className='flex flex-col gap-3'>
+                {(Array.isArray(project.architectureNote)
+                  ? project.architectureNote
+                  : [project.architectureNote]
+                ).map((paragraph) => (
+                  <p
+                    key={paragraph}
+                    className='text-muted-foreground leading-relaxed italic'
+                  >
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
             </div>
           )}
 
