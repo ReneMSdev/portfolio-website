@@ -41,7 +41,8 @@ carousel. The mobile layout is in place, including a full-screen modal below `md
   paragraphs. The 4 diagrams parse with mermaid@12 (scratch script, 41ac13b, 2026-09-30).
   Browser check passed: René looked at it, and a Chrome DOM check at `/?project=linkleaf`
   found 4 rendered diagrams, no Mermaid or console errors, both lesson paragraphs, and
-  the `client` fill applied (792d9ea, 2026-09-30). Not pushed, so not live yet.
+  the `client` fill applied (792d9ea, 2026-09-30). On `main` since 8f20d83 (pushed
+  2026-09-30); whether the Vercel deploy picked it up is **unverified**.
 - **Mobile Mechanic Site** (live client site): copy done. **Open:** its one screenshot
   predates the diagonal-panel redesign. The repo is a client deliverable, so it gets no
   `codeUrl` without checking first.
