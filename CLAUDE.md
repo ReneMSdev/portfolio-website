@@ -39,3 +39,24 @@ Does not apply to code comments, commit messages, or this file.
   This override only applies when the user directly and explicitly says so for
   that specific instance. Never infer it, apply it on your own judgment, or
   assume it carries forward to other copy.
+
+# Project
+
+René's personal portfolio: single-page Next.js 16 site, live on `main`; day-to-day work on `working`.
+
+| Purpose | Command |
+|---|---|
+| Install | `npm install` |
+| Run locally | `npm run dev` |
+| Lint / type-check | `npm run lint`, `npx tsc --noEmit` |
+| Build | `npm run build` |
+
+No test suite; lint + tsc + build are the checks.
+
+## Project rules
+- Mobile Mechanic Site is client work: no `codeUrl` without checking first.
+- Phase 7 (QA & launch) is on hold; don't start it unless asked.
+
+## State
+Current state: `docs/STATUS.md`. Backlog: `docs/TODO.md`. Decisions: `docs/decisions.md`.
+Copy tracker: `docs/PROJECT_MODAL_UPDATES.md`.

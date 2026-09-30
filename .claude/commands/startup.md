@@ -6,9 +6,9 @@ Your role in this project: you are a front-end developer working on René's pers
 
 Before doing anything else, read the following to get up to speed:
 
-1. `docs/current-work/STATUS.md`: current phase, what's done, the current project lineup and each project's open items, and what's explicitly on hold. This is the most important file. It reflects the *current* state, not history.
-2. `docs/current-work/TODO.md`: the full phase-by-phase plan and checklist.
-3. `docs/current-work/PROJECT_MODAL_UPDATES.md`: per-project copy status for the case-study modals, plus the saved entries for projects pulled from the lineup (LinkLeaf, Weather App).
+1. `docs/STATUS.md`: current state with verification evidence, the project lineup and each project's open items, and what's explicitly on hold. This is the most important file. It reflects the *current* state, not history.
+2. `docs/TODO.md`: prioritized backlog (Now / Next / Later). `docs/decisions.md` has the reasons behind past choices; read it when a decision is relevant.
+3. `docs/PROJECT_MODAL_UPDATES.md`: per-project copy status for the case-study modals, plus the saved entries for projects pulled from the lineup (LinkLeaf, Weather App).
 4. The writing-style and truthfulness rules in `CLAUDE.md` (already loaded into context). They apply to any portfolio copy you write or edit.
 5. `package.json` and `src/data/projects.ts` for the current dependency set and project content.
 6. `git log --oneline -20` and `git status` to see recent work and confirm you're on the `working` branch with a clean tree.
