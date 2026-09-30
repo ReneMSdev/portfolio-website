@@ -171,7 +171,7 @@ Produced from `ReneMSdev/linkleaf-mono` (branch `working`, 2026-09-29), followin
 | Token verification, allowlist, auto-provision with free subscription, background last-login | `backend/app/auth/dependencies.py`, `backend/app/domain/user/service.py` (`create_from_firebase`) |
 | QR token 302; slug lookup, then slug history 301; view count skipped for owner | `backend/app/api/profiles.py` (`qr_redirect`, `get_public_profile`), `backend/app/domain/profile/service.py` (`get_public`) |
 | vCard 3.0, `{slug}.vcf`, branding note on free tier | `backend/app/api/contacts.py`, `backend/app/domain/contact/service.py` |
-| Webhook event mapping, 401 on bad secret, 200 ignored, expiration cascade (portfolio images and resumes, then extra profiles) | `backend/app/api/subscriptions.py` (`EVENT_MAP`, handler), `domain/media/service.py` (`soft_delete_excess_media`: IMAGE and Resume only) |
+| Webhook event mapping, 401 on bad secret, 200 ignored, expiration cascade (portfolio images and resumes, then extra profiles) | `backend/app/api/subscriptions.py` (`EVENT_MAP`, handler), `domain/media/service.py` (`soft_delete_excess_media`: IMAGE and RESUME only) |
 | 30-day restore window | `GRACE_PERIOD_DAYS = 30` in `backend/app/core/types.py`; restore endpoints in `api/profiles.py` and `api/media.py` |
 | Public and private buckets, signed URLs | `backend/app/core/storage.py`, `backend/app/config/settings.py` |
 | Flutter app is a UI prototype on mock data | Mock constants in `mobile/lib/screens/home/widgets/card_sheet.dart`; three providers are empty and `SubscriptionProvider` only holds a local tier flag; `api_service.dart` is referenced nowhere else |
@@ -189,7 +189,7 @@ Produced from `ReneMSdev/linkleaf-mono` (branch `working`, 2026-09-29), followin
 
 ## 4. Open questions for René
 
-1. **Lessons learned: two options, still open.** René's decision (2026-09-29): keep both, don't combine them, and choose during the portfolio review. Option A (active in the entry) follows what René said: the architecture research, build-in-house vs third-party, the first full test suite and CI. It's closer to a reflection than the brief's "concrete problem and fix". Option B (commented out below it in the entry) is a concrete bug from the git history:
+1. **Lessons learned: resolved 2026-09-30.** René chose to show both, as two separate paragraphs (A, then B); see `docs/decisions.md` in the portfolio repo. Original note: René's decision (2026-09-29): keep both, don't combine them, and choose during the portfolio review. Option A (active in the entry) follows what René said: the architecture research, build-in-house vs third-party, the first full test suite and CI. It's closer to a reflection than the brief's "concrete problem and fix". Option B (commented out below it in the entry) is a concrete bug from the git history:
 
    > A bug early on showed me why naming rules matter. The user service had a function called `update`, which quietly replaced SQLAlchemy's `update` imported at the top of the same file. When the background task that records each user's last login called `update(User)`, it expected SQLAlchemy and got my own function instead. Because it ran after the response was sent, no error ever reached the app, and last-login times simply never saved. The fix was renaming it to `update_user`, adding error output to the background task, and making "never name a service function plain `update` or `delete`" a project rule.
 

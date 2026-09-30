@@ -70,3 +70,15 @@ date is when the entry was imported.
 
 **Decision:** Folded `docs/current-work/STATUS.md` and `TODO.md` into `docs/STATUS.md`, `docs/TODO.md`, and this file. Kept `PROJECT_MODAL_UPDATES.md` as a reference doc and moved it to `docs/`. The old STATUS and TODO files get deleted only once René approves.
 **Why:** René's standard `/new-project` layout. The phase checklist was mostly finished history, which git already records.
+
+## 2026-09-30: LinkLeaf shows both lessons-learned stories
+
+**Decision:** LinkLeaf's `lessonsLearned` has two separate paragraphs: the architecture reflection (A), then the `update` name-shadowing bug (B). `lessonsLearned` now accepts `string | string[]`, rendered like `architectureNote`.
+**Alternatives:** Pick one, as the handoff planned (René's earlier call on 2026-09-29 was "keep both, don't combine, choose during review"); merge them into one paragraph.
+**Why:** René wanted both. One is an architecture learning story and the other is a real bug that got fixed. Separate paragraphs keep them uncombined.
+
+## 2026-09-30: Plain "resume" spelling
+
+**Decision:** Portfolio copy spells it "resume", not "résumé".
+**Why:** René prefers the more common American English spelling.
+

@@ -2,7 +2,7 @@
 
 ## Now
 <!-- What's actively being worked on. Keep this to a few items. -->
-- [ ] Import the LinkLeaf entry from `docs/portfolio-handoff/linkleaf/ENTRY.md` into `src/data/projects.ts` (review it against the writing rules first)
+- [ ] Check the LinkLeaf modal in a browser (two-paragraph lessons, purple `client` diagram color, 16:9 crop of the 3-screen image), then push
 - [ ] Resume Builder `lessonsLearned`: replace the design-decision note with a real lesson, worked through with René
 
 ## Next
@@ -11,6 +11,7 @@
 - [ ] Route Planning App: find out what broke after the API free-tier change and update `description`/`stack`/`demoNote` to match (brief in `docs/PORTFOLIO_HANDOFF.md`)
 - [ ] Check the project modal on a real phone (last open item from Phase 6)
 - [ ] Weather App: produce a real entry via the handoff brief, or drop it
+- [ ] LinkLeaf lesson B: add how the `update` bug was tracked down with the agent, if René remembers the details
 
 ## Later
 <!-- Ideas and deferred scope. It's fine for items to sit here. -->
@@ -21,6 +22,8 @@
 
 ## Done recently
 <!-- /wrapup moves finished items here with a date. Keep about the last 10. -->
+- [x] LinkLeaf back in the lineup with its full case study; `lessonsLearned` accepts multiple paragraphs (2026-09-30, 41ac13b)
+- [x] Set up STATUS/TODO/decisions tracking, project settings, and `CLAUDE.md` project section (2026-09-30, 8deed5d)
 - [x] Portfolio handoff folder with the LinkLeaf entry (270f2b1)
 - [x] Removed LinkLeaf and Weather App from the visible lineup (2026-09-28, db4383d)
 - [x] Split Resume Builder's architecture note into two paragraphs (6bfc5b0)
