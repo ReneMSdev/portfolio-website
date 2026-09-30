@@ -1,8 +1,8 @@
 # LinkLeaf: portfolio entry handoff
 
 Produced from `ReneMSdev/linkleaf-mono` (branch `working`, 2026-09-29), following
-`docs/PORTFOLIO_HANDOFF.md`. The files in this folder are the only output. Copy
-`linkleaf-1.jpg` to `public/img/linkleaf/linkleaf-1.jpg`.
+`docs/PORTFOLIO_HANDOFF.md`. The screenshot that came with it now lives at
+`public/img/linkleaf/linkleaf-1.jpg`; the duplicate here was removed on 2026-09-30.
 
 ## 1. The entry
 
@@ -58,7 +58,7 @@ Produced from `ReneMSdev/linkleaf-mono` (branch `working`, 2026-09-29), followin
   revenuecat["RevenueCat"]:::external
   pg[("PostgreSQL 16")]:::storage
   gcspub[("GCS public bucket<br/>(avatars, images)")]:::storage
-  gcspriv[("GCS private bucket<br/>(résumés)")]:::storage
+  gcspriv[("GCS private bucket<br/>(resumes)")]:::storage
 
   app -. "Bearer ID token (not wired yet)" .-> routers
   app -. "sign in (not wired yet)" .-> firebase
@@ -131,9 +131,9 @@ Produced from `ReneMSdev/linkleaf-mono` (branch `working`, 2026-09-29), followin
   parse -- "INITIAL_PURCHASE / RENEWAL /<br/>RESTORE / PRODUCT_CHANGE" --> active["premium, active"]
   parse -- "CANCELLATION / BILLING_ISSUE" --> cancelled["premium, cancelled<br/>(access kept until expiry)"]
   parse -- EXPIRATION --> expired["free, expired"]
-  expired --> c1["soft-delete portfolio images<br/>and résumés on non-default profiles"]
+  expired --> c1["soft-delete portfolio images<br/>and resumes on non-default profiles"]
   c1 --> c2["soft-delete non-default profiles"]
-  c2 --> c3["soft-delete portfolio images<br/>and résumé on the default profile"]
+  c2 --> c3["soft-delete portfolio images<br/>and resume on the default profile"]
   c3 --> grace[("30-day grace period:<br/>owner can restore")]:::storage
   active --> ok["200"]
   cancelled --> ok
@@ -144,7 +144,7 @@ Produced from `ReneMSdev/linkleaf-mono` (branch `working`, 2026-09-29), followin
   ],
   architectureNote: [
     'The backend is a modular monolith: routers, domain services, and a shared core layer for the database, file storage and image processing. Domains are meant to reach each other only through service functions, and the code mostly follows that, though a few services still query other domains\' models directly.',
-    'Identity and billing are bought rather than built. Firebase handles sign-in and RevenueCat handles app-store subscriptions, while the backend keeps the rules: it verifies Firebase tokens, only lets allowlisted accounts in, creates a user with a free subscription on first login, and turns RevenueCat webhooks into plan changes. When premium expires, extra profiles, portfolio images and résumés are soft-deleted and stay restorable for 30 days.',
+    'Identity and billing are bought rather than built. Firebase handles sign-in and RevenueCat handles app-store subscriptions, while the backend keeps the rules: it verifies Firebase tokens, only lets allowlisted accounts in, creates a user with a free subscription on first login, and turns RevenueCat webhooks into plan changes. When premium expires, extra profiles, portfolio images and resumes are soft-deleted and stay restorable for 30 days.',
     'Printed QR codes point at a permanent token instead of the profile\'s slug. The token redirects to whatever the slug is now, and old slugs answer with 301 redirects, so renaming a profile never breaks a card that has already been handed out.',
   ],
   lessonsLearned:
@@ -171,7 +171,7 @@ Produced from `ReneMSdev/linkleaf-mono` (branch `working`, 2026-09-29), followin
 | Token verification, allowlist, auto-provision with free subscription, background last-login | `backend/app/auth/dependencies.py`, `backend/app/domain/user/service.py` (`create_from_firebase`) |
 | QR token 302; slug lookup, then slug history 301; view count skipped for owner | `backend/app/api/profiles.py` (`qr_redirect`, `get_public_profile`), `backend/app/domain/profile/service.py` (`get_public`) |
 | vCard 3.0, `{slug}.vcf`, branding note on free tier | `backend/app/api/contacts.py`, `backend/app/domain/contact/service.py` |
-| Webhook event mapping, 401 on bad secret, 200 ignored, expiration cascade (portfolio images and résumés, then extra profiles) | `backend/app/api/subscriptions.py` (`EVENT_MAP`, handler), `domain/media/service.py` (`soft_delete_excess_media`: IMAGE and RESUME only) |
+| Webhook event mapping, 401 on bad secret, 200 ignored, expiration cascade (portfolio images and resumes, then extra profiles) | `backend/app/api/subscriptions.py` (`EVENT_MAP`, handler), `domain/media/service.py` (`soft_delete_excess_media`: IMAGE and Resume only) |
 | 30-day restore window | `GRACE_PERIOD_DAYS = 30` in `backend/app/core/types.py`; restore endpoints in `api/profiles.py` and `api/media.py` |
 | Public and private buckets, signed URLs | `backend/app/core/storage.py`, `backend/app/config/settings.py` |
 | Flutter app is a UI prototype on mock data | Mock constants in `mobile/lib/screens/home/widgets/card_sheet.dart`; three providers are empty and `SubscriptionProvider` only holds a local tier flag; `api_service.dart` is referenced nowhere else |

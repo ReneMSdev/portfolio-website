@@ -220,12 +220,13 @@ more. The em dash test and the no-guessing rule are the ones most often missed.
 
 ### LinkLeaf
 
-**Status in the portfolio:** removed from the lineup until it has real content.
-Previous slug: `linkleaf`.
+**Status in the portfolio:** done. Imported into the lineup on 2026-09-30 from
+`docs/portfolio-handoff/linkleaf/ENTRY.md`. Slug: `linkleaf`.
 
 **What's known (from René, not yet verified against the code):** a link-in-bio
 platform. More complex than the other projects: a FastAPI backend, auth, QR code
-generation, a Dart/Flutter mobile frontend, and phone-contact syncing. Earlier notes
+generation, a Dart/Flutter mobile frontend, and phone-contact syncing (the code turned out to
+have a one-way vCard "Save Contact" download instead, not syncing). Earlier notes
 also list PostgreSQL, Google Cloud Storage, and RevenueCat. It only runs in local
 development and isn't deployed anywhere. A marketing page was planned but never
 built. The project is paused.
@@ -256,7 +257,7 @@ built. The project is paused.
 3. With René, clean up whatever would embarrass a reviewer reading the code (dead
    code, leftover debug output, missing README). Ask before large refactors.
 4. Write a real README / ARCHITECTURE.md with Mermaid diagrams: overall architecture,
-   the auth flow, and the QR / contact-sync flow as separate diagrams. These can be
+   the auth flow, and the QR / Save Contact flow as separate diagrams. These can be
    reused in the portfolio entry.
 5. Screenshots of both the web and mobile UI where they exist, using seed data.
 6. If the repo is to be linked, check its full git history for secrets (e.g.

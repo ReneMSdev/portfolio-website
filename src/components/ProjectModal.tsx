@@ -198,7 +198,16 @@ export function ProjectModal({ project, onClose, triggerRef }: ProjectModalProps
               <p className='font-mono text-xs text-accent uppercase tracking-wider mb-2'>
                 Lessons Learned
               </p>
-              <p className='text-muted-foreground leading-relaxed'>{project.lessonsLearned}</p>
+              <div className='flex flex-col gap-3'>
+                {(Array.isArray(project.lessonsLearned)
+                  ? project.lessonsLearned
+                  : [project.lessonsLearned]
+                ).map((paragraph) => (
+                  <p key={paragraph} className='text-muted-foreground leading-relaxed'>
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
             </div>
           )}
 

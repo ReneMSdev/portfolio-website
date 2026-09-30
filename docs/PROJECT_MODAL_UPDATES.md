@@ -60,31 +60,16 @@ a first full audit against it has already been done and the clear violations fix
   },
   ```
 
-### LinkLeaf — removed from the lineup for now
-- Pulled entirely out of `src/data/projects.ts` (not just hidden via copy) — needs
-  more work before it's ready to showcase.
-- Blocked on the user's own repo work (spin up locally, clean up, screenshot, write
-  real README/architecture docs) before a real case study can be built.
-- Already tracked in `TODO.md` and in session memory
-  (`project_linkleaf_case_study.md`).
-- Once unblocked: add a WHY beat too (was this meant to be a real product attempt,
-  not just a learning exercise?) alongside the deeper HOW content, then restore the
-  entry with real content rather than the placeholder below.
-- Last content (for restoring/reference):
-  ```ts
-  {
-    slug: 'linkleaf',
-    title: 'LinkLeaf',
-    status: 'Paused',
-    summary: 'This project is coming soon.',
-    description:
-      'LinkLeaf is a link-in-bio platform. The backend MVP is complete with 122 passing tests, but the project is currently paused, so this is framed as an architecture case study rather than a live demo.',
-    stack: ['FastAPI', 'PostgreSQL', 'Google Cloud Storage', 'RevenueCat'],
-    metrics: [{ label: 'Tests passing', value: '122' }],
-    architectureNote: 'Architecture diagram and detailed write-up coming soon.',
-    codeUrl: '#',
-  },
-  ```
+### LinkLeaf — back in the lineup (2026-09-30)
+- Restored from the handoff produced in the LinkLeaf repo
+  (`docs/portfolio-handoff/linkleaf/ENTRY.md`, which has the sources table and caveats).
+- WHY beat: a real product attempt, paused before launch over market doubts (René).
+- `lessonsLearned` uses both options from the handoff as two paragraphs: the
+  architecture/first-full-CI reflection, then the `update` name-shadowing bug.
+- Description changed from the handoff: "contact cards" replaced with the accurate
+  Save Contact (vCard download) wording. There is no phone-contact syncing.
+- Caveats: screenshot uses mock data; Firebase and RevenueCat were only tested with
+  mocks; the overview diagram adds a `client` classDef (muted purple).
 
 ### Mobile Mechanic Site — done, two open items
 - `stack`, `summary`, `description`, `architectureNote`, and `lessonsLearned` are all
