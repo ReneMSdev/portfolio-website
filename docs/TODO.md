@@ -2,7 +2,7 @@
 
 ## Now
 <!-- What's actively being worked on. Keep this to a few items. -->
-- [ ] Check the LinkLeaf modal in a browser (two-paragraph lessons, purple `client` diagram color, 16:9 crop of the 3-screen image), then push
+- [ ] Push `working` and get LinkLeaf onto the live site
 - [ ] Resume Builder `lessonsLearned`: replace the design-decision note with a real lesson, worked through with René
 
 ## Next
@@ -22,6 +22,7 @@
 
 ## Done recently
 <!-- /wrapup moves finished items here with a date. Keep about the last 10. -->
+- [x] Browser check of the LinkLeaf modal (2026-09-30, 792d9ea)
 - [x] LinkLeaf back in the lineup with its full case study; `lessonsLearned` accepts multiple paragraphs (2026-09-30, 41ac13b)
 - [x] Set up STATUS/TODO/decisions tracking, project settings, and `CLAUDE.md` project section (2026-09-30, 8deed5d)
 - [x] Portfolio handoff folder with the LinkLeaf entry (270f2b1)

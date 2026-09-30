@@ -39,8 +39,9 @@ carousel. The mobile layout is in place, including a full-screen modal below `md
   (133 tests, 32 endpoints). The metrics were verified in the LinkLeaf repo, not here;
   sources are in `docs/portfolio-handoff/linkleaf/ENTRY.md`. `lessonsLearned` has two
   paragraphs. The 4 diagrams parse with mermaid@12 (scratch script, 41ac13b, 2026-09-30).
-  **Unverified:** how the modal looks in a browser (two-paragraph lessons, the new purple
-  `client` diagram color, the 16:9 crop of the three-screen image). Not pushed, so not live.
+  Browser check passed: René looked at it, and a Chrome DOM check at `/?project=linkleaf`
+  found 4 rendered diagrams, no Mermaid or console errors, both lesson paragraphs, and
+  the `client` fill applied (792d9ea, 2026-09-30). Not pushed, so not live yet.
 - **Mobile Mechanic Site** (live client site): copy done. **Open:** its one screenshot
   predates the diagonal-panel redesign. The repo is a client deliverable, so it gets no
   `codeUrl` without checking first.
