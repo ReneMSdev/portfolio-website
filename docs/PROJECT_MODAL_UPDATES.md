@@ -71,13 +71,13 @@ a first full audit against it has already been done and the clear violations fix
 - Caveats: screenshot uses mock data; Firebase and RevenueCat were only tested with
   mocks; the overview diagram adds a `client` classDef (muted purple).
 
-### Mobile Mechanic Site — done, two open items
+### Mobile Mechanic Site — done, one open item
 - `stack`, `summary`, `description`, `architectureNote`, and `lessonsLearned` are all
   updated, including the fuller trigonometry-based diagonal-angle story. Metrics were
   considered and dropped (didn't earn their place as a tile).
-- Open, tracked in `TODO.md`: screenshots predate the redesign and don't show the
-  diagonal-panel design the story now describes; Results (bookings/client feedback)
-  still has no real data to add.
+- Screenshot replaced 2026-09-30 with a live hero capture that shows the diagonal
+  panels (one image; René decided services/reviews shots weren't needed).
+- Open: Results (bookings/client feedback) still has no real data to add.
 
 ## Undecided
 

@@ -43,8 +43,8 @@ carousel. The mobile layout is in place, including a full-screen modal below `md
   found 4 rendered diagrams, no Mermaid or console errors, both lesson paragraphs, and
   the `client` fill applied (792d9ea, 2026-09-30). On `main` since 8f20d83 (pushed
   2026-09-30); whether the Vercel deploy picked it up is **unverified**.
-- **Mobile Mechanic Site** (live client site): copy done. **Open:** its one screenshot
-  predates the diagonal-panel redesign. The repo is a client deliverable, so it gets no
+- **Mobile Mechanic Site** (live client site): copy done. The screenshot is a fresh
+  1600×900 capture of the live hero, showing the diagonal panels (2026-09-30). The repo is a client deliverable, so it gets no
   `codeUrl` without checking first.
 - **Route Planning App**: copy done. **Open:** a routing/geocoding API it depends on may
   have lost its free tier, so the `demoNote` and stack may no longer be accurate

@@ -6,7 +6,6 @@
 
 ## Next
 <!-- Planned soon, in priority order. -->
-- [ ] Mobile Mechanic Site: new screenshots showing the diagonal-panel hero, services, and reviews
 - [ ] Route Planning App: find out what broke after the API free-tier change and update `description`/`stack`/`demoNote` to match (brief in `docs/PORTFOLIO_HANDOFF.md`)
 - [ ] Check the project modal on a real phone (last open item from Phase 6)
 - [ ] Weather App: produce a real entry via the handoff brief, or drop it
@@ -21,6 +20,7 @@
 
 ## Done recently
 <!-- /wrapup moves finished items here with a date. Keep about the last 10. -->
+- [x] Mobile Mechanic screenshot replaced with a current hero capture showing the diagonal panels (2026-09-30)
 - [x] Pushed `working` and fast-forwarded `main` to it, bringing LinkLeaf to `main` (2026-09-30, 8f20d83)
 - [x] Browser check of the LinkLeaf modal (2026-09-30, 792d9ea)
 - [x] LinkLeaf back in the lineup with its full case study; `lessonsLearned` accepts multiple paragraphs (2026-09-30, 41ac13b)
