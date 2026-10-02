@@ -46,9 +46,13 @@ carousel. The mobile layout is in place, including a full-screen modal below `md
 - **Mobile Mechanic Site** (live client site): copy done. The screenshot is a fresh
   1600×900 capture of the live hero, showing the diagonal panels (2026-09-30). The repo is a client deliverable, so it gets no
   `codeUrl` without checking first.
-- **Route Planning App**: copy done. **Open:** a routing/geocoding API it depends on may
-  have lost its free tier, so the `demoNote` and stack may no longer be accurate
-  (**unverified**, see `docs/PORTFOLIO_HANDOFF.md`).
+- **Route Planning App** (status `Live`): updated 2026-10-02 from
+  `docs/portfolio-handoff/route-planner/ENTRY.md`. OpenCage broke, so the app now uses
+  Nominatim (geocoding) and OpenRouteService (routing). New stack, `demoNote` and
+  architecture note, two diagrams, and three 1344×756 screenshots (two desktop, one
+  phone composite built from the handoff's phone captures). The app-side claims were
+  verified in the route-planner repo, not here; sources are in ENTRY.md. The modal was
+  checked in the local dev server (images, both diagrams, no console errors).
 
 **Pulled from the lineup:** Weather App. Its saved entry is in
 `docs/PROJECT_MODAL_UPDATES.md`.
@@ -58,6 +62,8 @@ carousel. The mobile layout is in place, including a full-screen modal below `md
 - `docs/PROJECT_MODAL_UPDATES.md`: per-project copy status and saved entries.
 - `docs/PORTFOLIO_HANDOFF.md`: brief for sessions in other repos that produce modal entries.
 - `docs/portfolio-handoff/linkleaf/ENTRY.md`: kept as the source record for LinkLeaf's claims.
+- `docs/portfolio-handoff/route-planner/ENTRY.md`: the same for Route Planning App, plus the
+  phone captures the composite screenshot was built from.
 - `src/components/page-lines/PageLinesLayer.tsx` is live (rendered from `layout.tsx`). Its
   `ACTIVE` flag picks `GenerativeLines` over the hand-authored full-page `PageLines`, which
   is kept but not rendered.

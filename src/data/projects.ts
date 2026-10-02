@@ -317,29 +317,126 @@ export const projects: Project[] = [
   {
     slug: 'route-planner',
     title: 'Route Planning App',
-    status: 'Demo (mock data)',
-    summary: 'Route optimization app with map visualization and PDF/QR export.',
+    status: 'Live',
+    summary:
+      'Route optimization web app that finds an efficient stop order and hands the route off to Google Maps or a PDF.',
     description:
-      "Route Boss is a route optimization web app where users can input multiple stops, calculate the most efficient path, and visualize their route on an interactive map. It grew out of a real problem from years of fiber optic field work: a day's list of addresses with no optimized route meant looking each one up individually in Google Maps beforehand. It supports manual address entry or CSV upload, geocodes using OpenCage, optimizes with OpenRouteService, and lets users export their route as a PDF or mobile-friendly QR code.",
-    lessonsLearned:
+      "Route Boss is a route optimization web app: enter or upload a list of stops, and it finds an efficient order and draws the drive on an interactive map. It grew out of a real problem from years of fiber optic field work: a day's list of addresses with no optimized route meant looking each one up individually in Google Maps beforehand. Addresses can be typed in or imported from a CSV or Excel file. Nominatim (OpenStreetMap) geocodes them and OpenRouteService works out the order and the road route. The finished route can be saved as a PDF or opened straight in Google Maps.",
+    lessonsLearned: [
       'Built early in my self-taught path, one of the first projects I attempted independently outside of guided tutorials, before AI-assisted development matured into the force multiplier it is today. It built real familiarity with UI development and the core patterns behind API integration: requests, responses, and asynchronous operations.',
+      'I recently came back to it after the geocoding service it relied on stopped accepting its key and the map tiles started requiring one, which left the live app broken. It was fixed by switching to OpenStreetMap\'s keyless geocoder and tiles. That update also made the app usable on a phone, with a Stops and Map switch and a button that opens the route in Google Maps.',
+    ],
     stack: [
-      'Next.js 13 App Router',
+      'Next.js 15 App Router',
       'React 19',
-      'Tailwind CSS',
-      'ShadCN UI',
-      'Leaflet.js',
-      'OpenCage',
+      'JavaScript',
+      'Tailwind CSS v4',
+      'shadcn/ui',
+      'Leaflet (react-leaflet)',
+      'Nominatim / OpenStreetMap',
       'OpenRouteService',
       'react-dropzone',
-      'xlsx',
+      'SheetJS (xlsx)',
+      'Papa Parse',
+      'dnd-kit',
       'jsPDF',
       'next-qrcode',
+      'Vercel',
     ],
-    images: ['/img/route-planner/routeplanner1.jpg', '/img/route-planner/routeplanner2.jpg'],
-    imagePosition: 'center',
+    images: [
+      '/img/route-planner/route-planner-1.jpg',
+      '/img/route-planner/route-planner-2.jpg',
+      '/img/route-planner/route-planner-3.jpg',
+    ],
     demoUrl: 'https://route-planner-nextjs.vercel.app/',
-    demoNote: 'Demo Mode — uses cached/mock route data to avoid live API cost.',
+    demoNote:
+      'Runs on free API tiers, so it is limited to US addresses and 25 stops per route. Each visitor is rate-limited, and optimizing can be slow when OpenRouteService is busy.',
     codeUrl: 'https://github.com/ReneMSdev/route-planner-nextjs',
+    architectureNote: [
+      "The browser never calls the geocoder or the router itself. Three Next.js server routes proxy them, which keeps the OpenRouteService key on the server. Each route first checks that the request comes from the app's own origin, then applies a per-visitor limit of 10 requests a minute and 100 a day to protect the free API quotas.",
+      "Nominatim's usage policy shaped the geocode route. Lookups run one at a time with at least 1.1 seconds between them, and results are cached. Only the OpenStreetMap map tiles load directly from the browser. On phones the two-column layout turns into a Stops and Map switch, and the export dialog leads with an Open in Google Maps button, since a phone can't scan its own QR code.",
+    ],
+    architectureDiagrams: [
+      {
+        title: 'System overview',
+        chart: `flowchart LR
+  subgraph Browser
+    UI["page.js<br/>(state + route building)"]
+    Form["AddressForm / ImportForm"]
+    Map["MapDisplay<br/>(Leaflet)"]
+    Export["ExportModal<br/>(jsPDF, next-qrcode)"]
+    Form --> UI
+    UI --> Map
+    UI --> Export
+  end
+
+  subgraph Vercel["Next.js server routes (src/app/api)"]
+    Guard["apiGuard<br/>same-origin + per-IP limit"]
+    Geo["/api/geocode<br/>1.1 s queue, cache, max 25"]
+    Opt["/api/optimize"]
+    Route["/api/route<br/>snap radius 1 km"]
+    Valid["routeInput<br/>profile + coordinate checks"]
+    Guard --> Geo
+    Guard --> Opt
+    Guard --> Route
+    Opt -.-> Valid
+    Route -.-> Valid
+  end
+
+  Nominatim[("Nominatim<br/>OpenStreetMap geocoder")]
+  ORS[("OpenRouteService<br/>optimization + directions")]
+  Tiles[("tile.openstreetmap.org<br/>map tiles")]
+  GMaps[("Google Maps<br/>(link or QR code)")]
+
+  UI -- "POST JSON" --> Guard
+  Geo -- "no key" --> Nominatim
+  Opt -- "ORS_API_KEY" --> ORS
+  Route -- "ORS_API_KEY" --> ORS
+  Map -- "tile images, direct" --> Tiles
+  Export -. "URL only" .-> GMaps
+
+  classDef external fill:#2a1f14,stroke:#e8a659,color:#f2f2f0
+  class Nominatim,ORS,Tiles,GMaps external`,
+      },
+      {
+        title: 'Building a route',
+        chart: `sequenceDiagram
+  autonumber
+  actor User
+  participant Page as page.js
+  participant G as /api/geocode
+  participant O as /api/optimize
+  participant R as /api/route
+  participant N as Nominatim
+  participant ORS as OpenRouteService
+
+  User->>Page: Submit or Generate Random Route
+  Page->>Page: loading on (spinner, form locked)
+  Page->>G: addresses (up to 25)
+  rect rgb(42, 31, 20)
+    loop each address, at least 1.1 s apart (cached results skip the call)
+      G->>N: search (limit 1, US only)
+      N-->>G: lat/lng or nothing
+    end
+  end
+  G-->>Page: [lat, lng] or null per address
+  Note over Page: Fewer than 2 found: clear route, stop
+  Page->>O: coordinates of the found stops
+  rect rgb(42, 31, 20)
+    O->>ORS: /optimization (one vehicle, starts at the first found stop)
+    ORS-->>O: visit order
+  end
+  O-->>Page: stepIds (falls back to input order on error)
+  Page->>Page: reorder stops, draw markers A, B, C...
+  Page->>R: coordinates in route order
+  rect rgb(42, 31, 20)
+    R->>ORS: /v2/directions/driving-car/geojson (radiuses 1000 m)
+    ORS-->>R: road geometry
+  end
+  R-->>Page: polyline
+  Page->>Page: draw route line, loading off
+  Page-->>User: alert for anything that needs attention`,
+      },
+    ],
   },
 ]

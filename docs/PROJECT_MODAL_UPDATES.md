@@ -30,6 +30,9 @@ a first full audit against it has already been done and the clear violations fix
 ### Route Planning App — done
 - `description` has its WHY beat (grew out of a real fiber optic field-work problem).
 - `lessonsLearned` covers it as an early, pre-AI-assisted self-taught project.
+- 2026-10-02: entry replaced from `docs/portfolio-handoff/route-planner/ENTRY.md`
+  (provider switch to Nominatim, `Live` status, truthful `demoNote`, architecture note
+  and two diagrams, new screenshots). Title kept per René. `lessonsLearned` kept, plus a second paragraph René asked for on the API fix and phone layout.
 
 ### Resume Builder — done
 - `description` now opens with the WHY beat (built to speed up own job search, real
