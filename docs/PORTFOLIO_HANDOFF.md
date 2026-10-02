@@ -312,6 +312,10 @@ what needs replacing.
 
 ### Route Planning App (Route Boss)
 
+> **Done (2026-10-02, fd4230c).** This brief was completed. The current entry and its
+> sources are in `docs/portfolio-handoff/route-planner/ENTRY.md`; the entry quoted below
+> is the old one, kept for history.
+
 **Status in the portfolio:** in the lineup, with complete copy. Slug:
 `route-planner`; keep it.
 

@@ -52,7 +52,8 @@ carousel. The mobile layout is in place, including a full-screen modal below `md
   architecture note, two diagrams, and three 1344×756 screenshots (two desktop, one
   phone composite built from the handoff's phone captures). The app-side claims were
   verified in the route-planner repo, not here; sources are in ENTRY.md. The modal was
-  checked in the local dev server (images, both diagrams, no console errors).
+  checked in the local dev server (images, both diagrams, no console errors), and René
+  confirmed it live on the production site (fd4230c, 2026-10-02).
 
 **Pulled from the lineup:** Weather App. Its saved entry is in
 `docs/PROJECT_MODAL_UPDATES.md`.
