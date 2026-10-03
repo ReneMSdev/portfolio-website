@@ -4,7 +4,9 @@
 <!-- What's actively being worked on. Keep this to a few items. -->
 - [x] Phase 7 accessibility pass: focus ring, skip link, headings, landmarks, keyboard-operable mobile menu, lightbox as a real dialog, larger carousel dot targets, reduced-motion Skills typing and scrolling (2026-10-02)
 - [ ] Phase 7 a11y follow-ups: project cards use `role='button'`, which hides their `h3` titles from heading navigation (fix: a real `<button>` inside the card, or the title as the button); external links don't say they open a new tab; no screen-reader pass with VoiceOver yet
-- [ ] Phase 7: cross-browser check (Safari, Firefox, Chrome)
+- [x] Phase 7: cross-browser check (2026-10-02): Chrome 154, Playwright Firefox 155 and WebKit 26.6, desktop and phone sizes. All render and behave the same; one bug found (next item)
+- [x] Diagram lightbox close button was clipped (sat at `-top-8` inside the `overflow-auto` panel) in every browser. Moved into the title row; visible and clickable in Chrome, Firefox and WebKit at both sizes, and focus returns to the expand button (2026-10-02)
+- [ ] Glance at the site in real Safari (Playwright WebKit is the same engine but not Safari itself)
 - [ ] Phase 7: performance (animation cost, bundle size)
 - [ ] Phase 7: sweep the copy and design for AI-template tropes
 - [x] Resume Builder `lessonsLearned`: replace the design-decision note with a real lesson, worked through with René (2026-10-02: prompt rules + prompt caching, from René)

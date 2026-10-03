@@ -69,21 +69,23 @@ export function DiagramLightbox({ diagrams, initialIndex, onClose }: DiagramLigh
         aria-modal='true'
         aria-label={diagram.title}
         onClick={(e) => e.stopPropagation()}
-        className='relative w-full max-w-6xl max-h-full overflow-auto'
+        className='w-full max-w-6xl max-h-full overflow-auto'
       >
-        <button
-          ref={closeRef}
-          type='button'
-          onClick={onClose}
-          aria-label='Close diagram'
-          className='absolute -top-8 right-0 text-muted-foreground hover:text-foreground cursor-pointer'
-        >
-          <X className='w-6 h-6' />
-        </button>
-
-        <p className='font-mono text-xs text-accent uppercase tracking-wider mb-3'>
-          {diagram.title}
-        </p>
+        {/* Close sits in the title row: anything positioned outside the
+            panel gets clipped by its overflow-auto. The padding leaves room
+            for the focus outline at the panel's edge. */}
+        <div className='flex items-center justify-between gap-4 mb-3 pt-1 pr-1'>
+          <p className='font-mono text-xs text-accent uppercase tracking-wider'>{diagram.title}</p>
+          <button
+            ref={closeRef}
+            type='button'
+            onClick={onClose}
+            aria-label='Close diagram'
+            className='shrink-0 rounded-md p-1 text-muted-foreground hover:text-foreground cursor-pointer'
+          >
+            <X className='w-6 h-6' />
+          </button>
+        </div>
 
         <MermaidDiagram chart={diagram.chart} />
 
