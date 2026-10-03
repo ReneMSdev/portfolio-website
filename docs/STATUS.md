@@ -24,7 +24,7 @@ carousel. The mobile layout is in place, including a full-screen modal below `md
 | Type-check | passing | `npx tsc --noEmit`: exit 0 (41ac13b, 2026-09-30) |
 | Build | passing | `npm run build`: compiled, `/` prerendered static (41ac13b, 2026-09-30) |
 | Tests | none | No test suite exists |
-| Modal on a real phone | **unverified** | Only checked at a 500px browser viewport, per the old status doc |
+| Modal on a real phone | working | René checked on a real phone (2026-10-02). Diagrams are tight on a small screen; pinch-zoom is the accepted answer |
 | Live deploy matches `main` | **unverified** | Not checked this session |
 
 **Known issues:** none known in code. `README.md` is still `create-next-app` boilerplate.

@@ -2,11 +2,11 @@
 
 ## Now
 <!-- What's actively being worked on. Keep this to a few items. -->
-- [ ] Resume Builder `lessonsLearned`: replace the design-decision note with a real lesson, worked through with René
+- [x] Resume Builder `lessonsLearned`: replace the design-decision note with a real lesson, worked through with René (2026-10-02: prompt rules + prompt caching, from René)
 
 ## Next
 <!-- Planned soon, in priority order. -->
-- [ ] Check the project modal on a real phone (last open item from Phase 6)
+- [x] Check the project modal on a real phone (last open item from Phase 6). René checked it 2026-10-02: works; diagrams are cramped on a small screen but pinch-zoom covers it, no change planned
 - [ ] Weather App: produce a real entry via the handoff brief, or drop it
 - [ ] LinkLeaf lesson B: add how the `update` bug was tracked down with the agent, if René remembers the details
 

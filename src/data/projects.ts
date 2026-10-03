@@ -123,8 +123,10 @@ export const projects: Project[] = [
       'The real application runs entirely locally: a Next.js frontend and FastAPI backend calling the Claude API (claude-sonnet-4-6, with prompt caching). It stays local by design rather than by omission. Auto Apply already requires Claude Code running on the same machine to drive the Claude-in-Chrome agent, so the backend never needs to be reachable from outside it.',
       "A separate, frontend-only build is deployed to Vercel for the public demo, with no backend and no API key anywhere near the browser. The build-time flag NEXT_PUBLIC_DEMO_MODE swaps every network call for a bundled sample application (one real saved job description, resume, and cover letter, plus canned chat revisions), so the demo costs nothing to host and never touches a live key. Generation, downloads, and Auto Apply are all disabled in this mode. Vercel couldn't run the real backend anyway, since PDF export shells out to LibreOffice in headless mode, a system dependency serverless functions can't provide.",
     ],
-    lessonsLearned:
-      'Auto Apply is intentionally scoped to fill-only, never submit. The agent completes the form and stops there, keeping a human in the loop for final review before anything goes out.',
+    lessonsLearned: [
+      'This project taught me how to put AI to work inside an app through customized prompts, each with its own specific rules. Generating a full resume and revising a single bullet get different prompts. The rules turned out to be the important part, since they are what keep the generations coming back consistent from one request to the next.',
+      'I also learned about prompt caching. The backend uses it on its Claude calls so the parts of a prompt that stay the same between requests are reused instead of being sent and billed as fresh input every time, which reduces token usage.',
+    ],
     stack: [
       'Next.js 16',
       'React 19',

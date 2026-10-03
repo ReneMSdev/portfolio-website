@@ -37,10 +37,10 @@ a first full audit against it has already been done and the clear violations fix
 ### Resume Builder — done
 - `description` now opens with the WHY beat (built to speed up own job search, real
   tool in active use; Auto Apply flagged as still in active development).
-- `lessonsLearned` still needs real content — current copy is a design-decision note
-  (fill-only/never-submit scoping), not an actual lesson learned. Tracked in
-  `TODO.md`. Needs the user's own reflection on what actually happened during
-  development, not something to draft from the outside.
+- `lessonsLearned` rewritten 2026-10-02 from René's own two lessons: customized
+  prompts with specific rules for consistent generations, and prompt caching to
+  reduce token usage. The old fill-only/never-submit note was dropped (that scoping
+  is still stated in `description`).
 
 ### Weather App — removed from the lineup for now
 - Pulled entirely out of `src/data/projects.ts` (not just hidden via copy) — needs
