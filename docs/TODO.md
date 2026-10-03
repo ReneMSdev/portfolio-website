@@ -14,7 +14,7 @@
 <!-- Ideas and deferred scope. It's fine for items to sit here. -->
 - [ ] Phase 7 (on hold, start only when asked): accessibility pass first (focus states, contrast, aria, keyboard nav)
 - [ ] Phase 7, lower priority: cross-browser check, performance (animation cost, bundle size), sweep for AI-template tropes
-- [ ] Replace the boilerplate `README.md`
+- [x] Replace the boilerplate `README.md` (2026-10-02, with hero screenshot at `docs/img/site-hero.jpg`)
 - [ ] Add a test suite or CI if the site grows past content changes
 
 ## Done recently

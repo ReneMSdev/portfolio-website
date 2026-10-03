@@ -27,7 +27,7 @@ carousel. The mobile layout is in place, including a full-screen modal below `md
 | Modal on a real phone | working | René checked on a real phone (2026-10-02). Diagrams are tight on a small screen; pinch-zoom is the accepted answer |
 | Live deploy matches `main` | **unverified** | Not checked this session |
 
-**Known issues:** none known in code. `README.md` is still `create-next-app` boilerplate.
+**Known issues:** none known in code.
 
 ## Projects (lineup of 4, in `src/data/projects.ts`)
 

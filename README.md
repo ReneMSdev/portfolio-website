@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# renemsdev.com
 
-## Getting Started
+My personal portfolio site, live at **[renemsdev.com](https://renemsdev.com)**.
 
-First, run the development server:
+![Portfolio home page](docs/img/site-hero.jpg)
+
+It's a single scrollable page with Hero, About, Skills, Projects and Contact sections.
+Each project card opens a case-study modal with screenshots, architecture diagrams
+and lessons learned. Modals are deep-linkable, so `/?project=linkleaf` opens that
+project directly.
+
+## What's in it
+
+- **Generative circuit-line background.** The lines behind the page are generated
+  in code (`src/components/generative-lines/`) instead of drawn by hand.
+- **Project modals.** 3D-tilt cards open a modal with an image carousel and
+  Mermaid architecture diagrams that expand into a lightbox. Below the `md`
+  breakpoint the modal goes full screen.
+- **Motion.** Animations use `motion` and respect the reduced-motion setting.
+- **Content in one file.** All project copy, metrics, diagrams and links live in
+  `src/data/projects.ts`.
+
+## Stack
+
+Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS v4, Motion, Mermaid,
+deployed on Vercel with Vercel Analytics.
+
+## Running it locally
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev        # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+| Purpose | Command |
+|---|---|
+| Lint | `npm run lint` |
+| Type-check | `npx tsc --noEmit` |
+| Production build | `npm run build` |
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+There's no test suite; lint, type-check and build are the checks.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project layout
 
-## Learn More
+```
+src/
+  app/                  layout, page, global styles and theme tokens
+  components/
+    sections/           Hero, About, Skills, Projects, Contact
+    generative-lines/   background circuit-line generator
+    ui/                 carousel, Mermaid diagram, lightbox, 3D card
+    ProjectModal.tsx    project case-study modal
+  data/projects.ts      project content
+public/img/             project screenshots and profile photo
+docs/                   status, backlog and decision notes
+```
 
-To learn more about Next.js, take a look at the following resources:
+## License
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+[MIT](LICENSE)
