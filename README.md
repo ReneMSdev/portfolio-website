@@ -14,7 +14,8 @@ project directly.
 - **Generative circuit-line background.** The lines behind the page are generated
   in code (`src/components/generative-lines/`) instead of drawn by hand.
 - **Project modals.** 3D-tilt cards open a modal with an image carousel and
-  Mermaid architecture diagrams that expand into a lightbox. Below the `md`
+  architecture diagrams that expand into a lightbox. The diagrams are written in
+  Mermaid and pre-rendered to SVG, so Mermaid itself never ships to the browser. Below the `md`
   breakpoint the modal goes full screen.
 - **Motion.** Animations use `motion` and respect the reduced-motion setting.
 - **Content in one file.** All project copy, metrics, diagrams and links live in
@@ -22,7 +23,7 @@ project directly.
 
 ## Stack
 
-Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS v4, Motion, Mermaid,
+Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS v4, Motion, Mermaid (build-time only),
 deployed on Vercel with Vercel Analytics.
 
 ## Running it locally
@@ -37,8 +38,11 @@ npm run dev        # http://localhost:3000
 | Lint | `npm run lint` |
 | Type-check | `npx tsc --noEmit` |
 | Production build | `npm run build` |
+| Re-render diagrams | `npm run diagrams` (with `npm run dev` running) |
 
-There's no test suite; lint, type-check and build are the checks.
+There's no test suite; lint, type-check and build are the checks. After editing a
+diagram's `chart` in `src/data/projects.ts`, run `npm run diagrams`; the build fails
+if any diagram SVG is out of date. Rendering drives your installed Google Chrome.
 
 ## Project layout
 
@@ -48,10 +52,12 @@ src/
   components/
     sections/           Hero, About, Skills, Projects, Contact
     generative-lines/   background circuit-line generator
-    ui/                 carousel, Mermaid diagram, lightbox, 3D card
+    ui/                 carousel, diagram, lightbox, 3D card
     ProjectModal.tsx    project case-study modal
   data/projects.ts      project content
 public/img/             project screenshots and profile photo
+public/diagrams/        pre-rendered diagram SVGs (generated, don't edit)
+scripts/                diagram render script
 docs/                   status, backlog and decision notes
 ```
 

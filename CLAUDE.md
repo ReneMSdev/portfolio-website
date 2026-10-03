@@ -50,8 +50,10 @@ René's personal portfolio: single-page Next.js 16 site, live on `main`; day-to-
 | Run locally | `npm run dev` |
 | Lint / type-check | `npm run lint`, `npx tsc --noEmit` |
 | Build | `npm run build` |
+| Re-render diagrams (after editing any `chart` in `projects.ts`; needs `npm run dev` running) | `npm run diagrams` |
 
-No test suite; lint + tsc + build are the checks.
+No test suite; lint + tsc + build are the checks. The build fails if a diagram's
+source changed without re-rendering its SVG.
 
 ## Project rules
 - Mobile Mechanic Site is client work: no `codeUrl` without checking first.

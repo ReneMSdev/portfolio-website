@@ -179,7 +179,10 @@ export function ProjectModal({ project, onClose, triggerRef }: ProjectModalProps
                     aria-label={`Expand ${diagram.title}`}
                     className='group relative block w-full cursor-zoom-in text-left'
                   >
-                    <MermaidDiagram chart={diagram.chart} />
+                    <MermaidDiagram
+                      slug={project.slug}
+                      index={i}
+                    />
                     <span className='absolute top-2 right-2 flex items-center justify-center w-7 h-7 rounded-md bg-background/70 text-muted-foreground opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity'>
                       <Maximize2 className='w-4 h-4' />
                     </span>
@@ -267,6 +270,7 @@ export function ProjectModal({ project, onClose, triggerRef }: ProjectModalProps
       <AnimatePresence>
         {openDiagramIndex !== null && project.architectureDiagrams && (
           <DiagramLightbox
+            slug={project.slug}
             diagrams={project.architectureDiagrams}
             initialIndex={openDiagramIndex}
             onClose={() => setOpenDiagramIndex(null)}

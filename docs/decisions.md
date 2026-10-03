@@ -94,3 +94,9 @@ date is when the entry was imported.
 **Alternatives:** Drop the fade entirely; keep Motion and accept the slower LCP.
 **Why:** Motion renders the hero at opacity 0 until hydration, which on a throttled phone held the LCP image back by several seconds (LCP 4.6-5.3 s). CSS starts the fade at first paint (LCP 1.7-2.4 s) and keeps the look.
 
+## 2026-10-02: Diagrams pre-rendered to SVG, Mermaid out of the client
+
+**Decision:** `scripts/render-diagrams.mjs` (`npm run diagrams`) renders every `chart` in `projects.ts` to `public/diagrams/<slug>-<index>.svg` inside the running dev site, through the installed Chrome via `playwright-core`. The SVGs and a hash manifest are committed. The modal fetches and inlines them, and the page's server render fails the production build when a chart's hash doesn't match the manifest. Mermaid and playwright-core are dev dependencies only.
+**Alternatives:** Render at build time on Vercel (needs a browser in the build); use `@mermaid-js/mermaid-cli` (bundles Puppeteer and its own Chromium, and renders outside the site's CSS); `<img>` tags instead of inlining (the SVG styles use the page's font variable, which an `<img>` can't see).
+**Why:** Removes about 3 MB of client JS. Mermaid sizes labels by measuring text in the DOM, so rendering inside the real site page keeps the output identical: all 27 before/after screenshots matched pixel for pixel. The trade-off is a manual step after editing a chart, which the build check enforces.
+

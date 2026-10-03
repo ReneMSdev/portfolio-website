@@ -7,6 +7,7 @@ import { MermaidDiagram } from './mermaid-diagram'
 import type { ArchitectureDiagram } from '@/data/projects'
 
 interface DiagramLightboxProps {
+  slug: string
   diagrams: ArchitectureDiagram[]
   initialIndex: number
   onClose: () => void
@@ -18,7 +19,7 @@ interface DiagramLightboxProps {
  * than one diagram. Escape-to-close is handled by the parent (ProjectModal),
  * since it needs to close this before the modal underneath it.
  */
-export function DiagramLightbox({ diagrams, initialIndex, onClose }: DiagramLightboxProps) {
+export function DiagramLightbox({ slug, diagrams, initialIndex, onClose }: DiagramLightboxProps) {
   const [index, setIndex] = useState(initialIndex)
   const diagram = diagrams[index]
 
@@ -87,7 +88,11 @@ export function DiagramLightbox({ diagrams, initialIndex, onClose }: DiagramLigh
           </button>
         </div>
 
-        <MermaidDiagram chart={diagram.chart} />
+        <MermaidDiagram
+          key={index}
+          slug={slug}
+          index={index}
+        />
 
         {diagrams.length > 1 && (
           <div className='flex items-center justify-center gap-4 mt-4'>

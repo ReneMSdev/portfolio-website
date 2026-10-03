@@ -170,6 +170,9 @@ the entry.
   in the same muted-fill/bright-stroke style and call it out in the deliverable.
 - Test that each diagram parses (e.g. paste it into mermaid.live or run the Mermaid
   CLI if available) before handing it over.
+- (For whoever applies the entry in the portfolio repo: diagrams are pre-rendered to
+  SVG there. Run `npm run diagrams` with the dev server up after adding or changing
+  a chart; the build fails until you do.)
 
 ## Screenshots
 
