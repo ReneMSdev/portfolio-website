@@ -3,7 +3,8 @@
 ## Now
 <!-- What's actively being worked on. Keep this to a few items. -->
 - [x] Phase 7 accessibility pass: focus ring, skip link, headings, landmarks, keyboard-operable mobile menu, lightbox as a real dialog, larger carousel dot targets, reduced-motion Skills typing and scrolling (2026-10-02)
-- [ ] Phase 7 a11y follow-ups: project cards use `role='button'`, which hides their `h3` titles from heading navigation (fix: a real `<button>` inside the card, or the title as the button); external links don't say they open a new tab; no screen-reader pass with VoiceOver yet
+- [x] Project cards: the title is now the button (`<h3><button>`), the card keeps its click handler, so titles show up in heading navigation again. Cards are pixel-identical before/after (normal, hover, phone) in Chrome, Firefox and WebKit; click, Enter, Space and focus return checked in all three (2026-10-03)
+- [ ] Phase 7 a11y follow-ups: external links don't say they open a new tab; no screen-reader pass with VoiceOver yet
 - [x] Phase 7: cross-browser check (2026-10-02): Chrome 154, Playwright Firefox 155 and WebKit 26.6, desktop and phone sizes. All render and behave the same; one bug found (next item)
 - [x] Diagram lightbox close button was clipped (sat at `-top-8` inside the `overflow-auto` panel) in every browser. Moved into the title row; visible and clickable in Chrome, Firefox and WebKit at both sizes, and focus returns to the expand button (2026-10-02)
 - [ ] Glance at the site in real Safari (Playwright WebKit is the same engine but not Safari itself)

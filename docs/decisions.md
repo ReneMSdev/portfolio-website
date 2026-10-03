@@ -86,7 +86,7 @@ date is when the entry was imported.
 
 **Decision:** Started Phase 7 at René's request with the accessibility pass. Contrast was measured and left alone (every pair already passes AA). Fixes went into focus, semantics and keyboard paths: one global `:focus-visible` outline in the accent color, a skip link, section labels as `h2`, a real `<button>` for the mobile menu with the closed menu `inert`, and the diagram lightbox as its own dialog with the modal underneath `inert`.
 **Alternatives:** Per-component focus styles instead of one global rule.
-**Why:** A single rule keeps focus looking the same everywhere and only shows for keyboard users. Project cards keep `role='button'` for now; restructuring them is tracked in TODO.
+**Why:** A single rule keeps focus looking the same everywhere and only shows for keyboard users. Project cards kept `role='button'` at first; see the 2026-10-03 entry.
 
 ## 2026-10-02: Hero entrance animation in CSS, not Motion
 
@@ -99,4 +99,10 @@ date is when the entry was imported.
 **Decision:** `scripts/render-diagrams.mjs` (`npm run diagrams`) renders every `chart` in `projects.ts` to `public/diagrams/<slug>-<index>.svg` inside the running dev site, through the installed Chrome via `playwright-core`. The SVGs and a hash manifest are committed. The modal fetches and inlines them, and the page's server render fails the production build when a chart's hash doesn't match the manifest. Mermaid and playwright-core are dev dependencies only.
 **Alternatives:** Render at build time on Vercel (needs a browser in the build); use `@mermaid-js/mermaid-cli` (bundles Puppeteer and its own Chromium, and renders outside the site's CSS); `<img>` tags instead of inlining (the SVG styles use the page's font variable, which an `<img>` can't see).
 **Why:** Removes about 3 MB of client JS. Mermaid sizes labels by measuring text in the DOM, so rendering inside the real site page keeps the output identical: all 27 before/after screenshots matched pixel for pixel. The trade-off is a manual step after editing a chart, which the build check enforces.
+
+## 2026-10-03: Project card title is the button
+
+**Decision:** Each card's `h3` holds a `<button>` with the title; the card `div` keeps the mouse click handler and draws the focus outline with `has-[:focus-visible]`. The button has an explicit `tabIndex={0}`.
+**Alternatives:** Keep `role='button'` on the card (hides the `h3` from heading navigation); the "stretched link" pattern (its overlay gets trapped inside the title because the 3D tilt transforms it).
+**Why:** Titles are headings again for screen readers, with no visual or click change. `tabIndex={0}` keeps Safari's default Tab behavior the same as before, since Safari skips plain buttons on Tab unless the user turns that on.
 

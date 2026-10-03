@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback, useRef, useState, type MouseEvent, type KeyboardEvent } from 'react'
+import { useCallback, useRef, useState, type MouseEvent } from 'react'
 import Image from 'next/image'
 import { useRouter, useSearchParams, usePathname } from 'next/navigation'
 import { AnimatePresence, motion } from 'motion/react'
@@ -53,8 +53,12 @@ export default function Projects() {
 
         <div className='grid grid-cols-1 md:grid-cols-2 gap-10'>
           {projects.map((project, index) => {
-            const handleOpen = (e: MouseEvent<HTMLDivElement> | KeyboardEvent<HTMLDivElement>) => {
-              openProject(project, e.currentTarget)
+            // The whole card is clickable, but the title button is the one
+            // control keyboards and screen readers use (a role='button' card
+            // would hide the h3 from heading navigation). Clicks on the
+            // button bubble up to here; focus returns to it on close.
+            const handleOpen = (e: MouseEvent<HTMLDivElement>) => {
+              openProject(project, e.currentTarget.querySelector('h3 button') ?? e.currentTarget)
             }
 
             return (
@@ -69,17 +73,9 @@ export default function Projects() {
                   delay: (index % 4) * 0.05,
                   layout: { duration: 0.25, ease: 'easeOut' },
                 }}
-                role='button'
-                tabIndex={0}
-                aria-haspopup='dialog'
                 onClick={handleOpen}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault()
-                    handleOpen(e)
-                  }
-                }}
-                className='cursor-pointer rounded-lg'
+                // Same outline the global :focus-visible rule drew on the card
+                className='cursor-pointer rounded-lg has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-accent'
               >
                 <CardContainer containerClassName='py-0'>
                   <CardBody className='w-full bg-surface border border-border rounded-lg p-6 transition-[box-shadow,border-color] duration-300 hover:border-accent/40 hover:shadow-[0_0_50px_-12px_rgba(110,231,183,0.35)]'>
@@ -111,7 +107,16 @@ export default function Projects() {
                       translateZ={60}
                       className='text-xl font-semibold text-foreground mb-2'
                     >
-                      {project.title}
+                      {/* Explicit tabIndex: Safari skips plain buttons on Tab by
+                          default, and the old role='button' card wasn't skipped */}
+                      <button
+                        type='button'
+                        tabIndex={0}
+                        aria-haspopup='dialog'
+                        className='cursor-pointer text-left focus-visible:outline-none'
+                      >
+                        {project.title}
+                      </button>
                     </CardItem>
                     <CardItem
                       as='p'
