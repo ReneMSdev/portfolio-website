@@ -1,9 +1,10 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, type ElementType } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
 import { FaGithub, FaLinkedin, FaPhoneSquareAlt } from 'react-icons/fa'
 import { MdEmail, MdCheck } from 'react-icons/md'
+import { ExternalLink } from '@/components/ui/external-link'
 import { TextBlurBackdrop } from '@/components/ui/text-blur-backdrop'
 
 const EMAIL = 'rene.salomone@gmail.com'
@@ -91,20 +92,22 @@ export default function Contact() {
               </span>
             </div>
 
-            {links.map(({ href, icon: Icon, label, external }) => (
-              <a
-                key={label}
-                href={href}
-                {...(external && { target: '_blank', rel: 'noopener noreferrer' })}
-                className={linkClasses}
-              >
-                <Icon
-                  aria-hidden
-                  className='text-xl'
-                />
-                {label}
-              </a>
-            ))}
+            {links.map(({ href, icon: Icon, label, external }) => {
+              const LinkTag: ElementType = external ? ExternalLink : 'a'
+              return (
+                <LinkTag
+                  key={label}
+                  href={href}
+                  className={linkClasses}
+                >
+                  <Icon
+                    aria-hidden
+                    className='text-xl'
+                  />
+                  {label}
+                </LinkTag>
+              )
+            })}
           </div>
         </TextBlurBackdrop>
       </div>

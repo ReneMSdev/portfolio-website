@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import NavLink from './NavLink'
+import { ExternalLink } from './ui/external-link'
 import { cn } from '@/lib/utils'
 
 const navItems = [
@@ -110,14 +111,12 @@ export default function MobileMenu() {
               <span className='nav-link-hover'>{item.label}</span>
             </NavLink>
           ))}
-          <a
+          <ExternalLink
             href='https://github.com/ReneMSdev'
-            target='_blank'
-            rel='noopener noreferrer'
             className='text-xl font-medium'
           >
             <span className='nav-link-hover'>Github</span>
-          </a>
+          </ExternalLink>
         </nav>
       </div>
     </>

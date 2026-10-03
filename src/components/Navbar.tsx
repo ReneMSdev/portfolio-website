@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import NavLink from './NavLink'
+import { ExternalLink } from './ui/external-link'
 
 const navItems = [
   { label: 'About', href: '#about' },
@@ -36,14 +37,12 @@ export default function Navbar() {
       </div>
 
       <div className='flex justify-end gap-6 lowercase'>
-        <a
+        <ExternalLink
           href='https://github.com/ReneMSdev'
-          target='_blank'
-          rel='noopener noreferrer'
           className='text-foreground font-semibold hover:text-accent transition-colors'
         >
           Github
-        </a>
+        </ExternalLink>
       </div>
     </nav>
   )

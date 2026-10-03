@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
 import { Maximize2, X } from 'lucide-react'
 import { DiagramLightbox } from '@/components/ui/diagram-lightbox'
+import { ExternalLink } from '@/components/ui/external-link'
 import { ImageCarousel } from '@/components/ui/image-carousel'
 import { MermaidDiagram } from '@/components/ui/mermaid-diagram'
 import type { Project } from '@/data/projects'
@@ -244,24 +245,20 @@ export function ProjectModal({ project, onClose, triggerRef }: ProjectModalProps
 
           <div className='flex gap-6'>
             {project.demoUrl && (
-              <a
+              <ExternalLink
                 href={project.demoUrl}
-                target='_blank'
-                rel='noopener noreferrer'
                 className='font-semibold text-foreground hover:text-accent'
               >
                 {project.status === 'Live' ? 'View Live Site' : 'View Demo'}
-              </a>
+              </ExternalLink>
             )}
             {project.codeUrl && (
-              <a
+              <ExternalLink
                 href={project.codeUrl}
-                target='_blank'
-                rel='noopener noreferrer'
                 className='font-semibold text-foreground hover:text-accent'
               >
                 View Code
-              </a>
+              </ExternalLink>
             )}
           </div>
         </div>
