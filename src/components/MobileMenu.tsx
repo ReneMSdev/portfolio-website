@@ -14,7 +14,8 @@ const navItems = [
 
 export default function MobileMenu() {
   const [open, setOpen] = useState(false)
-  const menuRef = useRef<HTMLDivElement>(null)
+  const menuRef = useRef<HTMLElement>(null)
+  const buttonRef = useRef<HTMLButtonElement>(null)
 
   // Click Outside
   useEffect(() => {
@@ -36,6 +37,18 @@ export default function MobileMenu() {
     }
   }, [])
 
+  // Escape closes the menu and puts focus back on the button that opened it
+  useEffect(() => {
+    if (!open) return
+    function handleEscape(e: KeyboardEvent) {
+      if (e.key !== 'Escape') return
+      setOpen(false)
+      buttonRef.current?.focus()
+    }
+    document.addEventListener('keydown', handleEscape)
+    return () => document.removeEventListener('keydown', handleEscape)
+  }, [open])
+
   return (
     <>
       {/* Menu bar */}
@@ -43,7 +56,7 @@ export default function MobileMenu() {
         <a href='#hero'>
           <Image
             src='/logo-dark.svg'
-            alt='logo'
+            alt='René Maxey-Salomone, back to top'
             width={200}
             height={43}
             className='h-4 w-auto z-[998]'
@@ -56,8 +69,13 @@ export default function MobileMenu() {
           its close button. */}
       <div className='mobile-nav-controls'>
         {/* Hamburger Icon */}
-        <div
+        <button
+          ref={buttonRef}
+          type='button'
           id='nav-icon'
+          aria-label='Menu'
+          aria-expanded={open}
+          aria-controls='mobile-menu'
           className={cn(
             'md:hidden fixed top-4 right-4 w-10 h-10 z-[999] cursor-pointer pointer-events-auto',
             open && 'open'
@@ -68,11 +86,15 @@ export default function MobileMenu() {
           <span />
           <span />
           <span />
-        </div>
+        </button>
 
         {/* Slide-in Menu */}
-        <div
+        <nav
           ref={menuRef}
+          id='mobile-menu'
+          aria-label='Main'
+          // Off-screen when closed; inert keeps its links out of the tab order
+          inert={!open}
           className={cn(
             'md:hidden fixed top-0 right-0 h-screen w-40 bg-surface z-[998] p-8 pt-24 flex flex-col gap-6 transform transition-transform duration-300 ease-in-out shadow-md lowercase',
             open ? 'translate-x-0' : 'translate-x-full'
@@ -96,7 +118,7 @@ export default function MobileMenu() {
           >
             <span className='nav-link-hover'>Github</span>
           </a>
-        </div>
+        </nav>
       </div>
     </>
   )

@@ -52,6 +52,12 @@
   body {
     @apply bg-background text-foreground;
   }
+  /* One visible keyboard-focus style everywhere. Mouse clicks don't trigger
+     :focus-visible, so this only shows for keyboard users. */
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
 }
 
 /* Dark-themed scrollbar, everywhere (main page scroll and any

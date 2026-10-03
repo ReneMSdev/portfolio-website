@@ -29,18 +29,24 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html
       lang='en'
-      className='scroll-smooth'
+      className='scroll-smooth motion-reduce:scroll-auto'
     >
       <body
         className={`${spaceGrotesk.variable} ${spaceMono.variable} antialiased font-sans min-h-screen`}
       >
+        <a
+          href='#main'
+          className='sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[1000] focus:rounded-md focus:bg-surface focus:px-4 focus:py-2 focus:text-foreground'
+        >
+          Skip to content
+        </a>
         <CursorGlow />
         <MotionProvider>
           <Navbar />
           <MobileMenu />
 
           <PageLinesLayer>
-            <main>{children}</main>
+            <main id='main'>{children}</main>
           </PageLinesLayer>
         </MotionProvider>
         <Analytics />

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { motion } from 'motion/react'
 import { X, ChevronLeft, ChevronRight } from 'lucide-react'
 import { MermaidDiagram } from './mermaid-diagram'
@@ -23,6 +23,33 @@ export function DiagramLightbox({ diagrams, initialIndex, onClose }: DiagramLigh
   const diagram = diagrams[index]
 
   const goTo = (i: number) => setIndex((i + diagrams.length) % diagrams.length)
+  const panelRef = useRef<HTMLDivElement>(null)
+  const closeRef = useRef<HTMLButtonElement>(null)
+
+  // Move focus in on open and keep Tab inside the lightbox. ProjectModal
+  // returns focus to the expand button on close.
+  useEffect(() => {
+    closeRef.current?.focus()
+
+    function handleTab(e: KeyboardEvent) {
+      if (e.key !== 'Tab' || !panelRef.current) return
+      const focusables = Array.from(panelRef.current.querySelectorAll<HTMLElement>('button'))
+      const first = focusables[0]
+      const last = focusables[focusables.length - 1]
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault()
+        last?.focus()
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault()
+        first?.focus()
+      }
+    }
+
+    document.addEventListener('keydown', handleTab)
+    return () => {
+      document.removeEventListener('keydown', handleTab)
+    }
+  }, [])
 
   return (
     <motion.div
@@ -37,13 +64,18 @@ export function DiagramLightbox({ diagrams, initialIndex, onClose }: DiagramLigh
       }}
     >
       <div
+        ref={panelRef}
+        role='dialog'
+        aria-modal='true'
+        aria-label={diagram.title}
         onClick={(e) => e.stopPropagation()}
         className='relative w-full max-w-6xl max-h-full overflow-auto'
       >
         <button
+          ref={closeRef}
           type='button'
           onClick={onClose}
-          aria-label='Close'
+          aria-label='Close diagram'
           className='absolute -top-8 right-0 text-muted-foreground hover:text-foreground cursor-pointer'
         >
           <X className='w-6 h-6' />
@@ -66,17 +98,22 @@ export function DiagramLightbox({ diagrams, initialIndex, onClose }: DiagramLigh
               <ChevronLeft className='w-5 h-5' />
             </button>
 
-            <div className='flex gap-1.5'>
+            <div className='flex'>
               {diagrams.map((d, i) => (
                 <button
                   key={d.title}
                   type='button'
                   onClick={() => goTo(i)}
                   aria-label={`Go to ${d.title}`}
-                  className={`w-1.5 h-1.5 rounded-full transition-colors cursor-pointer ${
-                    i === index ? 'bg-accent' : 'bg-foreground/40'
-                  }`}
-                />
+                  aria-current={i === index}
+                  className='flex items-center justify-center w-6 h-6 cursor-pointer'
+                >
+                  <span
+                    className={`w-1.5 h-1.5 rounded-full transition-colors ${
+                      i === index ? 'bg-accent' : 'bg-foreground/40'
+                    }`}
+                  />
+                </button>
               ))}
             </div>
 

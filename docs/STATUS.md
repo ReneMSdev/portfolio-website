@@ -1,12 +1,11 @@
 # Status
 
-_Last verified: 2026-09-30 at 41ac13b_
+_Last verified: 2026-10-02 on top of 80c0156 (accessibility changes)_
 
 René's personal portfolio: a single-page Next.js site, live on `main`, with day-to-day
 work on the `working` branch. The redesign (Phases 0–6) is done. Phase 7 (QA and
-launch) is **on hold**, so don't start it unless asked. Current work is project-modal
-content: getting each project's case-study copy, screenshots, and diagrams to a
-truthful, finished state.
+launch) started 2026-10-02 at René's request: the accessibility pass is done, and
+cross-browser, performance and the trope sweep are next.
 
 ## Site
 
@@ -20,10 +19,13 @@ carousel. The mobile layout is in place, including a full-screen modal below `md
 
 | Check | Result | Evidence |
 |---|---|---|
-| Lint | passing | `npm run lint`: exit 0, no findings (41ac13b, 2026-09-30) |
-| Type-check | passing | `npx tsc --noEmit`: exit 0 (41ac13b, 2026-09-30) |
-| Build | passing | `npm run build`: compiled, `/` prerendered static (41ac13b, 2026-09-30) |
+| Lint | passing | `npm run lint`: exit 0, no findings (80c0156 + uncommitted a11y changes, 2026-10-02) |
+| Type-check | passing | `npx tsc --noEmit`: exit 0 (80c0156 + uncommitted a11y changes, 2026-10-02) |
+| Build | passing | `npm run build`: compiled, `/` prerendered static (80c0156 + uncommitted a11y changes, 2026-10-02) |
 | Tests | none | No test suite exists |
+| Accessibility (keyboard, focus, aria) | passing in headless Chrome | Scripted CDP check against the dev server (2026-10-02; script was a scratch file, not in the repo): skip link is first Tab stop with a 2px mint outline; one `h1`, `h2` per section, `h3` per card; Enter opens a card's modal with focus on Close; the diagram lightbox is a `role=dialog`, takes focus, traps Tab, and Escape returns focus to its expand button, then to the card; mobile menu button toggles `aria-expanded`, the closed menu is `inert`, Escape returns focus to it; under reduced motion the Skills commands show in full and scroll is `auto`; no console errors |
+| Contrast | passing | All text/background token pairs computed at 4.75:1 or higher (lowest is `--destructive`; terminal title 5.41:1) (2026-10-02) |
+| Screen reader (VoiceOver) | **unverified** | Not tried; only DOM/aria checks so far |
 | Modal on a real phone | working | René checked on a real phone (2026-10-02). Diagrams are tight on a small screen; pinch-zoom is the accepted answer |
 | Live deploy matches `main` | **unverified** | Not checked this session |
 

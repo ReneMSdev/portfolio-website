@@ -51,7 +51,7 @@ export default function Contact() {
     >
       <div className='relative px-4 md:px-10 max-w-5xl mx-auto'>
         <TextBlurBackdrop>
-          <p className='font-mono text-3xl font-semibold text-accent lowercase mb-6'>Contact</p>
+          <h2 className='font-mono text-3xl font-semibold text-accent lowercase mb-6'>Contact</h2>
 
           <p className='text-[17px] text-muted-foreground max-w-md leading-relaxed mb-10'>
             Open to Full-Stack, DevOps and Cloud roles. Feel free to reach out through any of
@@ -65,7 +65,10 @@ export default function Contact() {
                 onClick={handleEmailClick}
                 className={linkClasses}
               >
-                <MdEmail className='text-xl' />
+                <MdEmail
+                  aria-hidden
+                  className='text-xl'
+                />
                 {EMAIL}
               </a>
               <AnimatePresence>
@@ -77,10 +80,16 @@ export default function Contact() {
                     transition={{ duration: 0.15 }}
                     className='flex items-center gap-1 font-mono text-xs text-accent'
                   >
-                    <MdCheck /> Copied
+                    <MdCheck aria-hidden /> Copied
                   </motion.span>
                 )}
               </AnimatePresence>
+              <span
+                role='status'
+                className='sr-only'
+              >
+                {copied ? 'Email address copied' : ''}
+              </span>
             </div>
 
             {links.map(({ href, icon: Icon, label, external }) => (
@@ -90,7 +99,10 @@ export default function Contact() {
                 {...(external && { target: '_blank', rel: 'noopener noreferrer' })}
                 className={linkClasses}
               >
-                <Icon className='text-xl' />
+                <Icon
+                  aria-hidden
+                  className='text-xl'
+                />
                 {label}
               </a>
             ))}

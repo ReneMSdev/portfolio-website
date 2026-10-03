@@ -61,17 +61,22 @@ export function ImageCarousel({ images, alt, imagePosition }: ImageCarouselProps
             <ChevronRight className='w-5 h-5' />
           </button>
 
-          <div className='absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5'>
+          <div className='absolute bottom-0 left-1/2 -translate-x-1/2 flex'>
             {images.map((src, i) => (
               <button
                 key={src}
                 type='button'
                 onClick={() => goTo(i)}
                 aria-label={`Go to screenshot ${i + 1}`}
-                className={`w-1.5 h-1.5 rounded-full transition-colors cursor-pointer ${
-                  i === index ? 'bg-accent' : 'bg-foreground/40'
-                }`}
-              />
+                aria-current={i === index}
+                className='flex items-center justify-center w-6 h-6 cursor-pointer'
+              >
+                <span
+                  className={`w-1.5 h-1.5 rounded-full transition-colors ${
+                    i === index ? 'bg-accent' : 'bg-foreground/40'
+                  }`}
+                />
+              </button>
             ))}
           </div>
         </>

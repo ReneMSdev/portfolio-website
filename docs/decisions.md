@@ -82,3 +82,9 @@ date is when the entry was imported.
 **Decision:** Portfolio copy spells it "resume", not "résumé".
 **Why:** René prefers the more common American English spelling.
 
+## 2026-10-02: Phase 7 started, accessibility first
+
+**Decision:** Started Phase 7 at René's request with the accessibility pass. Contrast was measured and left alone (every pair already passes AA). Fixes went into focus, semantics and keyboard paths: one global `:focus-visible` outline in the accent color, a skip link, section labels as `h2`, a real `<button>` for the mobile menu with the closed menu `inert`, and the diagram lightbox as its own dialog with the modal underneath `inert`.
+**Alternatives:** Per-component focus styles instead of one global rule.
+**Why:** A single rule keeps focus looking the same everywhere and only shows for keyboard users. Project cards keep `role='button'` for now; restructuring them is tracked in TODO.
+

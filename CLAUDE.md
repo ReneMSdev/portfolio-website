@@ -55,7 +55,7 @@ No test suite; lint + tsc + build are the checks.
 
 ## Project rules
 - Mobile Mechanic Site is client work: no `codeUrl` without checking first.
-- Phase 7 (QA & launch) is on hold; don't start it unless asked.
+- Phase 7 (QA & launch) is active as of 2026-10-02. Accessibility pass done; open items are in `docs/TODO.md` under Now.
 
 ## State
 Current state: `docs/STATUS.md`. Backlog: `docs/TODO.md`. Decisions: `docs/decisions.md`.

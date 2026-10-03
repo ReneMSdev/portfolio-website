@@ -2,6 +2,11 @@
 
 ## Now
 <!-- What's actively being worked on. Keep this to a few items. -->
+- [x] Phase 7 accessibility pass: focus ring, skip link, headings, landmarks, keyboard-operable mobile menu, lightbox as a real dialog, larger carousel dot targets, reduced-motion Skills typing and scrolling (2026-10-02)
+- [ ] Phase 7 a11y follow-ups: project cards use `role='button'`, which hides their `h3` titles from heading navigation (fix: a real `<button>` inside the card, or the title as the button); external links don't say they open a new tab; no screen-reader pass with VoiceOver yet
+- [ ] Phase 7: cross-browser check (Safari, Firefox, Chrome)
+- [ ] Phase 7: performance (animation cost, bundle size)
+- [ ] Phase 7: sweep the copy and design for AI-template tropes
 - [x] Resume Builder `lessonsLearned`: replace the design-decision note with a real lesson, worked through with René (2026-10-02: prompt rules + prompt caching, from René)
 
 ## Next
@@ -12,8 +17,6 @@
 
 ## Later
 <!-- Ideas and deferred scope. It's fine for items to sit here. -->
-- [ ] Phase 7 (on hold, start only when asked): accessibility pass first (focus states, contrast, aria, keyboard nav)
-- [ ] Phase 7, lower priority: cross-browser check, performance (animation cost, bundle size), sweep for AI-template tropes
 - [x] Replace the boilerplate `README.md` (2026-10-02, with hero screenshot at `docs/img/site-hero.jpg`)
 - [ ] Add a test suite or CI if the site grows past content changes
 

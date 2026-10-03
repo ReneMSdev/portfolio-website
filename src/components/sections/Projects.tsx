@@ -48,7 +48,7 @@ export default function Projects() {
     >
       <div className='relative px-4 md:px-10 max-w-5xl mx-auto'>
         <TextBlurBackdrop className='mb-10'>
-          <p className='font-mono text-3xl font-semibold text-accent lowercase'>Projects</p>
+          <h2 className='font-mono text-3xl font-semibold text-accent lowercase'>Projects</h2>
         </TextBlurBackdrop>
 
         <div className='grid grid-cols-1 md:grid-cols-2 gap-10'>
@@ -79,7 +79,7 @@ export default function Projects() {
                     handleOpen(e)
                   }
                 }}
-                className='cursor-pointer'
+                className='cursor-pointer rounded-lg'
               >
                 <CardContainer containerClassName='py-0'>
                   <CardBody className='w-full bg-surface border border-border rounded-lg p-6 transition-[box-shadow,border-color] duration-300 hover:border-accent/40 hover:shadow-[0_0_50px_-12px_rgba(110,231,183,0.35)]'>

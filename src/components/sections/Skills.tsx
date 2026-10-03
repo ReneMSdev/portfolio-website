@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion, useInView } from 'motion/react'
 import type { IconType } from 'react-icons'
+import { useReducedMotion } from '@/hooks/useReducedMotion'
 import {
   SiReact,
   SiNextdotjs,
@@ -183,13 +184,20 @@ const PAUSE_BEFORE_OUTPUT_MS = 250
 const PAUSE_BEFORE_NEXT_COMMAND_MS = 900
 
 function CommandLine({ command, onComplete }: { command: string; onComplete: () => void }) {
-  const [typed, setTyped] = useState('')
+  const [typedText, setTypedText] = useState('')
+  const reducedMotion = useReducedMotion()
+  // No typing effect under reduced motion: the full command shows at once
+  const typed = reducedMotion ? command : typedText
 
   useEffect(() => {
+    if (reducedMotion) {
+      onComplete()
+      return
+    }
     let i = 0
     const interval = setInterval(() => {
       i++
-      setTyped(command.slice(0, i))
+      setTypedText(command.slice(0, i))
       if (i >= command.length) {
         clearInterval(interval)
         onComplete()
@@ -197,7 +205,7 @@ function CommandLine({ command, onComplete }: { command: string; onComplete: () 
     }, TYPE_SPEED_MS)
     return () => clearInterval(interval)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [command])
+  }, [command, reducedMotion])
 
   // Dracula-inspired syntax highlighting: purple prompt, pink command word,
   // default "install", green argument (the package/group name).
@@ -248,9 +256,15 @@ function SkillOutput({
               onFocus={() => setActiveSkill(name)}
               onBlur={() => setActiveSkill((cur) => (cur === name ? null : cur))}
               onClick={() => setActiveSkill((cur) => (cur === name ? null : name))}
-              className='relative flex items-center gap-2 cursor-help text-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:text-foreground focus:outline-none'
+              aria-describedby={activeSkill === name ? `skill-tip-${groupIndex}-${i}` : undefined}
+              className='relative flex items-center gap-2 cursor-help text-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:text-foreground'
             >
-              <span className='text-accent'>✓</span>
+              <span
+                aria-hidden
+                className='text-accent'
+              >
+                ✓
+              </span>
               <span className='relative inline-flex items-center gap-2'>
                 <AnimatePresence>
                   {activeSkill === name && (
@@ -262,7 +276,10 @@ function SkillOutput({
                   )}
                 </AnimatePresence>
                 <span className='relative flex items-center gap-2'>
-                  <Icon className='text-base' />
+                  <Icon
+                    aria-hidden
+                    className='text-base'
+                  />
                   <span>{name}</span>
                 </span>
               </span>
@@ -276,6 +293,7 @@ function SkillOutput({
                   exit={{ opacity: 0, y: dropDown ? -4 : 4, scale: 0.97 }}
                   transition={{ duration: 0.15 }}
                   role='tooltip'
+                  id={`skill-tip-${groupIndex}-${i}`}
                   className={`pointer-events-none absolute left-1/2 z-50 w-52 -translate-x-1/2 rounded-lg border border-[#274b7a] bg-[#0d1b30] p-3 text-xs leading-relaxed text-muted-foreground shadow-xl shadow-black/40 ${
                     dropDown ? 'top-full mt-2' : 'bottom-full mb-2'
                   }`}
@@ -315,7 +333,7 @@ export default function Skills() {
     >
       <div className='relative px-4 md:px-10 max-w-5xl mx-auto'>
         <TextBlurBackdrop className='mb-6'>
-          <p className='font-mono text-3xl font-semibold text-accent lowercase'>Skills</p>
+          <h2 className='font-mono text-3xl font-semibold text-accent lowercase'>Skills</h2>
         </TextBlurBackdrop>
 
         <TerminalWindow title='skills.sh'>

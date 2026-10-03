@@ -20,6 +20,9 @@ interface ProjectModalProps {
 export function ProjectModal({ project, onClose, triggerRef }: ProjectModalProps) {
   const modalRef = useRef<HTMLDivElement>(null)
   const [openDiagramIndex, setOpenDiagramIndex] = useState<number | null>(null)
+  // The expand button that opened the lightbox. Recorded on click because
+  // making the modal inert blurs it before the lightbox mounts.
+  const diagramTriggerRef = useRef<HTMLButtonElement | null>(null)
 
   useEffect(() => {
     const trigger = triggerRef.current
@@ -74,6 +77,14 @@ export function ProjectModal({ project, onClose, triggerRef }: ProjectModalProps
     return () => document.removeEventListener('keydown', handleEscape)
   }, [openDiagramIndex, onClose])
 
+  // Lightbox closed: put focus back on the diagram it was opened from
+  useEffect(() => {
+    if (openDiagramIndex === null && diagramTriggerRef.current) {
+      diagramTriggerRef.current.focus()
+      diagramTriggerRef.current = null
+    }
+  }, [openDiagramIndex])
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -89,6 +100,9 @@ export function ProjectModal({ project, onClose, triggerRef }: ProjectModalProps
         role='dialog'
         aria-modal='true'
         aria-labelledby={`project-title-${project.slug}`}
+        // The diagram lightbox sits on top; inert keeps focus and screen
+        // readers out of the modal underneath while it's open.
+        inert={openDiagramIndex !== null}
         onClick={(e) => e.stopPropagation()}
         className='relative flex flex-col w-full h-full md:h-auto max-w-none md:max-w-4xl max-h-full md:max-h-[85vh] overflow-hidden rounded-none md:rounded-lg bg-surface border-0 md:border md:border-border'
       >
@@ -107,17 +121,17 @@ export function ProjectModal({ project, onClose, triggerRef }: ProjectModalProps
               <p className='font-mono text-xs text-accent uppercase tracking-wider mb-2'>
                 {project.status}
               </p>
-              <h3
+              <h2
                 id={`project-title-${project.slug}`}
                 className='text-2xl md:text-3xl font-semibold text-foreground md:mb-4'
               >
                 {project.title}
-              </h3>
+              </h2>
             </div>
 
             <button
               onClick={onClose}
-              aria-label='Close'
+              aria-label='Close project'
               className='shrink-0 text-muted-foreground hover:text-foreground cursor-pointer md:absolute md:top-4 md:right-4'
             >
               <X className='w-5 h-5' />
@@ -158,12 +172,15 @@ export function ProjectModal({ project, onClose, triggerRef }: ProjectModalProps
                   </p>
                   <button
                     type='button'
-                    onClick={() => setOpenDiagramIndex(i)}
+                    onClick={(e) => {
+                      diagramTriggerRef.current = e.currentTarget
+                      setOpenDiagramIndex(i)
+                    }}
                     aria-label={`Expand ${diagram.title}`}
                     className='group relative block w-full cursor-zoom-in text-left'
                   >
                     <MermaidDiagram chart={diagram.chart} />
-                    <span className='absolute top-2 right-2 flex items-center justify-center w-7 h-7 rounded-md bg-background/70 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity'>
+                    <span className='absolute top-2 right-2 flex items-center justify-center w-7 h-7 rounded-md bg-background/70 text-muted-foreground opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity'>
                       <Maximize2 className='w-4 h-4' />
                     </span>
                   </button>
