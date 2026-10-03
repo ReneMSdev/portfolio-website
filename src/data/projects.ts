@@ -33,13 +33,10 @@ export const projects: Project[] = [
     slug: 'resume-builder',
     title: 'Resume Builder',
     status: 'Demo',
-    summary: 'AI-assisted resume and cover-letter generation, plus automated application form-fill.',
+    summary:
+      'AI-assisted resume and cover-letter generation, plus automated application form-fill.',
     description:
-      'Built to speed up my own job search. I use it for real resume and cover letter generation, tailored to each job description, with an integrated chat interface for iteratively revising individual sections or bullets. A separate automation layer, still in active development, orchestrates Claude Code and a dedicated Claude-in-Chrome agent to fill out job application forms from the saved application data. It fills the form but never submits it.',
-    metrics: [
-      { value: '2', label: 'Coordinated AI agents' },
-      { value: '$0', label: 'Demo hosting cost' },
-    ],
+      'Built to speed up my own job search. I use it to generate resumes and cover letters, tailored to each job description, with an integrated chat interface for iteratively revising individual sections or bullets. A separate automation layer, still in active development, orchestrates Claude Code and a dedicated Claude-in-Chrome agent to fill out job application forms from the saved application data. It fills the form but never submits it.',
     architectureDiagrams: [
       {
         title: 'Request flow (generation, revision, Auto Apply)',
@@ -121,7 +118,7 @@ export const projects: Project[] = [
     ],
     architectureNote: [
       'The real application runs entirely locally: a Next.js frontend and FastAPI backend calling the Claude API (claude-sonnet-4-6, with prompt caching). It stays local by design rather than by omission. Auto Apply already requires Claude Code running on the same machine to drive the Claude-in-Chrome agent, so the backend never needs to be reachable from outside it.',
-      "A separate, frontend-only build is deployed to Vercel for the public demo, with no backend and no API key anywhere near the browser. The build-time flag NEXT_PUBLIC_DEMO_MODE swaps every network call for a bundled sample application (one real saved job description, resume, and cover letter, plus canned chat revisions), so the demo costs nothing to host and never touches a live key. Generation, downloads, and Auto Apply are all disabled in this mode. Vercel couldn't run the real backend anyway, since PDF export shells out to LibreOffice in headless mode, a system dependency serverless functions can't provide.",
+      "A separate, frontend-only build is deployed to Vercel for the public demo, with no backend and no API key anywhere near the browser. The build-time flag NEXT_PUBLIC_DEMO_MODE swaps every network call for a bundled sample application (one saved job description, resume, and cover letter, plus canned chat revisions), so the demo costs nothing to host and never touches a live key. Generation, downloads, and Auto Apply are all disabled in this mode. Vercel couldn't run the backend anyway, since PDF export shells out to LibreOffice in headless mode, a system dependency serverless functions can't provide.",
     ],
     lessonsLearned: [
       'This project taught me how to put AI to work inside an app through customized prompts, each with its own specific rules. Generating a full resume and revising a single bullet get different prompts. The rules turned out to be the important part, since they are what keep the generations coming back consistent from one request to the next.',
@@ -161,7 +158,7 @@ export const projects: Project[] = [
     summary:
       'A digital business card shared by QR code: a tested FastAPI backend with auth and subscriptions, plus a Flutter app prototype.',
     description:
-      'LinkLeaf was a real product attempt: a digital business card you share through a QR code or profile link, with free and premium tiers. It was paused before launch over doubts about the market. The backend is the finished part, a FastAPI API for profiles, links, media uploads, themes and subscriptions, with its test suite running in GitHub Actions. It also serves a Save Contact download, a vCard file that visitors can add to their phone\'s contacts. On the mobile side, the Flutter app is a UI prototype that runs on mock data and was never connected to the API. Nothing is deployed, so this is an architecture case study rather than a demo.',
+      "LinkLeaf was a real product attempt: a digital business card you share through a QR code or profile link, with free and premium tiers. It was paused before launch over doubts about the market. The backend is the finished part, a FastAPI API for profiles, links, media uploads, themes and subscriptions, with its test suite running in GitHub Actions. It also serves a Save Contact download, a vCard file that visitors can add to their phone's contacts. On the mobile side, the Flutter app is a UI prototype that runs on mock data and was never connected to the API. Nothing is deployed, so this is an architecture case study rather than a demo.",
     stack: [
       'Python 3.12',
       'FastAPI',
@@ -290,12 +287,12 @@ export const projects: Project[] = [
       },
     ],
     architectureNote: [
-      'The backend is a modular monolith: routers, domain services, and a shared core layer for the database, file storage and image processing. Domains are meant to reach each other only through service functions, and the code mostly follows that, though a few services still query other domains\' models directly.',
+      "The backend is a modular monolith: routers, domain services, and a shared core layer for the database, file storage and image processing. Domains are meant to reach each other only through service functions, and the code mostly follows that, though a few services still query other domains' models directly.",
       'Identity and billing are bought rather than built. Firebase handles sign-in and RevenueCat handles app-store subscriptions, while the backend keeps the rules: it verifies Firebase tokens, only lets allowlisted accounts in, creates a user with a free subscription on first login, and turns RevenueCat webhooks into plan changes. When premium expires, extra profiles, portfolio images and resumes are soft-deleted and stay restorable for 30 days.',
-      'Printed QR codes point at a permanent token instead of the profile\'s slug. The token redirects to whatever the slug is now, and old slugs answer with 301 redirects, so renaming a profile never breaks a card that has already been handed out.',
+      "Printed QR codes point at a permanent token instead of the profile's slug. The token redirects to whatever the slug is now, and old slugs answer with 301 redirects, so renaming a profile never breaks a card that has already been handed out.",
     ],
     lessonsLearned: [
-      'Most of what I took from LinkLeaf came from attempting a real production backend, with user auth, subscriptions and data management to get right. A lot of research went into the architecture: deciding which services to build in house and which to hand to third parties, which is how Firebase ended up handling authentication and RevenueCat handling app-store billing, and weighing the pros and cons of each technology decision. It was also the first project I built with a full test suite running in GitHub Actions CI and configuration for separate development, staging and production environments, even though only development ever ran.',
+      'Most of what I took from LinkLeaf came from attempting a production backend, with user auth, subscriptions and data management to get right. A lot of research went into the architecture: deciding which services to build in house and which to hand to third parties, which is how Firebase ended up handling authentication and RevenueCat handling app-store billing, and weighing the pros and cons of each technology decision. It was also the first project I built with a full test suite running in GitHub Actions CI and configuration for separate development, staging and production environments, even though only development ever ran.',
       'A bug early on showed me why naming rules matter. The user service had a function called `update`, which quietly replaced SQLAlchemy\'s `update` imported at the top of the same file. When the background task that records each user\'s last login called `update(User)`, it expected SQLAlchemy and got my own function instead. Because it ran after the response was sent, no error ever reached the app, and last-login times simply never saved. The fix was renaming it to `update_user`, adding error output to the background task, and making "never name a service function plain `update` or `delete`" a project rule.',
     ],
     codeUrl: 'https://github.com/ReneMSdev/linkleaf-mono',
@@ -305,12 +302,20 @@ export const projects: Project[] = [
     title: 'Mobile Mechanic Site',
     status: 'Live',
     summary:
-      'Marketing site for ATX Reliable Wrenching, an Austin mobile mechanic — booking via Housecall Pro, contact form, and Google reviews.',
+      'Marketing site for ATX Reliable Wrenching, an Austin mobile mechanic, with online booking through Housecall Pro.',
     description:
       'A production marketing site for ATX Reliable Wrenching, a mobile mechanic serving the Greater Austin area. The single responsive page presents their services and Google reviews, routes booking through Housecall Pro, and includes a contact form that emails the business through a serverless API route.',
-    stack: ['Next.js 16', 'React 19', 'TypeScript', 'Tailwind CSS v4', 'Embla Carousel', 'Nodemailer', 'Vercel'],
+    stack: [
+      'Next.js 16',
+      'React 19',
+      'TypeScript',
+      'Tailwind CSS v4',
+      'Embla Carousel',
+      'Nodemailer',
+      'Vercel',
+    ],
     architectureNote:
-      'A single Next.js page with one serverless API route for the contact form, emailing the business via SMTP. Booking is handled entirely by linking out to Housecall Pro rather than building scheduling in-house.',
+      'A single Next.js page with one serverless API route for the contact form, emailing the business via SMTP. Booking is handled by linking out to Housecall Pro.',
     lessonsLearned:
       "The site's signature look comes from angled diagonal panels across the welcome bar, nav logo, mobile header, and hero overlay, all meant to share one consistent cut. With fixed pixel offsets, the angles would stray from each other and the design would fall apart at different sizes, since an angle depends on both the offset and the element's height. The fix came from trigonometry: pick one shared angle, 25°, and have each panel compute its own offset from it using height × tan(25°), so every diagonal stays consistent regardless of screen size.",
     images: ['/img/mobile-mechanic/mobile-mechanic-1.jpg'],
@@ -323,10 +328,10 @@ export const projects: Project[] = [
     summary:
       'Route optimization web app that finds an efficient stop order and hands the route off to Google Maps or a PDF.',
     description:
-      "Route Boss is a route optimization web app: enter or upload a list of stops, and it finds an efficient order and draws the drive on an interactive map. It grew out of a real problem from years of fiber optic field work: a day's list of addresses with no optimized route meant looking each one up individually in Google Maps beforehand. Addresses can be typed in or imported from a CSV or Excel file. Nominatim (OpenStreetMap) geocodes them and OpenRouteService works out the order and the road route. The finished route can be saved as a PDF or opened straight in Google Maps.",
+      "Route Boss is a route optimization web app: enter or upload a list of stops, and it finds an efficient order and draws the drive on an interactive map. It grew out of a problem I dealt with for years in fiber optic field work: a day's list of addresses with no optimized route meant looking each one up individually in Google Maps beforehand. Addresses can be typed in or imported from a CSV or Excel file. Nominatim (OpenStreetMap) geocodes them and OpenRouteService works out the order and the road route. The finished route can be saved as a PDF or opened straight in Google Maps.",
     lessonsLearned: [
-      'Built early in my self-taught path, one of the first projects I attempted independently outside of guided tutorials, before AI-assisted development matured into the force multiplier it is today. It built real familiarity with UI development and the core patterns behind API integration: requests, responses, and asynchronous operations.',
-      'I recently came back to it after the geocoding service it relied on stopped accepting its key and the map tiles started requiring one, which left the live app broken. It was fixed by switching to OpenStreetMap\'s keyless geocoder and tiles. That update also made the app usable on a phone, with a Stops and Map switch and a button that opens the route in Google Maps.',
+      'Built early in my self-taught path, one of the first projects I attempted independently outside of guided tutorials, before AI-assisted development matured into the force multiplier it is today. It gave me a working grasp of UI development and the core patterns behind API integration: requests, responses, and asynchronous operations.',
+      "I recently came back to it after the geocoding service it relied on stopped accepting its key and the map tiles started requiring one, which left the live app broken. It was fixed by switching to OpenStreetMap's keyless geocoder and tiles. That update also made the app usable on a phone, with a Stops and Map switch and a button that opens the route in Google Maps.",
     ],
     stack: [
       'Next.js 15 App Router',

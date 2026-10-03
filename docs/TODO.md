@@ -10,7 +10,8 @@
 - [x] Phase 7: performance check (2026-10-02). Hero fade moved from motion to CSS so it doesn't wait for hydration (throttled mobile LCP 4.6-5.3 s -> 1.7-2.4 s); project-card images no longer `priority`, so they lazy-load (initial images 107 KB -> 26 KB). Idle cost zero; scroll and mousemove hold 60 fps at 4x CPU throttle in headless Chrome (no GPU, so real-phone blur cost unverified)
 - [x] Diagrams pre-rendered to static SVG (`npm run diagrams` -> `public/diagrams/`), Mermaid dropped from the client: about 3 MB of uncompressed JS no longer loads when a project opens; the 9 SVGs total about 68 KB gzipped. All 27 before/after diagram screenshots (desktop modal, desktop lightbox, phone modal) pixel-identical; the build fails if a chart changes without re-rendering (2026-10-02)
 - [ ] Perf follow-up: TBT of 200-340 ms (Lighthouse simulated) to 370-470 ms (applied throttling) on mobile, mostly hydration (React plus Motion). Option: make sections that only use motion for a fade-in server components with CSS fades, like Hero
-- [ ] Phase 7: sweep the copy and design for AI-template tropes
+- [x] Phase 7: AI-trope sweep (2026-10-03). René reviewed the list and picked the fixes: cut most uses of "real" (Hero and the two meaningful ones kept), Mobile Mechanic summary and Housecall Pro line simplified, Contact line rewritten, Resume Builder metric tiles dropped. Design elements kept as deliberate choices
+- [ ] Trope follow-ups René hasn't decided on: Route Planning App "force multiplier" clause; Skills tooltips that all follow one adjective-pair formula (rewrite needs a line from René per tool)
 - [x] Resume Builder `lessonsLearned`: replace the design-decision note with a real lesson, worked through with René (2026-10-02: prompt rules + prompt caching, from René)
 
 ## Next

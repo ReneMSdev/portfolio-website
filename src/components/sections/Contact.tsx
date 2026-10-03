@@ -54,8 +54,7 @@ export default function Contact() {
           <h2 className='font-mono text-3xl font-semibold text-accent lowercase mb-6'>Contact</h2>
 
           <p className='text-[17px] text-muted-foreground max-w-md leading-relaxed mb-10'>
-            Open to Full-Stack, DevOps and Cloud roles. Feel free to reach out through any of
-            the below.
+            Open to Full-Stack, DevOps and Cloud roles. Here&apos;s how to reach me.
           </p>
 
           <div className='flex flex-col gap-4'>
