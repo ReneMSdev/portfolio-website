@@ -6,8 +6,8 @@ René's personal portfolio: a single-page Next.js site, live on `main`, with day
 work on the `working` branch. The redesign (Phases 0–6) is done. Phase 7 (QA and
 launch) started 2026-10-02: the accessibility pass, automated a11y scan, cross-browser
 check, performance check and AI-trope sweep are done. Left: a VoiceOver pass and a look
-in real Safari, both needing René. `main` is at b08811c; `working` (0a368f4) is four
-commits ahead with the trope-sweep copy, card title button, new-tab labels and `<header>`.
+in real Safari, both needing René. `main` and `working` are both at fd7c1d9 (pushed
+2026-10-03).
 
 ## Site
 
@@ -35,7 +35,7 @@ diagrams are Mermaid source in `projects.ts`, pre-rendered to `public/diagrams/*
 | Performance | good; one follow-up | Lighthouse 13.5 against a local production build of 13b3db6 plus the uncommitted Hero/Projects perf changes (2026-10-02). Desktop: 100 (LCP 0.6-0.8 s, TBT 0-10 ms, CLS 0). Mobile with applied (devtools) throttling: score 86-90, LCP 1.7-2.4 s, TBT 370-470 ms, CLS 0, up from 70-74 and LCP 4.6-5.3 s before the hero fade moved to CSS (3 runs each). Default simulated mobile runs score 81-91 with LCP 3.0 s, but after the change they pick the 16px-tall mobile logo as the LCP element, so their LCP isn't trusted here. No work while idle; scroll and mousemove hold p95 16.7 ms frames at 4x CPU in headless Chrome, which has no GPU, so blur cost on real phones is **unverified**. Initial load (Playwright, 390px): 18 requests, 26 KB images (107 KB before card images stopped preloading), 40 KB fonts. Diagrams: Mermaid (about 3 MB uncompressed, previously loaded when a project with diagrams opened) is gone from the client; the modal fetches pre-rendered SVGs instead (30-34 KB uncompressed each for LinkLeaf; Lighthouse not rerun after this change). Before/after screenshots of all 9 diagrams at 3 sizes are pixel-identical (Playwright + pixelmatch, Chrome 154); they also render, with working lightbox prev/next, in Firefox 155 and WebKit 26.6 |
 | Screen reader (VoiceOver) | **unverified** | Not tried; only DOM/aria checks so far |
 | Modal on a real phone | working | René checked on a real phone (2026-10-02). Diagrams are tight on a small screen; pinch-zoom is the accepted answer |
-| Live deploy matches `main` | partly checked | After `main` moved to b08811c, renemsdev.com served `/diagrams/manifest.json` (200) and the "Skip to content" link (curl, 2026-10-02). Not clicked through in a browser |
+| Live deploy matches `main` | partly checked | After `main` moved to fd7c1d9, renemsdev.com's HTML has the new-tab labels, the new Contact line and the phone `<header>` (curl, 2026-10-03). Not clicked through in a browser |
 
 **Known issues:** none known in code.
 

@@ -4,7 +4,6 @@
 <!-- What's actively being worked on. Keep this to a few items. -->
 - [ ] Phase 7: VoiceOver pass with René (Claude can write the checklist)
 - [ ] Phase 7: look at the site in real Safari, desktop and ideally iPhone (Playwright WebKit is the same engine but not Safari itself; also covers diagram labels sized in Chrome)
-- [ ] Merge `working` into `main`: `main` is at b08811c, so the trope-sweep copy, card title button, new-tab labels and `<header>` (b24e7c7..0a368f4) aren't live yet
 
 ## Next
 <!-- Planned soon, in priority order. -->
@@ -18,6 +17,7 @@
 
 ## Done recently
 <!-- /wrapup moves finished items here with a date. Keep about the last 10. -->
+- [x] Merged `working` into `main` at fd7c1d9 and pushed; live HTML shows the new copy and labels (2026-10-03)
 - [x] Phone top bar is a `<header>`; automated scan: axe-core across 13 states, Lighthouse accessibility 100/100 (2026-10-03, 0a368f4)
 - [x] New-tab links announce "(opens in new tab)" via a shared `ExternalLink` (2026-10-03, 5d9a988)
 - [x] Project card title is the button, so titles are headings again; cards pixel-identical (2026-10-03, da143c2)
@@ -27,4 +27,3 @@
 - [x] Cross-browser check (Chrome, Firefox, WebKit); fixed the clipped diagram-lightbox close button (2026-10-02, 13b3db6)
 - [x] Phase 7 accessibility pass: focus ring, skip link, headings, landmarks, mobile menu, lightbox dialog (2026-10-02, 6811eb3)
 - [x] README replaced, with hero screenshot (2026-10-02, 80c0156)
-- [x] Resume Builder `lessonsLearned` written from René's lessons; real-phone modal check done by René (2026-10-02, c36442e)
