@@ -52,8 +52,8 @@ export default function MobileMenu() {
 
   return (
     <>
-      {/* Menu bar */}
-      <div className='md:hidden fixed top-0 left-0 w-full h-14 flex items-center bg-surface z-[50] px-4'>
+      {/* Menu bar: a <header> so it counts as the page's banner landmark */}
+      <header className='md:hidden fixed top-0 left-0 w-full h-14 flex items-center bg-surface z-[50] px-4'>
         <a href='#hero'>
           <Image
             src='/logo-dark.svg'
@@ -63,7 +63,7 @@ export default function MobileMenu() {
             className='h-4 w-auto z-[998]'
           />
         </a>
-      </div>
+      </header>
 
       {/* Hidden while a project modal is open (see .modal-open in globals.css) —
           both float above the modal's own z-index otherwise, colliding with
