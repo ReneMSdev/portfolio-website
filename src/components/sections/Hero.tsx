@@ -1,13 +1,12 @@
-'use client'
-
 import Image from 'next/image'
-import { motion } from 'motion/react'
 import { TextBlurBackdrop } from '@/components/ui/text-blur-backdrop'
+import { cn } from '@/lib/utils'
 
-const fadeUp = {
-  initial: { opacity: 0, y: 16 },
-  animate: { opacity: 1, y: 0 },
-}
+// Fade-up entrance in CSS rather than motion: it starts with the first paint
+// instead of waiting for hydration, which was holding back mobile LCP (the
+// profile photo) by seconds on a throttled phone.
+const fadeUp =
+  'animate-in fade-in slide-in-from-bottom-4 animation-duration-600 fill-mode-both motion-reduce:animate-none'
 
 export default function Hero() {
   return (
@@ -16,12 +15,7 @@ export default function Hero() {
       className='relative scroll-mt-14 min-h-screen pt-14 flex items-center justify-center overflow-hidden'
     >
       <div className='relative z-10 flex flex-col md:flex-row items-center justify-center gap-10 px-4 md:px-10 max-w-4xl mx-auto'>
-        <motion.div
-          initial={fadeUp.initial}
-          animate={fadeUp.animate}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className='order-1 md:order-2 shrink-0'
-        >
+        <div className={cn(fadeUp, 'delay-200 order-1 md:order-2 shrink-0')}>
           <Image
             src='/img/profile/profile.jpg'
             alt='René Maxey-Salomone'
@@ -30,34 +24,23 @@ export default function Hero() {
             className='rounded-md ring-1 ring-accent/20'
             priority
           />
-        </motion.div>
+        </div>
 
         <TextBlurBackdrop className='order-2 md:order-1'>
           <div className='flex flex-col items-center md:items-start gap-4 text-center md:text-left'>
-            <motion.h1
-              initial={fadeUp.initial}
-              animate={fadeUp.animate}
-              transition={{ duration: 0.6 }}
-              className='text-4xl md:text-[64px] font-bold text-foreground leading-tight'
-            >
+            <h1 className={cn(fadeUp, 'text-4xl md:text-[64px] font-bold text-foreground leading-tight')}>
               Hi, I&apos;m René
-            </motion.h1>
-            <motion.p
-              initial={fadeUp.initial}
-              animate={fadeUp.animate}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className='font-mono text-base md:text-[18px] text-muted-foreground'
+            </h1>
+            <p
+              className={cn(fadeUp, 'delay-100 font-mono text-base md:text-[18px] text-muted-foreground')}
             >
               Full-Stack Developer — Austin, TX
-            </motion.p>
-            <motion.p
-              initial={fadeUp.initial}
-              animate={fadeUp.animate}
-              transition={{ duration: 0.6, delay: 0.15 }}
-              className='text-[17px] text-muted-foreground max-w-md leading-relaxed'
+            </p>
+            <p
+              className={cn(fadeUp, 'delay-150 text-[17px] text-muted-foreground max-w-md leading-relaxed')}
             >
               I design and build full-stack applications, integrating AI where it adds real value.
-            </motion.p>
+            </p>
           </div>
         </TextBlurBackdrop>
       </div>

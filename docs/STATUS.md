@@ -4,8 +4,8 @@ _Last verified: 2026-10-02 on top of 80c0156 (accessibility changes)_
 
 René's personal portfolio: a single-page Next.js site, live on `main`, with day-to-day
 work on the `working` branch. The redesign (Phases 0–6) is done. Phase 7 (QA and
-launch) started 2026-10-02 at René's request: the accessibility pass and cross-browser check are
-done; performance and the trope sweep are next.
+launch) started 2026-10-02 at René's request: the accessibility pass, cross-browser check and
+performance check are done; the trope sweep is next.
 
 ## Site
 
@@ -26,6 +26,7 @@ carousel. The mobile layout is in place, including a full-screen modal below `md
 | Accessibility (keyboard, focus, aria) | passing in headless Chrome | Scripted CDP check against the dev server (2026-10-02; script was a scratch file, not in the repo): skip link is first Tab stop with a 2px mint outline; one `h1`, `h2` per section, `h3` per card; Enter opens a card's modal with focus on Close; the diagram lightbox is a `role=dialog`, takes focus, traps Tab, and Escape returns focus to its expand button, then to the card; mobile menu button toggles `aria-expanded`, the closed menu is `inert`, Escape returns focus to it; under reduced motion the Skills commands show in full and scroll is `auto`; no console errors |
 | Contrast | passing | All text/background token pairs computed at 4.75:1 or higher (lowest is `--destructive`; terminal title 5.41:1) (2026-10-02) |
 | Cross-browser | passing | Playwright script against a local production build of 6811eb3 (2026-10-02): Chrome 154, Firefox 155 and WebKit 26.6 at 1440×900 and 390×844. All three load with no page errors (only the Vercel Analytics script 404s locally, expected off Vercel) and no horizontal overflow, and render the hero lines, fonts, Skills terminal, card images, all 4 LinkLeaf diagrams, the lightbox, the sticky phone modal header, the mobile menu and Escape-to-close the same. The one bug found, a clipped diagram-lightbox close button, is fixed: after moving it into the title row it's hit-testable and closes the lightbox in all three engines at both sizes (rechecked 2026-10-02). WebKit's first Tab goes to a project card, not the skip link, because Safari skips links on Tab by default. Real Safari **unverified** |
+| Performance | good; two follow-ups | Lighthouse 13.5 against a local production build of 13b3db6 plus the uncommitted Hero/Projects perf changes (2026-10-02). Desktop: 100 (LCP 0.6-0.8 s, TBT 0-10 ms, CLS 0). Mobile with applied (devtools) throttling: score 86-90, LCP 1.7-2.4 s, TBT 370-470 ms, CLS 0, up from 70-74 and LCP 4.6-5.3 s before the hero fade moved to CSS (3 runs each). Default simulated mobile runs score 81-91 with LCP 3.0 s, but after the change they pick the 16px-tall mobile logo as the LCP element, so their LCP isn't trusted here. No work while idle; scroll and mousemove hold p95 16.7 ms frames at 4x CPU in headless Chrome, which has no GPU, so blur cost on real phones is **unverified**. Initial load (Playwright, 390px): 18 requests, 26 KB images (107 KB before card images stopped preloading), 40 KB fonts. Mermaid (about 3 MB uncompressed) loads only when a project with diagrams opens |
 | Screen reader (VoiceOver) | **unverified** | Not tried; only DOM/aria checks so far |
 | Modal on a real phone | working | René checked on a real phone (2026-10-02). Diagrams are tight on a small screen; pinch-zoom is the accepted answer |
 | Live deploy matches `main` | **unverified** | Not checked this session |

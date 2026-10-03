@@ -95,7 +95,6 @@ export default function Projects() {
                             fill
                             sizes='(max-width: 768px) 100vw, 50vw'
                             className={`object-cover ${project.imagePosition === 'center' ? '' : 'object-top'}`}
-                            priority
                           />
                         </div>
                       </CardItem>

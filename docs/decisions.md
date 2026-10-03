@@ -88,3 +88,9 @@ date is when the entry was imported.
 **Alternatives:** Per-component focus styles instead of one global rule.
 **Why:** A single rule keeps focus looking the same everywhere and only shows for keyboard users. Project cards keep `role='button'` for now; restructuring them is tracked in TODO.
 
+## 2026-10-02: Hero entrance animation in CSS, not Motion
+
+**Decision:** The Hero fade-up uses `tw-animate-css` classes (same durations, delays and 16px rise; CSS `ease` instead of Motion's `easeInOut`; off under reduced motion) instead of `motion` components, and Hero is no longer a client component.
+**Alternatives:** Drop the fade entirely; keep Motion and accept the slower LCP.
+**Why:** Motion renders the hero at opacity 0 until hydration, which on a throttled phone held the LCP image back by several seconds (LCP 4.6-5.3 s). CSS starts the fade at first paint (LCP 1.7-2.4 s) and keeps the look.
+
