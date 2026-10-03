@@ -17,13 +17,14 @@ project directly.
   architecture diagrams that expand into a lightbox. The diagrams are written in
   Mermaid and pre-rendered to SVG, so Mermaid itself never ships to the browser. Below the `md`
   breakpoint the modal goes full screen.
-- **Motion.** Animations use `motion` and respect the reduced-motion setting.
+- **Motion.** Animations use `motion` (the Hero entrance is plain CSS) and respect the
+  reduced-motion setting.
 - **Content in one file.** All project copy, metrics, diagrams and links live in
   `src/data/projects.ts`.
 
 ## Stack
 
-Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS v4, Motion, Mermaid (build-time only),
+Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS v4, Motion, Mermaid (rendered to SVG ahead of time with `npm run diagrams`),
 deployed on Vercel with Vercel Analytics.
 
 ## Running it locally

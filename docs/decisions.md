@@ -106,3 +106,8 @@ date is when the entry was imported.
 **Alternatives:** Keep `role='button'` on the card (hides the `h3` from heading navigation); the "stretched link" pattern (its overlay gets trapped inside the title because the 3D tilt transforms it).
 **Why:** Titles are headings again for screen readers, with no visual or click change. `tabIndex={0}` keeps Safari's default Tab behavior the same as before, since Safari skips plain buttons on Tab unless the user turns that on.
 
+## 2026-10-03: AI-trope sweep scope
+
+**Decision:** From the trope list, René applied fixes to most uses of "real", the Mobile Mechanic summary and Housecall Pro line, the Contact line, and dropped the Resume Builder metric tiles. Kept as written: the Hero line, the "rather than" lines in Resume Builder and LinkLeaf, the About "ongoing studies" line, Mobile Mechanic's "signature look", "Hi, I'm René", the Route Planning App "force multiplier" clause and the Skills tooltips. Design elements (cursor glow, 3D tilt cards, terminal Skills, palette) stay.
+**Why:** René's call: the design elements are deliberate, and the remaining copy reads fine to him.
+
