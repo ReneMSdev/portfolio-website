@@ -1,7 +1,7 @@
 # Planned updates: project modal content
 
 Tracking doc for in-progress copy work on `src/data/projects.ts`, one project at a
-time. Not a design/architecture doc (see `STATUS.md`/`TODO.md` for that) — this is
+time. Not a design/architecture doc (see `status.md`/`todo.md` for that) — this is
 specifically about narrative content in the case-study modals.
 
 ## Narrative framework
@@ -30,7 +30,7 @@ a first full audit against it has already been done and the clear violations fix
 ### Route Planning App — done
 - `description` has its WHY beat (grew out of a real fiber optic field-work problem).
 - `lessonsLearned` covers it as an early, pre-AI-assisted self-taught project.
-- 2026-10-02: entry replaced from `docs/portfolio-handoff/route-planner/ENTRY.md`
+- 2026-10-02: entry replaced from `docs/portfolio-handoff/route-planner/entry.md`
   (provider switch to Nominatim, `Live` status, truthful `demoNote`, architecture note
   and two diagrams, new screenshots). Title kept per René. `lessonsLearned` kept, plus a second paragraph René asked for on the API fix and phone layout.
 
@@ -65,7 +65,7 @@ a first full audit against it has already been done and the clear violations fix
 
 ### LinkLeaf — back in the lineup (2026-09-30)
 - Restored from the handoff produced in the LinkLeaf repo
-  (`docs/portfolio-handoff/linkleaf/ENTRY.md`, which has the sources table and caveats).
+  (`docs/portfolio-handoff/linkleaf/entry.md`, which has the sources table and caveats).
 - WHY beat: a real product attempt, paused before launch over market doubts (René).
 - `lessonsLearned` uses both options from the handoff as two paragraphs: the
   architecture/first-full-CI reflection, then the `update` name-shadowing bug.

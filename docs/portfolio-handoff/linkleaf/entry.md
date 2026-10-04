@@ -1,7 +1,7 @@
 # LinkLeaf: portfolio entry handoff
 
 Produced from `ReneMSdev/linkleaf-mono` (branch `working`, 2026-09-29), following
-`docs/PORTFOLIO_HANDOFF.md`. The screenshot that came with it now lives at
+`docs/portfolio-handoff.md`. The screenshot that came with it now lives at
 `public/img/linkleaf/linkleaf-1.jpg`; the duplicate here was removed on 2026-09-30.
 
 ## 1. The entry

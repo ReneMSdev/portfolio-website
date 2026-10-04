@@ -189,7 +189,7 @@ the app's demo list, so no personal data is shown.
 | Lookups one at a time, at least 1.1 s apart, cached | `MIN_INTERVAL_MS = 1100` and the cache in `api/geocode/route.js` |
 | Key stays on the server; only map tiles load directly | `ORS_API_KEY` read only in `src/app/api/`; tile URL in `src/components/MapDisplay/MapDisplay.js`; `ARCHITECTURE.md` |
 | Phone layout: Stops and Map switch; Google Maps first, QR hidden on phones | `src/app/page.js`, `src/components/ExportModal.jsx`; René checked production on an iPhone (2026-10-02) |
-| "Can be slow when OpenRouteService is busy" | Observed: `/api/optimize` took about 40 s on production on 2026-10-02 and 15.2 s on 2026-10-01 (`docs/TODO.md`) |
+| "Can be slow when OpenRouteService is busy" | Observed: `/api/optimize` took about 40 s on production on 2026-10-02 and 15.2 s on 2026-10-01 (`docs/todo.md`) |
 | Live and working end to end | Production on 2026-10-02: two route builds, `/api/geocode`, `/api/optimize`, `/api/route` all HTTP 200, route drawn; Vercel Production deploy `success` for 864dc59 |
 | Stack versions | `package.json` and installed `node_modules`: next 15.5.27, react 19.1.0, tailwindcss 4.1.6, leaflet 1.9.4, react-leaflet 5.0.0, jspdf 4.2.1, next-qrcode 2.5.1, xlsx 0.18.5, papaparse 5.5.2, react-dropzone 14.3.8, @dnd-kit/core 6.3.1 |
 | Diagrams | Copied from `ARCHITECTURE.md` (written from the code on 2026-10-01 and kept current). Changes: the handoff's `external` class and amber `rect` blocks added, and the Google Maps node label shortened to "(link or QR code)". Both parsed and rendered with Mermaid 11 (dark theme) in Chrome on 2026-10-02 |
@@ -204,7 +204,7 @@ the app's demo list, so no personal data is shown.
   but it is the app's real phone layout (below 768px).
 - **"Three Next.js server routes"** counts the routes the app uses. A fourth,
   `/api/autocomplete`, is unused leftover code (still targeting OpenCage) with no
-  origin check or rate limit; deleting it is in `docs/TODO.md`.
+  origin check or rate limit; deleting it is in `docs/todo.md`.
 - **The diagrams** are traced from the code, not illustrative, but the "System
   overview" is dense at 800px wide; the lightbox should make it readable.
 
@@ -238,5 +238,5 @@ sessions:
 resizing from the desktop layout to the phone layout while the Stops view is
 showing leaves the Map view zoomed all the way in on empty water. Rotating a
 phone from landscape to portrait can trigger it. It's already listed in
-`docs/TODO.md` (from the 2026-10-02 verifier review) and doesn't affect the
+`docs/todo.md` (from the 2026-10-02 verifier review) and doesn't affect the
 normal flow.

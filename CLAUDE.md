@@ -57,8 +57,8 @@ source changed without re-rendering its SVG.
 
 ## Project rules
 - Mobile Mechanic Site is client work: no `codeUrl` without checking first.
-- Phase 7 (QA & launch) is active as of 2026-10-02. Accessibility pass done; open items are in `docs/TODO.md` under Now.
+- Phase 7 (QA & launch) is active as of 2026-10-02. Accessibility pass done; open items are in `docs/todo.md` under Now.
 
 ## State
-Current state: `docs/STATUS.md`. Backlog: `docs/TODO.md`. Decisions: `docs/decisions.md`.
-Copy tracker: `docs/PROJECT_MODAL_UPDATES.md`.
+Current state: `docs/status.md`. Backlog: `docs/todo.md`. Decisions: `docs/decisions.md`.
+Copy tracker: `docs/project-modal-updates.md`.

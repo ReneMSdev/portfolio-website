@@ -27,7 +27,7 @@ export interface Project {
 }
 
 // Project lineup shown in the grid. Copy follows the writing-style rules in
-// CLAUDE.md; per-project copy status lives in PROJECT_MODAL_UPDATES.md.
+// CLAUDE.md; per-project copy status lives in project-modal-updates.md.
 export const projects: Project[] = [
   {
     slug: 'resume-builder',

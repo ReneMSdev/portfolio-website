@@ -47,7 +47,7 @@ diagrams are Mermaid source in `projects.ts`, pre-rendered to `public/diagrams/*
 - **LinkLeaf** (paused product, architecture case study): back in the lineup as of
   41ac13b. It has 4 diagrams, one screenshot, a public repo and two metric tiles
   (133 tests, 32 endpoints). The metrics were verified in the LinkLeaf repo, not here;
-  sources are in `docs/portfolio-handoff/linkleaf/ENTRY.md`. `lessonsLearned` has two
+  sources are in `docs/portfolio-handoff/linkleaf/entry.md`. `lessonsLearned` has two
   paragraphs. Browser check passed: René looked at it, and a Chrome DOM check at
   `/?project=linkleaf` found 4 rendered diagrams, both lesson paragraphs, and the
   `client` fill applied (792d9ea, 2026-09-30).
@@ -55,23 +55,23 @@ diagrams are Mermaid source in `projects.ts`, pre-rendered to `public/diagrams/*
   1600×900 capture of the live hero, showing the diagonal panels (2026-09-30). The repo is a client deliverable, so it gets no
   `codeUrl` without checking first.
 - **Route Planning App** (status `Live`): updated 2026-10-02 from
-  `docs/portfolio-handoff/route-planner/ENTRY.md`. OpenCage broke, so the app now uses
+  `docs/portfolio-handoff/route-planner/entry.md`. OpenCage broke, so the app now uses
   Nominatim (geocoding) and OpenRouteService (routing). New stack, `demoNote` and
   architecture note, two diagrams, and three 1344×756 screenshots (two desktop, one
   phone composite built from the handoff's phone captures). The app-side claims were
-  verified in the route-planner repo, not here; sources are in ENTRY.md. The modal was
+  verified in the route-planner repo, not here; sources are in entry.md. The modal was
   checked in the local dev server (images, both diagrams, no console errors), and René
   confirmed it live on the production site (fd4230c, 2026-10-02).
 
 **Pulled from the lineup:** Weather App. Its saved entry is in
-`docs/PROJECT_MODAL_UPDATES.md`.
+`docs/project-modal-updates.md`.
 
 ## Reference docs
 
-- `docs/PROJECT_MODAL_UPDATES.md`: per-project copy status and saved entries.
-- `docs/PORTFOLIO_HANDOFF.md`: brief for sessions in other repos that produce modal entries.
-- `docs/portfolio-handoff/linkleaf/ENTRY.md`: kept as the source record for LinkLeaf's claims.
-- `docs/portfolio-handoff/route-planner/ENTRY.md`: the same for Route Planning App, plus the
+- `docs/project-modal-updates.md`: per-project copy status and saved entries.
+- `docs/portfolio-handoff.md`: brief for sessions in other repos that produce modal entries.
+- `docs/portfolio-handoff/linkleaf/entry.md`: kept as the source record for LinkLeaf's claims.
+- `docs/portfolio-handoff/route-planner/entry.md`: the same for Route Planning App, plus the
   phone captures the composite screenshot was built from.
 - `src/components/page-lines/PageLinesLayer.tsx` is live (rendered from `layout.tsx`). Its
   `ACTIVE` flag picks `GenerativeLines` over the hand-authored full-page `PageLines`, which
@@ -82,5 +82,5 @@ diagrams are Mermaid source in `projects.ts`, pre-rendered to `public/diagrams/*
 Rules for this file:
 - Rewrite it to describe the current state. It isn't a log; history lives in git.
 - Every "passing" or "works" claim needs evidence from a run, or it's marked unverified.
-- Future work goes in TODO.md, and reasons in decisions.md.
+- Future work goes in todo.md, and reasons in decisions.md.
 -->

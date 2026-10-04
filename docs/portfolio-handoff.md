@@ -1,7 +1,7 @@
 # Portfolio handoff: project modal entry
 
 **For a Claude Code session running inside a project's own repo.** Copy this file
-into that repo, then tell the session: *"Read PORTFOLIO_HANDOFF.md and follow it for
+into that repo, then tell the session: *"Read portfolio-handoff.md and follow it for
 <project name>."* The shared sections apply to every project. Find your project's
 section under [Per-project briefs](#per-project-briefs).
 
@@ -150,7 +150,7 @@ the entry.
 - Mermaid only (`flowchart LR`, `sequenceDiagram`, etc.). The portfolio renders them
   with a dark theme, so don't set a theme or `%%{init}%%` block.
 - **Draw from the code, not from imagination.** If the repo already has diagrams in a
-  README or ARCHITECTURE.md, reuse them. If you draw one that's partly illustrative
+  README or docs/architecture.md, reuse them. If you draw one that's partly illustrative
   (e.g. a flow you inferred rather than traced), say so in the deliverable.
 - Prefer several focused diagrams (overall architecture, one key flow) over one dense
   one. Nodes stay readable at roughly 800px wide; the lightbox handles detail.
@@ -195,12 +195,12 @@ Put everything in a `portfolio-handoff/` folder at this repo's root:
 
 ```
 portfolio-handoff/
-  ENTRY.md          # the entry and its supporting notes (below)
+  entry.md          # the entry and its supporting notes (below)
   <slug>-1.jpg      # compressed screenshots
   <slug>-2.jpg
 ```
 
-`ENTRY.md` contains, in this order:
+`entry.md` contains, in this order:
 
 1. **The entry:** one complete TypeScript object literal, ready to paste into
    `projects.ts`.
@@ -224,7 +224,7 @@ more. The em dash test and the no-guessing rule are the ones most often missed.
 ### LinkLeaf
 
 **Status in the portfolio:** done. Imported into the lineup on 2026-09-30 from
-`docs/portfolio-handoff/linkleaf/ENTRY.md`. Slug: `linkleaf`.
+`docs/portfolio-handoff/linkleaf/entry.md`. Slug: `linkleaf`.
 
 **What's known (from René, not yet verified against the code):** a link-in-bio
 platform. More complex than the other projects: a FastAPI backend, auth, QR code
@@ -259,7 +259,7 @@ built. The project is paused.
    Use whatever the real count is, or drop the metric if tests don't pass.
 3. With René, clean up whatever would embarrass a reviewer reading the code (dead
    code, leftover debug output, missing README). Ask before large refactors.
-4. Write a real README / ARCHITECTURE.md with Mermaid diagrams: overall architecture,
+4. Write a real README / docs/architecture.md with Mermaid diagrams: overall architecture,
    the auth flow, and the QR / Save Contact flow as separate diagrams. These can be
    reused in the portfolio entry.
 5. Screenshots of both the web and mobile UI where they exist, using seed data.
@@ -316,7 +316,7 @@ what needs replacing.
 ### Route Planning App (Route Boss)
 
 > **Done (2026-10-02, fd4230c).** This brief was completed. The current entry and its
-> sources are in `docs/portfolio-handoff/route-planner/ENTRY.md`; the entry quoted below
+> sources are in `docs/portfolio-handoff/route-planner/entry.md`; the entry quoted below
 > is the old one, kept for history.
 
 **Status in the portfolio:** in the lineup, with complete copy. Slug:
@@ -383,5 +383,5 @@ that needs checking against what the deployed demo actually does today.
    `lessonsLearned` on your own.
 5. The screenshots are 800px wide and predate any changes. Retake them at the
    current spec if the UI changed or if it's cheap to do.
-6. Produce the deliverable. For this project, `ENTRY.md` should also show a short
+6. Produce the deliverable. For this project, `entry.md` should also show a short
    diff-style list of which fields changed from the current entry.

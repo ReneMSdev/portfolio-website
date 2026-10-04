@@ -111,3 +111,14 @@ date is when the entry was imported.
 **Decision:** From the trope list, René applied fixes to most uses of "real", the Mobile Mechanic summary and Housecall Pro line, the Contact line, and dropped the Resume Builder metric tiles. Kept as written: the Hero line, the "rather than" lines in Resume Builder and LinkLeaf, the About "ongoing studies" line, Mobile Mechanic's "signature look", "Hi, I'm René", the Route Planning App "force multiplier" clause and the Skills tooltips. Design elements (cursor glow, 3D tilt cards, terminal Skills, palette) stay.
 **Why:** René's call: the design elements are deliberate, and the remaining copy reads fine to him.
 
+
+## 2026-10-04: Lowercase file names in docs/
+
+**Decision:** Every file in `docs/` uses a lowercase, hyphenated name (`status.md`, `todo.md`,
+`decisions.md`, `architecture.md`, ...). A root `ARCHITECTURE.md` would move to
+`docs/architecture.md`; this repo doesn't have one. `README.md` and `CLAUDE.md` stay uppercase at the root. Earlier
+entries here keep the old names as written.
+**Alternatives:** Keep the mixed casing (uppercase `STATUS.md`/`TODO.md`, lowercase
+`decisions.md`).
+**Why:** The user wanted consistent names. Lowercase with hyphens is the common convention
+inside docs folders. Changed at the same time in the global config (`~/Dev/claude-config`).
