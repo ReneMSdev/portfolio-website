@@ -147,7 +147,6 @@ export const projects: Project[] = [
       '/img/resume-builder/resume-builder-3.jpg',
     ],
     demoUrl: 'https://resi-the-builder.vercel.app',
-    codeUrl: 'https://github.com/ReneMSdev/resi-the-builder',
     demoNote:
       'Interactive demo running on sample data, with AI generation, downloads, and Auto Apply disabled.',
   },

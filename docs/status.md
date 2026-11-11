@@ -41,7 +41,7 @@ diagrams are Mermaid source in `projects.ts`, pre-rendered to `public/diagrams/*
 
 ## Projects (lineup of 4, in `src/data/projects.ts`)
 
-- **Resume Builder** (slug `resume-builder`; demo and repo URLs still use `resi-the-builder`): demo, public repo,
+- **Resume Builder** (slug `resume-builder`; demo and repo URLs still use `resi-the-builder`): demo, private repo (no View Code link since 2026-11-10),
   3 screenshots, 3 diagrams, no metric tiles (dropped in the trope sweep). `lessonsLearned`
   is two paragraphs from René's own lessons (prompt rules, prompt caching).
 - **LinkLeaf** (paused product, architecture case study): back in the lineup as of
